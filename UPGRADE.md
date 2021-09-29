@@ -1,5 +1,20 @@
 # Upgrading from Switcheo Chain 
 
+## Quickstart
+
+### Instant Gratification Snippet
+```bash
+wget https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/upgrade.sh
+chmod u+x upgrade.sh
+./upgrade.sh <your_moniker>
+```
+Copy previous keys from Switcheo Chain. If Carbon resides on a different machine, use `scp` and update the command accordingly.
+```bash
+cp ~/.switcheod/config/node_key.json ~/.carbon/config/
+cp ~/.switcheod/config/priv_validator_key.json.json ~/.carbon/config/
+cp -r ~/.switcheocli/keyring-switcheo-tradehub/. ~/.carbon/keyring-file
+```
+
 ## Setting up a new Carbon Node
 These instructions are for setting up a brand new full node from scratch.
 
@@ -20,17 +35,18 @@ moniker = "<your_custom_moniker>"
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
 ```
 
-### Setting up your Validator
-Copy the following two files from switcheo chain to carbon.
+### Setting up your keys
+Copy previous keys from Switcheo Chain. If Carbon resides on a different machine, use `scp` and update the command accordingly.
 ```bash
-cp ~/.switcheod/config/node_key.json ~/.carbon/config
-cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config
+cp ~/.switcheod/config/node_key.json ~/.carbon/config/
+cp ~/.switcheod/config/priv_validator_key.json.json ~/.carbon/config/
+cp -r ~/.switcheocli/keyring-switcheo-tradehub/. ~/.carbon/keyring-file
 ```
 
-### Setting up your Subaccounts
+### Setting up the database
 ```bash
-carbond keys add oracle --keyring-backend file -i
-carbond keys add liquidator --keyring-backend file -i
+createdb -U postgres carbon
+POSTGRES_USER=postgres carbond migrations 
 ```
 
 Your full node has been initialized!
@@ -46,6 +62,11 @@ and migrate into carbon's `genesis.json`
 ```bash
 carbond migrate genesis.json --chain-id $(jq -r ".chain_id" genesis.json) > carbon-genesis.json
 mv carbon-genesis.json ~/.carbon/config/genesis.json
+```
+
+### Persist the Genesis File
+```bash
+POSTGRES_USER=postgres carbond persist-genesis
 ```
 
 ### Add Seed Nodes
