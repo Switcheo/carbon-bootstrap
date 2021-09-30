@@ -4,15 +4,13 @@
 
 ### Instant Gratification Snippet
 ```bash
-wget https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/upgrade.sh
-chmod u+x upgrade.sh
-./upgrade.sh <your_moniker>
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/upgrade.sh) <your_moniker>
 ```
 Copy previous keys from Switcheo Chain. If Carbon resides on a different machine, use `scp` and update the command accordingly.
 ```bash
 cp ~/.switcheod/config/node_key.json ~/.carbon/config/
-cp ~/.switcheod/config/priv_validator_key.json.json ~/.carbon/config/
-cp -r ~/.switcheocli/keyring-switcheo-tradehub/. ~/.carbon/keyring-file
+cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
+cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 ```
 
 ## Setting up a new Carbon Node
