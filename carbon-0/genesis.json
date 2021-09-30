@@ -1,0 +1,2060 @@
+{
+  "app_hash": "",
+  "app_state": {
+    "adl": {},
+    "admin": {},
+    "auth": {
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "17",
+          "address": "tswth1pcc4ry4mvne24zqlv9xe6md6fru82zuwn4aw7k",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "15",
+          "address": "tswth1yyzv0x60dm9vrp8tqjqpxqtjest8tl0f3gj306",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "A+WJTAcNL0dP6BPZXh9ifpcCQzu9PBM5RxJUzapOVLJq"
+          },
+          "sequence": "2"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "3",
+          "address": "tswth19fudgmz9va7zzg7s4gut2rztw6sl76dwpjr6g9",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "2",
+          "address": "tswth187htpw5q4jgg8653uquy3kzty2zumx6s2w4upy",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "7",
+            "address": "tswth1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3wjjfnt",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "bonded_tokens_pool",
+          "permissions": [
+            "burner",
+            "staking"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "8",
+            "address": "tswth1tygms3xhhs3yv487phx3dw4a95jn7t7l6jwc9l",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "not_bonded_tokens_pool",
+          "permissions": [
+            "burner",
+            "staking"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "19",
+          "address": "tswth1vcwlptc6g2eth4efwx2pnwwac7fm77gq7tgjp3",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "Au6Yyh4ji03VoAz15XGDFtC1xApqNUDgW2mASH4FQUg2"
+          },
+          "sequence": "1"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "12",
+            "address": "tswth1d4e35hk3gk4k6t5gh02dcm923z8ck86qaqvppn",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "inflation",
+          "permissions": [
+            "minter"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "16",
+          "address": "tswth1wag5ufjw7p7q5w98glgygr7uaggvyqlkzcmlpw",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "AtGBMT1mfSgp1XGMzU6ZYv5F4+X+Oh+O1ga02EaHjatV"
+          },
+          "sequence": "5354"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "9",
+            "address": "tswth10d07y265gmmuvt4z0w9aw880jnsr700jptgru0",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "gov",
+          "permissions": [
+            "burner"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "18",
+          "address": "tswth100hs6rqrhdnge6n7t7p0tv7udls8dzsdp7zxmj",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "13",
+          "address": "tswth136cq440x99rmwlvf44llvter7h6qduqe2yqc4g",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "Awp5ejsUw/+w+61ETjwv4Kf+KFVa85+VY8mSeSU138o7"
+          },
+          "sequence": "1"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "6",
+            "address": "tswth1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8ukl6rr",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "distribution",
+          "permissions": []
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "1",
+          "address": "tswth1nxkdx2csxz3j7q7ml5k6lfrftcn2m4yjp006fg",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "A0lLxmZwopKY1fDx/JN3gzFTF/jyPtXip3aKQjO0WOz0"
+          },
+          "sequence": "5346"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "4",
+          "address": "tswth15l9dhz6788268tdqull2ey79md0tjrcxaukphy",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "5",
+          "address": "tswth1ex0e3g7zkwxntcw4qv803rm7yjsc9grjqycd5l",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "0",
+          "address": "tswth1amdl8705srerz5aeh3gwaegyenll5eq7zt9kxs",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "ApsV8fnAoGSG5BBFxLUnTamKRV0ZT8sm0yiyMm3tBSK/"
+          },
+          "sequence": "14"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "10",
+            "address": "tswth17xpfvakm2amg962yls6f84z3kell8c5ltscxpp",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "fee_collector",
+          "permissions": []
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "14",
+            "address": "tswth17nqz88jcgu6rwm3fk92l8kcnwgxgs59vy2am49",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "lockproxypip1",
+          "permissions": [
+            "burner",
+            "minter"
+          ]
+        }
+      ],
+      "params": {
+        "max_memo_characters": "256",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10"
+      }
+    },
+    "bank": {
+      "balances": [
+        {
+          "address": "tswth1pcc4ry4mvne24zqlv9xe6md6fru82zuwn4aw7k",
+          "coins": [
+            {
+              "amount": "501000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1yyzv0x60dm9vrp8tqjqpxqtjest8tl0f3gj306",
+          "coins": [
+            {
+              "amount": "999800000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth19fudgmz9va7zzg7s4gut2rztw6sl76dwpjr6g9",
+          "coins": [
+            {
+              "amount": "1000000000000000000000",
+              "denom": "iusd.0.1000.0e096b"
+            },
+            {
+              "amount": "1000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth187htpw5q4jgg8653uquy3kzty2zumx6s2w4upy",
+          "coins": [
+            {
+              "amount": "1000000000000000000000",
+              "denom": "iusd.0.1000.0e096b"
+            },
+            {
+              "amount": "1000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3wjjfnt",
+          "coins": [
+            {
+              "amount": "1001000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1tygms3xhhs3yv487phx3dw4a95jn7t7l6jwc9l",
+          "coins": []
+        },
+        {
+          "address": "tswth1vcwlptc6g2eth4efwx2pnwwac7fm77gq7tgjp3",
+          "coins": [
+            {
+              "amount": "499999900000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1d4e35hk3gk4k6t5gh02dcm923z8ck86qaqvppn",
+          "coins": []
+        },
+        {
+          "address": "tswth1wag5ufjw7p7q5w98glgygr7uaggvyqlkzcmlpw",
+          "coins": [
+            {
+              "amount": "500999900000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth10d07y265gmmuvt4z0w9aw880jnsr700jptgru0",
+          "coins": []
+        },
+        {
+          "address": "tswth100hs6rqrhdnge6n7t7p0tv7udls8dzsdp7zxmj",
+          "coins": [
+            {
+              "amount": "501000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth136cq440x99rmwlvf44llvter7h6qduqe2yqc4g",
+          "coins": [
+            {
+              "amount": "500999900000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8ukl6rr",
+          "coins": [
+            {
+              "amount": "23223281034289",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1nxkdx2csxz3j7q7ml5k6lfrftcn2m4yjp006fg",
+          "coins": [
+            {
+              "amount": "1000000000000000000000",
+              "denom": "iusd.0.1000.0e096b"
+            },
+            {
+              "amount": "999900000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth15l9dhz6788268tdqull2ey79md0tjrcxaukphy",
+          "coins": [
+            {
+              "amount": "1000000000000000000000",
+              "denom": "iusd.0.1000.0e096b"
+            },
+            {
+              "amount": "1000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1ex0e3g7zkwxntcw4qv803rm7yjsc9grjqycd5l",
+          "coins": [
+            {
+              "amount": "1000000000000000000000",
+              "denom": "iusd.0.1000.0e096b"
+            },
+            {
+              "amount": "1000000000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth1amdl8705srerz5aeh3gwaegyenll5eq7zt9kxs",
+          "coins": [
+            {
+              "amount": "1000000000000000000000",
+              "denom": "iusd.0.1000.0e096b"
+            },
+            {
+              "amount": "1493998600000000",
+              "denom": "swth"
+            }
+          ]
+        },
+        {
+          "address": "tswth17xpfvakm2amg962yls6f84z3kell8c5ltscxpp",
+          "coins": []
+        },
+        {
+          "address": "tswth17nqz88jcgu6rwm3fk92l8kcnwgxgs59vy2am49",
+          "coins": []
+        }
+      ],
+      "denom_metadata": [],
+      "params": {
+        "default_send_enabled": true,
+        "send_enabled": []
+      },
+      "supply": [
+        {
+          "amount": "6000000000000000000000",
+          "denom": "iusd.0.1000.0e096b"
+        },
+        {
+          "amount": "5028221281034289",
+          "denom": "swth"
+        }
+      ]
+    },
+    "book": {
+      "order_books": [
+        {
+          "asks": null,
+          "bids": null,
+          "market": "btc_z19"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "btc_z29"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "btc_z29u"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_dai"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z19"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z29"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z29u"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z39"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_btc"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_btc2"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_eth"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_nex"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_nexo"
+        }
+      ],
+      "stop_books": [
+        {
+          "asks": null,
+          "bids": null,
+          "market": "btc_z19"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "btc_z29"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "btc_z29u"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_dai"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z19"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z29"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z29u"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "eth_z39"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_btc"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_btc2"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_eth"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_nex"
+        },
+        {
+          "asks": null,
+          "bids": null,
+          "market": "swth_nexo"
+        }
+      ]
+    },
+    "broker": {
+      "amms": [
+        {
+          "market": "swth_eth",
+          "orders": null,
+          "pool_id": "1",
+          "reserves_hash": "rHI2ilhqGMGQiDk1c84DBw=="
+        },
+        {
+          "market": "eth_dai",
+          "orders": null,
+          "pool_id": "2",
+          "reserves_hash": "rHI2ilhqGMGQiDk1c84DBw=="
+        }
+      ]
+    },
+    "btcx": null,
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "ccm": {
+      "created_tx_count": "0",
+      "created_tx_details": {},
+      "denom_creators": {},
+      "received_tx_ids": {}
+    },
+    "cdp": {
+      "vault_types": null,
+      "vaults": null
+    },
+    "coin": {
+      "bridges": [
+        {
+          "bridge_id": "0",
+          "bridge_name": "Polynetwork",
+          "chain_id": "1",
+          "chain_name": "Bitcoin",
+          "enabled": true,
+          "name": "Bitcoin via Polynetwork"
+        },
+        {
+          "bridge_id": "0",
+          "bridge_name": "Polynetwork",
+          "chain_id": "2",
+          "chain_name": "Ethereum",
+          "enabled": true,
+          "name": "Ethereum via Polynetwork"
+        },
+        {
+          "bridge_id": "0",
+          "bridge_name": "Polynetwork",
+          "chain_id": "4",
+          "chain_name": "Neo",
+          "enabled": true,
+          "name": "Neo via Polynetwork"
+        },
+        {
+          "bridge_id": "0",
+          "bridge_name": "Polynetwork",
+          "chain_id": "6",
+          "chain_name": "Binance Smart Chain",
+          "enabled": true,
+          "name": "Binance Smart Chain via Polynetwork"
+        },
+        {
+          "bridge_id": "0",
+          "bridge_name": "Polynetwork",
+          "chain_id": "9",
+          "chain_name": "Zilliqa",
+          "enabled": true,
+          "name": "Zilliqa via Polynetwork"
+        }
+      ],
+      "locked_coins": [],
+      "position_pools": [],
+      "tokens": [
+        {
+          "bridge_address": "",
+          "bridge_id": "1",
+          "chain_id": "1",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "8",
+          "denom": "btc.1.1.6569cd",
+          "id": "btc",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Bitcoin",
+          "symbol": "btc",
+          "token_address": "bitcoin"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "18",
+          "denom": "dai.1.2.0fdfd1",
+          "id": "dai",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Dai",
+          "symbol": "dai",
+          "token_address": "6b175474e89094c44da98b954eedeac495271d0f"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "18",
+          "denom": "eth.1.2.4730ca",
+          "id": "eth",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Ethereum",
+          "symbol": "eth",
+          "token_address": "0000000000000000000000000000000000000000"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "8",
+          "denom": "gas.1.4.66bba7",
+          "id": "gas",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Gas",
+          "symbol": "gas",
+          "token_address": "602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "1000",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "8",
+          "denom": "iusd.0.1000.0e096b",
+          "id": "iusd",
+          "is_active": true,
+          "is_collateral": true,
+          "name": "USD",
+          "symbol": "iusd",
+          "token_address": "iusd"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "18",
+          "denom": "jrc.0.2.b3e906",
+          "id": "jrc",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "JRCoin",
+          "symbol": "jrc",
+          "token_address": "c6e36e1d6f3dc19ec734246d7d0435bf04117c85"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "4",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "8",
+          "denom": "neo.0.4.1e3867",
+          "id": "neo",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Neo",
+          "symbol": "neo",
+          "token_address": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "4",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "8",
+          "denom": "nex.0.4.bb5b3d",
+          "id": "nex",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Nash",
+          "symbol": "nex",
+          "token_address": "e2dc070524a6e305ddb64d8513dc444b6a1ec845"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "18",
+          "denom": "nexo.0.2.632b26",
+          "id": "nexo",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Nexo",
+          "symbol": "nexo",
+          "token_address": "b62132e35a6c13ee1ee0f84dc5d40bad8d815206"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "4",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "8",
+          "denom": "swth",
+          "id": "swth",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Switcheo",
+          "symbol": "swth",
+          "token_address": "27ed90527afd253ab30a4f207a0882c8567a93c9"
+        },
+        {
+          "bridge_address": "",
+          "bridge_id": "0",
+          "chain_id": "2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "decimals": "6",
+          "denom": "usdc.0.2.ef2019",
+          "id": "usdc",
+          "is_active": true,
+          "is_collateral": false,
+          "name": "Circle USD",
+          "symbol": "usdc",
+          "token_address": "a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        }
+      ],
+      "wrapper_mappings": {}
+    },
+    "crisis": {
+      "constant_fee": {
+        "amount": "1000",
+        "denom": "stake"
+      }
+    },
+    "distribution": {
+      "delegator_starting_infos": [
+        {
+          "delegator_address": "tswth1yyzv0x60dm9vrp8tqjqpxqtjest8tl0f3gj306",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "500000000000000.000000000000000000"
+          },
+          "validator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja"
+        },
+        {
+          "delegator_address": "tswth1vcwlptc6g2eth4efwx2pnwwac7fm77gq7tgjp3",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "1000000000000.000000000000000000"
+          },
+          "validator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk"
+        },
+        {
+          "delegator_address": "tswth1amdl8705srerz5aeh3gwaegyenll5eq7zt9kxs",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "500000000000000.000000000000000000"
+          },
+          "validator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh"
+        }
+      ],
+      "delegator_withdraw_infos": [],
+      "fee_pool": {
+        "community_pool": [
+          {
+            "amount": "2322328103428.900004443617725300",
+            "denom": "swth"
+          }
+        ],
+        "liquidity_provider_pool": [
+          {
+            "amount": "13933968620573.400000000000000000",
+            "denom": "swth"
+          }
+        ]
+      },
+      "outstanding_rewards": [
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "3425320986705.992455322868269250",
+              "denom": "swth"
+            }
+          ],
+          "validator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "5393085750.315084910645736200",
+              "denom": "swth"
+            }
+          ],
+          "validator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "3536270237830.392455322868269250",
+              "denom": "swth"
+            }
+          ],
+          "validator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh"
+        }
+      ],
+      "params": {
+        "base_proposer_reward": "0.010000000000000000",
+        "bonus_proposer_reward": "0.040000000000000000",
+        "community_tax": "0.100000000000000000",
+        "liquidity_provider_reward": "0.600000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "previous_proposer": "tswthvalcons1gk6texz2huc848thd9hphmcmpsrvlltmaymqnx",
+      "validator_accumulated_commissions": [
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "342532098670.599245532286826248",
+                "denom": "swth"
+              }
+            ]
+          },
+          "validator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "539308575.031508491064573620",
+                "denom": "swth"
+              }
+            ]
+          },
+          "validator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "353627023783.039245532286826248",
+                "denom": "swth"
+              }
+            ]
+          },
+          "validator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh"
+        }
+      ],
+      "validator_current_rewards": [
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "3082788888035.393209790581443002",
+                "denom": "swth"
+              }
+            ]
+          },
+          "validator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "4853777175.283576419581162580",
+                "denom": "swth"
+              }
+            ]
+          },
+          "validator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "3182643214047.353209790581443002",
+                "denom": "swth"
+              }
+            ]
+          },
+          "validator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh"
+        }
+      ],
+      "validator_historical_rewards": [
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh"
+        }
+      ],
+      "validator_slash_events": []
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "fee": {
+      "msg_fees": [
+        {
+          "fee": "3000000000",
+          "msg_type": "claim_pool_rewards"
+        },
+        {
+          "fee": "0",
+          "msg_type": "create_oracle_vote"
+        },
+        {
+          "fee": "0",
+          "msg_type": "create_order"
+        },
+        {
+          "fee": "100000000000",
+          "msg_type": "create_pool"
+        },
+        {
+          "fee": "100000000",
+          "msg_type": "default_fee"
+        },
+        {
+          "fee": "3000000000",
+          "msg_type": "stake_pool_token"
+        },
+        {
+          "fee": "3000000000",
+          "msg_type": "unstake_pool_token"
+        }
+      ]
+    },
+    "ft": null,
+    "genutil": {
+      "gen_txs": []
+    },
+    "gov": {
+      "deposit_params": {
+        "max_deposit_period": "1800s",
+        "min_deposit": [
+          {
+            "amount": "1000000000000",
+            "denom": "swth"
+          }
+        ]
+      },
+      "deposits": [],
+      "proposals": [],
+      "starting_proposal_id": "1",
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.334000000000000000"
+      },
+      "votes": [],
+      "voting_params": {
+        "voting_period": "1800s"
+      }
+    },
+    "headersync": {
+      "checkpoint_hashes": {},
+      "consensus_peers": {}
+    },
+    "ibc": {
+      "channel_genesis": {
+        "ack_sequences": [],
+        "acknowledgements": [],
+        "channels": [],
+        "commitments": [],
+        "next_channel_sequence": "0",
+        "receipts": [],
+        "recv_sequences": [],
+        "send_sequences": []
+      },
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "create_localhost": false,
+        "next_client_sequence": "0",
+        "params": {
+          "allowed_clients": [
+            "06-solomachine",
+            "07-tendermint"
+          ]
+        }
+      },
+      "connection_genesis": {
+        "client_connection_paths": [],
+        "connections": [],
+        "next_connection_sequence": "0"
+      }
+    },
+    "inflation": {
+      "inflation_enabled": true,
+      "mint_data": {
+        "current_supply": "100023221281034289",
+        "first_block_time": "1632922506",
+        "prev_block_time": "1632929809"
+      }
+    },
+    "insurance": {
+      "fund_in_by_markets": null,
+      "fund_out_by_markets": null
+    },
+    "leverage": {
+      "market_leverages_with_keys": []
+    },
+    "liquidation": {
+      "outstanding_positions": {
+        "btc_z29": {
+          "outstanding_positions": []
+        },
+        "eth_z29": {
+          "outstanding_positions": []
+        },
+        "eth_z39": {
+          "outstanding_positions": []
+        }
+      }
+    },
+    "liquiditypool": {
+      "all_last_claimed_with_keys": [],
+      "commitment_curve": {
+        "max_commitment_duration": "31557600",
+        "max_reward_multiplier": 500
+      },
+      "commitment_expiries": [],
+      "commitment_totals_with_keys": [],
+      "commitment_with_keys": [],
+      "pools": [
+        {
+          "amount_a": "0",
+          "amount_b": "0",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "swth-50-eth-50-lp1",
+          "denom_a": "swth",
+          "denom_b": "eth.1.2.4730ca",
+          "id": "1",
+          "market": "swth_eth",
+          "name": "50% SWTH / 50% ETH Pool",
+          "num_quotes": "10",
+          "shares_amount": "0",
+          "swap_fee": "0.002000000000000000",
+          "weight_a": "0.500000000000000000",
+          "weight_b": "0.500000000000000000"
+        },
+        {
+          "amount_a": "0",
+          "amount_b": "0",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "dai-30-eth-70-lp2",
+          "denom_a": "dai.1.2.0fdfd1",
+          "denom_b": "eth.1.2.4730ca",
+          "id": "2",
+          "market": "eth_dai",
+          "name": "30% DAI / 70% ETH Pool",
+          "num_quotes": "10",
+          "shares_amount": "0",
+          "swap_fee": "0.001000000000000000",
+          "weight_a": "0.300000000000000000",
+          "weight_b": "0.700000000000000000"
+        }
+      ],
+      "reward_curve": {
+        "final_reward": 400,
+        "initial_reward": 6000,
+        "interval": "604800",
+        "number_of_reductions": 53,
+        "reduction": 500,
+        "reductions_made": 0,
+        "start_time": "2021-09-29T13:34:26.629900845Z"
+      },
+      "reward_histories_with_keys": [],
+      "reward_weights": {
+        "wrapped_reward_weights": []
+      },
+      "total_allocated": []
+    },
+    "lockproxy": {
+      "chain_ids": {},
+      "nonce": "0",
+      "operators": {},
+      "registries": {}
+    },
+    "market": {
+      "markets": [
+        {
+          "base": "btc.1.1.6569cd",
+          "base_precision": "8",
+          "closed_block_height": "674",
+          "created_block_height": "0",
+          "description": "BTC/USD futures contract settling 15 mins past genesis",
+          "display_name": "BTC_Z19",
+          "expiry_time": "2021-09-29T13:49:26.630574544Z",
+          "impact_size": "100000000",
+          "index_oracle_id": "DXBT",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "is_active": false,
+          "is_settled": true,
+          "last_price_protected_band": 200,
+          "lot_size": "10000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "maker_fee": "0.000000000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "11100000000",
+          "min_quantity": "10000",
+          "name": "btc_z19",
+          "quote": "iusd.0.1000.0e096b",
+          "quote_precision": "8",
+          "risk_step_size": "10000000",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.250000000000000000"
+        },
+        {
+          "base": "btc.1.1.6569cd",
+          "base_precision": "8",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "BTC/USD futures contract settling December 2029",
+          "display_name": "BTC_Z29",
+          "expiry_time": "2029-12-31T17:00:00Z",
+          "impact_size": "100000000",
+          "index_oracle_id": "DXBT",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 200,
+          "lot_size": "10000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "maker_fee": "0.000000000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "11100000000",
+          "min_quantity": "10000",
+          "name": "btc_z29",
+          "quote": "iusd.0.1000.0e096b",
+          "quote_precision": "8",
+          "risk_step_size": "10000000",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.250000000000000000"
+        },
+        {
+          "base": "btc.1.1.6569cd",
+          "base_precision": "8",
+          "closed_block_height": "2718",
+          "created_block_height": "0",
+          "description": "BTC/USD futures contract USDC version",
+          "display_name": "BTC_Z29U",
+          "expiry_time": "2021-09-29T14:34:26.630558063Z",
+          "impact_size": "100000000",
+          "index_oracle_id": "DXBT",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "is_active": false,
+          "is_settled": true,
+          "last_price_protected_band": 200,
+          "lot_size": "10000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "maker_fee": "0.000000000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "11100000000",
+          "min_quantity": "10000",
+          "name": "btc_z29u",
+          "quote": "usdc.0.2.ef2019",
+          "quote_precision": "6",
+          "risk_step_size": "10000000",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.002500000000000000"
+        },
+        {
+          "base": "eth.1.2.4730ca",
+          "base_precision": "18",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "ETH/DAI spot market",
+          "display_name": "ETH_DAI",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "impact_size": "0",
+          "index_oracle_id": "",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 0,
+          "lot_size": "1000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "maker_fee": "-0.001000000000000000",
+          "mark_price_band": 0,
+          "market_type": "spot",
+          "max_liquidation_order_duration": "0s",
+          "max_liquidation_order_ticket": "0",
+          "min_quantity": "1000000000000000",
+          "name": "eth_dai",
+          "quote": "dai.1.2.0fdfd1",
+          "quote_precision": "18",
+          "risk_step_size": "0",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.010000000000000000"
+        },
+        {
+          "base": "eth.1.2.4730ca",
+          "base_precision": "18",
+          "closed_block_height": "674",
+          "created_block_height": "0",
+          "description": "ETH/USD futures contract settling 15 mins past genesis",
+          "display_name": "ETH_Z19",
+          "expiry_time": "2021-09-29T13:49:26.630545583Z",
+          "impact_size": "50000000000000000000",
+          "index_oracle_id": "DETH",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "is_active": false,
+          "is_settled": true,
+          "last_price_protected_band": 200,
+          "lot_size": "100000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "maker_fee": "0.000000000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "min_quantity": "100000000000000",
+          "name": "eth_z19",
+          "quote": "iusd.0.1000.0e096b",
+          "quote_precision": "8",
+          "risk_step_size": "5000000000000000000",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.000000000010000000"
+        },
+        {
+          "base": "eth.1.2.4730ca",
+          "base_precision": "18",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "ETH/USD futures contract settling December 2029",
+          "display_name": "ETH_Z29",
+          "expiry_time": "2029-12-31T17:00:00Z",
+          "impact_size": "50000000000000000000",
+          "index_oracle_id": "DETH",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 200,
+          "lot_size": "100000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "maker_fee": "-0.000250000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "min_quantity": "100000000000000",
+          "name": "eth_z29",
+          "quote": "iusd.0.1000.0e096b",
+          "quote_precision": "8",
+          "risk_step_size": "5000000000000000000",
+          "taker_fee": "0.000750000000000000",
+          "tick_size": "0.000000000010000000"
+        },
+        {
+          "base": "eth.1.2.4730ca",
+          "base_precision": "18",
+          "closed_block_height": "2718",
+          "created_block_height": "0",
+          "description": "ETH/USD futures contract USDC version",
+          "display_name": "ETH_Z29U",
+          "expiry_time": "2021-09-29T14:34:26.630567023Z",
+          "impact_size": "50000000000000000000",
+          "index_oracle_id": "DETH",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "is_active": false,
+          "is_settled": true,
+          "last_price_protected_band": 200,
+          "lot_size": "100000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "maker_fee": "-0.000250000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "min_quantity": "100000000000000",
+          "name": "eth_z29u",
+          "quote": "usdc.0.2.ef2019",
+          "quote_precision": "6",
+          "risk_step_size": "5000000000000000000",
+          "taker_fee": "0.000750000000000000",
+          "tick_size": "0.000000000000100000"
+        },
+        {
+          "base": "eth.1.2.4730ca",
+          "base_precision": "18",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "ETH/USD futures contract settling December 2039",
+          "display_name": "ETH_Z39",
+          "expiry_time": "2039-12-31T17:00:00Z",
+          "impact_size": "50000000000000000000",
+          "index_oracle_id": "DETH",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 200,
+          "lot_size": "100000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "maker_fee": "-0.000300000000000000",
+          "mark_price_band": 2000,
+          "market_type": "futures",
+          "max_liquidation_order_duration": "30s",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "min_quantity": "100000000000000",
+          "name": "eth_z39",
+          "quote": "iusd.0.1000.0e096b",
+          "quote_precision": "8",
+          "risk_step_size": "5000000000000000000",
+          "taker_fee": "0.000300000000000000",
+          "tick_size": "0.000000000010000000"
+        },
+        {
+          "base": "swth",
+          "base_precision": "8",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "SWTH/BTC spot market",
+          "display_name": "SWTH_BTC",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "impact_size": "0",
+          "index_oracle_id": "",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 0,
+          "lot_size": "10000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "maker_fee": "0.001000000000000000",
+          "mark_price_band": 0,
+          "market_type": "spot",
+          "max_liquidation_order_duration": "0s",
+          "max_liquidation_order_ticket": "0",
+          "min_quantity": "20000000000",
+          "name": "swth_btc",
+          "quote": "btc.1.1.6569cd",
+          "quote_precision": "8",
+          "risk_step_size": "0",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.000000010000000000"
+        },
+        {
+          "base": "swth",
+          "base_precision": "8",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "SWTH/BTC2 spot market",
+          "display_name": "SWTH_BTC2",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "impact_size": "0",
+          "index_oracle_id": "",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 0,
+          "lot_size": "10000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "maker_fee": "0.001000000000000000",
+          "mark_price_band": 0,
+          "market_type": "spot",
+          "max_liquidation_order_duration": "0s",
+          "max_liquidation_order_ticket": "0",
+          "min_quantity": "20000000000",
+          "name": "swth_btc2",
+          "quote": "btc.1.1.6569cd",
+          "quote_precision": "8",
+          "risk_step_size": "0",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.000000010000000000"
+        },
+        {
+          "base": "swth",
+          "base_precision": "8",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "SWTH/ETH spot market",
+          "display_name": "SWTH_ETH",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "impact_size": "0",
+          "index_oracle_id": "",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 0,
+          "lot_size": "10000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "maker_fee": "0.000000000000000000",
+          "mark_price_band": 0,
+          "market_type": "spot",
+          "max_liquidation_order_duration": "0s",
+          "max_liquidation_order_ticket": "0",
+          "min_quantity": "20000000000",
+          "name": "swth_eth",
+          "quote": "eth.1.2.4730ca",
+          "quote_precision": "18",
+          "risk_step_size": "0",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "1000.000000000000000000"
+        },
+        {
+          "base": "swth",
+          "base_precision": "8",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "SWTH/NEX spot market",
+          "display_name": "SWTH_NEX",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "impact_size": "0",
+          "index_oracle_id": "",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 0,
+          "lot_size": "1000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "maker_fee": "-0.001000000000000000",
+          "mark_price_band": 0,
+          "market_type": "spot",
+          "max_liquidation_order_duration": "0s",
+          "max_liquidation_order_ticket": "0",
+          "min_quantity": "1000000",
+          "name": "swth_nex",
+          "quote": "nex.0.4.bb5b3d",
+          "quote_precision": "8",
+          "risk_step_size": "0",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "0.001000000000000000"
+        },
+        {
+          "base": "swth",
+          "base_precision": "8",
+          "closed_block_height": "0",
+          "created_block_height": "0",
+          "description": "SWTH/NEXO spot market",
+          "display_name": "SWTH_NEXO",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "impact_size": "0",
+          "index_oracle_id": "",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "is_active": true,
+          "is_settled": false,
+          "last_price_protected_band": 0,
+          "lot_size": "1000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "maker_fee": "-0.001000000000000000",
+          "mark_price_band": 0,
+          "market_type": "spot",
+          "max_liquidation_order_duration": "0s",
+          "max_liquidation_order_ticket": "0",
+          "min_quantity": "1000000",
+          "name": "swth_nexo",
+          "quote": "nexo.0.2.632b26",
+          "quote_precision": "18",
+          "risk_step_size": "0",
+          "taker_fee": "0.002000000000000000",
+          "tick_size": "1000000.000000000000000000"
+        }
+      ]
+    },
+    "mint": {
+      "minter": {
+        "annual_provisions": "0.000000000000000000",
+        "inflation": "0.000000000000000000"
+      },
+      "params": {
+        "blocks_per_year": "6311520",
+        "goal_bonded": "0.670000000000000000",
+        "inflation_max": "0.000000000000000000",
+        "inflation_min": "0.000000000000000000",
+        "inflation_rate_change": "0.000000000000000000",
+        "mint_denom": "swth"
+      }
+    },
+    "oracle": {
+      "oracles": [
+        {
+          "creator": "tswth1vdhhxmt0wvchvety0p4kxwr3d3kkzvrnqu2dxe",
+          "description": "Demex ETH Index",
+          "id": "DETH",
+          "max_result_age": "100",
+          "min_turnout_percentage": "67",
+          "resolution": "1",
+          "result_strategy": "median",
+          "security_type": "SecuredByValidators",
+          "spec": "{\n\t\"output_id\":\"eth_usd\",\n\t\"templates\":[{\n\t\t\"template_id\":\"response_handler\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"unresponsive_handler\",\n\t\t\t\"config\":{\"strategy\":\"use_last\",\"grace_duration\":\"120\"}\n\t\t},{\n\t\t\t\"adapter\":\"unchanged_handler\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"threshold_duration\":\"900\"}\n\t\t},{\n\t\t\t\"adapter\":\"median_filter\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"value_ids\":\"[\\\"bitstamp_eth_usd\\\", \\\"kraken_eth_usd\\\", \\\"coinbase_eth_usd\\\"]\",\"tolerance_percentage\":\"10\"}\n\t\t}]\n\t}],\n\t\"jobs\":[{\n\t\t\"output_id\":\"bitstamp_eth_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://www.bitstamp.net/api/v2/ticker/ethusd\",\"path\":\"last\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"kraken_eth_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.kraken.com/0/public/Ticker?pair=XETHZUSD\",\"path\":\"result.XETHZUSD.c.0\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"coinbase_eth_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.coinbase.com/v2/prices/ETH-USD/buy\",\"path\":\"data.amount\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"eth_usd\",\n\t\t\"adapter\":\"weighted_average\",\n\t\t\"config\":{\"value_ids\":\"[\\\"bitstamp_eth_usd\\\", \\\"kraken_eth_usd\\\", \\\"coinbase_eth_usd\\\"]\",\"weights\":\"[0.25, 0.25, 0.5]\"}\n\t},{\n\t\t\"output_id\":\"eth_usd\",\n\t\t\"input_id\":\"eth_usd\",\n\t\t\"adapter\":\"float_handler\",\n\t\t\"config\":{\"operation\":\"round\",\"precision\":\"2\"}\n\t}]\n}",
+          "status": "created"
+        },
+        {
+          "creator": "tswth1vdhhxmt0wvchvety0p4kxwr3d3kkzvrnqu2dxe",
+          "description": "Demex XBT Index",
+          "id": "DXBT",
+          "max_result_age": "100",
+          "min_turnout_percentage": "67",
+          "resolution": "1",
+          "result_strategy": "median",
+          "security_type": "SecuredByValidators",
+          "spec": "{\n\t\"output_id\":\"btc_usd\",\n\t\"templates\":[{\n\t\t\"template_id\":\"response_handler\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"unresponsive_handler\",\n\t\t\t\"config\":{\"strategy\":\"use_last\",\"grace_duration\":\"120\"}\n\t\t},{\n\t\t\t\"adapter\":\"unchanged_handler\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"threshold_duration\":\"900\"}\n\t\t},{\n\t\t\t\"adapter\":\"median_filter\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"value_ids\":\"[\\\"bitstamp_btc_usd\\\", \\\"kraken_btc_usd\\\", \\\"coinbase_btc_usd\\\"]\",\"tolerance_percentage\":\"10\"}\n\t\t}]\n\t}],\n\t\"jobs\":[{\n\t\t\"output_id\":\"bitstamp_btc_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://www.bitstamp.net/api/v2/ticker/btcusd\",\"path\":\"last\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"kraken_btc_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD\",\"path\":\"result.XXBTZUSD.c.0\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"coinbase_btc_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.coinbase.com/v2/prices/spot?currency=USD\",\"path\":\"data.amount\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"btc_usd\",\n\t\t\"adapter\":\"weighted_average\",\n\t\t\"config\":{\"value_ids\":\"[\\\"bitstamp_btc_usd\\\", \\\"kraken_btc_usd\\\", \\\"coinbase_btc_usd\\\"]\",\"weights\":\"[0.25, 0.25, 0.5]\"}\n\t},{\n\t\t\"output_id\":\"btc_usd\",\n\t\t\"input_id\":\"btc_usd\",\n\t\t\"adapter\":\"float_handler\",\n\t\t\"config\":{\"operation\":\"round\",\"precision\":\"2\"}\n\t}]\n}",
+          "status": "created"
+        }
+      ],
+      "results": [],
+      "votes": []
+    },
+    "order": {
+      "account_order_ids": [],
+      "account_sequences": [],
+      "flags": [
+        {
+          "blockchain": "",
+          "is_trading_enabled": true
+        }
+      ],
+      "orders": []
+    },
+    "position": {
+      "open_positions": []
+    },
+    "pricing": {
+      "prices": [
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "btc_z19",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        },
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "btc_z29",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        },
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "btc_z29u",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        },
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "eth_z19",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        },
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "eth_z29",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        },
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "eth_z29u",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        },
+        {
+          "fair": "0",
+          "fair_index_delta_avg": "0",
+          "index": "0",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "last": "0",
+          "mark": "0",
+          "mark_avg": "0",
+          "market": "eth_z39",
+          "marking_strategy": "",
+          "settlement": "0",
+          "settlement_counter": "0"
+        }
+      ]
+    },
+    "profile": {
+      "profiles": [
+        {
+          "address": "tswth196w5cyqfezzkv6pzl5wsrmfwgesenzykel9550",
+          "twitter": "",
+          "username": "crosschain_wrapper"
+        },
+        {
+          "address": "tswth197kwqmzdwn50sakljwz4qxpw3ngpew9dhpxaa8",
+          "twitter": "",
+          "username": "open_interest"
+        },
+        {
+          "address": "tswth1xxh3p9vvg3xpnd4uw8yzkp7rpnfyvc0hpmh2ax",
+          "twitter": "",
+          "username": "slashing"
+        },
+        {
+          "address": "tswth1gwqac243g2z3vryqsev6acq965f9ttwhzjzw55",
+          "twitter": "",
+          "username": "bank"
+        },
+        {
+          "address": "tswth1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3wjjfnt",
+          "twitter": "",
+          "username": "bonded_pool"
+        },
+        {
+          "address": "tswth12uxz5eayngcls6lx55j9g28npen6z5fr658zht",
+          "twitter": "",
+          "username": "liquidation"
+        },
+        {
+          "address": "tswth1tygms3xhhs3yv487phx3dw4a95jn7t7l6jwc9l",
+          "twitter": "",
+          "username": "not_bonded_pool"
+        },
+        {
+          "address": "tswth1d4e35hk3gk4k6t5gh02dcm923z8ck86qaqvppn",
+          "twitter": "",
+          "username": "inflation"
+        },
+        {
+          "address": "tswth10d07y265gmmuvt4z0w9aw880jnsr700jptgru0",
+          "twitter": "",
+          "username": "gov"
+        },
+        {
+          "address": "tswth10lheg7wgh3drep5frjuzj6wt7tluw0rn4ayknz",
+          "twitter": "",
+          "username": "upgrade"
+        },
+        {
+          "address": "tswth1s762lf8rnv3myffw4s8m5kn4gvruftp8ct89rt",
+          "twitter": "",
+          "username": "open_orders"
+        },
+        {
+          "address": "tswth1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8ukl6rr",
+          "twitter": "",
+          "username": "distribution"
+        },
+        {
+          "address": "tswth1hh6fc0pcsggzlsqhl7mxzyyvvw5rd5r9unaw8n",
+          "twitter": "",
+          "username": "auth"
+        },
+        {
+          "address": "tswth1c7ptc87hkd54e3r7zjy92q29xkq7t79wg99aft",
+          "twitter": "",
+          "username": "insurance"
+        },
+        {
+          "address": "tswth1mx5e3jkxvzf8frl7cl8m69264ctn0shljqkzvg",
+          "twitter": "",
+          "username": "staking"
+        },
+        {
+          "address": "tswth1m3h30wlvsf8llruxtpukdvsy0km2kum8ncu7du",
+          "twitter": "",
+          "username": "mint"
+        },
+        {
+          "address": "tswth1atn6enzwsq95tdsw2jvz9aa33020e4y4m3nxgm",
+          "twitter": "",
+          "username": "genutil"
+        },
+        {
+          "address": "tswth1a6p9p7mkuz2txj68ruf6w0dmu5w34c2zd7zqzf",
+          "twitter": "",
+          "username": "evidence"
+        },
+        {
+          "address": "tswth17xpfvakm2amg962yls6f84z3kell8c5ltscxpp",
+          "twitter": "",
+          "username": "fee"
+        },
+        {
+          "address": "tswth17nqz88jcgu6rwm3fk92l8kcnwgxgs59vy2am49",
+          "twitter": "",
+          "username": "crosschain_bridge"
+        }
+      ]
+    },
+    "slashing": {
+      "missed_blocks": [
+        {
+          "address": "tswthvalcons1gk6texz2huc848thd9hphmcmpsrvlltmaymqnx",
+          "missed_blocks": []
+        },
+        {
+          "address": "tswthvalcons1gzjhp2qv5wu7p8sd06w32kxss4te2p03kavd0k",
+          "missed_blocks": []
+        },
+        {
+          "address": "tswthvalcons1n5fqup5pznymnah5zxck7r3ce28q72hrg0e3g6",
+          "missed_blocks": []
+        }
+      ],
+      "params": {
+        "downtime_jail_duration": "3600s",
+        "min_signed_per_window": "0.900000000000000000",
+        "signed_blocks_window": "36000",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.001000000000000000"
+      },
+      "signing_infos": [
+        {
+          "address": "tswthvalcons1gk6texz2huc848thd9hphmcmpsrvlltmaymqnx",
+          "validator_signing_info": {
+            "address": "tswthvalcons1gk6texz2huc848thd9hphmcmpsrvlltmaymqnx",
+            "index_offset": "5553",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "tswthvalcons1gzjhp2qv5wu7p8sd06w32kxss4te2p03kavd0k",
+          "validator_signing_info": {
+            "address": "tswthvalcons1gzjhp2qv5wu7p8sd06w32kxss4te2p03kavd0k",
+            "index_offset": "4236",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "1316",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "tswthvalcons1n5fqup5pznymnah5zxck7r3ce28q72hrg0e3g6",
+          "validator_signing_info": {
+            "address": "tswthvalcons1n5fqup5pznymnah5zxck7r3ce28q72hrg0e3g6",
+            "index_offset": "5455",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "97",
+            "tombstoned": false
+          }
+        }
+      ]
+    },
+    "staking": {
+      "delegations": [
+        {
+          "delegator_address": "tswth1yyzv0x60dm9vrp8tqjqpxqtjest8tl0f3gj306",
+          "shares": "500000000000000.000000000000000000",
+          "validator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja"
+        },
+        {
+          "delegator_address": "tswth1vcwlptc6g2eth4efwx2pnwwac7fm77gq7tgjp3",
+          "shares": "1000000000000.000000000000000000",
+          "validator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk"
+        },
+        {
+          "delegator_address": "tswth1amdl8705srerz5aeh3gwaegyenll5eq7zt9kxs",
+          "shares": "500000000000000.000000000000000000",
+          "validator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh"
+        }
+      ],
+      "exported": true,
+      "last_total_power": "1001000000",
+      "last_validator_powers": [
+        {
+          "address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja",
+          "power": "500000000"
+        },
+        {
+          "address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk",
+          "power": "1000000"
+        },
+        {
+          "address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh",
+          "power": "500000000"
+        }
+      ],
+      "params": {
+        "bond_denom": "swth",
+        "historical_entries": 0,
+        "max_entries": 7,
+        "max_validators": 11,
+        "unbonding_time": "2592000s"
+      },
+      "redelegations": [],
+      "unbonding_delegations": [],
+      "validators": [
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2021-09-29T13:36:44.030645496Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "osNTsSvsPmAXKaY7RZ95mq0GPehjab8JMW+ZjMAjATM="
+          },
+          "delegator_shares": "500000000000000.000000000000000000",
+          "description": {
+            "details": "",
+            "identity": "",
+            "moniker": "hikaru",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "1",
+          "operator_address": "tswthvaloper1yyzv0x60dm9vrp8tqjqpxqtjest8tl0fr6w2ja",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "500000000000000",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2021-09-29T14:03:36.420084806Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "9Dk4yADM6v9n8TfhlEh8XFdVc+83t3+MzGIfgQkOC+I="
+          },
+          "delegator_shares": "1000000000000.000000000000000000",
+          "description": {
+            "details": "",
+            "identity": "",
+            "moniker": "pippo",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "1",
+          "operator_address": "tswthvaloper1vcwlptc6g2eth4efwx2pnwwac7fm77gqve5fuk",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "1000000000000",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2021-09-29T13:34:26.632264081Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "UG07QS3QtDitv23d++MkLIj4p7V5m//0Idb6aR3fLsg="
+          },
+          "delegator_shares": "500000000000000.000000000000000000",
+          "description": {
+            "details": "",
+            "identity": "",
+            "moniker": "hikaru",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "1",
+          "operator_address": "tswthvaloper1amdl8705srerz5aeh3gwaegyenll5eq7seedmh",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "500000000000000",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        }
+      ]
+    },
+    "subaccount": {
+      "sub_accounts": [
+        {
+          "active": true,
+          "main_address": "tswth1amdl8705srerz5aeh3gwaegyenll5eq7zt9kxs",
+          "sub_address": "tswth1nxkdx2csxz3j7q7ml5k6lfrftcn2m4yjp006fg"
+        },
+        {
+          "active": true,
+          "main_address": "tswth1yyzv0x60dm9vrp8tqjqpxqtjest8tl0f3gj306",
+          "sub_address": "tswth1wag5ufjw7p7q5w98glgygr7uaggvyqlkzcmlpw"
+        }
+      ]
+    },
+    "transfer": {
+      "denom_traces": [],
+      "params": {
+        "receive_enabled": true,
+        "send_enabled": true
+      },
+      "port_id": "transfer"
+    },
+    "upgrade": {}
+  },
+  "chain_id": "carbon-1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_duration": "172800000000000",
+      "max_age_num_blocks": "100000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {}
+  },
+  "genesis_time": "2021-09-30T09:25:42.311217853Z",
+  "initial_height": "15372244",
+  "validators": [
+    {
+      "address": "9D120E068114C9B9F6F411B16F0E38CA8E0F2AE3",
+      "name": "hikaru",
+      "power": "500000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "osNTsSvsPmAXKaY7RZ95mq0GPehjab8JMW+ZjMAjATM="
+      }
+    },
+    {
+      "address": "40A570A80CA3B9E09E0D7E9D1558D085579505F1",
+      "name": "pippo",
+      "power": "1000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "9Dk4yADM6v9n8TfhlEh8XFdVc+83t3+MzGIfgQkOC+I="
+      }
+    },
+    {
+      "address": "45B4BC984ABF307A9D77696E1BEF1B0C06CFFD7B",
+      "name": "hikaru",
+      "power": "500000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "UG07QS3QtDitv23d++MkLIj4p7V5m//0Idb6aR3fLsg="
+      }
+    }
+  ]
+}
