@@ -85,8 +85,8 @@ sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.car
 
 mkdir ~/.carbon/migrations
 createdb -U postgres carbon
-POSTGRES_USER=postgres ./$DAEMON migrations
-POSTGRES_USER=postgres ./$DAEMON persist-genesis
+POSTGRES_DB=carbon POSTGRES_USER=postgres ./$DAEMON migrations
+POSTGRES_DB=carbon POSTGRES_USER=postgres ./$DAEMON persist-genesis
 
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
@@ -110,7 +110,7 @@ StandardOutput=append:/var/log/carbon/start.log
 StandardError=append:/var/log/carbon/start.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
@@ -140,7 +140,7 @@ StandardOutput=append:/var/log/carbon/oracle.log
 StandardError=append:/var/log/carbon/oracle.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
@@ -166,7 +166,7 @@ StandardOutput=append:/var/log/carbon/liquidator.log
 StandardError=append:/var/log/carbon/liquidator.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
