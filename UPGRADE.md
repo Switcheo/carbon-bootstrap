@@ -1,4 +1,4 @@
-# Upgrading from Switcheo Chain 
+# Upgrading from Switcheo Chain
 
 ## Quickstart
 
@@ -10,7 +10,7 @@ Copy previous keys from Switcheo Chain. If Carbon resides on a different machine
 ```bash
 cp ~/.switcheod/config/node_key.json ~/.carbon/config/
 cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
-cp -r ~/.switcheocli/keyring-switcheo-tradehub/* ~/.carbon/keyring-file
+cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 ```
 
 ## Setting up a new Carbon Node
@@ -45,7 +45,7 @@ cp -r ~/.switcheocli/keyring-switcheo-tradehub/. ~/.carbon/keyring-file
 ### Setting up the database
 ```bash
 createdb -U postgres carbon
-POSTGRES_USER=postgres carbond migrations 
+POSTGRES_USER=postgres carbond migrations
 ```
 
 Your full node has been initialized!
@@ -87,7 +87,7 @@ POSTGRES_HOST=<your_remote_postgres_host>
 POSTGRES_USER=<your_postgres_user>
 POSTGRES_PASSWORD=<your_postgres_password>
 ```
- 
+
 ## Upgrades
 To be best prepared for eventual upgrades, it is recommended to setup Cosmovisor, a small process manager, which can swap in new `carbond` binaries.
 
@@ -105,7 +105,7 @@ cp $(which carbond) ~/cosmovisor/genesis/bin
 ## Background Process
 To run the node in a background process with automatic restarts, you can use a service manager like `systemd`. To set this up run the following:
 ```bash
-sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF  
+sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Daemon
 After=network-online.target
@@ -141,7 +141,7 @@ sudo service carbond status
 
 ### Oracle Service
 ```bash
-sudo tee /etc/systemd/system/carbond-oracle.service > /dev/null <<EOF  
+sudo tee /etc/systemd/system/carbond-oracle.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Oracle Daemon
 After=network-online.target
@@ -172,7 +172,7 @@ Environment="REDIS_HOST=<your_remote_host>"
 
 ### Liquidator Service
 ```bash
-sudo tee /etc/systemd/system/carbond-liquidator.service > /dev/null <<EOF  
+sudo tee /etc/systemd/system/carbond-liquidator.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Liquidator Daemon
 After=network-online.target
