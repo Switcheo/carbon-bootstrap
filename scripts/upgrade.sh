@@ -2,31 +2,13 @@
 
 set -e
 
-command_exists() {
-  type "$1" &>/dev/null
-}
-
-if command_exists go; then
-  echo "Golang is already installed"
-else
+if [ ! -f "/usr/local/lib/libleveldb.so.1" ]; then
   echo "Install dependencies"
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
   sudo apt update
   sudo apt install build-essential jq cmake redis-server postgresql-12 -y
-
-  wget https://dl.google.com/go/go1.17.linux-amd64.tar.gz
-  tar -xvf go1.17.linux-amd64.tar.gz
-  sudo mv go /usr/local
-
-  echo "" >>~/.bashrc
-  echo 'export GOPATH=$HOME/go' >>~/.bashrc
-  echo 'export GOROOT=/usr/local/go' >>~/.bashrc
-  echo 'export GOBIN=$GOPATH/bin' >>~/.bashrc
-  echo 'export PATH=$PATH:/usr/local/go/bin:$GOBIN' >>~/.bashrc
-
-  rm go1.17.linux-amd64.tar.gz
 
   wget https://github.com/google/leveldb/archive/1.23.tar.gz
   tar -zxvf 1.23.tar.gz
@@ -45,7 +27,7 @@ else
   cd build
   cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON ..
   cmake --build .
-  sudo cp -r lib* /usr/local/lib/
+  sudo cp libleveldb.so.1 /usr/local/lib/
   sudo ldconfig
   cd ..
 
@@ -66,8 +48,6 @@ else
     -e 's/ md5/ trust/g' \
     /etc/postgresql/12/main/pg_hba.conf
   sudo service postgresql restart
-
-  /usr/local/go/bin/go install github.com/Switcheo/cosmos-sdk/cosmovisor/cmd/cosmovisor@73f5c224725d922f1e4b9fa334be8be6db16fc12
 fi
 
 echo "-- Stopping any previous system service of carbond"
@@ -78,8 +58,11 @@ sudo systemctl stop carbond-liquidator || true
 
 echo "-- Clear old carbon data and install carbond and setup the node --"
 
-dropdb -U postgres carbon || true
+dropdb -U postgres --if-exists carbon
 rm -rf ~/.carbon
+sudo rm -f /usr/local/bin/carbond
+sudo rm -f /usr/local/bin/cosmovisor
+sudo rm -rf /var/log/carbon
 
 YOUR_KEY_NAME=val
 YOUR_NAME=$1
@@ -87,12 +70,13 @@ DAEMON=carbond
 PERSISTENT_PEERS="bd0a0ed977eabef81c60da2aac2dabb64a149173@3.0.180.87:26656"
 
 echo "Installing carbond"
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1/carbond
-chmod a+x $DAEMON
+wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1/carbon0.0.1.tar.gz
+tar -zxvf carbon0.0.1.tar.gz
+rm carbon0.0.1.tar.gz
 
 echo "Setting up your validator"
 ./$DAEMON init $YOUR_NAME
-curl http://54.254.184.152:26657/genesis | jq .result.genesis > ~/.carbon/config/genesis.json
+wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/carbon-0/genesis.json
 
 echo "----------Setting config for seed node---------"
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
@@ -101,11 +85,12 @@ sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.car
 
 mkdir ~/.carbon/migrations
 createdb -U postgres carbon
-POSTGRES_USER=postgres ./$DAEMON migrations
-POSTGRES_USER=postgres ./$DAEMON persist-genesis
+POSTGRES_DB=carbon POSTGRES_USER=postgres ./$DAEMON migrations
+POSTGRES_DB=carbon POSTGRES_USER=postgres ./$DAEMON persist-genesis
 
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
+sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
 
 echo "---------Creating system file---------"
 
@@ -125,7 +110,7 @@ StandardOutput=append:/var/log/carbon/start.log
 StandardError=append:/var/log/carbon/start.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
@@ -134,7 +119,6 @@ WantedBy=multi-user.target
 sudo mkdir /var/log/carbon
 sudo mv carbond.service /etc/systemd/system/carbond.service
 sudo systemctl daemon-reload
-sudo systemctl start carbond
 
 echo "Setting up your oracle"
 
@@ -156,7 +140,7 @@ StandardOutput=append:/var/log/carbon/oracle.log
 StandardError=append:/var/log/carbon/oracle.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
@@ -164,14 +148,10 @@ WantedBy=multi-user.target
 
 sudo mv carbond-oracle.service /etc/systemd/system/carbond-oracle.service
 sudo systemctl daemon-reload
-sudo systemctl start carbond-oracle
 
 echo "Setting up your liquidator"
 
 echo "---------Creating system file---------"
-
-echo Enter keyring passphrase:
-read -s WALLET_PASSWORD
 
 echo "[Unit]
 Description=Carbon Liquidator Daemon
@@ -186,7 +166,7 @@ StandardOutput=append:/var/log/carbon/liquidator.log
 StandardError=append:/var/log/carbon/liquidator.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
@@ -194,4 +174,3 @@ WantedBy=multi-user.target
 
 sudo mv carbond-liquidator.service /etc/systemd/system/carbond-liquidator.service
 sudo systemctl daemon-reload
-sudo systemctl start carbond-liquidator
