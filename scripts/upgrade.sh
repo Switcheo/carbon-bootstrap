@@ -78,15 +78,16 @@ sudo systemctl stop carbond-liquidator || true
 
 echo "-- Clear old carbon data and install carbond and setup the node --"
 
+dropdb -U postgres carbon || true
 rm -rf ~/.carbon
 
 YOUR_KEY_NAME=val
 YOUR_NAME=$1
 DAEMON=carbond
-PERSISTENT_PEERS="5993b6001d703ed5c132f6a76f3f92e636808406@54.254.184.152:26656"
+PERSISTENT_PEERS="bd0a0ed977eabef81c60da2aac2dabb64a149173@3.0.180.87:26656"
 
 echo "Installing carbond"
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.0/carbond
+wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1/carbond
 chmod a+x $DAEMON
 
 echo "Setting up your validator"

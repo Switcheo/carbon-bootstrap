@@ -67,7 +67,7 @@ rm -f 1.23.tar.gz
 ## Install the binaries
 Next, let's install the latest version of `Carbon`.
 ```bash
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.0/carbond
+wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1/carbond
 sudo mv carbond /usr/local/bin
 ```
 

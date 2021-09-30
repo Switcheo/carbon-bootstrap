@@ -30,8 +30,9 @@ You can edit this moniker later, in the ~/.carbon/config/config.toml file:
 moniker = "<your_custom_moniker>"
 ```
 
-### Enable cleveldb
+### Enable the REST API and cleveldb
 ```bash
+sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
 ```
 
@@ -73,7 +74,7 @@ POSTGRES_USER=postgres carbond persist-genesis
 Your node needs to know how to find peers. You'll need to add healthy seed nodes to `$HOME/.carbon/config/config.toml`.
 
 ```bash
-sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i '/persistent_peers =/c\persistent_peers = "'"bd0a0ed977eabef81c60da2aac2dabb64a149173@3.0.180.87:26656"'"' ~/.carbon/config/config.toml
 ```
 
 ### Run a Full Carbon Node
