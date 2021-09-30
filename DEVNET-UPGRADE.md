@@ -10,5 +10,5 @@ Copy previous keys from Switcheo Chain. If Carbon resides on a different machine
 ```bash
 cp ~/.switcheod/config/node_key.json ~/.carbon/config/
 cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
-cp -r ~/.switcheocli/keyring-switcheo-tradehub/* ~/.carbon/keyring-file
+cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 ```
