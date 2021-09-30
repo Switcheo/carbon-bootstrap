@@ -72,6 +72,7 @@ PERSISTENT_PEERS="0c7e9c8810e0d2cbbd19ac943f5a13eb8aa70c5f@18.136.198.223"
 echo "Installing carbond"
 wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1-devnet/carbon0.0.1-devnet.tar.gz
 tar -zxvf carbon0.0.1-devnet.tar.gz
+sudo mv cosmovisor /usr/local/bin
 rm carbon0.0.1-devnet.tar.gz
 
 echo "Setting up your validator"
@@ -105,7 +106,7 @@ Environment=\"DAEMON_NAME=$DAEMON\"
 Environment=\"PATH=$HOME/.carbon/cosmovisor/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"
 Environment=\"POSTGRES_USER=postgres\"
 ExecStartPre=-killall -q -w -s 9 carbond
-ExecStart=$HOME/go/bin/cosmovisor start --persistence
+ExecStart=/usr/local/bin/cosmovisor start --persistence
 StandardOutput=append:/var/log/carbon/start.log
 StandardError=append:/var/log/carbon/start.err
 Restart=always
