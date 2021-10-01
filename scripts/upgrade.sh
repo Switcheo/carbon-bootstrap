@@ -93,19 +93,23 @@ mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
 sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
 
+sudo mkdir /var/log/carbon
+
 echo "---------Creating system file---------"
 
-echo "[Unit]
+sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
+[Unit]
 Description=Carbon Daemon
+Wants=carbond-oracle.service
+Wants=carbond-liquidator.service
 After=network-online.target
 
 [Service]
 User=$USER
-Environment=\"DAEMON_HOME=$HOME/.carbon\"
-Environment=\"DAEMON_NAME=$DAEMON\"
-Environment=\"PATH=$HOME/.carbon/cosmovisor/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"
-Environment=\"POSTGRES_USER=postgres\"
-ExecStartPre=-killall -q -w -s 9 carbond
+Environment="DAEMON_HOME=$HOME/.carbon"
+Environment="DAEMON_NAME=$DAEMON"
+Environment="PATH=$HOME/.carbon/cosmovisor/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="POSTGRES_USER=postgres"
 ExecStart=/usr/local/bin/cosmovisor start --persistence
 StandardOutput=append:/var/log/carbon/start.log
 StandardError=append:/var/log/carbon/start.err
@@ -115,11 +119,7 @@ LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
-" > carbond.service
-
-sudo mkdir /var/log/carbon
-sudo mv carbond.service /etc/systemd/system/carbond.service
-sudo systemctl daemon-reload
+EOF
 
 echo "Setting up your oracle"
 
@@ -128,14 +128,17 @@ echo "---------Creating system file---------"
 echo Enter keyring passphrase:
 read -s WALLET_PASSWORD
 
-echo "[Unit]
+sudo tee /etc/systemd/system/carbond-oracle.service > /dev/null <<EOF
+[Unit]
 Description=Carbon Oracle Daemon
+BindsTo=carbond.service
+After=carbond.service
 After=network-online.target
 
 [Service]
 User=$USER
-Environment=\"ORACLE_WALLET_LABEL=oraclewallet\"
-Environment=\"WALLET_PASSWORD=$WALLET_PASSWORD\"
+Environment="ORACLE_WALLET_LABEL=oraclewallet"
+Environment="WALLET_PASSWORD=$WALLET_PASSWORD"
 ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond oracle
 StandardOutput=append:/var/log/carbon/oracle.log
 StandardError=append:/var/log/carbon/oracle.err
@@ -145,23 +148,23 @@ LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
-" > carbond-oracle.service
-
-sudo mv carbond-oracle.service /etc/systemd/system/carbond-oracle.service
-sudo systemctl daemon-reload
+EOF
 
 echo "Setting up your liquidator"
 
 echo "---------Creating system file---------"
 
-echo "[Unit]
+sudo tee /etc/systemd/system/carbond-liquidator.service > /dev/null <<EOF
+[Unit]
 Description=Carbon Liquidator Daemon
+BindsTo=carbond.service
+After=carbond.service
 After=network-online.target
 
 [Service]
 User=$USER
-Environment=\"WALLET_PASSWORD=$WALLET_PASSWORD\"
-Environment=\"POSTGRES_USER=postgres\"
+Environment="WALLET_PASSWORD=$WALLET_PASSWORD"
+Environment="POSTGRES_USER=postgres"
 ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond liquidator
 StandardOutput=append:/var/log/carbon/liquidator.log
 StandardError=append:/var/log/carbon/liquidator.err
@@ -171,7 +174,6 @@ LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
-" > carbond-liquidator.service
+EOF
 
-sudo mv carbond-liquidator.service /etc/systemd/system/carbond-liquidator.service
 sudo systemctl daemon-reload
