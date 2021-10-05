@@ -68,7 +68,7 @@ sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbo
 sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
-sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i '/persistent_peers =/c\persistent_peers = "'"d5c57895d85e59593cc992c09cdc9a1555457c22@54.254.184.152:26656"'"' ~/.carbon/config/config.toml
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 ```
 
@@ -121,7 +121,7 @@ POSTGRES_DB=carbon POSTGRES_USER=postgres carbond persist-genesis
 Your node needs to know how to find peers. You'll need to add healthy seed nodes to `$HOME/.carbon/config/config.toml`.
 
 ```bash
-sed -i '/persistent_peers =/c\persistent_peers = "'"bd0a0ed977eabef81c60da2aac2dabb64a149173@3.0.180.87:26656"'"' ~/.carbon/config/config.toml
+sed -i '/persistent_peers =/c\persistent_peers = "'"d5c57895d85e59593cc992c09cdc9a1555457c22@54.254.184.152:26656"'"' ~/.carbon/config/config.toml
 ```
 
 ### Run a Full Carbon Node

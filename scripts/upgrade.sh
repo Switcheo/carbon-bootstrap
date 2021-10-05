@@ -67,7 +67,7 @@ sudo rm -rf /var/log/carbon
 YOUR_KEY_NAME=val
 YOUR_NAME=$1
 DAEMON=carbond
-PERSISTENT_PEERS="bd0a0ed977eabef81c60da2aac2dabb64a149173@3.0.180.87:26656"
+PERSISTENT_PEERS="d5c57895d85e59593cc992c09cdc9a1555457c22@54.254.184.152:26656"
 
 echo "Installing carbond"
 wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1/carbon0.0.1.tar.gz
