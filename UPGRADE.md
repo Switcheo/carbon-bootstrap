@@ -88,6 +88,7 @@ wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo
 
 Or alternatively, export switcheo chain's `genesis.json`
 ```bash
+switcheoctl stop
 switcheod node export > genesis.json
 ```
 and migrate into carbon's `genesis.json`
