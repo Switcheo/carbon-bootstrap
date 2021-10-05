@@ -1,4 +1,8 @@
 # Upgrading from Switcheo Chain
+It is recommended to use a new machine to host Carbon, although the same machine that hosted Switcheo Chain can be used to host Carbon as well.
+Once migrated to Carbon, the data from Switcheo Chain is no longer needed.
+
+This guide is tested on Ubuntu20 and Ubuntu18. It is better to use Ubuntu20 as the systemd from Ubuntu18 does not support append mode and would need a work around.
 
 ## Quickstart
 
@@ -11,6 +15,25 @@ Copy previous keys from Switcheo Chain. If Carbon resides on a different machine
 cp ~/.switcheod/config/node_key.json ~/.carbon/config/
 cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
 cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
+```
+Now start Carbon. This command will start the carbon node itself, together with the oracle and liquidator services.
+```bash
+sudo systemctl start carbond
+```
+And to stop:
+```bash
+sudo systemctl stop carbond
+```
+Stopping Carbon will stop the other services as well. To stop any of the individual services:
+```shell
+sudo systemctl stop carbond-oracle
+sudo systemctl stop carbond-liquidator
+```
+Now inspect the logs and make sure everything is working fine.
+```shell
+tail -f /var/log/carbon/start.*
+tail -f /var/log/carbon/oracle.*
+tail -f /var/log/carbon/liquidator.*
 ```
 
 ## Setting up a new Carbon Node
@@ -28,24 +51,29 @@ You can edit this moniker later, in the ~/.carbon/config/config.toml file:
 moniker = "<your_custom_moniker>"
 ```
 
-### Enable the REST API and cleveldb
+### Overwrite the Default Config
 ```bash
-sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
+sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config.toml
+sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
+sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
+sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
+sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 ```
 
 ### Setting up your keys
 Copy previous keys from Switcheo Chain. If Carbon resides on a different machine, use `scp` and update the command accordingly.
 ```bash
 cp ~/.switcheod/config/node_key.json ~/.carbon/config/
-cp ~/.switcheod/config/priv_validator_key.json.json ~/.carbon/config/
-cp -r ~/.switcheocli/keyring-switcheo-tradehub/. ~/.carbon/keyring-file
+cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
+cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 ```
 
 ### Setting up the database
 ```bash
 createdb -U postgres carbon
-POSTGRES_USER=postgres carbond migrations
+POSTGRES_DB=carbon POSTGRES_USER=postgres carbond migrations
 ```
 
 Your full node has been initialized!
@@ -53,19 +81,29 @@ Your full node has been initialized!
 ## Genesis & Seeds
 
 ### Copy the Genesis File
-Export switcheo chain's `genesis.json`
+Download the genesis file from:
+```bash
+wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/carbon-0/genesis.json
+```
+
+Or alternatively, export switcheo chain's `genesis.json`
 ```bash
 switcheod node export > genesis.json
 ```
 and migrate into carbon's `genesis.json`
 ```bash
-carbond migrate genesis.json --chain-id $(jq -r ".chain_id" genesis.json) > carbon-genesis.json
+carbond migrate genesis.json --chain-id carbon-0 > carbon-genesis.json
 mv carbon-genesis.json ~/.carbon/config/genesis.json
+```
+Make sure the SHA matches with the rest.
+```bash
+openssl sha256 ~/.carbon/config/genesis.json
+
 ```
 
 ### Persist the Genesis File
 ```bash
-POSTGRES_USER=postgres carbond persist-genesis
+POSTGRES_DB=carbon POSTGRES_USER=postgres carbond persist-genesis
 ```
 
 ### Add Seed Nodes
@@ -92,10 +130,6 @@ POSTGRES_PASSWORD=<your_postgres_password>
 To be best prepared for eventual upgrades, it is recommended to setup Cosmovisor, a small process manager, which can swap in new `carbond` binaries.
 
 ### Cosmovisor Setup
-Install the `cosmovisor` binary:
-```bash
-go install github.com/Switcheo/cosmos-sdk/cosmovisor/cmd/cosmovisor@73f5c224725d922f1e4b9fa334be8be6db16fc12
-```
 Create the folder for the genesis binary and copy the binary:
 ```bash
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
@@ -108,97 +142,112 @@ To run the node in a background process with automatic restarts, you can use a s
 sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Daemon
+Wants=carbond-oracle.service
+Wants=carbond-liquidator.service
 After=network-online.target
 
 [Service]
 User=$USER
 Environment="DAEMON_HOME=$HOME/.carbon"
-Environment="DAEMON_NAME=carbond"
+Environment="DAEMON_NAME=$DAEMON"
 Environment="PATH=$HOME/.carbon/cosmovisor/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ExecStartPre=-killall -q -w -s 9 carbond
-ExecStart=$(which cosmovisor) start --persistence
+Environment="POSTGRES_USER=postgres"
+ExecStart=/usr/local/bin/cosmovisor start --persistence
 StandardOutput=append:/var/log/carbon/start.log
 StandardError=append:/var/log/carbon/start.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
 EOF
 ```
-Then setup the daemon
-```bash
-sudo -S systemctl daemon-reload
-sudo -S systemctl enable carbond
-```
-We can then start the process and confirm that it is running
-```bash
-sudo -S systemctl start carbond
 
-sudo service carbond status
-```
-
-### Oracle Service
+#### Oracle Service
 ```bash
 sudo tee /etc/systemd/system/carbond-oracle.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Oracle Daemon
+BindsTo=carbond.service
+After=carbond.service
 After=network-online.target
 
 [Service]
 User=$USER
-Environment="WALLET_PASSWORD=<your_wallet_password>"
+Environment="ORACLE_WALLET_LABEL=oraclewallet"
+Environment="WALLET_PASSWORD=$WALLET_PASSWORD"
 ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond oracle
 StandardOutput=append:/var/log/carbon/oracle.log
 StandardError=append:/var/log/carbon/oracle.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
 EOF
-
-sudo -S systemctl daemon-reload
-sudo -S systemctl enable carbond-oracle
-sudo -S systemctl start carbond-oracle
-sudo service carbond-oracle status
 ```
 If you're using a remote Redis you want to add
 ```bash
 Environment="REDIS_HOST=<your_remote_host>"
 ```
 
-### Liquidator Service
+#### Liquidator Service
 ```bash
 sudo tee /etc/systemd/system/carbond-liquidator.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Liquidator Daemon
+BindsTo=carbond.service
+After=carbond.service
 After=network-online.target
 
 [Service]
 User=$USER
-Environment="WALLET_PASSWORD=<your_wallet_password>"
+Environment="WALLET_PASSWORD=$WALLET_PASSWORD"
+Environment="POSTGRES_USER=postgres"
 ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond liquidator
 StandardOutput=append:/var/log/carbon/liquidator.log
 StandardError=append:/var/log/carbon/liquidator.err
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=64000
 
 [Install]
 WantedBy=multi-user.target
 EOF
-
-sudo -S systemctl daemon-reload
-sudo -S systemctl enable carbond-liquidator
-sudo -S systemctl start carbond-liquidator
-sudo service carbond-liquidator status
 ```
 If you're using a remote Postgres you want to add
 ```bash
 Environment="POSTGRES_HOST=<your_remote_host>"
 Environment="POSTGRES_USER=<your_postgres_user>"
 Environment="POSTGRES_PASSWORD=<your_postgres_password>"
+```
+
+### Setting up the daemon
+Then setup the daemon
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable carbond
+```
+We can then start the process and confirm that it is running
+```bash
+sudo systemctl start carbond
+
+sudo service carbond status
+```
+And to stop:
+```bash
+sudo systemctl stop carbond
+```
+Stopping Carbon will stop the other services as well. To stop any of the individual services:
+```shell
+sudo systemctl stop carbond-oracle
+sudo systemctl stop carbond-liquidator
+```
+Now inspect the logs and make sure everything is working fine.
+```shell
+tail -f /var/log/carbon/start.*
+tail -f /var/log/carbon/oracle.*
+tail -f /var/log/carbon/liquidator.*
 ```
