@@ -36,6 +36,16 @@ tail -f /var/log/carbon/oracle.*
 tail -f /var/log/carbon/liquidator.*
 ```
 
+## Prerequisites
+You will need
+- Carbon
+- Cleveldb
+- Cosmovisor
+- Redis
+- Postgres
+
+For help on installation, please see INSTALL.md
+
 ## Setting up a new Carbon Node
 These instructions are for setting up a brand new full node from scratch.
 
