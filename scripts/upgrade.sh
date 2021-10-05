@@ -80,9 +80,13 @@ echo "Setting up your validator"
 wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/carbon-0/genesis.json
 
 echo "----------Setting config for seed node---------"
-sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
+sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config.toml
+sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
+sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
+sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
 sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 
 mkdir ~/.carbon/migrations
 createdb -U postgres carbon
@@ -177,3 +181,4 @@ WantedBy=multi-user.target
 EOF
 
 sudo systemctl daemon-reload
+sudo systemctl enable carbond
