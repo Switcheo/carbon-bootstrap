@@ -83,6 +83,7 @@ cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 ### Setting up the database
 ```bash
 createdb -U postgres carbon
+mkdir ~/.carbon/migrations
 POSTGRES_DB=carbon POSTGRES_USER=postgres carbond migrations
 ```
 
