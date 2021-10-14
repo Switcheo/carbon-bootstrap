@@ -89,14 +89,14 @@ go: go version go1.17 linux/amd64
 
 ## Install Redis
 ```bash
-sudo apt-get redis-server -y
+sudo apt-get install redis-server -y
 ```
 
 ## Install Postgres
 ```bash
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get postgres-12 -y
+sudo apt-get install postgresql-12 -y
 sudo sed -i -e '/^local   all             postgres                                peer$/d' \
     -e 's/ peer/ trust/g' \
     -e 's/ md5/ trust/g' \
