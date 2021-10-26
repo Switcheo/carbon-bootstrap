@@ -98,6 +98,7 @@ mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
 sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
 
 sudo mkdir /var/log/carbon
+sudo chown :$USER /var/log/carbon
 
 echo "---------Creating system file---------"
 
