@@ -104,8 +104,11 @@ echo "---------Creating system file---------"
 sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Daemon
-Wants=carbond-oracle.service
-Wants=carbond-liquidator.service
+Wants=carbond@oracle.service
+Wants=carbond@liquidator.service
+Wants=carbond@ws-api.service
+Wants=carbond@fee.service
+Wants=carbond@ext-events.service
 After=network-online.target
 
 [Service]
@@ -125,16 +128,16 @@ LimitNOFILE=64000
 WantedBy=multi-user.target
 EOF
 
-echo "Setting up your oracle"
+echo "Setting up your services"
 
 echo "---------Creating system file---------"
 
 echo Enter keyring passphrase:
 read -s WALLET_PASSWORD
 
-sudo tee /etc/systemd/system/carbond-oracle.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/carbond@.service > /dev/null <<EOF
 [Unit]
-Description=Carbon Oracle Daemon
+Description=Carbon %i Daemon
 BindsTo=carbond.service
 After=carbond.service
 After=network-online.target
@@ -143,35 +146,10 @@ After=network-online.target
 User=$USER
 Environment="ORACLE_WALLET_LABEL=oraclewallet"
 Environment="WALLET_PASSWORD=$WALLET_PASSWORD"
-ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond oracle
-StandardOutput=append:/var/log/carbon/oracle.log
-StandardError=append:/var/log/carbon/oracle.err
-Restart=always
-RestartSec=3
-LimitNOFILE=64000
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-echo "Setting up your liquidator"
-
-echo "---------Creating system file---------"
-
-sudo tee /etc/systemd/system/carbond-liquidator.service > /dev/null <<EOF
-[Unit]
-Description=Carbon Liquidator Daemon
-BindsTo=carbond.service
-After=carbond.service
-After=network-online.target
-
-[Service]
-User=$USER
-Environment="WALLET_PASSWORD=$WALLET_PASSWORD"
 Environment="POSTGRES_USER=postgres"
-ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond liquidator
-StandardOutput=append:/var/log/carbon/liquidator.log
-StandardError=append:/var/log/carbon/liquidator.err
+ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond %i
+StandardOutput=append:/var/log/carbon/%i.log
+StandardError=append:/var/log/carbon/%i.err
 Restart=always
 RestartSec=3
 LimitNOFILE=64000
