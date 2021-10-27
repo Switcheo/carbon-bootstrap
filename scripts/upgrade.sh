@@ -70,10 +70,10 @@ DAEMON=carbond
 PERSISTENT_PEERS="d5c57895d85e59593cc992c09cdc9a1555457c22@54.254.184.152:26656"
 
 echo "Installing carbond"
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1/carbon0.0.1.tar.gz
-tar -zxvf carbon0.0.1.tar.gz
+wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.2/carbon0.0.2.tar.gz
+tar -zxvf carbon0.0.2.tar.gz
 sudo mv cosmovisor /usr/local/bin
-rm carbon0.0.1.tar.gz
+rm carbon0.0.2.tar.gz
 
 echo "Setting up your validator"
 ./$DAEMON init $YOUR_NAME
