@@ -49,13 +49,14 @@ fi
 
 if [ $(dpkg-query -W -f='${Status}' postgresql-13 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
   echo "-- Installing postgresql-13"
-  sudo apt-get install postgres-13 -y;
-  sudo sed -i -e '/^local   all             postgres                                peer$/d' \
-    -e 's/ peer/ trust/g' \
-    -e 's/ md5/ trust/g' \
-    /etc/postgresql/12/main/pg_hba.conf
-  sudo service postgresql restart
+  sudo apt-get install postgresql-13 -y;
 fi
+
+sudo sed -i -e '/^local   all             postgres                                peer$/d' \
+  -e 's/ peer/ trust/g' \
+  -e 's/ md5/ trust/g' \
+  /etc/postgresql/12/main/pg_hba.conf
+sudo service postgresql restart
 
 if [ $(dpkg-query -W -f='${Status}' redis-server 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
   echo "-- Installing redis"
