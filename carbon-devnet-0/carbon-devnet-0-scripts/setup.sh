@@ -62,7 +62,7 @@ dropdb -U postgres --if-exists carbon
 rm -rf ~/.carbon
 sudo rm -f /usr/local/bin/carbond
 sudo rm -f /usr/local/bin/cosmovisor
-sudo rm -rf /var/log/carbon
+sudo rm -rf /var/log/carbon/*
 
 YOUR_KEY_NAME=val
 YOUR_NAME=$1
@@ -107,8 +107,7 @@ Environment=\"PATH=$HOME/.carbon/cosmovisor/current/bin:/usr/local/sbin:/usr/loc
 Environment=\"POSTGRES_USER=postgres\"
 ExecStartPre=-killall -q -w -s 9 carbond
 ExecStart=/usr/local/bin/cosmovisor start --persistence
-StandardOutput=append:/var/log/carbon/start.log
-StandardError=append:/var/log/carbon/start.err
+Storage=persistent
 Restart=always
 RestartSec=3
 LimitNOFILE=64000
@@ -117,7 +116,6 @@ LimitNOFILE=64000
 WantedBy=multi-user.target
 " > carbond.service
 
-sudo mkdir /var/log/carbon
 sudo mv carbond.service /etc/systemd/system/carbond.service
 sudo systemctl daemon-reload
 
@@ -137,8 +135,7 @@ User=$USER
 Environment=\"ORACLE_WALLET_LABEL=oraclewallet\"
 Environment=\"WALLET_PASSWORD=$WALLET_PASSWORD\"
 ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond oracle
-StandardOutput=append:/var/log/carbon/oracle.log
-StandardError=append:/var/log/carbon/oracle.err
+Storage=persistent
 Restart=always
 RestartSec=3
 LimitNOFILE=64000
@@ -163,8 +160,7 @@ User=$USER
 Environment=\"WALLET_PASSWORD=$WALLET_PASSWORD\"
 Environment=\"POSTGRES_USER=postgres\"
 ExecStart=$HOME/.carbon/cosmovisor/current/bin/carbond liquidator
-StandardOutput=append:/var/log/carbon/liquidator.log
-StandardError=append:/var/log/carbon/liquidator.err
+Storage=persistent
 Restart=always
 RestartSec=3
 LimitNOFILE=64000
