@@ -11,8 +11,8 @@ CHAIN_ID=$1
 MONIKER=$2
 DAEMON=carbond
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
-VERSION=$(<$CHAIN_CONFIG_URL/VERSION)
-PERSISTENT_PEERS=$(<$CHAIN_CONFIG_URL/PEERS)
+VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
+PERSISTENT_PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
 
 echo "-- Carbon Setup --"
 
