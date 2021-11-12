@@ -8,10 +8,10 @@ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
 sudo apt update
+sudo apt install build-essential jq cmake -y
 
 if [ ! -f "/usr/local/lib/libleveldb.so.1" ]; then
   echo "-- Installing level db"
-  sudo apt install build-essential jq cmake -y
 
   wget https://github.com/google/leveldb/archive/1.23.tar.gz
   tar -zxvf 1.23.tar.gz
@@ -52,10 +52,8 @@ if [ $(dpkg-query -W -f='${Status}' postgresql-13 2>/dev/null | grep -c "ok inst
   sudo apt-get install postgresql-13 -y;
 fi
 
-sudo sed -i -e '/^local   all             postgres                                peer$/d' \
-  -e 's/ peer/ trust/g' \
-  -e 's/ md5/ trust/g' \
-  /etc/postgresql/12/main/pg_hba.conf
+sudo sed -i.orig '/local\(\s*\)all\(\s*\)postgres/ s|\(\s*\)peer|         127.0.0.1\/32         trust|; s|local|host|' \
+  /etc/postgresql/13/main/pg_hba.conf
 sudo service postgresql restart
 
 if [ $(dpkg-query -W -f='${Status}' redis-server 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
