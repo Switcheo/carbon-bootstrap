@@ -47,7 +47,8 @@ Once you have your required keys imported, you can now start the node.
 The following command will start the carbon node itself, together with the oracle and liquidator services, which is required to be ran by validators.
 
 ```bash
-sudo systemctl start carbond
+sudo systemctl enable carbond
+sudo service carbond start
 ```
 
 Inspect the logs and make sure everything is working fine.

@@ -4,14 +4,12 @@ This guide will explain how to do a manual install the `carbond` node onto your 
 
 ## Install build requirements
 
-Install `cmake`.
-
 On Ubuntu this can be done with the following:
 
 ```bash
 sudo apt-get update
 
-sudo apt-get install -y build-essential cmake -y
+sudo apt-get install build-essential jq cmake -y
 ```
 
 ## Install Go
