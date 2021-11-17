@@ -22,12 +22,6 @@ Omit this if services are not enabled or data should be read from a remote datab
 EOF
 }
 
-if [[ $(( $# - $OPTIND )) -ne 2 ]]; then
-  echo "Wrong number of parameters."
-  printUsage
-  exit 1
-fi
-
 # Install configuration variables
 PUBLIC_NODE=false
 LOCAL_DATABASE=false
@@ -64,26 +58,34 @@ while getopts ":adlopvwh" opt; do
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
+      printUsage
       exit 1
       ;;
     :)
       echo "Option -$OPTARG requires an argument." >&2
+      printUsage
       exit 1
       ;;
   esac
 done
 
+if [[ $(( $# - $OPTIND )) -ne 1 ]]; then
+  echo "Wrong number of parameters."
+  printUsage
+  exit 1
+fi
+
 # Chain variables
 DAEMON=carbond
-ARG1=${@:$OPTIND:1}
-ARG2=${@:$OPTIND+1:1}
+CHAIN_ID=${@:$OPTIND:1}
+MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
 PERSISTENT_PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
 
 # if oracle or liquidator is installed, redis and hot wallet is required.
 WALLET_STRING=
-if [ "$SETUP_LIQUIDATOR" = true || "$SETUP_ORACLE" = true ]; then
+if [ "$SETUP_LIQUIDATOR" = true ] || [ "$SETUP_ORACLE" = true ]; then
   INSTALL_REDIS=true
   echo "Enter your keyring passphrase for running the liquidator or oracle service:"
   read -s WALLET_PASSWORD
@@ -92,18 +94,18 @@ fi
 
 # if local database is not installed, check dependencies
 if [ "$LOCAL_DATABASE" != true ]; then
-  if [ "$SETUP_PERSISTENCE" = true && -z "$POSTGRES_URL" ]; then
+  if [ "$SETUP_PERSISTENCE" = true ] && [ -z "$POSTGRES_URL" ]; then
     echo "Error: No psql database configured for the persistence writer service (-p). Either run with -d to configure
     a local postgres instance, or provide a \$POSTGRES_URL connection string to a psql database where write permssions are enabled."
     exit 1
   fi
-  if [ ( "$SETUP_API" = true || "$SETUP_ORACLE" = true || "$SETUP_LIQUIDATOR" = true ) && -z "$POSTGRES_URL" ]; then
+  if [ ( "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ) && [ -z "$POSTGRES_URL" ]; then
     echo "Error: No psql database configured for reading off-chain data (required by -a, -o or -l). Either run with -d -p
     to configure a local postgres instance and persistence service, or provide a \$POSTGRES_URL connection string to the psql database
     where a node running the persistence service is writing this data."
     exit 1
   fi
-  if [ "$SETUP_API" = true && -z "$WS_GRPC_URL" ]; then
+  if [ "$SETUP_API" = true ] && [ -z "$WS_GRPC_URL" ]; then
     echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
     to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
     (e.g. WS_GRPC_URL=127.0.01:9091) of a node running the persistence service."
