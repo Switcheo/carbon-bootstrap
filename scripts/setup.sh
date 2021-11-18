@@ -81,13 +81,17 @@ CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
+if [ -z ${VERSION+x} ]; then
+  echo "Error: Invalid chain ID. Chain with ID: $CHAIN_ID could not be found at https://github.com/Switcheo/carbon-testnet"
+  exit 1
+fi
 PERSISTENT_PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
 
 # if oracle or liquidator is installed, redis and hot wallet is required.
 WALLET_STRING=
 if [ "$SETUP_LIQUIDATOR" = true ] || [ "$SETUP_ORACLE" = true ]; then
   INSTALL_REDIS=true
-  echo "Enter your keyring passphrase for running the liquidator or oracle service:"
+  echo "Enter your keyring passphrase for running the liquidator / oracle service(s):"
   read -s WALLET_PASSWORD
   WALLET_STRING="Environment=\"WALLET_PASSWORD=$WALLET_PASSWORD\""
 fi
@@ -99,18 +103,20 @@ if [ "$LOCAL_DATABASE" != true ]; then
     a local postgres instance, or provide a \$POSTGRES_URL connection string to a psql database where write permssions are enabled."
     exit 1
   fi
-  if [ ( "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ) && [ -z "$POSTGRES_URL" ]; then
+  if ( [ "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ] ) && [ -z "$POSTGRES_URL" ]; then
     echo "Error: No psql database configured for reading off-chain data (required by -a, -o or -l). Either run with -d -p
     to configure a local postgres instance and persistence service, or provide a \$POSTGRES_URL connection string to the psql database
     where a node running the persistence service is writing this data."
     exit 1
   fi
-  if [ "$SETUP_API" = true ] && [ -z "$WS_GRPC_URL" ]; then
-    echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
-    to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
-    (e.g. WS_GRPC_URL=127.0.01:9091) of a node running the persistence service."
-    exit 1
-  fi
+fi
+
+# if persistence is not installed, api requires a remote persistence WS GRPC address and port
+if ( [ "$SETUP_PERSISTENCE" != true ] || "$SETUP_API" = true ] ) && [ -z "$WS_GRPC_URL" ]; then
+  echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
+  to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
+  (e.g. WS_GRPC_URL=127.0.01:9091) of a node running the persistence service."
+  exit 1
 fi
 
 echo "-- Carbon Setup --"
@@ -124,10 +130,11 @@ bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/mast
 
 echo "-- Downloading carbond"
 
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v${VERSION}/carbon${VERSION}.tar.gz
-tar -zxvf carbon${VERSION}.tar.gz
+FILENAME=carbon-${VERSION}-linux-$(dpkg --print-architecture).tar.gz
+wget https://github.com/Switcheo/carbon-testnets/releases/download/${VERSION}/${FILENAME}.tar.gz
+tar -zxvf ${FILENAME}
 sudo mv cosmovisor /usr/local/bin
-rm carbon${VERSION}.tar.gz
+rm ${FILENAME}
 
 echo "---- Downloading genesis file"
 
