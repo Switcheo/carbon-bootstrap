@@ -3,7 +3,7 @@
 set -e
 
 DAEMON=carbond
-DENOM=tswth
+DENOM=swth
 
 echo "-- Creating keys"
 

@@ -1,0 +1,602 @@
+{
+  "genesis_time": "2021-11-22T07:54:13.429809427Z",
+  "chain_id": "carbon-42069",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {}
+  },
+  "app_hash": "",
+  "app_state": {
+    "adl": {},
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "tswth1yewhe23l05shrz2td90cutklq0ar8zwaddcsn2",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [
+        {
+          "address": "tswth1yewhe23l05shrz2td90cutklq0ar8zwaddcsn2",
+          "coins": [
+            {
+              "denom": "swth",
+              "amount": "100000000000000000"
+            }
+          ]
+        }
+      ],
+      "supply": [],
+      "denom_metadata": []
+    },
+    "book": {
+      "order_books": [],
+      "stop_books": []
+    },
+    "broker": {
+      "amms": []
+    },
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "ccm": {
+      "created_tx_count": "0",
+      "created_tx_details": {},
+      "received_tx_ids": {},
+      "denom_creators": {}
+    },
+    "cdp": {
+      "vaults": [],
+      "vault_types": []
+    },
+    "coin": {
+      "tokens": [
+        {
+          "id": "swth",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "swth",
+          "name": "Switcheo Testnet Token",
+          "symbol": "SWTH",
+          "decimals": "8",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "swth",
+          "bridge_address": "",
+          "is_active": true,
+          "is_collateral": false
+        }
+      ],
+      "wrapper_mappings": {},
+      "locked_coins": [],
+      "position_pools": [],
+      "bridges": [
+        {
+          "name": "Bitcoin via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "1",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Bitcoin",
+          "enabled": true
+        },
+        {
+          "name": "Ethereum via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Ethereum",
+          "enabled": true
+        },
+        {
+          "name": "Neo via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Neo",
+          "enabled": true
+        },
+        {
+          "name": "Binance Smart Chain via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "6",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Binance Smart Chain",
+          "enabled": true
+        },
+        {
+          "name": "Zilliqa via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "9",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Zilliqa",
+          "enabled": true
+        }
+      ]
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "swth",
+        "amount": "1000"
+      }
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.020000000000000000",
+        "base_proposer_reward": "0.010000000000000000",
+        "bonus_proposer_reward": "0.040000000000000000",
+        "liquidity_provider_reward": "0.000000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": {
+        "community_pool": [],
+        "liquidity_provider_pool": []
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "fee": {
+      "msg_fees": [
+        {
+          "msg_type": "create_order",
+          "fee": "0"
+        },
+        {
+          "msg_type": "create_oracle_vote",
+          "fee": "0"
+        },
+        {
+          "msg_type": "create_pool",
+          "fee": "100000000000"
+        },
+        {
+          "msg_type": "claim_pool_rewards",
+          "fee": "3000000000"
+        },
+        {
+          "msg_type": "stake_pool_token",
+          "fee": "3000000000"
+        },
+        {
+          "msg_type": "unstake_pool_token",
+          "fee": "3000000000"
+        },
+        {
+          "msg_type": "default_fee",
+          "fee": "100000000"
+        }
+      ]
+    },
+    "genutil": {
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "starship",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.070000000000000000",
+                  "max_rate": "1.000000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "tswth1yewhe23l05shrz2td90cutklq0ar8zwaddcsn2",
+                "validator_address": "tswthvaloper1yewhe23l05shrz2td90cutklq0ar8zwallytwd",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "+2imDSxuTF4qUtZmE3YjyYDed6skmyWZAkBaM9Wxkfc="
+                },
+                "value": {
+                  "denom": "swth",
+                  "amount": "1000000000000"
+                }
+              }
+            ],
+            "memo": "d46eb900ef3c24387f942be66496a62101ced0e8@172.34.17.49:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "An5t8iwTVdz1JU4wJhekgrfGuxb9PELOlaJt426zIX/l"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "fJHYLObEnaCOW8rTF+Qqowg5mvrpNEZMdCPnSkmcec44zRCwlpup/fI0eosA8oAOgtj/81yzLTwXGINldO7HkA=="
+          ]
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "swth",
+            "amount": "10000000"
+          }
+        ],
+        "max_deposit_period": "172800s"
+      },
+      "voting_params": {
+        "voting_period": "172800s"
+      },
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.334000000000000000"
+      }
+    },
+    "headersync": {
+      "consensus_peers": {},
+      "checkpoint_hashes": {}
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": [
+            "06-solomachine",
+            "07-tendermint"
+          ]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0"
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0"
+      }
+    },
+    "inflation": {
+      "mint_data": {
+        "first_block_time": "0",
+        "prev_block_time": "0",
+        "current_supply": "0"
+      },
+      "inflation_enabled": true
+    },
+    "insurance": {
+      "fund_in_by_markets": [],
+      "fund_out_by_markets": []
+    },
+    "leverage": {
+      "market_leverages_with_keys": []
+    },
+    "liquidation": {
+      "outstanding_positions": {}
+    },
+    "liquiditypool": {
+      "pools": [],
+      "reward_curve": {
+        "start_time": "2021-11-22T07:54:13.425112153Z",
+        "initial_reward": 6000,
+        "interval": "604800",
+        "number_of_reductions": 53,
+        "reduction": 500,
+        "final_reward": 400,
+        "reductions_made": 0
+      },
+      "commitment_curve": {
+        "max_commitment_duration": "31557600",
+        "max_reward_multiplier": 500
+      },
+      "commitment_expiries": [],
+      "commitment_with_keys": [],
+      "commitment_totals_with_keys": [],
+      "reward_histories_with_keys": [],
+      "all_last_claimed_with_keys": [],
+      "total_allocated": [],
+      "reward_weights": {
+        "wrapped_reward_weights": []
+      }
+    },
+    "lockproxy": {
+      "nonce": "0",
+      "chain_ids": {},
+      "registries": {},
+      "operators": {}
+    },
+    "market": {
+      "markets": []
+    },
+    "mint": {
+      "minter": {
+        "inflation": "0.130000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "swth",
+        "inflation_rate_change": "0.130000000000000000",
+        "inflation_max": "0.200000000000000000",
+        "inflation_min": "0.070000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "6311520"
+      }
+    },
+    "misc": null,
+    "oracle": {
+      "oracles": [
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DXBT",
+          "description": "Demex XBT Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "100",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "1",
+          "spec": "{\n\t\"output_id\":\"btc_usd\",\n\t\"templates\":[{\n\t\t\"template_id\":\"response_handler\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"unresponsive_handler\",\n\t\t\t\"config\":{\"strategy\":\"use_last\",\"grace_duration\":\"120\"}\n\t\t},{\n\t\t\t\"adapter\":\"unchanged_handler\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"threshold_duration\":\"900\"}\n\t\t},{\n\t\t\t\"adapter\":\"median_filter\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"value_ids\":\"[\\\"bitstamp_btc_usd\\\", \\\"kraken_btc_usd\\\", \\\"coinbase_btc_usd\\\"]\",\"tolerance_percentage\":\"10\"}\n\t\t}]\n\t}],\n\t\"jobs\":[{\n\t\t\"output_id\":\"bitstamp_btc_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://www.bitstamp.net/api/v2/ticker/btcusd\",\"path\":\"last\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"kraken_btc_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD\",\"path\":\"result.XXBTZUSD.c.0\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"coinbase_btc_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.coinbase.com/v2/prices/spot?currency=USD\",\"path\":\"data.amount\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"btc_usd\",\n\t\t\"adapter\":\"weighted_average\",\n\t\t\"config\":{\"value_ids\":\"[\\\"bitstamp_btc_usd\\\", \\\"kraken_btc_usd\\\", \\\"coinbase_btc_usd\\\"]\",\"weights\":\"[0.25, 0.25, 0.5]\"}\n\t},{\n\t\t\"output_id\":\"btc_usd\",\n\t\t\"input_id\":\"btc_usd\",\n\t\t\"adapter\":\"float_handler\",\n\t\t\"config\":{\"operation\":\"round\",\"precision\":\"2\"}\n\t}]\n}"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DETH",
+          "description": "Demex ETH Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "100",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "1",
+          "spec": "{\n\t\"output_id\":\"eth_usd\",\n\t\"templates\":[{\n\t\t\"template_id\":\"response_handler\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"unresponsive_handler\",\n\t\t\t\"config\":{\"strategy\":\"use_last\",\"grace_duration\":\"120\"}\n\t\t},{\n\t\t\t\"adapter\":\"unchanged_handler\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"threshold_duration\":\"900\"}\n\t\t},{\n\t\t\t\"adapter\":\"median_filter\",\n\t\t\t\"config\":{\"strategy\":\"nullify\",\"value_ids\":\"[\\\"bitstamp_eth_usd\\\", \\\"kraken_eth_usd\\\", \\\"coinbase_eth_usd\\\"]\",\"tolerance_percentage\":\"10\"}\n\t\t}]\n\t}],\n\t\"jobs\":[{\n\t\t\"output_id\":\"bitstamp_eth_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://www.bitstamp.net/api/v2/ticker/ethusd\",\"path\":\"last\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"kraken_eth_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.kraken.com/0/public/Ticker?pair=XETHZUSD\",\"path\":\"result.XETHZUSD.c.0\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"coinbase_eth_usd\",\n\t\t\"adapters\":[{\n\t\t\t\"adapter\":\"fetcher\",\n\t\t\t\"config\":{\"url\":\"https://api.coinbase.com/v2/prices/ETH-USD/buy\",\"path\":\"data.amount\",\"timeout\":\"10\"}\n\t\t},{\n\t\t\t\"template\":\"response_handler\"\n\t\t}]\n\t},{\n\t\t\"output_id\":\"eth_usd\",\n\t\t\"adapter\":\"weighted_average\",\n\t\t\"config\":{\"value_ids\":\"[\\\"bitstamp_eth_usd\\\", \\\"kraken_eth_usd\\\", \\\"coinbase_eth_usd\\\"]\",\"weights\":\"[0.25, 0.25, 0.5]\"}\n\t},{\n\t\t\"output_id\":\"eth_usd\",\n\t\t\"input_id\":\"eth_usd\",\n\t\t\"adapter\":\"float_handler\",\n\t\t\"config\":{\"operation\":\"round\",\"precision\":\"2\"}\n\t}]\n}"
+        }
+      ],
+      "results": [
+        {
+          "oracle_id": "DXBT",
+          "timestamp": "0",
+          "data": "10000"
+        },
+        {
+          "oracle_id": "DETH",
+          "timestamp": "0",
+          "data": "300"
+        }
+      ],
+      "votes": []
+    },
+    "order": {
+      "orders": [],
+      "account_order_ids": [],
+      "account_sequences": [],
+      "flags": [
+        {
+          "blockchain": "",
+          "is_trading_enabled": true
+        }
+      ]
+    },
+    "params": null,
+    "position": {
+      "open_positions": []
+    },
+    "pricing": {
+      "prices": []
+    },
+    "profile": {
+      "profiles": [
+        {
+          "address": "tswth197kwqmzdwn50sakljwz4qxpw3ngpew9dhpxaa8",
+          "username": "open_interest",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1s762lf8rnv3myffw4s8m5kn4gvruftp8ct89rt",
+          "username": "open_orders",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1c7ptc87hkd54e3r7zjy92q29xkq7t79wg99aft",
+          "username": "insurance",
+          "twitter": ""
+        },
+        {
+          "address": "tswth12uxz5eayngcls6lx55j9g28npen6z5fr658zht",
+          "username": "liquidation",
+          "twitter": ""
+        },
+        {
+          "address": "tswth17xpfvakm2amg962yls6f84z3kell8c5ltscxpp",
+          "username": "fee",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8ukl6rr",
+          "username": "distribution",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1xxh3p9vvg3xpnd4uw8yzkp7rpnfyvc0hpmh2ax",
+          "username": "slashing",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1mx5e3jkxvzf8frl7cl8m69264ctn0shljqkzvg",
+          "username": "staking",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1gwqac243g2z3vryqsev6acq965f9ttwhzjzw55",
+          "username": "bank",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1m3h30wlvsf8llruxtpukdvsy0km2kum8ncu7du",
+          "username": "mint",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1hh6fc0pcsggzlsqhl7mxzyyvvw5rd5r9unaw8n",
+          "username": "auth",
+          "twitter": ""
+        },
+        {
+          "address": "tswth10d07y265gmmuvt4z0w9aw880jnsr700jptgru0",
+          "username": "gov",
+          "twitter": ""
+        },
+        {
+          "address": "tswth10lheg7wgh3drep5frjuzj6wt7tluw0rn4ayknz",
+          "username": "upgrade",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1a6p9p7mkuz2txj68ruf6w0dmu5w34c2zd7zqzf",
+          "username": "evidence",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1atn6enzwsq95tdsw2jvz9aa33020e4y4m3nxgm",
+          "username": "genutil",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1tygms3xhhs3yv487phx3dw4a95jn7t7l6jwc9l",
+          "username": "not_bonded_pool",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3wjjfnt",
+          "username": "bonded_pool",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1pzeysjut9qmsfr06h9v5fhy3klmxeknh5kfl2v",
+          "username": "crosschain_bridge",
+          "twitter": ""
+        },
+        {
+          "address": "tswth196w5cyqfezzkv6pzl5wsrmfwgesenzykel9550",
+          "username": "crosschain_wrapper",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1jdkc8y4a60k279fwe9hwgzdpn6pnxzg8psv0nm",
+          "username": "committed_lp_tokens",
+          "twitter": ""
+        }
+      ]
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "100",
+        "min_signed_per_window": "0.500000000000000000",
+        "downtime_jail_duration": "600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.010000000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1814400s",
+        "max_validators": 100,
+        "max_entries": 21,
+        "historical_entries": 10000,
+        "bond_denom": "swth"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "subaccount": {
+      "sub_accounts": []
+    },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      }
+    },
+    "upgrade": {},
+    "vesting": {}
+  }
+}

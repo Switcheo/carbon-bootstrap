@@ -4,7 +4,7 @@ This repo collects the genesis and configuration files for the various Carbon te
 
 ## Testnet Status
 
-Latest testnet: [carbon-0](/carbon-0/README.md)
+Latest testnet: [carbon-42069](./carbon-42069/genesis.json)
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ Latest testnet: [carbon-0](/carbon-0/README.md)
 To quickly get started with the latest testnet, run this command to automatically set up all dependencies and a full node / validator node:
 
 ```bash
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/setup.sh) <chain_id> <your_moniker> -adop
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/setup.sh) -adlop <chain_id> <your_moniker>
 ```
 
 If running a validator, configure your operator keys in the section below.
@@ -36,7 +36,7 @@ cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 
 #### Automatic
 
-To install all required validator and subaccount keys directly on your validator node, run [scripts/create-keys.sh]:
+To install all required validator and subaccount keys directly on your validator node, run [scripts/create-keys.sh](./scripts/create-keys.sh):
 
 ```bash
 bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/create-keys.sh)
@@ -75,7 +75,7 @@ You can also create your operator keys on another node, such as a developer mach
 6. After receiving tokens, promote your node to a validator by running:
 
     ```bash
-    carbond tx staking create-validator --amount 100000000000tswth --commission-max-change-rate "0.025" --commission-max-rate "0.20" --commission-rate "0.05" --details "Some details about your validator" --from val --pubkey="PublicKeyFromStep1" --moniker "NameForYourValidator" --min-self-delegation "1" --fees 100000000tswth --keyring-backend file
+    carbond tx staking create-validator --amount 100000000000swth --commission-max-change-rate "0.025" --commission-max-rate "0.20" --commission-rate "0.05" --details "Some details about your validator" --from val --pubkey="PublicKeyFromStep1" --moniker "NameForYourValidator" --min-self-delegation "1" --fees 100000000swth --keyring-backend file
     ```
 
 ##### Create oracle
@@ -101,13 +101,13 @@ All validators need to run a node (either the same node as the validator, or som
 3. After receiving tokens, initiate linking your oracle account as a subaccount of your validator by running this from a node that has access to your validator operator wallet.
 
     ```bash
-    carbond tx subaccount create-sub-account <oracle_address> --from val --fees 100000000tswth --keyring-backend file -y
+    carbond tx subaccount create-sub-account <oracle_address> --from val --fees 100000000swth --keyring-backend file -y
     ```
 
 4. Accept the link from a node that has access to the oracle account (i.e. oracle subservice node).
 
     ```bash
-    carbond tx subaccount activate-sub-account <val_address> --from oracle --fees 100000000tswth--keyring-backend file -y
+    carbond tx subaccount activate-sub-account <val_address> --from oracle --fees 100000000swth--keyring-backend file -y
     ```
 
     > By running the oracle as a subaccount, your validator operator key can be secured without exposing it on a hot machine.
