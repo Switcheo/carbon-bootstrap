@@ -120,7 +120,7 @@ fi
 if [ "$SETUP_PERSISTENCE" != true ] && "$SETUP_API" = true ] && [ -z "$WS_GRPC_URL" ]; then
   echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
   to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
-  (e.g. WS_GRPC_URL=127.0.01:9091) of a node running the persistence service."
+  (e.g. WS_GRPC_URL=127.0.0.1:9091) of a node running the persistence service."
   exit 1
 fi
 
@@ -129,6 +129,8 @@ echo "-- Carbon Setup --"
 DEP_FLAGS=
 if [ "$LOCAL_DATABASE" = true ]; then
   DEP_FLAGS+=" -p"
+elif [ "$SETUP_PERSISTENCE" = true ]; then
+  DEP_FLAGS+=" -c"
 fi
 if [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ]; then
   DEP_FLAGS+=" -r"
@@ -179,18 +181,18 @@ sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
 
 # configure database strings
 PERSISTENCE_FLAG=
-DB_NAME=carbon
-MAINTENANCE_DB_URL=postgresql://postgres@localhost:5432/postgres
-DB_REGEX="^(.+[a-z0-9])\/([a-zA-Z0-9]+)(\?.*)*$"
 if [ -n "$POSTGRES_URL" ]; then
-  if [[ $POSTGRES_URL =~ $DB_REGEX ]]; then
+  db_regex="^(.+[a-z0-9])\/([a-zA-Z0-9]+)(\?.*)*$"
+  if [[ $POSTGRES_URL =~ $db_regex ]]; then
     DB_NAME=${BASH_REMATCH[2]}
-    MAINTENANCE_DB_URL=${BASH_REMATCH[1]}/$DB_NAME${BASH_REMATCH[3]}
+    MAINTENANCE_DB_URL=${BASH_REMATCH[1]}/${CONNECT_DB_NAME:=postgres}${BASH_REMATCH[3]}
   else
     echo "POSTGRES_URL is invalid. Must end with database name (e.g. postgresql://username:password@localhost:5432/carbon)"
     exit 1
   fi
 else
+  DB_NAME=carbon
+  MAINTENANCE_DB_URL=postgresql://postgres@localhost:5432/postgres
   POSTGRES_URL=postgresql://postgres@localhost:5432/carbon
 fi
 
