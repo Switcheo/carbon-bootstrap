@@ -4,11 +4,15 @@ set -e
 
 echo "-- Installing dependencies --"
 
+SETUP_PSQL_CLIENT=false
 SETUP_POSTGRES=false
 SETUP_REDIS=false
 
-while getopts ":pr" opt; do
+while getopts ":cpr" opt; do
   case $opt in
+    c)
+      SETUP_PSQL_CLIENT=true
+      ;;
     p)
       SETUP_POSTGRES=true
       ;;
@@ -32,7 +36,7 @@ while getopts ":pr" opt; do
   esac
 done
 
-if [ "$SETUP_POSTGRES" = true ]; then
+if [ "$SETUP_POSTGRES" = true ] || [ "$SETUP_PSQL_CLIENT" = true ]; then
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 fi
@@ -52,6 +56,12 @@ if [ "$SETUP_POSTGRES" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-1
   sudo sed -i.orig '/local\(\s*\)all\(\s*\)postgres/ s|\(\s*\)peer|         127.0.0.1\/32         trust|; /local\(\s*\)all\(\s*\)postgres/ s|local|host|' \
     /etc/postgresql/13/main/pg_hba.conf
   sudo service postgresql restart
+fi
+
+if [ "$SETUP_PSQL_CLIENT" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-client-13 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+  echo "-- Installing postgresql-client-13"
+
+  sudo apt-get install postgresql-client-13 -y
 fi
 
 if [ "$SETUP_REDIS" = true ] && [ $(dpkg-query -W -f='${Status}' redis-server 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
