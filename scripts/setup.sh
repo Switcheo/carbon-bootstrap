@@ -36,7 +36,7 @@ SETUP_PERSISTENCE=false
 SETUP_RELAYER=false
 INSTALL_REDIS=false
 
-while getopts ":adlopvwh" opt; do
+while getopts ":adloprh" opt; do
   case $opt in
     a)
       SETUP_API=true
