@@ -78,7 +78,7 @@
           "fee": "0"
         },
         {
-          "msg_type": "/Switcheo.carbon.oracle.MsgCreateOracle",
+          "msg_type": "/Switcheo.carbon.oracle.MsgCreateVote",
           "fee": "0"
         },
         {
@@ -515,7 +515,7 @@
       "fund_out_by_markets": []
     },
     "leverage": {
-      "market_leverages_with_keys": []
+      "market_leverage_records": []
     },
     "liquidation": {
       "outstanding_positions": {}
@@ -556,7 +556,7 @@
         }
       ],
       "reward_curve": {
-        "start_time": "2021-11-23T04:54:42.312405945Z",
+        "start_time": "2021-12-15T08:30:59.113213179Z",
         "initial_reward": 6000,
         "interval": "604800",
         "number_of_reductions": 53,
@@ -568,14 +568,16 @@
         "max_commitment_duration": "31557600",
         "max_reward_multiplier": 500
       },
-      "commitment_expiries": [],
-      "commitment_with_keys": [],
-      "commitment_totals_with_keys": [],
-      "reward_histories_with_keys": [],
-      "all_last_claimed_with_keys": [],
-      "total_allocated": [],
       "reward_weights": {
-        "wrapped_reward_weights": []
+        "weights": []
+      },
+      "commitments": [],
+      "total_commitments": [],
+      "commitment_expiries": [],
+      "reward_histories": [],
+      "last_claims": [],
+      "allocated_rewards": {
+        "coins": []
       }
     },
     "lockproxy": {
@@ -761,7 +763,7 @@
           "mark_price_band": 2000,
           "last_price_protected_band": 200,
           "index_oracle_id": "DETH",
-          "expiry_time": "2021-11-23T05:09:42.314435226Z",
+          "expiry_time": "2021-12-15T08:45:59.110271875Z",
           "is_active": true,
           "is_settled": false,
           "closed_block_height": "0"
@@ -821,7 +823,7 @@
           "mark_price_band": 2000,
           "last_price_protected_band": 200,
           "index_oracle_id": "DXBT",
-          "expiry_time": "2021-11-24T04:54:42.314455878Z",
+          "expiry_time": "2021-12-16T08:30:59.110285167Z",
           "is_active": true,
           "is_settled": false,
           "closed_block_height": "0"
@@ -851,7 +853,7 @@
           "mark_price_band": 2000,
           "last_price_protected_band": 200,
           "index_oracle_id": "DETH",
-          "expiry_time": "2021-11-24T04:54:42.314466168Z",
+          "expiry_time": "2021-12-16T08:30:59.110300215Z",
           "is_active": true,
           "is_settled": false,
           "closed_block_height": "0"
@@ -881,7 +883,7 @@
           "mark_price_band": 2000,
           "last_price_protected_band": 200,
           "index_oracle_id": "DXBT",
-          "expiry_time": "2021-11-24T04:54:42.314474512Z",
+          "expiry_time": "2021-12-16T08:30:59.110307674Z",
           "is_active": true,
           "is_settled": false,
           "closed_block_height": "0"
