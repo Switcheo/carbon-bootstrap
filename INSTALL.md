@@ -256,6 +256,7 @@ sudo tee /etc/logrotate.d/carbon > /dev/null <<EOF
   notifempty
   missingok
 }
+EOF
 ```
 
 ### Running using `systemd`
