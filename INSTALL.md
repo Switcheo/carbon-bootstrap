@@ -130,7 +130,7 @@ mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv /usr/local/bin/carbond ~/.carbon/cosmovisor/genesis/bin
 sudo mv cosmovisor /usr/local/bin
 sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
-sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
+sudo ln -s ~/.carbon/cosmovisor/current/bin/carbond /usr/local/bin/carbond
 ```
 
 ## Install Redis
