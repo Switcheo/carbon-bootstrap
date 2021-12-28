@@ -56,7 +56,7 @@ You can also create your operator keys on another node, such as a developer mach
       carbond tendermint show-validator
       ```
 
-2. On the machine(s) that you wish to install your keys, download and install the appropriate [release](https://github.com/Switcheo/carbon-testnets/releases/download).
+2. On the machine(s) that you wish to install your keys, download and install the appropriate [release](https://github.com/Switcheo/carbon-testnets/releases/).
 
 3. Create your validator operator key and password:
 
