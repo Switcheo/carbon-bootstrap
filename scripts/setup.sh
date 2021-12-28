@@ -117,11 +117,16 @@ if [ "$LOCAL_DATABASE" != true ]; then
 fi
 
 # if persistence is not installed, api requires a remote persistence WS GRPC address and port
+WS_ENV_VAR=
 if [ "$SETUP_PERSISTENCE" != true ] && "$SETUP_API" = true ] && [ -z "$WS_GRPC_URL" ]; then
-  echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
-  to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
-  (e.g. WS_GRPC_URL=127.0.0.1:9091) of a node running the persistence service."
-  exit 1
+  if [ -z "$WS_GRPC_URL" ]; then
+    echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
+    to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
+    (e.g. WS_GRPC_URL=127.0.0.1:9091) of a node running the persistence service."
+    exit 1
+  else
+    WS_ENV_VAR="Environment=\"WS_GRPC_URL=$WS_GRPC_URL\""
+  fi
 fi
 
 echo "-- Carbon Setup --"
@@ -249,17 +254,11 @@ if [ "$SETUP_RELAYER" = true ]; then
   WANTS+="Wants=carbond@fee.service"$'\n'
 fi
 
-# configure ws flag
-WS_FLAG=
-if [ "$SETUP_API" = true ]; then
-  WS_FLAG=--ws-api
-fi
-
 # configure log and start cmds
 
 sudo mkdir -p /var/log/carbon
 
-MAIN_CMD="$(wrapCmd "carbond" "/usr/local/bin/cosmovisor start $PERSISTENCE_FLAG $WS_FLAG")"
+MAIN_CMD="$(wrapCmd "carbond" "/usr/local/bin/cosmovisor start $PERSISTENCE_FLAG")"
 
 sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
 [Unit]
@@ -296,6 +295,7 @@ After=network-online.target
 User=$USER
 $WALLET_STRING
 Environment="POSTGRES_URL=$POSTGRES_URL"
+$WS_ENV_VAR
 $SUB_CMD
 Restart=always
 RestartSec=3

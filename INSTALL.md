@@ -125,12 +125,12 @@ To be best prepared for eventual upgrades, it is recommended to setup Cosmovisor
 Create the initial folder move the `carbond` binary into it:
 
 ```bash
-https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
+wget https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv /usr/local/bin/carbond ~/.carbon/cosmovisor/genesis/bin
 sudo mv cosmovisor /usr/local/bin
 sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
-sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
+sudo ln -s ~/.carbon/cosmovisor/current/bin/carbond /usr/local/bin/carbond
 ```
 
 ## Install Redis
@@ -148,6 +148,7 @@ Postgresql is used by all subservices to store and fetch indexed off-chain data.
 ```bash
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
 sudo apt-get install postgresql-13 -y
 sudo sed -i.orig '/local\(\s*\)all\(\s*\)postgres/ s|\(\s*\)peer|         127.0.0.1\/32         trust|; /local\(\s*\)all\(\s*\)postgres/ s|local|host|' \
   /etc/postgresql/13/main/pg_hba.conf
