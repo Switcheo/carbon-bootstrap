@@ -125,7 +125,7 @@ To be best prepared for eventual upgrades, it is recommended to setup Cosmovisor
 Create the initial folder move the `carbond` binary into it:
 
 ```bash
-https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
+wget https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv /usr/local/bin/carbond ~/.carbon/cosmovisor/genesis/bin
 sudo mv cosmovisor /usr/local/bin
@@ -257,6 +257,7 @@ sudo tee /etc/logrotate.d/carbon > /dev/null <<EOF
   notifempty
   missingok
 }
+EOF
 ```
 
 ### Running using `systemd`
