@@ -86,7 +86,7 @@ CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
-NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NET)
+NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
 case $NETWORK in
   mainnet)
     ;;
