@@ -86,6 +86,22 @@ CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
+NET=$(wget -qO- $CHAIN_CONFIG_URL/NET)
+case $NET in
+  mainnet)
+    ;;
+
+  testnet)
+    ;;
+
+  devnet)
+    ;;
+
+  *)
+    echo "unknown net: ${NET}"
+    exit 1
+    ;;
+esac
 if [ -z ${VERSION+x} ]; then
   echo "Error: Invalid chain ID. Chain with ID: $CHAIN_ID could not be found at https://github.com/Switcheo/carbon-testnet"
   exit 1
@@ -145,7 +161,7 @@ bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/mast
 
 echo "-- Downloading carbond and cosmovisor"
 
-wget -c https://github.com/Switcheo/carbon-testnets/releases/download/v${VERSION}/carbond${VERSION}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
+wget -c https://github.com/Switcheo/carbon-testnets/releases/download/v${VERSION}/carbond${VERSION}-${NET}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
 wget -c https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
 
 echo "-- Stopping any previous system service of carbond"
@@ -174,6 +190,7 @@ sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
 sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 
 echo "---- Creating node directories"
