@@ -86,8 +86,8 @@ CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
-NET=$(wget -qO- $CHAIN_CONFIG_URL/NET)
-case $NET in
+NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NET)
+case $NETWORK in
   mainnet)
     ;;
 
@@ -98,7 +98,7 @@ case $NET in
     ;;
 
   *)
-    echo "unknown net: ${NET}"
+    echo "unknown net: ${NETWORK}"
     exit 1
     ;;
 esac
@@ -161,7 +161,7 @@ bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/mast
 
 echo "-- Downloading carbond and cosmovisor"
 
-wget -c https://github.com/Switcheo/carbon-testnets/releases/download/v${VERSION}/carbond${VERSION}-${NET}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
+wget -c https://github.com/Switcheo/carbon-testnets/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
 wget -c https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
 
 echo "-- Stopping any previous system service of carbond"
