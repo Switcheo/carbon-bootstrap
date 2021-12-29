@@ -85,6 +85,7 @@ DAEMON=carbond
 CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
+CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-testnets/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
 NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
 case $NETWORK in
@@ -180,7 +181,7 @@ sudo rm -rf /var/log/carbon/*
 echo "---- Downloading and initializing"
 
 ./$DAEMON init $MONIKER
-wget -O ~/.carbon/config/genesis.json ${CHAIN_CONFIG_URL}/genesis.json
+wget -O ~/.carbon/config/genesis.json ${CHAIN_MEDIA_URL}/genesis.json
 
 echo "---- Setting node configuration"
 
