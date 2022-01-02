@@ -126,6 +126,7 @@ Create the initial folder move the `carbond` binary into it:
 
 ```bash
 wget https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
+tar -xvf cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv /usr/local/bin/carbond ~/.carbon/cosmovisor/genesis/bin
 sudo mv cosmovisor /usr/local/bin
