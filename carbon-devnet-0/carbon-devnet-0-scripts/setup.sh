@@ -70,14 +70,14 @@ DAEMON=carbond
 PERSISTENT_PEERS="0c7e9c8810e0d2cbbd19ac943f5a13eb8aa70c5f@18.136.198.223:26656"
 
 echo "Installing carbond"
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.1-devnet/carbon0.0.1-devnet.tar.gz
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v0.0.1-devnet/carbon0.0.1-devnet.tar.gz
 tar -zxvf carbon0.0.1-devnet.tar.gz
 sudo mv cosmovisor /usr/local/bin
 rm carbon0.0.1-devnet.tar.gz
 
 echo "Setting up your validator"
 ./$DAEMON init $YOUR_NAME
-wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/carbon-0/devnet-genesis.json
+wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/carbon-0/devnet-genesis.json
 
 echo "----------Setting config for seed node---------"
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml

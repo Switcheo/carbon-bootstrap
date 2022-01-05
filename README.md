@@ -1,30 +1,34 @@
-# Carbon Testnets
+# Carbon Bootstrap
 
-This repo collects the genesis and configuration files for the various Carbon testnets. It exists so the main Carbon repo does not get bogged down with large genesis files and status updates. This repo also contains scripts which allow bootstrapping or upgrading validators into a Carbon testnet in various recommended configurations easily.
+This repo collects the genesis and configuration files for the various Carbon testnets / mainnets. It exists so the main Carbon repo does not get bogged down with large genesis files and status updates. This repo also contains scripts which allow bootstrapping or upgrading validators into a Carbon network in various recommended configurations easily.
 
-## Testnet Status
+For validators upgrading to `carbon-1` mainnet, go [here](/STARGATE.md) for a detailed upgrade guide.
+
+## Network Status
 
 Latest testnet: [carbon-42069](./carbon-42069/genesis.json)
+
+Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
 ## Getting Started
 
 ### Automatic Installation
 
-To quickly get started with the latest testnet, run this command to automatically set up all dependencies and a full node / validator node:
+To quickly get started with the latest testnet / mainnet, run this command to automatically set up all dependencies and a full node / validator node:
 
 ```bash
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/setup.sh) -adlop <chain_id> <your_moniker>
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop <chain_id> <your_moniker>
 ```
 
 If running a validator, configure your operator keys in the section below.
 
-### Configure Operator Keys
+### Configure Validator Keys
 
-If you're running a validator node, you'll need to create or import your validator operator keys before running your node and subservices. If you're running a non-validating node, you can skip this section.
+If you're running a validator node, you'll need to create or import your validator keys before running your node and subservices. If you're running a non-validating node, you can skip this section.
 
-#### Upgrading from previous validator node
+#### Upgrading from existing validator
 
-To upgrade from a pre-stargate / hardforked chain (e.g. Carbon `carbon-0` from Switcheo TradeHub `switcheo-chain`), copy your existing validator keys from the legacy daemon config directory. If Carbon resides on a different machine, use `scp` instead of `cp`.
+To upgrade from a pre-stargate or hardforked-upgraded chain (e.g. Carbon `carbon-1` from Switcheo TradeHub `switcheo-tradehub-1`), copy your existing both your validator operator keys (`keyring-file`) and Tendermint node keys (`node_key.json` and `priv_validator_key.json`) from the legacy daemon config directory. If Carbon resides on a different machine, use `scp` instead of `cp`.
 
 ```bash
 cp ~/.switcheod/config/node_key.json ~/.carbon/config/
@@ -32,19 +36,21 @@ cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
 cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
 ```
 
-#### Installing for new validator node
+#### Installing for new validator
 
-#### Automatic
+If you are running a validator for the first time, you will need to create a few mandatory operator keys (this is different from your Tendermint keys `node_key` / `priv_validator_key.json` which are automatically created when bootstrapping).
+
+#### Automatic key creation
 
 To install all required validator and subaccount keys directly on your validator node, run [scripts/create-keys.sh](./scripts/create-keys.sh):
 
 ```bash
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/create-keys.sh)
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/create-keys.sh)
 ```
 
 You'll need to fund your accounts and then run a few more commands to link your validator subaccounts and promote your node to a validator. Follow all instructions printed from the output of the above script carefully.
 
-#### Manual creation
+#### Manual key creation
 
 You can also create your operator keys on another node, such as a developer machine, for better security and access. Here's how to create the required keys manually:
 
@@ -56,7 +62,7 @@ You can also create your operator keys on another node, such as a developer mach
       carbond tendermint show-validator
       ```
 
-2. On the machine(s) that you wish to install your keys, download and install the appropriate [release](https://github.com/Switcheo/carbon-testnets/releases).
+2. On the machine(s) that you wish to install your keys, download and install the appropriate [release](https://github.com/Switcheo/carbon-bootstrap/releases).
 
 3. Create your validator operator key and password:
 
@@ -91,7 +97,7 @@ All validators need to run a node (either the same node as the validator, or som
 
     >! Your oracle subservice needs access to your oracle wallet (hot wallet). Ensure that it is installed on the same node that is running the oracle subservice, and that the service has the right password for decrypting the wallet.
 
-2. Send some Switcheo tokens to your oracle wallet, or get testnet them from the [faucet](https://test-faucet.carbon.network).
+2. Send some Switcheo tokens to your oracle wallet (mainnet), or get them from the [faucet](https://test-faucet.carbon.network) (testnet).
 
     ```bash
     # From validator walelt
@@ -154,3 +160,18 @@ sudo systemctl stop carbond@liquidator
 ### Manual Installation
 
 For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
+
+### Minor Version Upgrades
+
+To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
+
+```bash
+# set the version / network to upgrade to here:
+VERSION=0.0.5
+NETWORK=testnet
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+tar -xvf carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+sudo service carbond stop
+mv carbond ~/.carbon/cosmovisor/current/bin/carbond
+sudo service carbond start
+```

@@ -41,7 +41,7 @@ sudo apt-get install libleveldb1d -y
 Download and unzip binaries:
 
 ```bash
-wget https://github.com/Switcheo/carbon-testnets/releases/download/v0.0.3/carbon0.0.3.linux-amd64.tar.gz
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v0.0.3/carbon0.0.3.linux-amd64.tar.gz
 tar -zxvf carbon0.0.3.linux-amd64.tar.gz
 sudo mv carbond /usr/local/bin
 rm carbon0.0.3.linux-amd64.tar.gz
@@ -83,7 +83,7 @@ Next, download the genesis file and set up your node configuration.
 
 ```bash
 # Download genesis file
-wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/<chain-id>/genesis.json
+wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/<chain-id>/genesis.json
 
 ## Or alternatively, export from your pre-stargate (e.g. switcheo chain) node:
 switcheoctl stop
@@ -125,7 +125,7 @@ To be best prepared for eventual upgrades, it is recommended to setup Cosmovisor
 Create the initial folder move the `carbond` binary into it:
 
 ```bash
-wget https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
 tar -xvf cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv /usr/local/bin/carbond ~/.carbon/cosmovisor/genesis/bin

@@ -84,8 +84,8 @@ fi
 DAEMON=carbond
 CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
-CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/${CHAIN_ID}
-CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-testnets/master/${CHAIN_ID}
+CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
+CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
 NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
 case $NETWORK in
@@ -158,12 +158,12 @@ if [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ]; then
   DEP_FLAGS+=" -r"
 fi
 
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-testnets/master/scripts/install-deps.sh) $DEP_FLAGS
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/install-deps.sh) $DEP_FLAGS
 
 echo "-- Downloading carbond and cosmovisor"
 
-wget -c https://github.com/Switcheo/carbon-testnets/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
-wget -c https://github.com/Switcheo/carbon-testnets/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
+wget -c https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
+wget -c https://github.com/Switcheo/carbon-bootstrap/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
 
 echo "-- Stopping any previous system service of carbond"
 
@@ -192,7 +192,16 @@ sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/c
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
 sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
-sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
+sed -i 's#pruning = "default"#pruning = "custom"#g' ~/.carbon/config/app.toml                # use custom pruning
+sed -i 's#pruning-keep-recent = "0"#pruning-keep-recent = "100"#g' ~/.carbon/config/app.toml # keep state for recent 100 blocks
+sed -i 's#pruning-keep-every = "0"#pruning-keep-every = "10000"#g' ~/.carbon/config/app.toml # and every 10,000 blocks
+sed -i 's#pruning-interval = "0"#pruning-interval = "10"#g' ~/.carbon/config/app.toml        # prune the rest every 10 blocks
+sed -i 's#snapshot-interval = 0#snapshot-interval = 10000#g' ~/.carbon/config/app.toml       # save snapshot every 10,000 blocks to allow other nodes to fast-sync here
+
+if [ "$SETUP_API" = true ]; then
+  sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml   # enable all apis
+  sed -i 's#swagger = false#swagger = true#g' ~/.carbon/config/app.toml # enable swagger endpoint
+fi
 
 echo "---- Creating node directories"
 
