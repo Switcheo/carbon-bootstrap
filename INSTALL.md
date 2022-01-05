@@ -12,28 +12,13 @@ sudo apt-get update
 sudo apt-get install build-essential jq cmake -y
 ```
 
-## Install Go
-
-```bash
-wget https://dl.google.com/go/go1.17.linux-amd64.tar.gz
-tar -xvf go1.17.linux-amd64.tar.gz
-sudo mv go /usr/local
-
-echo "" >>~/.bashrc
-echo 'export GOPATH=$HOME/go' >>~/.bashrc
-echo 'export GOROOT=/usr/local/go' >>~/.bashrc
-echo 'export GOBIN=$GOPATH/bin' >>~/.bashrc
-echo 'export PATH=$PATH:/usr/local/go/bin:$GOBIN' >>~/.bashrc
-
-source ~/.bashrc
-
-rm go1.17.linux-amd64.tar.gz
-```
-
 ## Install cleveldb
 
 ```bash
+# Ubuntu 20.04+
 sudo apt-get install libleveldb1d -y
+# Ubuntu 18.04
+
 ```
 
 ## Install Carbon
@@ -41,10 +26,13 @@ sudo apt-get install libleveldb1d -y
 Download and unzip binaries:
 
 ```bash
-wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v0.0.3/carbon0.0.3.linux-amd64.tar.gz
-tar -zxvf carbon0.0.3.linux-amd64.tar.gz
+# set the version / network to upgrade to here:
+VERSION=2.0.0
+NETWORK=mainnet
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+tar -xvf carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
 sudo mv carbond /usr/local/bin
-rm carbon0.0.3.linux-amd64.tar.gz
+rm carbon2.0.0.linux-amd64.tar.gz
 ```
 
 That will install the `carbond` binary.
@@ -79,16 +67,9 @@ You can edit this moniker later, in the ~/.carbon/config/config.toml file:
 moniker = "<your_custom_moniker>"
 ```
 
-Next, download the genesis file and set up your node configuration.
+Next, set up your node configuration:
 
 ```bash
-# Download genesis file
-wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/<chain-id>/genesis.json
-
-## Or alternatively, export from your pre-stargate (e.g. switcheo chain) node:
-switcheoctl stop
-switcheod node export > genesis.json
-
 # Configure node
 sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config.toml
 sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
@@ -96,16 +77,13 @@ sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
-```
-
-If migrating from a pre-stargate chain (e.g. from `switcheo-chain` to `carbon-0`), you'll need to run the Stargate migrate command:
-
-```bash
-carbond migrate genesis.json --chain-id <chain-id> > carbon-genesis.json
-mv carbon-genesis.json ~/.carbon/config/genesis.json
-# check hash:
-openssl sha256 ~/.carbon/config/genesis.json
-# <hash> => TODO
+sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
+# prune every 10 blocks, keeping 100 blocks and every 10,000th block
+sed -i 's#pruning = "default"#pruning = "custom"#g' ~/.carbon/config/app.toml
+sed -i 's#pruning-keep-recent = "0"#pruning-keep-recent = "100"#g' ~/.carbon/config/app.toml
+sed -i 's#pruning-keep-every = "0"#pruning-keep-every = "10000"#g' ~/.carbon/config/app.toml
+sed -i 's#pruning-interval = "0"#pruning-interval = "10"#g' ~/.carbon/config/app.toml
+sed -i 's#snapshot-interval = 0#snapshot-interval = 10000#g' ~/.carbon/config/app.toml
 ```
 
 ### Add seed nodes
@@ -113,9 +91,9 @@ openssl sha256 ~/.carbon/config/genesis.json
 Your node needs to know how to find peers. You'll need to add healthy seed nodes to `$HOME/.carbon/config/config.toml`.
 
 ```bash
-PERSISTENT_PEERS="d5c57895d85e59593cc992c09cdc9a1555457c22@54.254.184.152:26656" # example carbon-0 testnet initial peer
+PEERS="d5c57895d85e59593cc992c09cdc9a1555457c22@54.254.184.152:26656" # example carbon-0 testnet initial peer
 
-sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i '/seeds =/c\seeds = "'"$PEERS"'"' ~/.carbon/config/config.toml
 ```
 
 ### Configure Cosmovisor
@@ -157,6 +135,26 @@ sudo service postgresql restart
 ```
 
 ### Initialize genesis data
+
+Download the genesis file for the chain you are setting up:
+
+```bash
+wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/<chain-id>/genesis.json
+```
+
+Alternatively, if migrating from a pre-stargate chain (e.g. from `switcheo-tradehub-1` to `carbon-1`), export from your pre-stargate node and run the Stargate migrate command:
+
+```bash
+switcheoctl stop
+switcheod node export > genesis.json
+carbond migrate genesis.json --chain-id <chain-id> > carbon-genesis.json
+mv carbon-genesis.json ~/.carbon/config/genesis.json
+# check hash:
+openssl sha256 ~/.carbon/config/genesis.json
+# <hash> => TODO
+```
+
+If running an off-chain data node, setup the database with initial tables and genesis data:
 
 ```bash
 mkdir ~/.carbon/migrations

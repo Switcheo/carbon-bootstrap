@@ -107,7 +107,7 @@ if [ -z ${VERSION+x} ]; then
   echo "Error: Invalid chain ID. Chain with ID: $CHAIN_ID could not be found at https://github.com/Switcheo/carbon-testnet"
   exit 1
 fi
-PERSISTENT_PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
+PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
 
 # if ws-api, oracle or liquidator is installed, redis and hot wallet is required.
 WALLET_STRING=
@@ -190,7 +190,7 @@ sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbo
 sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
-sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
+sed -i '/seeds =/c\seeds = "'"$PEERS"'"' ~/.carbon/config/config.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
 sed -i 's#pruning = "default"#pruning = "custom"#g' ~/.carbon/config/app.toml                # use custom pruning
 sed -i 's#pruning-keep-recent = "0"#pruning-keep-recent = "100"#g' ~/.carbon/config/app.toml # keep state for recent 100 blocks
