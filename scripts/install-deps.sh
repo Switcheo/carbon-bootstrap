@@ -49,7 +49,7 @@ if [[ $(lsb_release -rs) == "20.04" ]]; then
 
     sudo apt-get install libleveldb1d=1.22-3ubuntu2 -y
   fi
-elif
+elif [[ $(lsb_release -rs) == "18.04" ]]; then
   if [ $(dpkg-query -W -f='${Status}' libleveldb1v5 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
     echo "-- Installing level db"
 
