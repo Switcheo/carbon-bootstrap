@@ -48,10 +48,10 @@ Verify that everything is OK:
 carbond version --long
 # name: carbon
 # server_name: <appd>
-# version: 0.0.1-614-g224c4e5
-# commit: 224c4e529065968e541bc262681e57c89e4442fa
+# version: 0.0.6-11-g15efdc1
+# commit: 15efdc1f61a9f9aaecf867ef59d2738abf2368c2
 # build_tags: ""
-# go: go version go1.17.2 linux/arm64
+# go: go version go1.17.3 linux/arm64
 # build_deps:
 # - ...
 ```
