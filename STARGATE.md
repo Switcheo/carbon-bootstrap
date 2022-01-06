@@ -48,7 +48,17 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
 1. Run the following script to download binaries and setup Carbon automatically. Replace `<your_moniker>` with your previous node's moniker.
 
-    `bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adops carbon-1 <your_moniker>`
+    - For full nodes:
+
+      `bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adops carbon-1 <your_moniker>`
+
+    - For full node with remote db:
+
+      `POSTGRES_URL=postgresql://username:password@hostname:5432/carbon <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -aops carbon-1 <your_moniker>`
+
+    - For validating-only nodes:
+
+        `bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -os carbon-1 <your_moniker>`
 
 2. Copy validator keys from your old machine to the new machine.
 
