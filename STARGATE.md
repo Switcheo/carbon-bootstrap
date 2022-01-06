@@ -4,18 +4,18 @@ This guide specifically describes the steps required for validators already runn
 
 There are two upgrade paths.
 
-- Install `carbon-1` on a new machine (recommended) [link](/setup-on-new-machine)
-- Install `carbon-1` on the same machine as `switcheo-tradehub-1` [link](/setup-on-same-machine)
+- Install `carbon-1` on a new machine (recommended) [link](#setup-on-new-machine)
+- Install `carbon-1` on the same machine as `switcheo-tradehub-1` [link](#setup-on-same-machine)
 
-Using a new machine allows automatic installation (easier), and gives you the opportunity to downgrade your node's disk size. Using the same machine requires careful configuration to avoid conflicts or loss of data / operator keys.
+Using a new machine allows automatic installation (easier), and also gives you the opportunity to downgrade your node's disk size. Using the same machine requires careful configuration to avoid conflicts or loss of data / operator keys.
 
 ## Node Requirements
 
 Node requirements depend on whether the node is running a postgres instance locally (offchain-data node), and if it is publicly accessible (public API / RPC node).
 
-Validators in a safe configuration are typically private, state-only nodes.
+Validators that are ran in a safe configuration should typically be private + state-only nodes.
 
-Archival, seed, sentry, or API nodes are typically public, off-chain data nodes. It is recommended to connect to a remote postgres instance for these nodes, in which case they can be considered "state-only nodes".
+Archival, seed, sentry, or API nodes are typically public + offchain-data nodes. It is recommended to connect to a remote postgres instance for these nodes, in which case their requirements for RAM and disk storage can be lowered to that of state-only nodes.
 
 ### Operating System
 
@@ -31,11 +31,13 @@ Both AMD-64 or ARM-64 are supported.
 ### RAM
 
 - State-only Node: 16GB
+- Offchain-data Node (remote postgres): 16GB
 - Offchain-data Node (local postgres): 32GB
 
 ### SSD
 
 - State-only Node: 500GB
+- Offchain-data Node (remote postgres): 500GB
 - Offchain-data Node (local postgres): 2TB
 
 ## Preparation
