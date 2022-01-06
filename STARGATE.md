@@ -19,14 +19,14 @@ Archival, seed, sentry, or API nodes are typically public + offchain-data nodes.
 
 ### Operating System
 
-While any linux distribution should work in theory, only Ubuntu 18.04 / 20.04 is officialy supported as scripts and instructions assume an Ubuntu distro. You will need to modify the setup instructions yourself if you choose to use a non-Ubuntu distro.
+While any linux distribution should work in theory, only Ubuntu 18.04 / 20.04 is officially supported as scripts and instructions assume an Ubuntu distro. You will need to modify the setup instructions yourself if you choose to use a non-Ubuntu distro.
 
 ### CPU
 
 Both AMD-64 or ARM-64 are supported.
 
-- Private Node: 4-core vCPU (e.g. m6gd.xlarge)
-- Public API / RPC Node: 8-core vCPU and above (e.g. m6gd.x2large)
+- Private Node: 4-core vCPU (e.g. m6d.xlarge)
+- Public API / RPC Node: 8-core vCPU and above (e.g. m6d.x2large)
 
 ### RAM
 
