@@ -14,11 +14,16 @@ sudo apt-get install build-essential jq cmake -y
 
 ## Install cleveldb
 
-```bash
-# Ubuntu 20.04+
-sudo apt-get install libleveldb1d -y
-# Ubuntu 18.04
+On Ubuntu 20.04+:
 
+```bash
+sudo apt-get install libleveldb1d=1.22-3ubuntu2 -y
+```
+
+On Ubuntu 18.04:
+
+```bash
+sudo apt-get install libleveldb1v5=1.20-2 -y
 ```
 
 ## Install Carbon

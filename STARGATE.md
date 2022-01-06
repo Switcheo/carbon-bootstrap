@@ -17,7 +17,13 @@ Validators in a safe configuration are typically private, state-only nodes.
 
 Archival, seed, sentry, or API nodes are typically public, off-chain data nodes. It is recommended to connect to a remote postgres instance for these nodes, in which case they can be considered "state-only nodes".
 
+### Operating System
+
+While any linux distribution should work in theory, only Ubuntu 18.04 / 20.04 is officialy supported as scripts and instructions assume an Ubuntu distro. You will need to modify the setup instructions yourself if you choose to use a non-Ubuntu distro.
+
 ### CPU
+
+Both AMD-64 or ARM-64 are supported.
 
 - Private Node: 4-core vCPU (e.g. m6gd.xlarge)
 - Public API / RPC Node: 8-core vCPU and above (e.g. m6gd.x2large)
@@ -34,19 +40,31 @@ Archival, seed, sentry, or API nodes are typically public, off-chain data nodes.
 
 ## Preparation
 
-WIP
+For a smooth upgrade, decide how you will install the new `carbond` node, and prepare the machine ahead of the upgrade height.
 
-### Setup On New Machine
+### Setup on new machine
 
-1. Run wget bash script to download binaries and setup automatically.
-2. Copy validator keys to the new machine.
+1. Run the following script to download binaries and setup Carbon automatically. Replace `<your_moniker>` with your previous node's moniker.
 
-### Setup on Same Machine
+    `bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adop carbon-1 <your_moniker>`
+
+2. Copy validator keys from your old machine to the new machine.
+
+    ```bash
+    scp ~/.switcheod/config/node_key.json <new_node_ip>:~/.carbon/config/
+    scp ~/.switcheod/config/priv_validator_key.json <new_node_ip>:~/.carbon/config/
+    scp -r ~/.switcheocli/keyring-switcheo-tradehub <new_node_ip>:~/.carbon/keyring-file
+    ```
+
+### Setup on same machine
 
 1. Download the genesis binary
-2. Follow the [manual installation guide](./INSTALL.md), skipping the setup for Redis and Postgres
-3. Copy your existing validator keys to the new node config directory
+2. Follow the [manual installation guide](./INSTALL.md), skipping the setup sections for Redis and Postgres (as they should already be installed).
+3. Copy your existing validator keys to the new node config directory. See [this section](./INSTALL.md#upgrading-from-existing-validator) for the files required.
 4. Create the `carbon` postgres database
+
+    `createdb carbon`
+
 5. Ensure your `carbond` node is not running yet and await the upgrade height
 
     `sudo systemctl stop carbond`

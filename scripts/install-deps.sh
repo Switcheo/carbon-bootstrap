@@ -43,10 +43,21 @@ fi
 
 sudo apt update
 
-if [ $(dpkg-query -W -f='${Status}' libleveldb1d 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-  echo "-- Installing level db"
+if [[ $(lsb_release -rs) == "20.04" ]]; then
+  if [ $(dpkg-query -W -f='${Status}' libleveldb1d 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+    echo "-- Installing level db"
 
-  sudo apt-get install libleveldb1d -y
+    sudo apt-get install libleveldb1d=1.22-3ubuntu2 -y
+  fi
+elif
+  if [ $(dpkg-query -W -f='${Status}' libleveldb1v5 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+    echo "-- Installing level db"
+
+    sudo apt-get install libleveldb1v5=1.20-2 -y
+  fi
+else
+  echo "OS in incompatible with this script."
+  exit 1
 fi
 
 if [ "$SETUP_POSTGRES" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-13 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
