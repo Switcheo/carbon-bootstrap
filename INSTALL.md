@@ -14,16 +14,40 @@ sudo apt-get install build-essential jq cmake -y
 
 ## Install cleveldb
 
-On Ubuntu 20.04+:
+Download and install leveldb v1.23:
 
 ```bash
-sudo apt-get install libleveldb1d=1.22-3ubuntu2 -y
-```
+wget https://github.com/google/leveldb/archive/1.23.tar.gz && \
+  tar -zxvf 1.23.tar.gz && \
+  wget https://github.com/google/googletest/archive/release-1.11.0.tar.gz && \
+  tar -zxvf release-1.11.0.tar.gz && \
+  mv googletest-release-1.11.0/* leveldb-1.23/third_party/googletest && \
 
-On Ubuntu 18.04:
+  wget https://github.com/google/benchmark/archive/v1.5.5.tar.gz && \
+  tar -zxvf v1.5.5.tar.gz && \
+  mv benchmark-1.5.5/* leveldb-1.23/third_party/benchmark && \
 
-```bash
-sudo apt-get install libleveldb1v5=1.20-2 -y
+  cd leveldb-1.23 && \
+  mkdir -p build && \
+
+  cd build && \
+  cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON .. && \
+  cmake --build . && \
+  sudo cp -P libleveldb.so* /usr/local/lib/ && \
+  sudo ldconfig && \
+  cd .. && \
+
+  sudo cp -r include/leveldb /usr/local/include/ && \
+  cd .. && \
+
+  rm -rf benchmark-1.5.5/ && \
+  rm -f v1.5.5.tar.gz && \
+
+  rm -rf googletest-release-1.11.0/ && \
+  rm -f release-1.11.0.tar.gz && \
+
+  rm -rf leveldb-1.23/ && \
+  rm -f 1.23.tar.gz
 ```
 
 ## Install Carbon
