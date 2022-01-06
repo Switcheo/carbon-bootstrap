@@ -34,9 +34,10 @@ SETUP_LIQUIDATOR=false
 SETUP_ORACLE=false
 SETUP_PERSISTENCE=false
 SETUP_RELAYER=false
+SKIP_GENESIS=false
 INSTALL_REDIS=false
 
-while getopts ":adloprh" opt; do
+while getopts ":adloprsh" opt; do
   case $opt in
     a)
       SETUP_API=true
@@ -56,6 +57,9 @@ while getopts ":adloprh" opt; do
       ;;
     r)
       SETUP_RELAYER=true
+      ;;
+    s)
+      SKIP_GENESIS=true
       ;;
     h)
       printUsage
@@ -181,7 +185,9 @@ sudo rm -rf /var/log/carbon/*
 echo "---- Downloading and initializing"
 
 ./$DAEMON init $MONIKER
-wget -O ~/.carbon/config/genesis.json ${CHAIN_MEDIA_URL}/genesis.json
+if [ "$SKIP_GENESIS" != true ]; then
+  wget -O ~/.carbon/config/genesis.json ${CHAIN_MEDIA_URL}/genesis.json
+fi
 
 echo "---- Setting node configuration"
 
@@ -238,7 +244,9 @@ if [ "$SETUP_PERSISTENCE" = true ]; then
 
   mkdir ~/.carbon/migrations
   POSTGRES_URL=$POSTGRES_URL $DAEMON migrations
-  POSTGRES_URL=$POSTGRES_URL $DAEMON persist-genesis
+  if [ "$SKIP_GENESIS" != true ]; then
+    POSTGRES_URL=$POSTGRES_URL $DAEMON persist-genesis
+  fi
   PERSISTENCE_FLAG=--persistence
 fi
 

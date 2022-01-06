@@ -48,7 +48,7 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
 1. Run the following script to download binaries and setup Carbon automatically. Replace `<your_moniker>` with your previous node's moniker.
 
-    `bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adop carbon-1 <your_moniker>`
+    `bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adops carbon-1 <your_moniker>`
 
 2. Copy validator keys from your old machine to the new machine.
 
@@ -60,14 +60,13 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
 ### Setup on same machine
 
-1. Download the genesis binary
-2. Follow the [manual installation guide](./INSTALL.md), skipping the setup sections for Redis and Postgres (as they should already be installed).
-3. Copy your existing validator keys to the new node config directory. See [this section](./INSTALL.md#upgrading-from-existing-validator) for the files required.
-4. Create the `carbon` postgres database
+1. Follow the [manual installation guide](./INSTALL.md), skipping the setup sections for Redis and Postgres (as they should already be installed).
+2. Copy your existing validator keys to the new node config directory. See [this section](./INSTALL.md#upgrading-from-existing-validator) for the files required.
+3. Create the `carbon` postgres database
 
     `createdb carbon`
 
-5. Ensure your `carbond` node is not running yet and await the upgrade height
+4. Ensure your `carbond` node is not running yet and await the upgrade height
 
     `sudo systemctl stop carbond`
 
@@ -103,7 +102,11 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
     `=> # Hash = <TODO>`
 
-7. Ensure your seed peers are updated. You can find the latest peers [here](./carbon-1/PEERS), and you can [update them](./INSTALL.md#add-seed-nodes) in `config.toml` in `seeds="..."`.
+7. If running a offchain-data node, run:
+
+    `carbond persist-genesis`
+
+8. Ensure your seed peers are updated. You can find the latest peers [here](./carbon-1/PEERS), and you can [update them](./INSTALL.md#add-seed-nodes) in `config.toml` in `seeds="..."`.
 
 ## Notes
 
