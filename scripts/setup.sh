@@ -129,8 +129,8 @@ if [ "$LOCAL_DATABASE" != true ]; then
     a local postgres instance, or provide a \$POSTGRES_URL connection string to a psql database where write permssions are enabled."
     exit 1
   fi
-  if ( [ "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ] ) && [ -z "$POSTGRES_URL" ]; then
-    echo "Error: No psql database configured for reading off-chain data (required by -a, -o or -l). Either run with -d
+  if ( [ "$SETUP_API" = true ] || [ "$SETUP_LIQUIDATOR" = true ] ) && [ -z "$POSTGRES_URL" ]; then
+    echo "Error: No psql database configured for reading off-chain data (required by -a or -l). Either run with -d
     to configure a local postgres instance and persistence service, or provide a \$POSTGRES_URL connection string to the psql database
     where a node running the persistence service is writing this data."
     exit 1
