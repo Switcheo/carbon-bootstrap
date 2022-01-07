@@ -43,7 +43,7 @@ fi
 
 sudo apt update
 
-if [ $(ldconfig -p | grep libleveldb.so.1) -eq 0 ]; then
+if [ -z "$(ldconfig -p | grep libleveldb.so.1$)" ]; then
   echo "-- Installing level db"
 
   sudo apt-get install build-essential cmake -y
