@@ -139,7 +139,7 @@ fi
 
 # if persistence is not installed, api requires a remote persistence WS GRPC address and port
 WS_ENV_VAR=
-if [ "$SETUP_PERSISTENCE" != true ] && "$SETUP_API" = true ] && [ -z "$WS_GRPC_URL" ]; then
+if [ "$SETUP_PERSISTENCE" != true ] && [ "$SETUP_API" = true ]; then
   if [ -z "$WS_GRPC_URL" ]; then
     echo "Error: No persistence service configured for streaming off-chain data. Either run with -d -p
     to configure a local postgres instance and persistence service, or provide a \$WS_GRPC_URL address
