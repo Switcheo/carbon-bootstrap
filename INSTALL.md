@@ -72,12 +72,14 @@ Verify that everything is OK:
 carbond version --long
 # name: carbon
 # server_name: <appd>
-# version: 2.0.0-1-g9b33412
-# commit: 9b334127c1759a046518974bd3229194c41c0610
+# version: 2.0.0-5-gecd2ca52
+# commit: ecd2ca5223dceee4d45df4159717b01f7817259f
 # build_tags: ""
 # go: go version go1.17.3 linux/arm64
 # build_deps:
 # - ...
+# ...
+# cosmos_sdk_version: v0.44.4
 ```
 
 ## Configure Carbon
