@@ -72,8 +72,8 @@ Verify that everything is OK:
 carbond version --long
 # name: carbon
 # server_name: <appd>
-# version: 2.0.0-5-gecd2ca52
-# commit: ecd2ca5223dceee4d45df4159717b01f7817259f
+# version: genesis-5-g578e0f0
+# commit: 578e0f024f795d94a21b018d0272740b5d529feb
 # build_tags: ""
 # go: go version go1.17.3 linux/arm64
 # build_deps:
