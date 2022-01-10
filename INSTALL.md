@@ -213,7 +213,7 @@ After=network-online.target
 User=$USER
 Environment="DAEMON_HOME=$HOME/.carbon"
 Environment="DAEMON_NAME=carbond"
-ExecStart=/usr/local/bin/cosmovisor start --persistence --ws-api
+ExecStart=/usr/local/bin/cosmovisor start --persistence
 StandardOutput=append:/var/log/carbon/carbond.out.log
 StandardError=append:/var/log/carbon/carbond.err.log
 Restart=always
@@ -225,7 +225,6 @@ WantedBy=multi-user.target
 EOF
 ```
 
-> Remove `--ws-api` from `ExecStart=` if this node is not public.
 > Remove `--persistence` from `ExecStart=` if this node is will not run subservices (e.g. validator with subservices running on subaccount in another node, non-public sentry node, etc).
 
 ### Recommended config for subservices
@@ -301,15 +300,11 @@ Node and sub-services can be ran as such:
 
 ```bash
 # Node: required to be ran by all nodes
-sudo systemctl start carbond
+sudo systemctl start carbond # --persistence (to write offchain-data to postgres)
 # Oracle: required to be ran by validators
 sudo systemctl start carbond@oracle
-# External Chain Events Monitor: required to be on the validator's oracle node / full nodes
-sudo systemctl start carbond@ext-events.service
-# Websocket API: required to be ran by full nodes
-sudo systemctl start carbond@ws-api.service
 # Liquidator: required to be ran by validators in future
 sudo systemctl start carbond@liquidator.service
-# Fee: only required for relayer (admin) nodes
-sudo systemctl start carbond@fee.service
+# Websocket API: required to be ran by full nodes
+sudo systemctl start carbond@ws-api.service
 ```
