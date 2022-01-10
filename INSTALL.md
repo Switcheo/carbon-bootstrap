@@ -225,7 +225,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-> Remove `--persistence` from `ExecStart=` if this node is will not run subservices (e.g. validator with subservices running on subaccount in another node, non-public sentry node, etc).
+> Remove `--persistence` from `ExecStart=` if this node is will not write offchain-data to postgres (e.g. validator with subservices on another node, non-public sentry node, etc).
 
 ### Recommended config for subservices
 
