@@ -261,15 +261,13 @@ EOF
 If you're using a remote Postgres node you'll need to add the following environment variables to both systemd configurations:
 
 ```toml
-Environment="POSTGRES_HOST=<your_remote_host_and_port>"
-Environment="POSTGRES_USER=<your_postgres_user>"
-Environment="POSTGRES_PASSWORD=<your_postgres_password>"
+Environment="POSTGRES_URL=postgresql://username:password@hostname:5432/carbon"
 ```
 
 If you're using a remote Redis node you'll need to add the following environment variables to both systemd configurations:
 
 ```toml
-Environment="REDIS_HOST=<your_remote_host_and_port>"
+Environment="REDIS_URL=redis://hostname:6379"
 ```
 
 ### Create logrotate
