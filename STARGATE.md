@@ -111,7 +111,7 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
     `openssl sha256 ~/genesis-exported.json`
 
-    `=> # Hash = <TODO>`
+    `=> SHA256(/home/ubuntu/genesis-exported.json)= 3921ca451f3b477ffbe5f1137d9722c299fc9668a85a81e55d329466bc050d3e`
 
 4. If your `carbond` node will run on a new machine, copy the exported genesis file to the new node.
 
