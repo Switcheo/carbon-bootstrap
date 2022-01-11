@@ -121,21 +121,17 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
     `carbond migrate genesis-exported.json --chain-id carbon-1 > ~/carbon/config/genesis.json`
 
-6. Update the genesis height to `21164242`:
-
-    `jq '.initial_height = "21164242"' ~/carbon/config/genesis.json`
-
-7. Check hash of the migrated genesis file that will be used:
+6. Check hash of the migrated genesis file that will be used:
 
     `openssl sha256 ~/.carbon/config/genesis.json`
 
     `=> # Hash = <TODO>`
 
-8. If running a offchain-data node, run:
+7. If running a offchain-data node, run:
 
     `carbond persist-genesis`
 
-9. Ensure your seed peers are updated. You can find the latest peers [here](./carbon-1/PEERS), and you can [update them](./INSTALL.md#add-seed-nodes) in `config.toml` in `seeds="..."`.
+8. Ensure your seed peers are updated. You can find the latest peers [here](./carbon-1/PEERS), and you can [update them](./INSTALL.md#add-seed-nodes) in `config.toml` in `seeds="..."`.
 
 ## Notes
 
