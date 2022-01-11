@@ -125,7 +125,7 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
     `openssl sha256 ~/.carbon/config/genesis.json`
 
-    `=> # Hash = <TODO>`
+    `=> SHA256(/home/ubuntu/.carbon/config/genesis.json)= 56943557fcd962364fd35f1f19900146975b9b86d269a3ed2c01a89e5c199705`
 
 7. If running a offchain-data node, run:
 
