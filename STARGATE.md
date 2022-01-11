@@ -129,7 +129,7 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
 7. If running a offchain-data node, run:
 
-    `carbond persist-genesis`
+    `POSTGRES_URL=postgresql://postgres@localhost:5432/postgres carbond persist-genesis`
 
 8. Ensure your seed peers are updated. You can find the latest peers [here](./carbon-1/PEERS), and you can [update them](./INSTALL.md#add-seed-nodes) in `config.toml` in `seeds="..."`.
 
