@@ -68,25 +68,25 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
     scp -r ~/.switcheocli/keyring-switcheo-tradehub <new_node_ip>:~/.carbon/keyring-file
     ```
 
-    > :warning: When transferring operator keys by copying the keyring folder directly as above, your new keyring password needs to be the same as the previous keyring password. To change keyring passwords, add the keys by importing through mnemonic phrase recovery instead: 
-    > 
-    >     carbond keys add oracle --recover --keyring-backend=file
-    > 
+    > :warning: When transferring operator keys by copying the keyring folder directly as above, your new keyring password needs to be the same as the previous keyring password. To change keyring passwords, add the keys by importing through mnemonic phrase recovery instead:
+    >
+    >    carbond keys add oracle --recover --keyring-backend=file
+    >
     > :warning: The default oracle wallet label is now `oracle`. In older Switcheo TradeHub configurations, this was `oraclewallet`.
     > Check what label you are using by running:
     >
-    >     carbond keys list --keyring-backend=file 
-    >     
+    >    carbond keys list --keyring-backend=file
+    >
     > If you are using the old label, add the following line to `/etc/systemd/system/carbond@.service`:
-    > 
-    >     Environment="ORACLE_WALLET_LABEL=oraclewallet"
-    >     
+    >
+    >    Environment="ORACLE_WALLET_LABEL=oraclewallet"
+    >
     > or, reimport under the new label via mnemonic phrase recovery.
 
 ### Setup on same machine
 
 1. Follow the [manual installation guide](./INSTALL.md), skipping the setup sections for Redis and Postgres (as they should already be installed).
-2. Copy your existing validator keys to the new node config directory. See [this section](./INSTALL.md#upgrading-from-existing-validator) for the files required.
+2. Copy your existing validator keys to the new node config directory. See [this section](./README.md#upgrading-from-existing-validator) for the files required.
 3. Create the `carbon` postgres database
 
     `createdb carbon`
