@@ -54,7 +54,7 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
     - For full node with remote db:
 
-      `POSTGRES_URL=postgresql://username:password@hostname:5432/carbon <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -aops carbon-1 <your_moniker>`
+      `POSTGRES_URL=postgresql://username:password@hostname:5432/carbon bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -aops carbon-1 <your_moniker>`
 
     - For validating-only nodes:
 
