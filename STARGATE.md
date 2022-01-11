@@ -119,11 +119,11 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
 5. Run the genesis migration command on your `carbond` node:
 
-    `carbond migrate genesis-exported.json --chain-id carbon-1 > ~/carbon/config/genesis.json`
+    `carbond migrate genesis-exported.json --chain-id carbon-1 > ~/carbond/config/genesis.json`
 
 6. Check hash of the migrated genesis file that will be used:
 
-    `openssl sha256 ~/.carbon/config/genesis.json`
+    `openssl sha256 ~/.carbond/config/genesis.json`
 
     `=> # Hash = <TODO>`
 
