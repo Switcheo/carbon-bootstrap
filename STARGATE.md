@@ -77,7 +77,7 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
     >
     >    carbond keys list --keyring-backend=file
     >
-    > If you are using the old label, add the following line to `/etc/systemd/system/carbond@.service`:
+    > If you are using the old label, add the following line to `/etc/systemd/system/carbond@.service` in the \[Service\] section:
     >
     >    Environment="ORACLE_WALLET_LABEL=oraclewallet"
     >
