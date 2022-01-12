@@ -81,7 +81,7 @@ You can also create your operator keys on another node, such as a developer mach
 6. After receiving tokens, promote your node to a validator by running:
 
     ```bash
-    carbond tx staking create-validator --amount 100000000000swth --commission-max-change-rate "0.025" --commission-max-rate "0.20" --commission-rate "0.05" --details "Some details about your validator" --from val --pubkey="PublicKeyFromStep1" --moniker "NameForYourValidator" --min-self-delegation "1" --fees 100000000swth --gas 300000 --keyring-backend file
+    carbond tx staking create-validator --amount 100000000000swth --commission-max-change-rate "0.025" --commission-max-rate "0.20" --commission-rate "0.05" --details "Some details about your validator" --from val --pubkey='PublicKeyFromStep1' --moniker "NameForYourValidator" --min-self-delegation "1" --fees 100000000swth --gas 300000  --chain-id <chain_id> --keyring-backend file
     ```
 
 ##### Create oracle
@@ -107,13 +107,13 @@ All validators need to run a node (either the same node as the validator, or som
 3. After receiving tokens, initiate linking your oracle account as a subaccount of your validator by running this from a node that has access to your validator operator wallet.
 
     ```bash
-    carbond tx subaccount create-sub-account <oracle_address> --from val --fees 100000000swth  --gas 300000 --keyring-backend file -y
+    carbond tx subaccount create-sub-account <oracle_address> --from val --fees 100000000swth  --gas 300000 --chain-id <chain_id> --keyring-backend file -y
     ```
 
 4. Accept the link from a node that has access to the oracle account (i.e. oracle subservice node).
 
     ```bash
-    carbond tx subaccount activate-sub-account <val_address> --from oracle --fees 100000000swth --gas 300000 --keyring-backend file -y
+    carbond tx subaccount activate-sub-account <val_address> --from oracle --fees 100000000swth --gas 300000 --chain-id <chain_id> --keyring-backend file -y
     ```
 
     > By running the oracle as a subaccount, your validator operator key can be secured without exposing it on a hot machine.
