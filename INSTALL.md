@@ -204,6 +204,7 @@ You can setup systemd to supervise the Carbon node and subservices.
 
 ```bash
 sudo mkdir -p /var/log/carbon
+sudo chown -R $USER /var/log/carbon
 sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
 [Unit]
 Description=Carbon Daemon
@@ -232,7 +233,6 @@ EOF
 This dynamically creates a systemd configuration for each type of subservice.
 
 ```bash
-sudo mkdir -p /var/log/carbon
 sudo tee /etc/systemd/system/carbond@.service > /dev/null <<EOF
 [Unit]
 Description=Carbon %i Daemon
