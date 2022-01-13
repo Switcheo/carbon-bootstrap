@@ -172,8 +172,8 @@ NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
 wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
 tar -xvf ${FILE}
+rm ${FILE}
 sudo service carbond stop
 mv carbond ~/.carbon/cosmovisor/current/bin/carbond
 sudo service carbond start
-rm ${FILE}
 ```
