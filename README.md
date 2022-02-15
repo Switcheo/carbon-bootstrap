@@ -6,7 +6,7 @@ For validators upgrading to `carbon-1` mainnet, go [here](/STARGATE.md) for a de
 
 ## Network Status
 
-Latest testnet: [carbon-42069](./carbon-42069/genesis.json)
+Latest testnet: [carbon-42070](./carbon-42070/genesis.json)
 
 Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
