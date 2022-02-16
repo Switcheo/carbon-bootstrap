@@ -26,6 +26,18 @@ Omit this if services are not enabled or data should be read from a remote datab
 EOF
 }
 
+function preDownloadUpgrade () {
+  majorVersion=$1
+  minorVersion=${UPGRADES["$majorVersion"]}
+  echo "---- Pre-downloading upgrades for major version: ${majorVersion} and minor version: ${minorVersion}"
+  FILE=carbond${minorVersion}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+  wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${minorVersion}/${FILE}
+  tar -xvf ${FILE}
+  rm ${FILE}
+  mkdir -p ~/.carbon/cosmovisor/upgrades/v${majorVersion}/bin
+  mv carbond ~/.carbon/cosmovisor/upgrades/v${majorVersion}/bin/carbond
+}
+
 # Install configuration variables
 PUBLIC_NODE=false
 LOCAL_DATABASE=false
@@ -92,6 +104,10 @@ CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/mas
 CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
 NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
+declare -A UPGRADES
+# upgrades declared below will be predownloaded for mainnet
+UPGRADES['2.1.0']='2.1.1'
+UPGRADES['2.2.0']='2.2.0'
 case $NETWORK in
   mainnet)
     ;;
@@ -213,6 +229,9 @@ echo "---- Creating node directories"
 
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
+if [ "$NETWORK" == mainnet ]; then
+  for i in "${!UPGRADES[@]}"; do preDownloadUpgrade $i; done
+fi
 sudo mv cosmovisor /usr/local/bin
 sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
 sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
@@ -305,6 +324,7 @@ After=network-online.target
 User=$USER
 Environment="DAEMON_HOME=$HOME/.carbon"
 Environment="DAEMON_NAME=$DAEMON"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="POSTGRES_URL=$POSTGRES_URL"
 $MAIN_CMD
 Restart=always
