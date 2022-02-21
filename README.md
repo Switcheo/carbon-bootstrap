@@ -167,13 +167,14 @@ To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.
 
 ```bash
 # set the version / network to upgrade to here:
-VERSION=2.0.3
+VERSION=2.1.1
+MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
 NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
 wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
 tar -xvf ${FILE}
 rm ${FILE}
 sudo service carbond stop
-mv carbond ~/.carbon/cosmovisor/current/bin/carbond
+mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
 sudo service carbond start
 ```
