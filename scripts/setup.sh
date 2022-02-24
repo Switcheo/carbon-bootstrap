@@ -28,7 +28,7 @@ EOF
 
 function preDownloadUpgrade () {
   majorVersion=$1
-  minorVersion=${UPGRADES["$majorVersion"]}
+  minorVersion=$2
   echo "---- Pre-downloading upgrades for major version: ${majorVersion} and minor version: ${minorVersion}"
   FILE=carbond${minorVersion}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
   wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${minorVersion}/${FILE}
@@ -104,10 +104,10 @@ CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/mas
 CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
 VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
 NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
-declare -A UPGRADES
-# upgrades declared below will be predownloaded for mainnet
-UPGRADES['2.1.0']='2.1.1'
-UPGRADES['2.2.0']='2.2.0'
+UPGRADES=()
+while read UPGRADE; do
+  UPGRADES+=($UPGRADE)
+done < <(wget -qO- https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/carbon-1/UPGRADES)
 case $NETWORK in
   mainnet)
     ;;
@@ -229,9 +229,10 @@ echo "---- Creating node directories"
 
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
-if [ "$NETWORK" == mainnet ]; then
-  for i in "${!UPGRADES[@]}"; do preDownloadUpgrade $i; done
-fi
+for UPGRADE in "${UPGRADES[@]}"; do
+  IFS='=' read majorVersion minorVersion <<< $UPGRADE
+  preDownloadUpgrade $majorVersion $minorVersion
+done
 sudo mv cosmovisor /usr/local/bin
 sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
 sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
