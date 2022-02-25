@@ -165,7 +165,7 @@ For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
 
 To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
 
-Ensure you have perl 5, you can check with `perl -v`.
+Ensure you have perl >5.30, you can check with `perl -v`.
 
 Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
 
