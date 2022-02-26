@@ -47,9 +47,10 @@ SETUP_ORACLE=false
 SETUP_PERSISTENCE=false
 SETUP_RELAYER=false
 SKIP_GENESIS=false
+STATE_SYNC=false
 INSTALL_REDIS=false
 
-while getopts ":adloprsh" opt; do
+while getopts ":adloprsth" opt; do
   case $opt in
     a)
       SETUP_API=true
@@ -72,6 +73,9 @@ while getopts ":adloprsh" opt; do
       ;;
     s)
       SKIP_GENESIS=true
+      ;;
+    t)
+      STATE_SYNC=true
       ;;
     h)
       printUsage
@@ -96,6 +100,11 @@ if [[ $(( $# - $OPTIND )) -ne 1 ]]; then
   exit 1
 fi
 
+if [ "$SETUP_PERSISTENCE" = true ] && [ "$STATE_SYNC" = true ]; then
+  echo "Error: State sync does not support persistence."
+  exit 1
+fi
+
 # Chain variables
 DAEMON=carbond
 CHAIN_ID=${@:$OPTIND:1}
@@ -108,6 +117,10 @@ UPGRADES=()
 while read UPGRADE; do
   UPGRADES+=($UPGRADE)
 done < <(wget -qO- https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/carbon-1/UPGRADES)
+if [ "$STATE_SYNC" = true ] && [ ${#UPGRADES[@]} -ne 0 ]; then
+  IFS='=' read majorVersion minorVersion <<< ${UPGRADES[-1]}
+  VERSION=$minorVersion
+fi
 case $NETWORK in
   mainnet)
     ;;
@@ -225,14 +238,32 @@ if [ "$SETUP_API" = true ]; then
   sed -i 's#swagger = false#swagger = true#g' ~/.carbon/config/app.toml # enable swagger endpoint
 fi
 
+if [ "$STATE_SYNC" = true ]; then
+  RPC_SERVERS=$(sed -E 's#[^,@]+@([^@:]+):26656#\1:26657#g' <<< $PEERS)
+
+  IFS=',' read URL REST <<< $RPC_SERVERS
+  BLOCK_RESP=$(wget -qO- "http://$URL/block")
+  BLOCK_HEIGHT=$(jq -r '.result.block.header.height' <<< $BLOCK_RESP)
+  BLOCK_HASH=$(jq '.result.block_id.hash' <<< $BLOCK_RESP)
+  UNBONDING_TIME=$(jq '.app_state.staking.params.unbonding_time' ~/.carbon/config/genesis.json)
+
+  sed -i 's#enable = false#enable = true#g' ~/.carbon/config/config.toml
+  sed -i 's#rpc_servers = ""#rpc_servers = "'"$RPC_SERVERS"'"#g' ~/.carbon/config/config.toml
+  sed -i 's#trust_height = 0#trust_height = '"$BLOCK_HEIGHT"'#g' ~/.carbon/config/config.toml
+  sed -i 's#trust_hash = ""#trust_hash = '"$BLOCK_HASH"'#g' ~/.carbon/config/config.toml
+  sed -i 's#trust_period = "168h0m0s"#trust_period = '"$UNBONDING_TIME"'#g' ~/.carbon/config/config.toml
+fi
+
 echo "---- Creating node directories"
 
 mkdir -p ~/.carbon/cosmovisor/genesis/bin
 mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
-for UPGRADE in "${UPGRADES[@]}"; do
-  IFS='=' read majorVersion minorVersion <<< $UPGRADE
-  preDownloadUpgrade $majorVersion $minorVersion
-done
+if [ "$STATE_SYNC" != true ]; then
+  for UPGRADE in "${UPGRADES[@]}"; do
+    IFS='=' read majorVersion minorVersion <<< $UPGRADE
+    preDownloadUpgrade $majorVersion $minorVersion
+  done
+fi
 sudo mv cosmovisor /usr/local/bin
 sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
 sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
