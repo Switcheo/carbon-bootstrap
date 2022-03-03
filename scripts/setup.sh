@@ -116,7 +116,7 @@ NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
 UPGRADES=()
 while read UPGRADE; do
   UPGRADES+=($UPGRADE)
-done < <(wget -qO- https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/carbon-1/UPGRADES)
+done < <(wget -qO- ${CHAIN_CONFIG_URL}/UPGRADES)
 if [ "$STATE_SYNC" = true ] && [ ${#UPGRADES[@]} -ne 0 ]; then
   IFS='=' read majorVersion minorVersion <<< ${UPGRADES[-1]}
   VERSION=$minorVersion
