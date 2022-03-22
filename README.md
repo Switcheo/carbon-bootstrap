@@ -138,7 +138,7 @@ tail -f /var/log/carbon/carbond*.err*
 tail -f /var/log/carbon/carbond*.out*
 ```
 
-### Stopping Nodes
+## Stopping Nodes
 
 To stop all services:
 
@@ -153,7 +153,7 @@ sudo systemctl stop carbond@oracle
 sudo systemctl stop carbond@liquidator
 ```
 
-### Minor Version Upgrades
+## Minor Version Upgrades
 
 To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
 
