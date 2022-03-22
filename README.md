@@ -2,8 +2,6 @@
 
 This repo collects the genesis and configuration files for the various Carbon testnets / mainnets. It exists so the main Carbon repo does not get bogged down with large genesis files and status updates. This repo also contains scripts which allow bootstrapping or upgrading validators into a Carbon network in various recommended configurations easily.
 
-For validators upgrading to `carbon-1` mainnet, go [here](/STARGATE.md) for a detailed upgrade guide.
-
 ## Network Status
 
 Latest testnet: [carbon-42070](./carbon-42070/genesis.json)
