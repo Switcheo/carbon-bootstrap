@@ -15,8 +15,8 @@ Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 To get started:
 
 1. [Install your node binary](#installation)
-2. [Configure validator keys](#
-3. Start your node
+2. [Configure validator keys](#configure-validator-keys)
+3. [Start your node](#starting-nodes)
 
 ### Installation
 
