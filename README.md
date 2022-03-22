@@ -20,10 +20,12 @@ To get started:
 
 #### Script installation
 
-To quickly get started with the latest testnet / mainnet, run this command to automatically set up all dependencies and a full node / validator node:
+To quickly get started with the latest testnet / mainnet, run the following command to automatically set up all dependencies and a full node / validator node:
 
 ```bash
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop <chain_id> <your_moniker>
+CHAIN_ID=carbon-1 # or carbon-42070 for testnet
+MONIKER=<choose a name for your node here>
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop CHAIN_ID MONIKER
 ```
 
 #### Manual installation
