@@ -12,7 +12,15 @@ Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
 ## Getting Started
 
-### Automatic Installation
+To get started:
+
+1. [Install your node binary](#installation)
+2. [Configure validator keys](#
+3. Start your node
+
+### Installation
+
+#### Script installation
 
 To quickly get started with the latest testnet / mainnet, run this command to automatically set up all dependencies and a full node / validator node:
 
@@ -20,25 +28,13 @@ To quickly get started with the latest testnet / mainnet, run this command to au
 bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop <chain_id> <your_moniker>
 ```
 
-If running a validator, configure your operator keys in the section below.
+#### Manual installation
+
+For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
 
 ### Configure Validator Keys
 
-If you're running a validator node, you'll need to create or import your validator keys before running your node and subservices. If you're running a non-validating node, you can skip this section.
-
-#### Upgrading from existing validator
-
-To upgrade from a pre-stargate or hardforked-upgraded chain (e.g. Carbon `carbon-1` from Switcheo TradeHub `switcheo-tradehub-1`), copy your existing both your validator operator keys (`keyring-file`) and Tendermint node keys (`node_key.json` and `priv_validator_key.json`) from the legacy daemon config directory. If Carbon resides on a different machine, use `scp` instead of `cp`.
-
-```bash
-cp ~/.switcheod/config/node_key.json ~/.carbon/config/
-cp ~/.switcheod/config/priv_validator_key.json ~/.carbon/config/
-cp -r ~/.switcheocli/keyring-switcheo-tradehub ~/.carbon/keyring-file
-```
-
-#### Installing for new validator
-
-If you are running a validator for the first time, you will need to create a few mandatory operator keys (this is different from your Tendermint keys `node_key` / `priv_validator_key.json` which are automatically created when bootstrapping).
+If you're running a validator node, you'll need to create your validator key and a few mandatory operator keys (this is different from your Tendermint keys `node_key` / `priv_validator_key.json`) before running your node and subservices. If you're running a non-validating node, you can skip this section.
 
 #### Automatic key creation
 
@@ -84,7 +80,7 @@ You can also create your operator keys on another node, such as a developer mach
     carbond tx staking create-validator --amount 100000000000swth --commission-max-change-rate "0.025" --commission-max-rate "0.20" --commission-rate "0.05" --details "Some details about your validator" --from val --pubkey='PublicKeyFromStep1' --moniker "NameForYourValidator" --min-self-delegation "1" --fees 100000000swth --gas 300000 --chain-id <chain_id> --keyring-backend file
     ```
 
-##### Create oracle
+##### Create oracle subaccount key
 
 All validators need to run a node (either the same node as the validator, or some other secondary node) that has the oracle service enabled.
 
@@ -118,7 +114,7 @@ All validators need to run a node (either the same node as the validator, or som
 
     > By running the oracle as a subaccount, your validator operator key can be secured without exposing it on a hot machine.
 
-##### Create liquidator
+##### Create liquidator subaccount key
 
 The steps for creating a liquidator is exactly the same as an oracle (replace `oracle` with `liquidator`). Liquidator incentives / penalties are not enabled yet, so validators can choose to run this subservice on an altrustic basis. Just one operator needs to run the liquidator for liquidations to execute correctly.
 
@@ -156,10 +152,6 @@ To stop services individually:
 sudo systemctl stop carbond@oracle
 sudo systemctl stop carbond@liquidator
 ```
-
-### Manual Installation
-
-For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
 
 ### Minor Version Upgrades
 
