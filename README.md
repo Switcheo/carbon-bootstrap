@@ -4,7 +4,7 @@ This repo collects the genesis and configuration files for the various Carbon te
 
 ## Network Status
 
-Latest testnet: [carbon-42070](./carbon-42070/genesis.json)
+Latest testnet: [carbon-42071](./carbon-42071/genesis.json)
 
 Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
@@ -23,7 +23,7 @@ To get started:
 To quickly get started with the latest testnet / mainnet, run the following command to automatically set up all dependencies and a full node / validator node:
 
 ```bash
-CHAIN_ID=carbon-1 # or carbon-42070 for testnet
+CHAIN_ID=carbon-1 # or carbon-42071 for testnet
 MONIKER=mynode # choose a name for your node here
 bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop CHAIN_ID MONIKER
 ```
