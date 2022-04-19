@@ -333,9 +333,6 @@ fi
 if [ "$SETUP_API" = true ]; then
   WANTS+="Wants=carbond@ws-api.service"$'\n'
 fi
-if [ "$SETUP_PERSISTENCE" = true ]; then
-  WANTS+="Wants=carbond@ext-events.service"$'\n'
-fi
 if [ "$SETUP_RELAYER" = true ]; then
   WANTS+="Wants=carbond@fee.service"$'\n'
 fi
@@ -354,10 +351,12 @@ After=network-online.target
 
 [Service]
 User=$USER
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="DAEMON_HOME=$HOME/.carbon"
 Environment="DAEMON_NAME=$DAEMON"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="POSTGRES_URL=$POSTGRES_URL"
+Environment="UNSAFE_SKIP_BACKUP=true"
 $MAIN_CMD
 Restart=always
 RestartSec=3
