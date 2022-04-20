@@ -269,7 +269,7 @@ sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
 sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
 
 # configure database strings
-PERSISTENCE_FLAG=
+START_FLAG=""
 if [ -n "$POSTGRES_URL" ]; then
   db_regex="^(.+[a-z0-9])\/([a-zA-Z0-9]+)(\?.*)*$"
   if [[ $POSTGRES_URL =~ $db_regex ]]; then
@@ -298,7 +298,7 @@ if [ "$SETUP_PERSISTENCE" = true ]; then
   if [ "$SKIP_GENESIS" != true ]; then
     POSTGRES_URL=$POSTGRES_URL $DAEMON persist-genesis
   fi
-  PERSISTENCE_FLAG=--persistence
+  START_FLAG+=" --persistence"
 fi
 
 echo "---- Creating carbon systemd service"
@@ -332,6 +332,7 @@ if [ "$SETUP_LIQUIDATOR" = true ]; then
 fi
 if [ "$SETUP_API" = true ]; then
   WANTS+="Wants=carbond@ws-api.service"$'\n'
+  START_FLAG+=" --db-api"
 fi
 if [ "$SETUP_RELAYER" = true ]; then
   WANTS+="Wants=carbond@fee.service"$'\n'
@@ -341,7 +342,8 @@ fi
 
 sudo mkdir -p /var/log/carbon
 
-MAIN_CMD="$(wrapCmd "carbond" "/usr/local/bin/cosmovisor start $PERSISTENCE_FLAG")"
+START_FLAG=$(echo $START_FLAG | xargs echo -n) # strip lead/trail spaces
+MAIN_CMD="$(wrapCmd "carbond" "/usr/local/bin/cosmovisor start $START_FLAG")"
 
 sudo tee /etc/systemd/system/carbond.service > /dev/null <<EOF
 [Unit]
