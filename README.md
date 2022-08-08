@@ -25,7 +25,7 @@ To quickly get started with the latest testnet / mainnet, run the following comm
 ```bash
 CHAIN_ID=carbon-1 # or carbon-42071 for testnet
 MONIKER=mynode # choose a name for your node here
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop CHAIN_ID MONIKER
+bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop $CHAIN_ID $MONIKER
 ```
 
 #### Manual installation
