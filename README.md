@@ -37,13 +37,13 @@ bash <(wget -O - $URL) $FLAGS $CHAIN_ID $MONIKER
 
 #### B. Manual installation
 
-For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
+For manual installation of nodes, please see [INSTALL.md](/INSTALL.md).
 
 ### Configure Validator Keys
 
 If you're running a validator node, you'll need to create your validator key and a few mandatory operator keys (this is different from your Tendermint keys `node_key` / `priv_validator_key.json`) before running your node and subservices. If you're running a non-validating node, you can skip this section.
 
-You can do this using a [script](#a-automatic-key-creation), or [manually](#b-manual-key-creation).
+You can do this using the [script below](#a-automatic-key-creation), or [by creating them manually](#b-manual-key-creation).
 
 #### A. Automatic key creation
 
@@ -57,7 +57,7 @@ You'll need to fund your accounts and then run a few more commands to link your 
 
 #### B. Manual key creation
 
-You can also create your operator keys on another node, such as a developer machine, for better security and access. Follow this guide to create the required keys manually: [KEYS.md](KEYS.md)
+You can also create your operator keys on another node, such as a developer machine, for better security and access. Follow this guide to create the required keys manually: [KEYS.md](KEYS.md).
 
 ### Getting chain data
 
@@ -84,8 +84,8 @@ In order to quickly run your node, configure your node for state syncing first.
     [statesync]
     enable = true
     rpc_servers = "https://tm-api.carbon.network:443,https://rpc.carbon.blockhunters.org:443"
-    trust_height = 1964
-    trust_hash = "6FD28DAAAC79B77F589AE692B6CD403412CE27D0D2629E81951607B297696E5B"
+    trust_height = 34922501
+    trust_hash = "8A9BD3B45B7CE14514975E66F9740488BD0978DDD75A4275F9C445391E7EA2EA"
     trust_period = "408h0m0s"
     ```
 
