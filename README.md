@@ -10,7 +10,7 @@ Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
 ## Getting Started
 
-To get started:
+You will need to perform this steps to get a Carbon node up and running:
 
 1. [Install your node binary](#installation)
 2. [Configure validator keys](#configure-validator-keys)
@@ -19,7 +19,9 @@ To get started:
 
 ### Installation
 
-#### Script installation
+You can install your node via a [single command script](#a-script-installation) or [manually](#b-manual-installation).
+
+#### A. Script installation
 
 To quickly get started with the latest testnet / mainnet, run the following command to automatically set up all dependencies and a full node / validator node:
 
@@ -33,7 +35,7 @@ URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/s
 bash <(wget -O - $URL) $FLAGS $CHAIN_ID $MONIKER
 ```
 
-#### Manual installation
+#### B. Manual installation
 
 For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
 
@@ -41,7 +43,9 @@ For manual installation of nodes, please see [INSTALL.md](/INSTALL.md)
 
 If you're running a validator node, you'll need to create your validator key and a few mandatory operator keys (this is different from your Tendermint keys `node_key` / `priv_validator_key.json`) before running your node and subservices. If you're running a non-validating node, you can skip this section.
 
-#### Automatic key creation
+You can do this using a [script](#a-automatic-key-creation), or [manually](#b-manual-key-creation).
+
+#### A. Automatic key creation
 
 To install all required validator and subaccount keys directly on your validator node, run [scripts/create-keys.sh](./scripts/create-keys.sh):
 
@@ -51,7 +55,7 @@ bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/mas
 
 You'll need to fund your accounts and then run a few more commands to link your validator subaccounts and promote your node to a validator. Follow all instructions printed from the output of the above script carefully.
 
-#### Manual key creation
+#### B. Manual key creation
 
 You can also create your operator keys on another node, such as a developer machine, for better security and access. Follow this guide to create the required keys manually: [KEYS.md](KEYS.md)
 
@@ -87,19 +91,19 @@ In order to quickly run your node, configure your node for state syncing first.
 
 #### Chain Download
 
-We periodically upload the compressed chain data to this repo under the `chain-name/data` directory.
+We periodically upload the compressed chain data to this repo under the `<chain-name>/data` directory. The data filenames are prefixed by date and block height.
 
 1. Download the latest chain data, e.g.:
 
     ```bash
-    wget https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/carbon-1/data/xxx-xxx-carbon-1-data.tar.lz4
+    wget https://github.com/Switcheo/carbon-bootstrap/raw/master/carbon-1/data/20221209-34931459-carbon-1-data.tar.lz4
     ```
 
 2. Go to the carbond data folder and decompress the data:
 
     ```bash
     cd $HOME/.carbon
-    lz4 -d xxx-xxx-carbon-1-data.tar.lz4 -c | tar xvf -
+    lz4 -d ~/20221209-34931459-carbon-1-data.tar.lz4 -c | tar xvf -
     ```
 
 #### Troubleshooting Slow Sync
@@ -148,11 +152,7 @@ tail -f /var/log/carbon/carbond*.err*
 tail -f /var/log/carbon/carbond*.out*
 ```
 
-### Troubleshooting
-
-AppHash mismatch:
-
-## Stopping Nodes
+### Stopping Nodes
 
 To stop all services:
 
