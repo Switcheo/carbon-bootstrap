@@ -4,7 +4,7 @@ This repo collects the genesis and configuration files for the various Carbon te
 
 ## Network Status
 
-Latest testnet: [carbon-42071](./carbon-42071/genesis.json)
+Latest testnet: [carbon-testnet-42069](./carbon-testnet-42069/genesis.json)
 
 Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
@@ -14,7 +14,8 @@ To get started:
 
 1. [Install your node binary](#installation)
 2. [Configure validator keys](#configure-validator-keys)
-3. [Start your node](#starting-nodes)
+3. [Getting chain data](#getting-chain-data)
+4. [Start your node](#starting-nodes)
 
 ### Installation
 
@@ -23,7 +24,7 @@ To get started:
 To quickly get started with the latest testnet / mainnet, run the following command to automatically set up all dependencies and a full node / validator node:
 
 ```bash
-CHAIN_ID=carbon-1 # or: carbon-testnet-42071 for testnet
+CHAIN_ID=carbon-1 # or: carbon-testnet-42069 for testnet
 MONIKER=mynode    # choose a name for your node here
 FLAGS="-adop"     # these flags set up a full node with off-chain persistence (supports all APIs),
                   # use: "-o" for set up with minimum validator requirements,
@@ -52,75 +53,80 @@ You'll need to fund your accounts and then run a few more commands to link your 
 
 #### Manual key creation
 
-You can also create your operator keys on another node, such as a developer machine, for better security and access. Here's how to create the required keys manually:
+You can also create your operator keys on another node, such as a developer machine, for better security and access. Follow this guide to create the required keys manually: [KEYS.md](KEYS.md)
 
-##### Create validator
+### Getting chain data
 
-1. On your validator node, get it's public key and note it down:
+There are two main ways to quickly get your node synced with the latest chain data - either through [Statesync](#statesync), or [Chain Download](#chain-download).
 
-      ```bash
-      carbond tendermint show-validator
-      ```
+Note that this is not possible for nodes that wish to run full API services (-adp), and is only meant for quickly bootstrapping validator nodes. pSQL data dumps for quick syncing of all services is coming soon.
 
-2. On the machine(s) that you wish to install your keys, download and install the appropriate [release](https://github.com/Switcheo/carbon-bootstrap/releases).
+#### Statesync
 
-3. Create your validator operator key and password:
+In order to quickly run your node, configure your node for state syncing first.
 
-    ```bash
-    carbond keys add val --keyring-backend file -i
-    ```
-
-4. Your validator address is:
+1. Curl the latest block height and hash from a trusted RPC node:
 
     ```bash
-    carbond keys show val -a --keyring-backend file
+    curl -s https://tm-api.carbon.network:443/block | \
+      jq -r '.result.block.header.height + "\n" + .result.block_id.hash'
+    34922501
+    8A9BD3B45B7CE14514975E66F9740488BD0978DDD75A4275F9C445391E7EA2EA
     ```
 
-5. You will need some Switcheo tokens to start your validator. You can get testnet tokens from the [faucet](https://test-faucet.carbon.network).
+2. Configure `~/.carbon/config/config.toml` to use state sync:
 
-6. After receiving tokens, promote your node to a validator by running:
+    ```toml
+    [statesync]
+    enable = true
+    rpc_servers = "https://tm-api.carbon.network:443,https://rpc.carbon.blockhunters.org:443"
+    trust_height = 1964
+    trust_hash = "6FD28DAAAC79B77F589AE692B6CD403412CE27D0D2629E81951607B297696E5B"
+    trust_period = "408h0m0s"
+    ```
+
+#### Chain Download
+
+We periodically upload the compressed chain data to this repo under the `chain-name/data` directory.
+
+1. Download the latest chain data, e.g.:
 
     ```bash
-    carbond tx staking create-validator --amount 100000000000swth --commission-max-change-rate "0.025" --commission-max-rate "0.20" --commission-rate "0.05" --details "Some details about your validator" --from val --pubkey='PublicKeyFromStep1' --moniker "NameForYourValidator" --min-self-delegation "1" --fees 100000000swth --gas 300000 --chain-id <chain_id> --keyring-backend file
+    wget https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/carbon-1/data/xxx-xxx-carbon-1-data.tar.lz4
     ```
 
-##### Create oracle subaccount key
-
-All validators need to run a node (either the same node as the validator, or some other secondary node) that has the oracle service enabled.
-
-1. On your node that is running the oracle service, create the oracle key:
+2. Go to the carbond data folder and decompress the data:
 
     ```bash
-    # Secure the key with the same password you used during node setup!
-    carbond keys add oracle --keyring-backend file -i
+    cd $HOME/.carbon
+    lz4 -d xxx-xxx-carbon-1-data.tar.lz4 -c | tar xvf -
     ```
 
-    >! Your oracle subservice needs access to your oracle wallet (hot wallet). Ensure that it is installed on the same node that is running the oracle subservice, and that the service has the right password for decrypting the wallet.
+#### Troubleshooting Slow Sync
 
-2. Send some Switcheo tokens to your oracle wallet (mainnet), or get them from the [faucet](https://test-faucet.carbon.network) (testnet).
+If you receive an AppHash mismatch error while slow syncing v2.15.6 binaries from genesis, attempt the following steps:
+
+1. [Stop your node](#stopping-nodes):
 
     ```bash
-    # From validator walelt
-    carbond tx bank send [from_key_or_address] [to_address] [amount]
+    sudo systemctl stop carbond
     ```
 
-3. After receiving tokens, initiate linking your oracle account as a subaccount of your validator by running this from a node that has access to your validator operator wallet.
+2. Rollback the last block with:
 
     ```bash
-    carbond tx subaccount create-sub-account <oracle_address> --from val --fees 100000000swth  --gas 300000 --chain-id <chain_id> --keyring-backend file -y
+    carbond rollback
     ```
 
-4. Accept the link from a node that has access to the oracle account (i.e. oracle subservice node).
+3. Replace your binary with v2.15.4 using the [minor version upgrade steps](#minor-version-upgrades)
+
+4. [Start your node](#starting-nodes) and observe its progress via logs.
+
+5. Upgrade your binary back to v2.15.6 using the [minor version upgrade steps](#minor-version-upgrades) when the node panics with:
 
     ```bash
-    carbond tx subaccount activate-sub-account <val_address> --from oracle --fees 100000000swth --gas 300000 --chain-id <chain_id> --keyring-backend file -y
+    ERRO[2022-12-06T11:29:55+01:00] EndBlock: pool virtual K value has reduced!, stack: goroutine 1 [running]:
     ```
-
-    > By running the oracle as a subaccount, your validator operator key can be secured without exposing it on a hot machine.
-
-##### Create liquidator subaccount key
-
-The steps for creating a liquidator is exactly the same as an oracle (replace `oracle` with `liquidator`). Liquidator incentives / penalties are not enabled yet, so validators can choose to run this subservice on an altrustic basis. Just one operator needs to run the liquidator for liquidations to execute correctly.
 
 ### Starting Nodes
 
@@ -141,6 +147,10 @@ tail -f /var/log/carbon/carbond*.err*
 # Check that services are running:
 tail -f /var/log/carbon/carbond*.out*
 ```
+
+### Troubleshooting
+
+AppHash mismatch:
 
 ## Stopping Nodes
 
