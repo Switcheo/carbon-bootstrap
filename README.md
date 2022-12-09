@@ -89,6 +89,16 @@ In order to quickly run your node, configure your node for state syncing first.
     trust_period = "408h0m0s"
     ```
 
+3. Use the latest binary:
+
+    ```bash
+    MINOR=2.15.0 # or latest minor version
+    rm ~/.carbon/cosmovisor/current
+    ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
+    ```
+
+4. [Start your node](#starting-nodes)
+
 #### Chain Download
 
 We periodically upload the compressed chain data to this repo under the `<chain-name>/data` directory. The data filenames are prefixed by date and block height.
@@ -106,15 +116,21 @@ We periodically upload the compressed chain data to this repo under the `<chain-
     lz4 -d ~/20221209-34931459-carbon-1-data.tar.lz4 -c | tar xvf -
     ```
 
+3. Use the latest binary:
+
+    ```bash
+    MINOR=2.15.0 # or latest minor version
+    rm ~/.carbon/cosmovisor/current
+    ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
+    ```
+
+4. [Start your node](#starting-nodes)
+
 #### Troubleshooting Slow Sync
 
 If you receive an AppHash mismatch error while slow syncing v2.15.6 binaries from genesis, attempt the following steps:
 
-1. [Stop your node](#stopping-nodes):
-
-    ```bash
-    sudo systemctl stop carbond
-    ```
+1. [Stop your node](#stopping-nodes)
 
 2. Rollback the last block with:
 
@@ -124,7 +140,7 @@ If you receive an AppHash mismatch error while slow syncing v2.15.6 binaries fro
 
 3. Replace your binary with v2.15.4 using the [minor version upgrade steps](#minor-version-upgrades)
 
-4. [Start your node](#starting-nodes) and observe its progress via logs.
+4. [Start your node](#starting-nodes) and observe its progress via logs
 
 5. Upgrade your binary back to v2.15.6 using the [minor version upgrade steps](#minor-version-upgrades) when the node panics with:
 
