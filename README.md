@@ -23,9 +23,13 @@ To get started:
 To quickly get started with the latest testnet / mainnet, run the following command to automatically set up all dependencies and a full node / validator node:
 
 ```bash
-CHAIN_ID=carbon-1 # or carbon-42071 for testnet
-MONIKER=mynode # choose a name for your node here
-bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh) -adlop $CHAIN_ID $MONIKER
+CHAIN_ID=carbon-1 # or: carbon-testnet-42071 for testnet
+MONIKER=mynode    # choose a name for your node here
+FLAGS="-adop"     # these flags set up a full node with off-chain persistence (supports all APIs),
+                  # use: "-o" for set up with minimum validator requirements,
+                  # use: "" for set up with minimum node requirements (no extra services)
+URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh
+bash <(wget -O - $URL) $FLAGS $CHAIN_ID $MONIKER
 ```
 
 #### Manual installation
@@ -163,7 +167,7 @@ Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
 
 ```bash
 # set the version / network to upgrade to here:
-VERSION=2.1.1
+VERSION=2.15.6
 MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
 NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
