@@ -69,27 +69,39 @@ Note that this is not possible for nodes that wish to run full API services (-ad
 
 In order to quickly run your node, configure your node for state syncing first.
 
-1. Curl the latest block height and hash from a trusted RPC node:
+You may do that [manually](#a-configure-manually), or via our [helper script](#b-helper-script).
+
+##### A. Configure Manually
+
+1. Find the latest block height and hash from a trusted RPC node:
 
     ```bash
     curl -s https://tm-api.carbon.network:443/block | \
-      jq -r '.result.block.header.height + "\n" + .result.block_id.hash'
+      jq -r '.result.block.header.height'
     34922501
-    8A9BD3B45B7CE14514975E66F9740488BD0978DDD75A4275F9C445391E7EA2EA
     ```
 
-2. Configure `~/.carbon/config/config.toml` to use state sync:
+2. Get the hash for 10k blocks behind the current height:
+
+
+    ```bash
+    curl -s https://tm-api.carbon.network:443/block?height=34912501 | \
+      jq -r '.result.block.header.height + "\n" + .result.block_id.hash'
+    34912501
+    8D8A6C7BC2559AF778545B8B983D5C33013E99B628AE013CBE967FACAC3C09BE
+    ```
+
+3. Configure `~/.carbon/config/config.toml` to use state sync:
 
     ```toml
     [statesync]
     enable = true
     rpc_servers = "https://tm-api.carbon.network:443,https://rpc.carbon.blockhunters.org:443"
-    trust_height = 34922501
-    trust_hash = "8A9BD3B45B7CE14514975E66F9740488BD0978DDD75A4275F9C445391E7EA2EA"
-    trust_period = "408h0m0s"
+    trust_height = 34912501
+    trust_hash = "8D8A6C7BC2559AF778545B8B983D5C33013E99B628AE013CBE967FACAC3C09BE"
     ```
 
-3. Use the latest binary:
+4. Use the latest binary:
 
     ```bash
     MINOR=2.15.0 # or latest minor version
@@ -97,7 +109,17 @@ In order to quickly run your node, configure your node for state syncing first.
     ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
     ```
 
-4. [Start your node](#starting-nodes)
+5. [Start your node](#starting-nodes)
+
+##### B. Helper Script
+
+1. Execute the following script:
+
+    ```bash
+    bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/configure-statesync.sh)
+    ```
+
+2. [Start your node](#starting-nodes)
 
 #### Chain Download
 
