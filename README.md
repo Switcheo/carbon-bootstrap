@@ -104,7 +104,7 @@ You may do that [manually](#a-configure-manually), or via our [helper script](#b
 4. Use the latest binary:
 
     ```bash
-    MINOR=2.15.0 # or latest minor version
+    MINOR=2.16.0 # or latest minor version
     rm ~/.carbon/cosmovisor/current
     ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
     ```
@@ -141,7 +141,7 @@ We periodically upload the compressed chain data to this repo under the `<chain-
 3. Use the latest binary:
 
     ```bash
-    MINOR=2.15.0 # or latest minor version
+    MINOR=2.16.0 # or latest minor version
     rm ~/.carbon/cosmovisor/current
     ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
     ```
@@ -215,7 +215,7 @@ Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
 
 ```bash
 # set the version / network to upgrade to here:
-VERSION=2.15.6
+VERSION=2.16.4
 MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
 NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
