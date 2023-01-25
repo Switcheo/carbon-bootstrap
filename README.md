@@ -67,6 +67,12 @@ Note that this is not possible for nodes that wish to run full API services (-ad
 
 #### Statesync
 
+If your node has already started before, you need to remove existing blockchain data. Do not delete any other files such as node/wallet keys.
+
+```bash
+rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal
+```
+
 In order to quickly run your node, configure your node for state syncing first.
 
 You may do that [manually](#a-configure-manually), or via our [helper script](#b-helper-script).
