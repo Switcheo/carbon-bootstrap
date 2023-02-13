@@ -10,18 +10,18 @@ Latest mainnet: [carbon-1](./carbon-1/genesis.json)
 
 ## Getting Started
 
-You will need to perform this steps to get a Carbon node up and running:
+You will need to perform these steps to get a Carbon node up and running:
 
-1. [Install your node binary](#installation)
-2. [Configure validator keys](#configure-validator-keys)
-3. [Getting chain data](#getting-chain-data)
-4. [Start your node](#starting-nodes)
+1. [Install your node binary](#1-installation)
+2. [Configure validator keys](#2-configure-validator-keys)
+3. [Getting latest chain data (optional)](#3-getting-the-latest-chain-data)
+4. [Start your node](#4-starting-nodes)
 
-### Installation
+### 1. Installation
 
-You can install your node via a [single command script](#a-script-installation) or [manually](#b-manual-installation).
+You can install your node via i) a [single command script](#i-script-installation) or ii) [manually](#ii-manual-installation).
 
-#### A. Script installation
+#### i) Script installation
 
 To quickly get started with the latest testnet / mainnet, run the following command to automatically set up all dependencies and a full node / validator node:
 
@@ -35,17 +35,17 @@ URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/s
 bash <(wget -O - $URL) $FLAGS $CHAIN_ID $MONIKER
 ```
 
-#### B. Manual installation
+#### ii) Manual installation
 
 For manual installation of nodes, please see [INSTALL.md](/INSTALL.md).
 
-### Configure Validator Keys
+### 2. Configure Validator Keys
 
 If you're running a validator node, you'll need to create your validator key and a few mandatory operator keys (this is different from your Tendermint keys `node_key` / `priv_validator_key.json`) before running your node and subservices. If you're running a non-validating node, you can skip this section.
 
-You can do this using the [script below](#a-automatic-key-creation), or [by creating them manually](#b-manual-key-creation).
+You can do this using i) the [script below](#i-automatic-key-creation), or ii) [by creating them manually](#ii-manual-key-creation).
 
-#### A. Automatic key creation
+#### i) Automatic key creation
 
 To install all required validator and subaccount keys directly on your validator node, run [scripts/create-keys.sh](./scripts/create-keys.sh):
 
@@ -55,17 +55,28 @@ bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/mas
 
 You'll need to fund your accounts and then run a few more commands to link your validator subaccounts and promote your node to a validator. Follow all instructions printed from the output of the above script carefully.
 
-#### B. Manual key creation
+#### ii) Manual key creation
 
 You can also create your operator keys on another node, such as a developer machine, for better security and access. Follow this guide to create the required keys manually: [KEYS.md](KEYS.md).
 
-### Getting chain data
+### 3. Getting the latest chain data
 
-There are two main ways to quickly get your node synced with the latest chain data - either through [Statesync](#statesync), or [Chain Download](#chain-download).
+There are two main ways to quickly get your node synced with the latest chain data - either through i) [Statesync](#i-statesync), or ii) [Chain Download](#ii-chain-download).
 
-Note that this is not possible for nodes that wish to run full API services (-adp), and is only meant for quickly bootstrapping validator nodes. pSQL data dumps for quick syncing of all services is coming soon.
+⚠️ Note that this is not possible for nodes that wish to run full API services (`FLAGS="-adp"`), and is only meant for quickly bootstrapping validator nodes. pSQL data dumps for quick syncing of all services is coming soon.
 
-#### Statesync
+**Before running any fast sync steps:**
+
+1. [Update your binaries to the latest version](#minor-version-upgrades)
+2. Link the latest binaries with:
+
+    ```bash
+    MINOR=2.19.0 # or latest minor version
+    rm ~/.carbon/cosmovisor/current
+    ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
+    ```
+
+#### i) Statesync
 
 If your node has already started before, you need to remove existing blockchain data. Do not delete any other files such as node/wallet keys.
 
@@ -73,9 +84,7 @@ If your node has already started before, you need to remove existing blockchain 
 rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal
 ```
 
-In order to quickly run your node, configure your node for state syncing first.
-
-You may do that [manually](#a-configure-manually), or via our [helper script](#b-helper-script).
+You configure statesync a) [manually](#a-configure-manually), or b) via our [helper script](#b-helper-script).
 
 ##### A. Configure Manually
 
@@ -97,7 +106,7 @@ You may do that [manually](#a-configure-manually), or via our [helper script](#b
     8D8A6C7BC2559AF778545B8B983D5C33013E99B628AE013CBE967FACAC3C09BE
     ```
 
-3. Configure `~/.carbon/config/config.toml` to use state sync:
+3. Configure `~/.carbon/config/config.toml` to use statesync:
 
     ```toml
     [statesync]
@@ -107,15 +116,7 @@ You may do that [manually](#a-configure-manually), or via our [helper script](#b
     trust_hash = "8D8A6C7BC2559AF778545B8B983D5C33013E99B628AE013CBE967FACAC3C09BE"
     ```
 
-4. Use the latest binary:
-
-    ```bash
-    MINOR=2.16.0 # or latest minor version
-    rm ~/.carbon/cosmovisor/current
-    ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
-    ```
-
-5. [Start your node](#starting-nodes)
+4. [Start your node](#4-starting-nodes) to begin statesync
 
 ##### B. Helper Script
 
@@ -125,9 +126,9 @@ You may do that [manually](#a-configure-manually), or via our [helper script](#b
     bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/configure-statesync.sh)
     ```
 
-2. [Start your node](#starting-nodes)
+2. [Start your node](#4-starting-nodes) to begin statesync
 
-#### Chain Download
+#### ii) Chain Download
 
 We periodically upload the compressed chain data to this repo under the `<chain-name>/data` directory. The data filenames are prefixed by date and block height.
 
@@ -144,39 +145,7 @@ We periodically upload the compressed chain data to this repo under the `<chain-
     lz4 -d ~/20221209-34931459-carbon-1-data.tar.lz4 -c | tar xvf -
     ```
 
-3. Use the latest binary:
-
-    ```bash
-    MINOR=2.16.0 # or latest minor version
-    rm ~/.carbon/cosmovisor/current
-    ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
-    ```
-
-4. [Start your node](#starting-nodes)
-
-#### Troubleshooting Slow Sync
-
-If you receive an AppHash mismatch error while slow syncing v2.15.6 binaries from genesis, attempt the following steps:
-
-1. [Stop your node](#stopping-nodes)
-
-2. Rollback the last block with:
-
-    ```bash
-    carbond rollback
-    ```
-
-3. Replace your binary with v2.15.4 using the [minor version upgrade steps](#minor-version-upgrades)
-
-4. [Start your node](#starting-nodes) and observe its progress via logs
-
-5. Upgrade your binary back to v2.15.6 using the [minor version upgrade steps](#minor-version-upgrades) when the node panics with:
-
-    ```bash
-    ERRO[2022-12-06T11:29:55+01:00] EndBlock: pool virtual K value has reduced!, stack: goroutine 1 [running]:
-    ```
-
-### Starting Nodes
+### 4. Starting Nodes
 
 Once you have your required keys imported, you can now start the node.
 
@@ -196,6 +165,52 @@ tail -f /var/log/carbon/carbond*.err*
 tail -f /var/log/carbon/carbond*.out*
 ```
 
+## Minor Version Upgrades
+
+To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
+
+Ensure you have perl >5.30, you can check with `perl -v`.
+
+Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
+
+```bash
+# set the version / network to upgrade to here:
+VERSION=2.19.2
+MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
+NETWORK=mainnet
+FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
+tar -xvf ${FILE}
+rm ${FILE}
+sudo service carbond stop
+mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
+sudo service carbond start
+```
+
+## Troubleshooting
+
+### Troubleshooting Slow Sync
+
+If you receive an AppHash mismatch error while slow syncing from genesis (crash at v2.15.6 binary), attempt the following steps:
+
+1. [Stop your node](#stopping-nodes)
+
+2. Rollback the last block with:
+
+    ```bash
+    carbond rollback
+    ```
+
+3. Replace your binary with v2.15.4 using the [minor version upgrade steps](#minor-version-upgrades)
+
+4. [Start your node](#starting-nodes) and observe its progress via logs
+
+5. Upgrade your binary back to v2.15.6 using the [minor version upgrade steps](#minor-version-upgrades) when the node panics with:
+
+    ```bash
+    ERRO[2022-12-06T11:29:55+01:00] EndBlock: pool virtual K value has reduced!, stack: goroutine 1 [running]:
+    ```
+
 ### Stopping Nodes
 
 To stop all services:
@@ -209,26 +224,4 @@ To stop services individually:
 ```shell
 sudo systemctl stop carbond@oracle
 sudo systemctl stop carbond@liquidator
-```
-
-## Minor Version Upgrades
-
-To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
-
-Ensure you have perl >5.30, you can check with `perl -v`.
-
-Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
-
-```bash
-# set the version / network to upgrade to here:
-VERSION=2.16.4
-MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
-NETWORK=mainnet
-FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
-wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
-tar -xvf ${FILE}
-rm ${FILE}
-sudo service carbond stop
-mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
-sudo service carbond start
 ```
