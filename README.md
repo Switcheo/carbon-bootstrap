@@ -84,9 +84,19 @@ If your node has already started before, you need to remove existing blockchain 
 rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal
 ```
 
-You configure statesync a) [manually](#a-configure-manually), or b) via our [helper script](#b-helper-script).
+You can configure statesync a) via our [helper script](#a-helper-script), or b) [manually](#b-configure-manually).
 
-##### A. Configure Manually
+##### a) Helper Script
+
+1. Execute the following script:
+
+    ```bash
+    bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/configure-statesync.sh)
+    ```
+
+2. [Start your node](#4-starting-nodes) to begin statesync
+
+##### b) Configure Manually
 
 1. Find the latest block height and hash from a trusted RPC node:
 
@@ -117,16 +127,6 @@ You configure statesync a) [manually](#a-configure-manually), or b) via our [hel
     ```
 
 4. [Start your node](#4-starting-nodes) to begin statesync
-
-##### B. Helper Script
-
-1. Execute the following script:
-
-    ```bash
-    bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/configure-statesync.sh)
-    ```
-
-2. [Start your node](#4-starting-nodes) to begin statesync
 
 #### ii) Chain Download
 
