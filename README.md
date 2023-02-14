@@ -77,6 +77,7 @@ There are two main ways to quickly get your node synced with the latest chain da
     wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
     tar -xvf ${FILE}
     rm ${FILE}
+    mkdir -p carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin
     mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
     rm ~/.carbon/cosmovisor/current
     ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR} ~/.carbon/cosmovisor/current
