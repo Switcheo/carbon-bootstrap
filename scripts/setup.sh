@@ -225,7 +225,7 @@ sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbo
 sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
 sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
-sed -i '/seeds =/c\seeds = "'"$PEERS"'"' ~/.carbon/config/config.toml
+sed -i '/persistent_peers =/c\persistent_peers = "'"$PEERS"'"' ~/.carbon/config/config.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
 sed -i 's#pruning = "default"#pruning = "custom"#g' ~/.carbon/config/app.toml                # use custom pruning
 sed -i 's#pruning-keep-recent = "0"#pruning-keep-recent = "100"#g' ~/.carbon/config/app.toml # keep state for recent 100 blocks

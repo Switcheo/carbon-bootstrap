@@ -71,7 +71,7 @@ There are two main ways to quickly get your node synced with the latest chain da
 2. Link the latest binaries with:
 
     ```bash
-    MINOR=2.19.0 # or latest minor version
+    MINOR=2.19.0 # change this to latest minor version (ends with .0)
     rm ~/.carbon/cosmovisor/current
     ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
     ```
@@ -81,7 +81,7 @@ There are two main ways to quickly get your node synced with the latest chain da
 If your node has already started before, you need to remove existing blockchain data. Do not delete any other files such as node/wallet keys.
 
 ```bash
-rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal
+rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal ~/.carbon/config/addrbook.json
 ```
 
 You can configure statesync a) via our [helper script](#a-helper-script), or b) [manually](#b-configure-manually).
