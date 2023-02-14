@@ -65,15 +65,21 @@ There are two main ways to quickly get your node synced with the latest chain da
 
 ⚠️ Note that this is not possible for nodes that wish to run full API services (`FLAGS="-adp"`), and is only meant for quickly bootstrapping validator nodes. pSQL data dumps for quick syncing of all services is coming soon.
 
-**Before running any fast sync steps:**
+**Before running any statesync/chain-download steps:**
 
-1. [Update your binaries to the latest version](#minor-version-upgrades)
-2. Link the latest binaries with:
-
+1. Update and link current binaries to the latest version:
     ```bash
-    MINOR=2.19.0 # change this to latest minor version (ends with .0)
+    # set the version / network to upgrade to here:
+    VERSION=2.19.2
+    MINOR=2.19.0
+    NETWORK=mainnet
+    FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+    wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
+    tar -xvf ${FILE}
+    rm ${FILE}
+    mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
     rm ~/.carbon/cosmovisor/current
-    ln -s ~/.carbon/cosmovisor/upgrades/v$MINOR ~/.carbon/cosmovisor/current
+    ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR} ~/.carbon/cosmovisor/current
     ```
 
 #### i) Statesync
