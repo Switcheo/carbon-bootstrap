@@ -1,0 +1,21 @@
+[Unit]
+Description=Carbon Daemon
+Wants=carbond@oracle.service
+After=network-online.target
+
+[Service]
+User=ubuntu
+Environment="DAEMON_HOME=/home/ubuntu/.carbon"
+Environment="DAEMON_NAME=carbond"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
+Environment="UNSAFE_SKIP_BACKUP=true"
+Environment="POSTGRES_URL=postgresql://postgres@localhost:5432/carbon"
+StandardOutput=append:/var/log/carbon/carbond.out.log
+StandardError=append:/var/log/carbon/carbond.err.log
+ExecStart=/usr/local/bin/cosmovisor start
+Restart=always
+RestartSec=3
+LimitNOFILE=64000
+
+[Install]
+WantedBy=multi-user.target

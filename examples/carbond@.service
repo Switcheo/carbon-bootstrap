@@ -1,0 +1,20 @@
+[Unit]
+Description=Carbon %i Daemon
+BindsTo=carbond.service
+After=carbond.service
+After=network-online.target
+
+[Service]
+User=ubuntu
+Environment="ORACLE_WALLET_LABEL=oracle"
+Environment="WALLET_PASSWORD=xxx"
+Environment="POSTGRES_URL=postgresql://postgres@localhost:5432/carbon"
+StandardOutput=append:/var/log/carbon/carbond@%i.out.log
+StandardError=append:/var/log/carbon/carbond@%i.err.log
+ExecStart=/home/ubuntu/.carbon/cosmovisor/current/bin/carbond %i
+Restart=always
+RestartSec=3
+LimitNOFILE=64000
+
+[Install]
+WantedBy=multi-user.target
