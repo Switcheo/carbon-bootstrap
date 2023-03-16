@@ -88,7 +88,7 @@ There are two main ways to quickly get your node synced with the latest chain da
 If your node has already started before, you need to remove existing blockchain data. Do not delete any other files such as node/wallet keys.
 
 ```bash
-rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal ~/.carbon/config/addrbook.json
+rm -rf ~/.carbon/data/*.db ~/.carbon/data/snapshots ~/.carbon/data/cs.wal ~/.carbon/config/addrbook.json ~/.carbon/data/upgrade-info.json
 ```
 
 You can configure statesync a) via our [helper script](#a-helper-script), or b) [manually](#b-configure-manually).
