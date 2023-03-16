@@ -1,29 +1,6 @@
 
 
 ###############################################################################
-###                         Store / State Streaming                         ###
-###############################################################################
-
-[store]
-streamers = []
-
-[streamers]
-[streamers.file]
-keys = ["*", ]
-write_dir = ""
-prefix = ""
-
-# output-metadata specifies if output the metadata file which includes the abci request/responses
-# during processing the block.
-output-metadata = "true"
-
-# stop-node-on-error specifies if propagate the file streamer errors to consensus state machine.
-stop-node-on-error = "true"
-
-# fsync specifies if call fsync after writing the files.
-fsync = "false"
-
-###############################################################################
 ###                             EVM Configuration                           ###
 ###############################################################################
 
