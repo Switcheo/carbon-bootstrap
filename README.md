@@ -182,7 +182,7 @@ Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
 
 ```bash
 # set the version / network to upgrade to here:
-VERSION=2.22.1
+VERSION=2.24.1
 MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
 NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
