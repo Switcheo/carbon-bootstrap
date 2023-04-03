@@ -122,7 +122,7 @@ sed -i 's#snapshot-interval = 0#snapshot-interval = 10000#g' ~/.carbon/config/ap
 Your node needs to know how to find peers. You'll need to add healthy seed nodes to `$HOME/.carbon/config/config.toml`.
 
 ```bash
-PEERS="d93ed6a1f43dd0904dc5e2ab8680d4049b057b17@54.151.250.242:26656,70581c625fc1933bc273ca7a8d5e9ded3d1bcc97@13.250.4.243:26656,e3f02a9f3ca22724b3a67bba9183113645c9c7d9@3.1.210.63:26656" # example carbon-1 mainnet initial peers
+PEERS="d93ed6a1f43dd0904dc5e2ab8680d4049b057b17@13.215.17.91:26656,70581c625fc1933bc273ca7a8d5e9ded3d1bcc97@13.213.113.113:26656,e3f02a9f3ca22724b3a67bba9183113645c9c7d9@54.179.11.177:26656" # example carbon-1 mainnet initial peers
 
 sed -i '/seeds =/c\seeds = "'"$PEERS"'"' ~/.carbon/config/config.toml
 ```
