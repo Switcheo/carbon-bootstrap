@@ -220,7 +220,10 @@ fi
 
 echo "---- Setting node configuration"
 
-# preload evm config in app.toml
+
+# preload evm config in app.toml for mainnet since genesis carbond init is pre-evm
+if [ "$NETWORK" == "mainnet" ]; then
+
 cat << EOF >> ~/.carbon/config/app.toml
 
 
@@ -335,6 +338,8 @@ certificate-path = ""
 key-path = ""
 
 EOF
+
+fi
 
 sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config.toml
 sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
