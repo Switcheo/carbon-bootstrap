@@ -110,17 +110,17 @@ You can configure statesync a) via our [helper script](#a-helper-script), or b) 
     ```bash
     curl -s https://tm-api.carbon.network:443/block | \
       jq -r '.result.block.header.height'
-    34922501
+    44949303
     ```
 
-2. Get the hash for 10k blocks behind the current height:
+2. Get the hash for latest 10kth block:
 
 
     ```bash
-    curl -s https://tm-api.carbon.network:443/block?height=34912501 | \
+    curl -s https://tm-api.carbon.network:443/block?height=44940000 | \
       jq -r '.result.block.header.height + "\n" + .result.block_id.hash'
-    34912501
-    8D8A6C7BC2559AF778545B8B983D5C33013E99B628AE013CBE967FACAC3C09BE
+    44940000
+    F6C9A8590E4F4C2D1669AF759FCF99E8097981B18067B49E507A360F46B78F0C
     ```
 
 3. Configure `~/.carbon/config/config.toml` to use statesync:
@@ -129,8 +129,8 @@ You can configure statesync a) via our [helper script](#a-helper-script), or b) 
     [statesync]
     enable = true
     rpc_servers = "https://tm-api.carbon.network:443,https://rpc.carbon.blockhunters.org:443"
-    trust_height = 34912501
-    trust_hash = "8D8A6C7BC2559AF778545B8B983D5C33013E99B628AE013CBE967FACAC3C09BE"
+    trust_height = 44940000
+    trust_hash = "F6C9A8590E4F4C2D1669AF759FCF99E8097981B18067B49E507A360F46B78F0C"
     ```
 
 4. [Start your node](#4-starting-nodes) to begin statesync
