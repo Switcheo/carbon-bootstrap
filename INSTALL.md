@@ -1,6 +1,6 @@
 # Manual Installation
 
-This guide will explain how to do a manual install the `carbond` node onto your system. With theis installed on a server, you can participate in the mainnet as either a Full Node, Sentry Node, or Validator.
+This guide will explain how to do a manual install the `carbond` node onto your system. With this installed on a server, you can participate in the mainnet as either a Full Node, Sentry Node, or Validator.
 
 ## Install build requirements
 
