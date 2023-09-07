@@ -409,6 +409,9 @@ else
   POSTGRES_URL=postgresql://postgres@localhost:5432/carbon
 fi
 
+# create empty migrations folder even if persistence flag is set to false
+mkdir ~/.carbon/migrations
+
 if [ "$SETUP_PERSISTENCE" = true ]; then
   echo "---- Initializing database"
 
@@ -417,7 +420,6 @@ if [ "$SETUP_PERSISTENCE" = true ]; then
   dropdb --maintenance-db=$MAINTENANCE_DB_URL --if-exists $DB_NAME
   createdb --maintenance-db=$MAINTENANCE_DB_URL $DB_NAME
 
-  mkdir ~/.carbon/migrations
   POSTGRES_URL=$POSTGRES_URL $DAEMON migrations
   if [ "$SKIP_GENESIS" != true ]; then
     POSTGRES_URL=$POSTGRES_URL $DAEMON persist-genesis
@@ -483,6 +485,7 @@ Environment="DAEMON_NAME=$DAEMON"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="POSTGRES_URL=$POSTGRES_URL"
 Environment="UNSAFE_SKIP_BACKUP=true"
+Environment="DAEMON_RESTART_AFTER_UPGRADE=false"
 $MAIN_CMD
 Restart=always
 RestartSec=3
