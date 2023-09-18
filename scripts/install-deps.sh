@@ -82,7 +82,6 @@ if [ -z "$(ldconfig -p | grep libleveldb.so.1$)" ]; then
     rm -f 1.23.tar.gz
 fi
 
-# grep librocksdb.so.7.10.2 ?
 if [ -z "$(ldconfig -p | grep librocksdb.so.7$)" ]; then
   echo "-- Installing rocksdb dependencies"
 
