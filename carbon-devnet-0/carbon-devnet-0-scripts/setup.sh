@@ -50,6 +50,40 @@ if [ ! -f "/usr/local/lib/libleveldb.so.1" ]; then
   sudo service postgresql restart
 fi
 
+if [ ! -f "/usr/local/lib/librocksdb.so.7" ]; then
+  echo "Installing rocksdb dependencies"
+  sudo apt update
+  sudo apt-get install build-essential cmake libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev -y
+
+  echo "Installing gflags"
+  wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz
+  tar -zxvf v2.2.2.tar.gz
+  cd gflags-2.2.2 
+
+  mkdir -p build
+  cd build
+
+  cmake -DBUILD_SHARED_LIBS=1 -DGFLAGS_INSTALL_SHARED_LIBS=1 ..
+  make install
+
+  cd ../..
+  rm -rf gflags-2.2.2
+  rm -f v2.2.2.tar.gz
+
+  echo "Installing rocksdb"
+  wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.gz 
+  tar -zxvf rocksdb-7.10.2-patched.tar.gz
+  cd rocksdb-7.10.2-patched 
+
+  make shared_lib
+  make install-shared
+  sudo ldconfig
+    
+  cd .. 
+  rm -rf rocksdb-7.10.2-patched
+  rm -f v7.10.2-patched.tar.gz
+fi
+
 echo "-- Stopping any previous system service of carbond"
 
 sudo systemctl stop carbond || true
@@ -81,7 +115,7 @@ wget -O ~/.carbon/config/genesis.json https://raw.githubusercontent.com/Switcheo
 
 echo "----------Setting config for seed node---------"
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
-sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
+sed -i 's#db_backend = "goleveldb"#db_backend = "rocksdb"#g' ~/.carbon/config/config.toml
 sed -i '/persistent_peers =/c\persistent_peers = "'"$PERSISTENT_PEERS"'"' ~/.carbon/config/config.toml
 
 mkdir ~/.carbon/migrations

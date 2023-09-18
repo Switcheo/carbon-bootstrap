@@ -54,7 +54,7 @@ wget https://github.com/google/leveldb/archive/1.23.tar.gz && \
 
 ## Install rocksdb
 
-Install gflags from source, if not packaged:
+Build gflags dependency from source, if not packaged:
 
 ```bash
 wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz && \
@@ -68,7 +68,8 @@ wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz && \
   make install && \
 
   cd ../.. && \
-  rm -rf gflags
+  rm -rf gflags-2.2.2 && \
+  rm -f v2.2.2.tar.gz
 ```
 
 Download and install rocksdb v7.10.2:
@@ -83,7 +84,8 @@ wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.
   sudo ldconfig && \
   
   cd .. && \
-  rm -rf rocksdb
+  rm -rf rocksdb-7.10.2-patched && \
+  rm -f v7.10.2-patched.tar.gz
 ```
 
 ## Install Carbon
@@ -142,7 +144,7 @@ sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config
 sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
 sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
-sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
+sed -i 's#db_backend = "goleveldb"#db_backend = "rocksdb"#g' ~/.carbon/config/config.toml
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
 # prune every 10 blocks, keeping 100 blocks and every 10,000th block
