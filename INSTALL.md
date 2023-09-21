@@ -4,12 +4,14 @@ This guide will explain how to do a manual install the `carbond` node onto your 
 
 ## Install build requirements
 
+This includes the compression libraries for rocksdb.
 On Ubuntu this can be done with the following:
 
 ```bash
 sudo apt-get update
 
-sudo apt-get install build-essential jq cmake -y
+sudo apt-get install build-essential jq cmake && \
+libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev -y
 ```
 
 ## Install cleveldb
@@ -48,6 +50,42 @@ wget https://github.com/google/leveldb/archive/1.23.tar.gz && \
 
   rm -rf leveldb-1.23/ && \
   rm -f 1.23.tar.gz
+```
+
+## Install rocksdb
+
+Build gflags dependency from source, if not packaged:
+
+```bash
+wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz && \
+  tar -zxvf v2.2.2.tar.gz && \
+  cd gflags-2.2.2 && \
+
+  mkdir -p build && \
+  cd build && \
+
+  cmake -DBUILD_SHARED_LIBS=1 -DGFLAGS_INSTALL_SHARED_LIBS=1 .. && \
+  make install && \
+
+  cd ../.. && \
+  rm -rf gflags-2.2.2 && \
+  rm -f v2.2.2.tar.gz
+```
+
+Download and install rocksdb v7.10.2:
+
+```bash
+wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.gz && \
+  tar -zxvf v7.10.2-patched.tar.gz && \
+  cd rocksdb-7.10.2-patched && \
+
+  make shared_lib && \
+  make install-shared && \
+  sudo ldconfig && \
+  
+  cd .. && \
+  rm -rf rocksdb-7.10.2-patched && \
+  rm -f v7.10.2-patched.tar.gz
 ```
 
 ## Install Carbon
@@ -106,7 +144,7 @@ sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config
 sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
 sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
-sed -i 's#db_backend = "goleveldb"#db_backend = "cleveldb"#g' ~/.carbon/config/config.toml
+sed -i 's#db_backend = ".*"#db_backend = "rocksdb"#g' ~/.carbon/config/config.toml
 sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
 # prune every 10 blocks, keeping 100 blocks and every 10,000th block
