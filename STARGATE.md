@@ -142,5 +142,5 @@ For a smooth upgrade, decide how you will install the new `carbond` node, and pr
 
 ## Notes
 
-- It may take awhile to connect to initial peers as they are being bootstrapped at the same time
-- It may take awhile before blocks prgoress as 66% of validator voting power need to come online
+- It may take a while to connect to initial peers as they are being bootstrapped at the same time
+- It may take a while before blocks progress as 66% of validator voting power need to come online

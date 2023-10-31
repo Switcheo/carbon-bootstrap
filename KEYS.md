@@ -74,4 +74,4 @@ All validators need to run a node (either the same node as the validator, or som
 
 ## (Optional) Create liquidator subaccount key
 
-The steps for creating a liquidator is exactly the same as an oracle (replace `oracle` with `liquidator`). Liquidator incentives / penalties are not enabled yet, so validators can choose to run this subservice on an altrustic basis. Just one validator / operator needs to run the liquidator for liquidations to execute correctly.
+The steps for creating a liquidator are exactly the same as an oracle (replace `oracle` with `liquidator`). Liquidator incentives / penalties are not enabled yet, so validators can choose to run this subservice on an altruistic basis. Just one validator / operator needs to run the liquidator for liquidations to execute correctly.
