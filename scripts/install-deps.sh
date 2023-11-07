@@ -82,11 +82,11 @@ if [ -z "$(ldconfig -p | grep libleveldb.so.1$)" ]; then
     rm -f 1.23.tar.gz
 fi
 
-if [ -z "$(ldconfig -p | grep librocksdb.so.7$)" ]; then
+if [ -z "$(ldconfig -p | grep librocksdb.so.7.10)" ]; then
   echo "-- Installing rocksdb dependencies"
 
   sudo apt-get install build-essential cmake libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev -y
-  
+
   echo "-- Installing gflags"
   wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz && \
     tar -zxvf v2.2.2.tar.gz && \
@@ -101,7 +101,7 @@ if [ -z "$(ldconfig -p | grep librocksdb.so.7$)" ]; then
     cd ../.. && \
     rm -rf gflags-2.2.2 && \
     rm -f v2.2.2.tar.gz
-  
+
   echo "-- Installing rocksdb"
   wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.gz && \
     tar -zxvf v7.10.2-patched.tar.gz && \
@@ -110,7 +110,7 @@ if [ -z "$(ldconfig -p | grep librocksdb.so.7$)" ]; then
     make shared_lib && \
     make install-shared && \
     sudo ldconfig && \
-    
+
     cd .. && \
     rm -rf rocksdb-7.10.2-patched && \
     rm -f v7.10.2-patched.tar.gz
