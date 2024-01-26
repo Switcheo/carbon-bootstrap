@@ -96,7 +96,7 @@ if [ -z "$(ldconfig -p | grep librocksdb.so.7.10)" ]; then
     cd build && \
 
     cmake -DBUILD_SHARED_LIBS=1 -DGFLAGS_INSTALL_SHARED_LIBS=1 .. && \
-    make install && \
+    sudo make install && \
 
     cd ../.. && \
     rm -rf gflags-2.2.2 && \
@@ -108,7 +108,7 @@ if [ -z "$(ldconfig -p | grep librocksdb.so.7.10)" ]; then
     cd rocksdb-7.10.2-patched && \
 
     make shared_lib && \
-    make install-shared && \
+    sudo make install-shared && \
     sudo ldconfig && \
 
     cd .. && \
