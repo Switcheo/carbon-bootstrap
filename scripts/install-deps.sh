@@ -44,6 +44,7 @@ fi
 sudo apt update
 sudo apt-get install jq -y
 
+# TODO: remove leveldb deps
 if [ -z "$(ldconfig -p | grep libleveldb.so.1$)" ]; then
   echo "-- Installing level db"
 
@@ -82,7 +83,7 @@ if [ -z "$(ldconfig -p | grep libleveldb.so.1$)" ]; then
     rm -f 1.23.tar.gz
 fi
 
-if [ -z "$(ldconfig -p | grep librocksdb.so.7.10)" ]; then
+if [ -z "$(ldconfig -p | grep librocksdb.so.8.9)" ]; then
   echo "-- Installing rocksdb dependencies"
 
   sudo apt-get install build-essential cmake libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev -y
@@ -103,17 +104,17 @@ if [ -z "$(ldconfig -p | grep librocksdb.so.7.10)" ]; then
     rm -f v2.2.2.tar.gz
 
   echo "-- Installing rocksdb"
-  wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.gz && \
-    tar -zxvf v7.10.2-patched.tar.gz && \
-    cd rocksdb-7.10.2-patched && \
+  wget https://github.com/facebook/rocksdb/archive/refs/tags/v8.9.1.tar.gz && \
+    tar -zxvf v8.9.1.tar.gz && \
+    cd rocksdb-8.9.1 && \
 
     make shared_lib && \
     sudo make install-shared && \
     sudo ldconfig && \
 
     cd .. && \
-    rm -rf rocksdb-7.10.2-patched && \
-    rm -f v7.10.2-patched.tar.gz
+    rm -rf rocksdb-8.9.1 && \
+    rm -f v8.9.1.tar.gz
 fi
 
 if [ "$SETUP_POSTGRES" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-13 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
