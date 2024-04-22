@@ -348,18 +348,19 @@ sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/c
 sed -i 's#db_backend = ".*"#db_backend = "rocksdb"#g' ~/.carbon/config/config.toml
 sed -i '/persistent_peers =/c\persistent_peers = "'"$PEERS"'"' ~/.carbon/config/config.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
-sed -i 's#pruning = "default"#pruning = "custom"#g' ~/.carbon/config/app.toml                         # use custom pruning
-sed -i 's#pruning-keep-recent = "0"#pruning-keep-recent = "100"#g' ~/.carbon/config/app.toml          # keep state for recent 100 blocks
-sed -i 's#pruning-keep-every = "0"#pruning-keep-every = "10000"#g' ~/.carbon/config/app.toml          # and every 10,000 blocks
-sed -i 's#pruning-interval = "0"#pruning-interval = "10"#g' ~/.carbon/config/app.toml                 # prune the rest every 10 blocks
-sed -i 's#snapshot-interval = 0#snapshot-interval = 10000#g' ~/.carbon/config/app.toml                # save snapshot every 10,000 blocks to allow other nodes to fast-sync here
+sed -i 's#address = "tcp:\/\/localhost:1317"#address = "tcp:\/\/0.0.0.0:1317"#g' ~/.carbon/config/app.toml  # configure api to listen on all network interface
+sed -i 's#pruning = "default"#pruning = "custom"#g' ~/.carbon/config/app.toml                               # use custom pruning
+sed -i 's#pruning-keep-recent = "0"#pruning-keep-recent = "100"#g' ~/.carbon/config/app.toml                # keep state for recent 100 blocks
+sed -i 's#pruning-keep-every = "0"#pruning-keep-every = "10000"#g' ~/.carbon/config/app.toml                # and every 10,000 blocks
+sed -i 's#pruning-interval = "0"#pruning-interval = "10"#g' ~/.carbon/config/app.toml                       # prune the rest every 10 blocks
+sed -i 's#snapshot-interval = 0#snapshot-interval = 10000#g' ~/.carbon/config/app.toml                      # save snapshot every 10,000 blocks to allow other nodes to fast-sync here
 
 if [ "$SETUP_API" = true ]; then
-  sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml                                 # enable all apis
-  sed -i 's#swagger = false#swagger = true#g' ~/.carbon/config/app.toml                               # enable swagger endpoint
-  sed -i -e 's/enable-unsafe-cors = false/enable-unsafe-cors = true/g' ~/.carbon/config/app.toml      # enable grpc-web-unsafe-cors
-  sed -i -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/g' ~/.carbon/config/app.toml       # configure evm json-rpc port
-  sed -i -e 's/ws-address = "127.0.0.1:8546"/ws-address = "0.0.0.0:8546"/g' ~/.carbon/config/app.toml # configure evm json-rpc websocket port
+  sed -i 's#enable = false#enable = true#g' ~/.carbon/config/app.toml                                       # enable all apis
+  sed -i 's#swagger = false#swagger = true#g' ~/.carbon/config/app.toml                                     # enable swagger endpoint
+  sed -i -e 's/enable-unsafe-cors = false/enable-unsafe-cors = true/g' ~/.carbon/config/app.toml            # enable grpc-web-unsafe-cors
+  sed -i -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/g' ~/.carbon/config/app.toml             # configure evm json-rpc to listen on all network interface
+  sed -i -e 's/ws-address = "127.0.0.1:8546"/ws-address = "0.0.0.0:8546"/g' ~/.carbon/config/app.toml       # configure evm json-rpc websocket to listen on all network interface
 fi
 
 if [ "$STATE_SYNC" = true ]; then
