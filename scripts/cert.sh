@@ -1,11 +1,12 @@
-mkdir ~/.carbon/config/cert
-
-cd ~/.carbon/config/cert
-
-rm *.pem
-
 VALIDATOR_NODE_IP_ADDRESS=${@:$OPTIND:1}
 ORACLE_SERVICE_NODE_IP_ADDRESS=${@:$OPTIND+1:1}
+CARBON_HOME_PATH=${@:$OPTIND+2:1}
+
+mkdir ${CARBON_HOME_PATH}/config/cert
+
+cd ${CARBON_HOME_PATH}/config/cert
+
+rm *.pem
 
 # 1. Generate CA's private key and self-signed certificate
 openssl req -x509 -newkey rsa:4096 -days 365 -nodes -keyout ca-key.pem -out ca-cert.pem -subj "/C=/ST=/L=/O=/OU=/CN=/emailAddress="
