@@ -8,9 +8,11 @@ echo ${CARBON_HOME_PATH}
 
 pwd
 
-mkdir ${CARBON_HOME_PATH}/config/cert
+cd ${CARBON_HOME_PATH}/config
 
-cd ${CARBON_HOME_PATH}/config/cert
+mkdir cert
+
+cd cert
 
 # rm *.pem
 
