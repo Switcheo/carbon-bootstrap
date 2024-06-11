@@ -8,7 +8,7 @@ CARBON_HOME_PATH=$3
 
 CARBON_HOME_PATH="${CARBON_HOME_PATH/#\~/$HOME}"
 
-mkdir ${CARBON_HOME_PATH}/config/cert
+mkdir -p ${CARBON_HOME_PATH}/config/cert
 
 cd ${CARBON_HOME_PATH}/config/cert
 
