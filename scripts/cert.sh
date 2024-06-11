@@ -15,13 +15,13 @@ cd ${CARBON_HOME_PATH}/config/cert
 rm -f *.pem
 
 # 1. Generate CA's private key and self-signed certificate
-openssl req -x509 -newkey rsa:4096 -days 36500 -nodes -keyout ca-key.pem -out ca-cert.pem -subj "/C=/ST=/L=/O=/OU=/CN=/emailAddress="
+openssl req -x509 -newkey rsa:4096 -days 36500 -nodes -keyout ca-key.pem -out ca-cert.pem -subj "/C=SG/ST=Singapore/L=Singapore/O=Switcheo/OU=Switcheo/CN=Switcheo/emailAddress=engineering@switcheo.network"
 
 echo "CA's self-signed certificate"
 openssl x509 -in ca-cert.pem -noout -text
 
 # 2. Generate web server's private key and certificate signing request (CSR)
-openssl req -newkey rsa:4096 -nodes -keyout server-key.pem -out server-req.pem -subj "/C=/ST=/L=/O=/OU=/CN=/emailAddress="
+openssl req -newkey rsa:4096 -nodes -keyout server-key.pem -out server-req.pem -subj "/C=SG/ST=Singapore/L=Singapore/O=Switcheo/OU=Switcheo/CN=Switcheo/emailAddress=engineering@switcheo.network"
 
 echo subjectAltName=IP:${VALIDATOR_NODE_IP_ADDRESS} >> server-ext.cnf
 
@@ -32,7 +32,7 @@ echo "Server's signed certificate"
 openssl x509 -in server-cert.pem -noout -text
 
 # 4. Generate client's private key and certificate signing request (CSR)
-openssl req -newkey rsa:4096 -nodes -keyout client-key.pem -out client-req.pem -subj "/C=/ST=/L=/O=/OU=/CN=/emailAddress="
+openssl req -newkey rsa:4096 -nodes -keyout client-key.pem -out client-req.pem -subj "/C=SG/ST=Singapore/L=Singapore/O=Switcheo/OU=Switcheo/CN=Switcheo/emailAddress=engineering@switcheo.network"
 
 echo subjectAltName=IP:${ORACLE_SERVICE_NODE_IP_ADDRESS} >> client-ext.cnf
 
