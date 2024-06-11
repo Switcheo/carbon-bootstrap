@@ -12,7 +12,7 @@ mkdir ${CARBON_HOME_PATH}/config/cert
 
 cd ${CARBON_HOME_PATH}/config/cert
 
-rm *.pem
+rm -f *.pem
 
 # 1. Generate CA's private key and self-signed certificate
 openssl req -x509 -newkey rsa:4096 -days 36500 -nodes -keyout ca-key.pem -out ca-cert.pem -subj "/C=/ST=/L=/O=/OU=/CN=/emailAddress="
