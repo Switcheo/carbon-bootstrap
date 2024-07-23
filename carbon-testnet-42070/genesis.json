@@ -1,3 +1,2937 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:031f4dca787773f6d3f26e48bbeb5bfc2d17e398b5ee6eb245cddc411a819f90
-size 110208
+{
+  "app_name": "carbond",
+  "app_version": "2.44.2",
+  "genesis_time": "2024-07-23T10:35:12.203100596Z",
+  "chain_id": "carbon-testnet-42070",
+  "initial_height": 1,
+  "app_hash": null,
+  "app_state": {
+    "07-tendermint": null,
+    "adl": {},
+    "admin": {},
+    "alliance": {
+      "params": {
+        "reward_delay_time": "604800s",
+        "take_rate_claim_interval": "300s",
+        "last_take_rate_claim_time": "0001-01-01T00:00:00Z"
+      },
+      "assets": [],
+      "validator_infos": [],
+      "reward_weight_change_snaphots": [],
+      "delegations": [],
+      "redelegations": [],
+      "undelegations": []
+    },
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "tswth1a8arad2m507l7f7ann456j7mwcudj9yk8q4yvl",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": false
+      },
+      "balances": [
+        {
+          "address": "tswth1a8arad2m507l7f7ann456j7mwcudj9yk8q4yvl",
+          "coins": [
+            {
+              "denom": "btc",
+              "amount": "100000000000000000"
+            },
+            {
+              "denom": "eth",
+              "amount": "1000000000000000000000000000"
+            },
+            {
+              "denom": "iusd",
+              "amount": "100000000000000000"
+            },
+            {
+              "denom": "swth",
+              "amount": "100000000000000000"
+            },
+            {
+              "denom": "usdc",
+              "amount": "1000000000000000"
+            }
+          ]
+        }
+      ],
+      "supply": [],
+      "denom_metadata": [],
+      "send_enabled": [
+        {
+          "denom": "swth",
+          "enabled": true
+        },
+        {
+          "denom": "usc",
+          "enabled": true
+        },
+        {
+          "denom": "iusd",
+          "enabled": true
+        },
+        {
+          "denom": "btc",
+          "enabled": true
+        },
+        {
+          "denom": "eth",
+          "enabled": true
+        },
+        {
+          "denom": "dai",
+          "enabled": true
+        },
+        {
+          "denom": "jrc",
+          "enabled": true
+        },
+        {
+          "denom": "neo",
+          "enabled": true
+        },
+        {
+          "denom": "gas",
+          "enabled": true
+        },
+        {
+          "denom": "usdc",
+          "enabled": true
+        },
+        {
+          "denom": "osmo",
+          "enabled": true
+        },
+        {
+          "denom": "atom",
+          "enabled": true
+        },
+        {
+          "denom": "nex",
+          "enabled": true
+        },
+        {
+          "denom": "nexo",
+          "enabled": true
+        },
+        {
+          "denom": "cgusd",
+          "enabled": true
+        }
+      ]
+    },
+    "book": {
+      "order_books": [],
+      "stop_books": []
+    },
+    "broker": {
+      "spot_amms": [],
+      "perps_amms": []
+    },
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "carbonfee": {
+      "msg_gas_costs": [
+        {
+          "msg_type": "/Switcheo.carbon.order.MsgCreateOrder",
+          "gas_cost": "0"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.evmmerge.MsgMergeAccount",
+          "gas_cost": "0"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.profile.MsgUpdateProfile",
+          "gas_cost": "0"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgCreatePool",
+          "gas_cost": "100000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgClaimPoolRewards",
+          "gas_cost": "3000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgStakePoolToken",
+          "gas_cost": "3000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgUnstakePoolToken",
+          "gas_cost": "3000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.coin.MsgCreateToken",
+          "gas_cost": "500000000000"
+        },
+        {
+          "msg_type": "default_fee",
+          "gas_cost": "100000000"
+        }
+      ],
+      "min_gas_prices": [
+        {
+          "gas_price": "1.000000000000000000",
+          "denom": "swth"
+        },
+        {
+          "gas_price": "1.000000000000000000",
+          "denom": "eswth"
+        },
+        {
+          "gas_price": "100000.000000000000000000",
+          "denom": "eth"
+        },
+        {
+          "gas_price": "0.000100000000000000",
+          "denom": "usdc"
+        },
+        {
+          "gas_price": "100000000.000000000000000000",
+          "denom": "cgusd"
+        }
+      ]
+    },
+    "ccm": {
+      "created_tx_count": "0",
+      "created_tx_details": {},
+      "received_tx_ids": {},
+      "denom_creators": {},
+      "params": {
+        "emit_zion_events": false
+      },
+      "zion_created_tx_details": {}
+    },
+    "cdp": {
+      "params": {
+        "interest_fee": "1000",
+        "liquidation_fee": "1000",
+        "stablecoin_mint_cap": "100000000000",
+        "complete_liquidation_threshold": "0.700000000000000000",
+        "minimum_close_factor": "0.100000000000000000",
+        "small_liquidation_size": "100.000000000000000000",
+        "stale_price_grace_period": "60s",
+        "cdp_paused": false,
+        "stablecoin_interest_rate_epoch": "21600s",
+        "stablecoin_interest_rate_adjuster_coefficient": "0.250000000000000000"
+      },
+      "rate_strategies": [
+        {
+          "name": "volatile 1",
+          "optimal_usage": "4500",
+          "base_variable_borrow_rate": "0",
+          "variable_rate_slope_1": "400",
+          "variable_rate_slope_2": "30000",
+          "base_stable_borrow_rate": "200",
+          "stable_rate_slope_1": "700",
+          "stable_rate_slope_2": "30000",
+          "optimal_stable_to_total_debt_ratio": "2000"
+        },
+        {
+          "name": "stable 1",
+          "optimal_usage": "9000",
+          "base_variable_borrow_rate": "0",
+          "variable_rate_slope_1": "400",
+          "variable_rate_slope_2": "6000",
+          "base_stable_borrow_rate": "200",
+          "stable_rate_slope_1": "50",
+          "stable_rate_slope_2": "6000",
+          "optimal_stable_to_total_debt_ratio": "2000"
+        }
+      ],
+      "assets": [
+        {
+          "denom": "eth",
+          "oracle_id": "DETH",
+          "rate_strategy_name": "volatile 1",
+          "allow_repay_stablecoin_interest_debt": true,
+          "loan_to_value": "4000",
+          "liquidation_threshold": "7000",
+          "liquidation_discount": "500",
+          "supply_cap": "0",
+          "borrow_cap": "0"
+        },
+        {
+          "denom": "usdc",
+          "oracle_id": "DUSDC",
+          "rate_strategy_name": "stable 1",
+          "allow_repay_stablecoin_interest_debt": true,
+          "loan_to_value": "8000",
+          "liquidation_threshold": "9000",
+          "liquidation_discount": "500",
+          "supply_cap": "0",
+          "borrow_cap": "0"
+        },
+        {
+          "denom": "atom",
+          "oracle_id": "DATOM",
+          "rate_strategy_name": "volatile 1",
+          "allow_repay_stablecoin_interest_debt": true,
+          "loan_to_value": "4000",
+          "liquidation_threshold": "7000",
+          "liquidation_discount": "500",
+          "supply_cap": "0",
+          "borrow_cap": "0"
+        },
+        {
+          "denom": "osmo",
+          "oracle_id": "DOSMO",
+          "rate_strategy_name": "volatile 1",
+          "allow_repay_stablecoin_interest_debt": false,
+          "loan_to_value": "0",
+          "liquidation_threshold": "0",
+          "liquidation_discount": "500",
+          "supply_cap": "0",
+          "borrow_cap": "0"
+        }
+      ],
+      "debt_infos": [],
+      "reward_schemes": [],
+      "sequence_number": "0",
+      "account_to_collateralized": {},
+      "account_to_principal_debt": {},
+      "account_to_initial_cumulative_interest_multiplier": {},
+      "stablecoin_debt_info": {
+        "denom": "usc",
+        "last_updated_time": "2024-07-23T10:35:12.199894431Z",
+        "total_principal": "0",
+        "cumulative_interest_multiplier": "1.000000000000000000",
+        "total_accumulated_interest": "0"
+      },
+      "account_to_principal_stablecoin_debt": {},
+      "account_to_stablecoin_initial_cumulative_interest_multiplier": {},
+      "account_to_reward_debt": {},
+      "stablecoin_interest_info": {
+        "last_updated_time": "2024-07-23T10:35:12.199894581Z",
+        "stablecoin_interest_rate": "50.000000000000000000"
+      },
+      "e_mode_categories": [
+        {
+          "name": "cosmos coins",
+          "denoms": [
+            "osmo",
+            "atom"
+          ],
+          "loan_to_value": "8500",
+          "liquidation_threshold": "9000",
+          "liquidation_discount": "0",
+          "is_active": true
+        },
+        {
+          "name": "eth osmo",
+          "denoms": [
+            "eth",
+            "osmo"
+          ],
+          "loan_to_value": "8500",
+          "liquidation_threshold": "9000",
+          "liquidation_discount": "0",
+          "is_active": true
+        },
+        {
+          "name": "stablecoins",
+          "denoms": [
+            "usdc",
+            "usc"
+          ],
+          "loan_to_value": "8500",
+          "liquidation_threshold": "9000",
+          "liquidation_discount": "0",
+          "is_active": true
+        }
+      ],
+      "account_to_e_mode_category": {}
+    },
+    "coin": {
+      "tokens": [
+        {
+          "id": "swth",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "swth",
+          "name": "Switcheo",
+          "symbol": "SWTH",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "5",
+          "token_address": "32e125258b7db0a0dffde5bd03b2b859253538ab",
+          "bridge_address": "17d0f66eca7fcbfddc8d9706f20513bf5d7419cd",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "usc",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "usc",
+          "name": "Carbon USD Coin",
+          "symbol": "USC",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "iusd",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "iusd",
+          "name": "USD",
+          "symbol": "iUSD",
+          "decimals": "8",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "iusd",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "btc",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "btc",
+          "name": "Bitcoin",
+          "symbol": "BTC",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "1",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "eth",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "eth",
+          "name": "Ethereum",
+          "symbol": "ETH",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000000000",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "dai",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "dai",
+          "name": "Dai",
+          "symbol": "DAI",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "6b175474e89094c44da98b954eedeac495271d0f",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "jrc",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "jrc",
+          "name": "JRCoin",
+          "symbol": "JRC",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "c6e36e1d6f3dc19ec734246d7d0435bf04117c85",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "neo",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "neo",
+          "name": "Neo",
+          "symbol": "NEO",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "5",
+          "token_address": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "gas",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "gas",
+          "name": "Gas",
+          "symbol": "GAS",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "5",
+          "token_address": "602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "usdc",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "usdc",
+          "name": "Circle USD",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "osmo",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "osmo",
+          "name": "Osmosis Osmo",
+          "symbol": "OSMO",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "atom",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "atom",
+          "name": "Cosmos Atom",
+          "symbol": "ATOM",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "nex",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "nex",
+          "name": "Nash",
+          "symbol": "NEX",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "5",
+          "token_address": "e2dc070524a6e305ddb64d8513dc444b6a1ec845",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "nexo",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "nexo",
+          "name": "Nexo",
+          "symbol": "NEXO",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "b62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+          "bridge_address": "0000000000000000000000000000000000000000",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cgusd",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cgusd",
+          "name": "Carbon Grouped USD",
+          "symbol": "USD",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "2",
+          "token_address": "cgusd",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "clpt/1",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "clpt/1",
+          "name": "50% SWTH / 50% ETH Pool",
+          "symbol": "CLPT-1",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "clpt/1",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "clpt/2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "clpt/2",
+          "name": "30% DAI / 70% ETH Pool",
+          "symbol": "CLPT-2",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "clpt/2",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "clpt/3",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "clpt/3",
+          "name": "50% USDC / 50% DAI Pool",
+          "symbol": "CLPT-3",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "clpt/3",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "clpt/4",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "clpt/4",
+          "name": "50% SWTH / 50% USDC Pool",
+          "symbol": "CLPT-4",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "clpt/4",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "clpt/5",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "clpt/5",
+          "name": "50% ETH / 50% USDC Pool",
+          "symbol": "CLPT-5",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "clpt/5",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "clpt/6",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "clpt/6",
+          "name": "50% ETH / 50% DAI Pool",
+          "symbol": "CLPT-6",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "clpt/6",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cplt/1",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cplt/1",
+          "name": "vault 1",
+          "symbol": "CPLT-1",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "cplt/1",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cplt/2",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cplt/2",
+          "name": "vault 2",
+          "symbol": "CPLT-2",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "cplt/2",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cibt/eth",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cibt/eth",
+          "name": "Carbon Interest Bearing ETH",
+          "symbol": "cibETH",
+          "decimals": "18",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cibt/usdc",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cibt/usdc",
+          "name": "Carbon Interest Bearing USDC",
+          "symbol": "cibUSDC",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cibt/atom",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cibt/atom",
+          "name": "Carbon Interest Bearing ATOM",
+          "symbol": "cibATOM",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cibt/osmo",
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "denom": "cibt/osmo",
+          "name": "Carbon Interest Bearing OSMO",
+          "symbol": "cibOSMO",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        }
+      ],
+      "wrapper_mappings": {},
+      "locked_coins": [],
+      "position_pools": [],
+      "bridges": [
+        {
+          "name": "Bitcoin via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "1",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Bitcoin",
+          "enabled": true,
+          "bridge_addresses": []
+        },
+        {
+          "name": "Ethereum via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Ethereum",
+          "enabled": true,
+          "bridge_addresses": [
+            "0000000000000000000000000000000000000000"
+          ]
+        },
+        {
+          "name": "Neo via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "5",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Neo",
+          "enabled": true,
+          "bridge_addresses": []
+        },
+        {
+          "name": "Binance Smart Chain via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "79",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Binance Smart Chain",
+          "enabled": true,
+          "bridge_addresses": []
+        },
+        {
+          "name": "Zilliqa via Polynetwork",
+          "bridge_id": "1",
+          "chain_id": "111",
+          "bridge_name": "Polynetwork",
+          "chain_name": "Zilliqa",
+          "enabled": true,
+          "bridge_addresses": []
+        }
+      ],
+      "groups": []
+    },
+    "cosmosauthz": {
+      "authorization": []
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "stake",
+        "amount": "1000"
+      }
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.100000000000000000",
+        "base_proposer_reward": "0.000000000000000000",
+        "bonus_proposer_reward": "0.000000000000000000",
+        "withdraw_addr_enabled": true,
+        "liquidity_provider_reward": "0.000000000000000000"
+      },
+      "fee_pool": {
+        "community_pool": [],
+        "liquidity_provider_pool": []
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "erc20": {
+      "params": {
+        "enable_erc20": true,
+        "enable_evm_hook": true
+      },
+      "token_pairs": []
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "evm": {
+      "accounts": [],
+      "params": {
+        "evm_denom": "eswth",
+        "enable_create": true,
+        "enable_call": true,
+        "extra_eips": [],
+        "chain_config": {
+          "homestead_block": "0",
+          "dao_fork_block": "0",
+          "dao_fork_support": true,
+          "eip150_block": "0",
+          "eip150_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "eip155_block": "0",
+          "eip158_block": "0",
+          "byzantium_block": "0",
+          "constantinople_block": "0",
+          "petersburg_block": "0",
+          "istanbul_block": "0",
+          "muir_glacier_block": "0",
+          "berlin_block": "0",
+          "london_block": "0",
+          "arrow_glacier_block": "0",
+          "gray_glacier_block": "0",
+          "merge_netsplit_block": "0",
+          "shanghai_block": "0",
+          "cancun_block": "0"
+        },
+        "allow_unprotected_txs": false
+      }
+    },
+    "feegrant": {
+      "allowances": []
+    },
+    "feeibc": {
+      "identified_fees": [],
+      "fee_enabled_channels": [],
+      "registered_payees": [],
+      "registered_counterparty_payees": [],
+      "forward_relayers": []
+    },
+    "feemarket": {
+      "params": {
+        "no_base_fee": false,
+        "base_fee_change_denominator": 8,
+        "elasticity_multiplier": 2,
+        "enable_height": "0",
+        "base_fee": "50000000000000",
+        "min_gas_price": "50000000000000.000000000000000000",
+        "min_gas_multiplier": "0.500000000000000000",
+        "gas_limit_per_block": "1000000000",
+        "max_base_fee": "50000000000000000000"
+      },
+      "block_gas": "0"
+    },
+    "genutil": {
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "starship",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "",
+                "validator_address": "tswthvaloper1a8arad2m507l7f7ann456j7mwcudj9yk4jfl3c",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "YjW82uiB9DqZwFyVisLu1ssyz/OKFMsgXkomo4iKkx4="
+                },
+                "value": {
+                  "denom": "swth",
+                  "amount": "1000000000000000"
+                }
+              }
+            ],
+            "memo": "e56f01d64ae10be03f2a650ce883b473782c81b4@192.168.10.137:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "A7m9FDrVgFKEKVTunHBS/jX5kdWjgGEv09Uek7twiiiC"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "1000000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "ZyDnFo5LhK4FEP57Im5pjXqQp+OSGF/w9MUYUGIpp1s/wKnfEY2k+wO9JxUbg8G+M+D5tCYRjl/XUDoQA53cAQ=="
+          ]
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": null,
+      "voting_params": null,
+      "tally_params": null,
+      "params": {
+        "min_deposit": [
+          {
+            "denom": "swth",
+            "amount": "1000000000000"
+          }
+        ],
+        "max_deposit_period": "300s",
+        "voting_period": "300s",
+        "quorum": "0.334",
+        "threshold": "0.5",
+        "veto_threshold": "0.334",
+        "min_initial_deposit_ratio": "0.000000000000000000",
+        "proposal_cancel_ratio": "0.500000000000000000",
+        "proposal_cancel_dest": "",
+        "expedited_voting_period": "60s",
+        "expedited_threshold": "0.667000000000000000",
+        "expedited_min_deposit": [
+          {
+            "denom": "swth",
+            "amount": "5000000000000"
+          }
+        ],
+        "burn_vote_quorum": false,
+        "burn_proposal_deposit_prevote": false,
+        "burn_vote_veto": true,
+        "min_deposit_ratio": "0.010000000000000000"
+      },
+      "constitution": ""
+    },
+    "group": {
+      "group_seq": "0",
+      "groups": [],
+      "group_members": [],
+      "group_policy_seq": "0",
+      "group_policies": [],
+      "proposal_seq": "0",
+      "proposals": [],
+      "votes": []
+    },
+    "headersync": {
+      "consensus_peers": {},
+      "checkpoint_hashes": {},
+      "zion_consensus_peers": {},
+      "zion_checkpoint_hashes": {}
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": [
+            "*"
+          ]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0",
+        "params": {
+          "upgrade_timeout": {
+            "height": {
+              "revision_number": "0",
+              "revision_height": "0"
+            },
+            "timestamp": "600000000000"
+          }
+        }
+      }
+    },
+    "inflation": {
+      "mint_data": {
+        "legacy_first_block_time": "0",
+        "legacy_prev_block_time": "0",
+        "current_supply": "0",
+        "inflation_rate": "0",
+        "first_block_time": "0001-01-01T00:00:00Z",
+        "prev_block_time": "0001-01-01T00:00:00Z"
+      },
+      "inflation_enabled": true
+    },
+    "insurance": {},
+    "interchainaccounts": {
+      "controller_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "ports": [],
+        "params": {
+          "controller_enabled": true
+        }
+      },
+      "host_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "port": "icahost",
+        "params": {
+          "host_enabled": true,
+          "allow_messages": [
+            "*"
+          ]
+        }
+      }
+    },
+    "leverage": {
+      "market_leverage_records": []
+    },
+    "liquidation": {
+      "outstanding_positions": {}
+    },
+    "liquiditypool": {
+      "params": {
+        "reward_reduction_threshold": "50",
+        "num_quotes": "10"
+      },
+      "pools": [
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "1",
+          "name": "50% SWTH / 50% ETH Pool",
+          "denom": "clpt/1",
+          "denom_a": "swth",
+          "amount_a": "0",
+          "weight_a": "0.500000000000000000",
+          "denom_b": "eth",
+          "amount_b": "0",
+          "weight_b": "0.500000000000000000",
+          "swap_fee": "0.002000000000000000",
+          "shares_amount": "0",
+          "amp_bps": "10000",
+          "v_amount_a": "0",
+          "v_amount_b": "0"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "2",
+          "name": "30% DAI / 70% ETH Pool",
+          "denom": "clpt/2",
+          "denom_a": "dai",
+          "amount_a": "0",
+          "weight_a": "0.300000000000000000",
+          "denom_b": "eth",
+          "amount_b": "0",
+          "weight_b": "0.700000000000000000",
+          "swap_fee": "0.001000000000000000",
+          "shares_amount": "0",
+          "amp_bps": "10000",
+          "v_amount_a": "0",
+          "v_amount_b": "0"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "3",
+          "name": "50% USDC / 50% DAI Pool",
+          "denom": "clpt/3",
+          "denom_a": "usdc",
+          "amount_a": "0",
+          "weight_a": "0.500000000000000000",
+          "denom_b": "dai",
+          "amount_b": "0",
+          "weight_b": "0.500000000000000000",
+          "swap_fee": "0.000100000000000000",
+          "shares_amount": "0",
+          "amp_bps": "1000000",
+          "v_amount_a": "0",
+          "v_amount_b": "0"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "4",
+          "name": "50% SWTH / 50% USDC Pool",
+          "denom": "clpt/4",
+          "denom_a": "swth",
+          "amount_a": "0",
+          "weight_a": "0.500000000000000000",
+          "denom_b": "usdc",
+          "amount_b": "0",
+          "weight_b": "0.500000000000000000",
+          "swap_fee": "0.002000000000000000",
+          "shares_amount": "0",
+          "amp_bps": "10000",
+          "v_amount_a": "0",
+          "v_amount_b": "0"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "5",
+          "name": "50% ETH / 50% USDC Pool",
+          "denom": "clpt/5",
+          "denom_a": "eth",
+          "amount_a": "0",
+          "weight_a": "0.500000000000000000",
+          "denom_b": "usdc",
+          "amount_b": "0",
+          "weight_b": "0.500000000000000000",
+          "swap_fee": "0.002000000000000000",
+          "shares_amount": "0",
+          "amp_bps": "10000",
+          "v_amount_a": "0",
+          "v_amount_b": "0"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "6",
+          "name": "50% ETH / 50% DAI Pool",
+          "denom": "clpt/6",
+          "denom_a": "eth",
+          "amount_a": "0",
+          "weight_a": "0.500000000000000000",
+          "denom_b": "dai",
+          "amount_b": "0",
+          "weight_b": "0.500000000000000000",
+          "swap_fee": "0.002000000000000000",
+          "shares_amount": "0",
+          "amp_bps": "10000",
+          "v_amount_a": "0",
+          "v_amount_b": "0"
+        }
+      ],
+      "reward_curve": {
+        "start_time": "2024-07-23T10:35:12.201952903Z",
+        "initial_reward": 6000,
+        "interval": "604800",
+        "number_of_reductions": 53,
+        "reduction": 500,
+        "final_reward": 400,
+        "reductions_made": 0
+      },
+      "commitment_curve": {
+        "max_commitment_duration": "31557600",
+        "max_reward_multiplier": 500
+      },
+      "reward_weights": {
+        "weights": []
+      },
+      "commitments": [],
+      "total_commitments": [],
+      "commitment_expiries": [],
+      "allocated_rewards": {
+        "coins": []
+      },
+      "accumulated_rewards": [],
+      "pool_routes": [
+        {
+          "market_id": "swth_eth",
+          "pool_ids": [
+            "1"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        },
+        {
+          "market_id": "swth_eth",
+          "pool_ids": [
+            "4",
+            "5"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        },
+        {
+          "market_id": "eth_dai",
+          "pool_ids": [
+            "2"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        },
+        {
+          "market_id": "usdc_dai",
+          "pool_ids": [
+            "3"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        },
+        {
+          "market_id": "eth_usdc",
+          "pool_ids": [
+            "5"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        },
+        {
+          "market_id": "swth_eth2",
+          "pool_ids": [
+            "4",
+            "3",
+            "6"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        },
+        {
+          "market_id": "swth_dai",
+          "pool_ids": [
+            "1",
+            "2"
+          ],
+          "legacy_num_quotes": "0",
+          "num_quotes": "10"
+        }
+      ]
+    },
+    "lockproxy": {
+      "nonce": "0",
+      "chain_ids": {},
+      "registries": {},
+      "operators": {},
+      "wrapper_mappings": []
+    },
+    "market": {
+      "markets": [
+        {
+          "id": "swth_eth",
+          "display_name": "SWTH_ETH",
+          "description": "SWTH/ETH spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "eth",
+          "base_precision": "8",
+          "quote_precision": "18",
+          "lot_size": "10000000000",
+          "tick_size": "1000.000000000000000000",
+          "min_quantity": "20000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "swth_eth2",
+          "display_name": "SWTH_ETH 2",
+          "description": "SWTH/ETH 2 spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "eth",
+          "base_precision": "8",
+          "quote_precision": "18",
+          "lot_size": "10000000000",
+          "tick_size": "1000.000000000000000000",
+          "min_quantity": "20000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "swth_btc",
+          "display_name": "SWTH_BTC",
+          "description": "SWTH/BTC spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "btc",
+          "base_precision": "8",
+          "quote_precision": "8",
+          "lot_size": "10000000000",
+          "tick_size": "0.000000010000000000",
+          "min_quantity": "20000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "btc_z29",
+          "display_name": "BTC_Z29",
+          "description": "BTC/USD futures contract settling December 2029",
+          "market_type": "futures",
+          "base": "btc",
+          "quote": "iusd",
+          "base_precision": "8",
+          "quote_precision": "8",
+          "lot_size": "10000",
+          "tick_size": "0.250000000000000000",
+          "min_quantity": "10000",
+          "created_block_height": "0",
+          "risk_step_size": "10000000",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "max_liquidation_order_ticket": "11100000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "100000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DXBT",
+          "expiry_time": "2029-12-31T17:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 20000
+        },
+        {
+          "id": "eth_z29",
+          "display_name": "ETH_Z29",
+          "description": "ETH/USD futures contract settling December 2029",
+          "market_type": "futures",
+          "base": "eth",
+          "quote": "iusd",
+          "base_precision": "18",
+          "quote_precision": "8",
+          "lot_size": "100000000000000",
+          "tick_size": "0.000000000010000000",
+          "min_quantity": "100000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "5000000000000000000",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "50000000000000000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DETH",
+          "expiry_time": "2029-12-31T17:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 20000
+        },
+        {
+          "id": "eth_z39",
+          "display_name": "ETH_Z39",
+          "description": "ETH/USD futures contract settling December 2039",
+          "market_type": "futures",
+          "base": "eth",
+          "quote": "iusd",
+          "base_precision": "18",
+          "quote_precision": "8",
+          "lot_size": "100000000000000",
+          "tick_size": "0.000000000010000000",
+          "min_quantity": "100000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "5000000000000000000",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "50000000000000000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DETH",
+          "expiry_time": "2039-12-31T17:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "eth_z19",
+          "display_name": "ETH_Z19",
+          "description": "ETH/USD futures contract settling 15 mins past genesis",
+          "market_type": "futures",
+          "base": "eth",
+          "quote": "iusd",
+          "base_precision": "18",
+          "quote_precision": "8",
+          "lot_size": "100000000000000",
+          "tick_size": "0.000000000010000000",
+          "min_quantity": "100000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "5000000000000000000",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "50000000000000000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DETH",
+          "expiry_time": "2024-07-23T10:50:12.159589533Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "eth_dai",
+          "display_name": "ETH_DAI",
+          "description": "ETH/DAI spot market",
+          "market_type": "spot",
+          "base": "eth",
+          "quote": "dai",
+          "base_precision": "18",
+          "quote_precision": "18",
+          "lot_size": "1000000000000000",
+          "tick_size": "0.010000000000000000",
+          "min_quantity": "1000000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "eth_usdc",
+          "display_name": "ETH_USDC",
+          "description": "ETH/USDC spot market",
+          "market_type": "spot",
+          "base": "eth",
+          "quote": "usdc",
+          "base_precision": "18",
+          "quote_precision": "6",
+          "lot_size": "1000000000000000",
+          "tick_size": "0.000000000000100000",
+          "min_quantity": "1000000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "btc_z29u",
+          "display_name": "BTC_Z29U",
+          "description": "BTC/USD futures contract USDC version",
+          "market_type": "futures",
+          "base": "btc",
+          "quote": "usdc",
+          "base_precision": "8",
+          "quote_precision": "6",
+          "lot_size": "10000",
+          "tick_size": "0.002500000000000000",
+          "min_quantity": "10000",
+          "created_block_height": "0",
+          "risk_step_size": "10000000",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "max_liquidation_order_ticket": "11100000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "100000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DXBT",
+          "expiry_time": "2024-07-24T10:35:12.159592803Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "eth_z29u",
+          "display_name": "ETH_Z29U",
+          "description": "ETH/USD futures contract USDC version",
+          "market_type": "futures",
+          "base": "eth",
+          "quote": "usdc",
+          "base_precision": "18",
+          "quote_precision": "6",
+          "lot_size": "100000000000000",
+          "tick_size": "0.000000000000100000",
+          "min_quantity": "100000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "5000000000000000000",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "50000000000000000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DETH",
+          "expiry_time": "2024-07-24T10:35:12.159594803Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "btc_z19",
+          "display_name": "BTC_Z19",
+          "description": "BTC/USD futures contract settling 15 mins past genesis",
+          "market_type": "futures",
+          "base": "btc",
+          "quote": "iusd",
+          "base_precision": "8",
+          "quote_precision": "8",
+          "lot_size": "10000",
+          "tick_size": "0.250000000000000000",
+          "min_quantity": "10000",
+          "created_block_height": "0",
+          "risk_step_size": "10000000",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "max_liquidation_order_ticket": "11100000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "100000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DXBT",
+          "expiry_time": "2024-07-24T10:35:12.159596183Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "swth_nex",
+          "display_name": "SWTH_NEX",
+          "description": "SWTH/NEX spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "nex",
+          "base_precision": "8",
+          "quote_precision": "8",
+          "lot_size": "1000000",
+          "tick_size": "0.001000000000000000",
+          "min_quantity": "1000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "swth_nexo",
+          "display_name": "SWTH_NEXO",
+          "description": "SWTH/NEXO spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "nexo",
+          "base_precision": "8",
+          "quote_precision": "18",
+          "lot_size": "1000000",
+          "tick_size": "1000000.000000000000000000",
+          "min_quantity": "1000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "swth_btc2",
+          "display_name": "SWTH_BTC2",
+          "description": "SWTH/BTC2 spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "btc",
+          "base_precision": "8",
+          "quote_precision": "8",
+          "lot_size": "10000000000",
+          "tick_size": "0.000000010000000000",
+          "min_quantity": "20000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "usdc_dai",
+          "display_name": "USDC_DAI",
+          "description": "USDC/DAI spot market",
+          "market_type": "spot",
+          "base": "usdc",
+          "quote": "dai",
+          "base_precision": "6",
+          "quote_precision": "18",
+          "lot_size": "1000000",
+          "tick_size": "100000000.000000000000000000",
+          "min_quantity": "1000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "BTC_PERP.USDC",
+          "display_name": "BTC_PERP.USDC",
+          "description": "Bitcoin Futures Contract Perpetual",
+          "market_type": "futures",
+          "base": "btc",
+          "quote": "usdc",
+          "base_precision": "8",
+          "quote_precision": "6",
+          "lot_size": "10000",
+          "tick_size": "0.002500000000000000",
+          "min_quantity": "10000",
+          "created_block_height": "0",
+          "risk_step_size": "10000000",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "max_liquidation_order_ticket": "11100000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "100000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DXBT",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "ETH_PERP.USDC",
+          "display_name": "ETH_PERP.USDC",
+          "description": "Ethereum Futures Contract Perpetual",
+          "market_type": "futures",
+          "base": "eth",
+          "quote": "usdc",
+          "base_precision": "18",
+          "quote_precision": "6",
+          "lot_size": "100000000000000",
+          "tick_size": "0.000000000000100000",
+          "min_quantity": "100000000000000",
+          "created_block_height": "0",
+          "risk_step_size": "5000000000000000000",
+          "initial_margin_base": "0.020000000000000000",
+          "initial_margin_step": "0.000010000000000000",
+          "maintenance_margin_ratio": "0.500000000000000000",
+          "max_liquidation_order_ticket": "500000000000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "50000000000000000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DETH",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "swth_dai",
+          "display_name": "SWTH_DAI",
+          "description": "SWTH/DAI spot market",
+          "market_type": "spot",
+          "base": "swth",
+          "quote": "dai",
+          "base_precision": "8",
+          "quote_precision": "18",
+          "lot_size": "10000000000",
+          "tick_size": "10.000000000000000000",
+          "min_quantity": "20000000000",
+          "created_block_height": "0",
+          "risk_step_size": "0",
+          "initial_margin_base": "1.000000000000000000",
+          "initial_margin_step": "0.000000000000000000",
+          "maintenance_margin_ratio": "0.000000000000000000",
+          "max_liquidation_order_ticket": "0",
+          "max_liquidation_order_duration": "0s",
+          "impact_size": "0",
+          "mark_price_band": 0,
+          "last_price_protected_band": 0,
+          "index_oracle_id": "",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 0
+        },
+        {
+          "id": "OSMO_PERP.CGUSD",
+          "display_name": "OSMO_PERP.CGUSD",
+          "description": "Osmo Futures Contract Perpetual",
+          "market_type": "futures",
+          "base": "osmo",
+          "quote": "cgusd",
+          "base_precision": "6",
+          "quote_precision": "18",
+          "lot_size": "10000000",
+          "tick_size": "1000000000.000000000000000000",
+          "min_quantity": "10000000",
+          "created_block_height": "0",
+          "risk_step_size": "10000000000",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "max_liquidation_order_ticket": "100000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "1000000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DOSMO",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        },
+        {
+          "id": "ATOM_PERP.CGUSD",
+          "display_name": "ATOM_PERP.CGUSD",
+          "description": "Atom Futures Contract Perpetual",
+          "market_type": "futures",
+          "base": "atom",
+          "quote": "cgusd",
+          "base_precision": "6",
+          "quote_precision": "18",
+          "lot_size": "1000000",
+          "tick_size": "10000000000.000000000000000000",
+          "min_quantity": "1000000",
+          "created_block_height": "0",
+          "risk_step_size": "1000000000",
+          "initial_margin_base": "0.010000000000000000",
+          "initial_margin_step": "0.000005000000000000",
+          "maintenance_margin_ratio": "0.700000000000000000",
+          "max_liquidation_order_ticket": "10000000000000",
+          "max_liquidation_order_duration": "30s",
+          "impact_size": "100000000",
+          "mark_price_band": 2000,
+          "last_price_protected_band": 200,
+          "index_oracle_id": "DATOM",
+          "expiry_time": "1970-01-01T00:00:00Z",
+          "is_active": true,
+          "is_settled": false,
+          "closed_block_height": "0",
+          "trading_bandwidth": 1500
+        }
+      ],
+      "params": {
+        "default_lot_size_usd": "1.000000000000000000",
+        "default_tick_size_usd": "0.001000000000000000",
+        "default_min_quantity_usd": "1.000000000000000000",
+        "default_spot_maker_fee": "-0.001000000000000000",
+        "default_spot_taker_fee": "0.002000000000000000",
+        "default_futures_maker_fee": "-0.000200000000000000",
+        "default_futures_taker_fee": "0.000500000000000000",
+        "default_risk_step_size_usd": "100000.000000000000000000",
+        "default_initial_margin_base": "0.200000000000000000",
+        "default_initial_margin_step": "0.000100000000000000",
+        "default_maintenance_margin_ratio": "0.700000000000000000",
+        "default_max_liquidation_order_ticket_usd": "100000.000000000000000000",
+        "default_max_liquidation_order_duration": "60s",
+        "default_impact_size_usd": "100000.000000000000000000",
+        "default_mark_price_band": 100,
+        "default_last_price_protected_band": 200,
+        "max_active_markets": 300,
+        "default_trading_bandwidth": 300,
+        "funding_rate_band": "175.200000000000000000",
+        "default_lp_spot_taker_fee": "0.000000000000000000",
+        "default_lp_spot_maker_fee": "0.000000000000000000",
+        "default_lp_futures_taker_fee": "0.000000000000000000",
+        "default_lp_futures_maker_fee": "0.000000000000000000"
+      },
+      "controlled_params": {
+        "perpetuals_funding_interval": "3600s"
+      },
+      "market_id_sequence": "1",
+      "stake_equivalences": [
+        {
+          "denom": "swth",
+          "ratio": "0.500000000000000000"
+        }
+      ],
+      "fee_structures": [
+        {
+          "fee_category": {
+            "market_type": "spot",
+            "market_id": "",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.003000000000000000",
+                "maker_fee": "0.001000000000000000"
+              }
+            },
+            {
+              "required_stake": "10000000000",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            },
+            {
+              "required_stake": "50000000000",
+              "trading_fees": {
+                "taker_fee": "0.001000000000000000",
+                "maker_fee": "-0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "futures",
+            "market_id": "",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.001000000000000000"
+              }
+            },
+            {
+              "required_stake": "10000000000",
+              "trading_fees": {
+                "taker_fee": "0.001500000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            },
+            {
+              "required_stake": "50000000000",
+              "trading_fees": {
+                "taker_fee": "0.001000000000000000",
+                "maker_fee": "-0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_eth",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_eth2",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_btc",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "btc_z29",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "eth_z29",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.000750000000000000",
+                "maker_fee": "-0.000250000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "eth_z39",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.000300000000000000",
+                "maker_fee": "-0.000300000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "eth_z19",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "eth_dai",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "-0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "eth_usdc",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "-0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "btc_z29u",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "eth_z29u",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.000750000000000000",
+                "maker_fee": "-0.000250000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "btc_z19",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_nex",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "-0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_nexo",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "-0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_btc2",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.001000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "usdc_dai",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.002000000000000000",
+                "maker_fee": "0.000000000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "BTC_PERP.USDC",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.000500000000000000",
+                "maker_fee": "-0.000200000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "ETH_PERP.USDC",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.000750000000000000",
+                "maker_fee": "-0.000250000000000000"
+              }
+            }
+          ]
+        },
+        {
+          "fee_category": {
+            "market_type": "",
+            "market_id": "swth_dai",
+            "whitelisted_address": ""
+          },
+          "fee_tiers": [
+            {
+              "required_stake": "0",
+              "trading_fees": {
+                "taker_fee": "0.000500000000000000",
+                "maker_fee": "-0.000200000000000000"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "marketstats": {},
+    "mint": {
+      "minter": {
+        "inflation": "0.000000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "swth",
+        "inflation_rate_change": "0.000000000000000000",
+        "inflation_max": "0.000000000000000000",
+        "inflation_min": "0.000000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "6311520"
+      }
+    },
+    "misc": null,
+    "nft": {
+      "classes": [],
+      "entries": []
+    },
+    "oracle": {
+      "oracles": [
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DXBT",
+          "description": "Demex XBT Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "300",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "10",
+          "spec": "{\n\t\"output_id\": \"btc_usd\",\n\t\"templates\": [\n\t  {\n\t\t\"template_id\": \"response_handler\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"unresponsive_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"use_last\",\n\t\t\t  \"grace_duration\": \"120\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"adapter\": \"unchanged_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"nullify\",\n\t\t\t  \"threshold_duration\": \"900\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"adapter\": \"median_filter\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"nullify\",\n\t\t\t  \"value_ids\":\"[\\\"bitstamp_btc_usd\\\",\\\"kraken_btc_usd\\\", \\\"coinbase_btc_usd\\\"]\",\n\t\t\t  \"tolerance_percentage\": \"10\"\n\t\t\t}\n\t\t  }\n\t\t]\n\t  }\n\t],\n\t\"jobs\": [\n\t  {\n\t\t\"output_id\": \"bitstamp_btc_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"bitstamp_btc_usd\",\n\t\t\t  \"default_node_host\": \"https://www.bitstamp.net\",\n\t\t\t  \"default_node_path\": \"/api/v2/ticker/btcusd\",\n\t\t\t  \"paths\": \"[\\\"last\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"kraken_btc_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"kraken_btc_usd\",\n\t\t\t  \"default_node_host\": \"https://api.kraken.com\",\n\t\t\t  \"default_node_path\": \"/0/public/Ticker?pair=XXBTZUSD\",\n\t\t\t  \"paths\": \"[\\\"result.XXBTZUSD.c.0\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"coinbase_btc_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"coinbase_btc_usd\",\n\t\t\t  \"default_node_host\": \"https://api.exchange.coinbase.com\",\n\t\t\t  \"default_node_path\": \"/products/BTC-USD/ticker\",\n\t\t\t  \"paths\": \"[\\\"price\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"btc_usd\",\n\t\t\"adapter\": \"weighted_average\",\n\t\t\"config\": {\n\t\t  \"value_ids\":\"[\\\"bitstamp_btc_usd\\\",\\\"kraken_btc_usd\\\", \\\"coinbase_btc_usd\\\"]\",\n\t\t  \"weights\": \"[0.25, 0.25, 0.5]\"\n\t\t}\n\t  },\n\t  {\n\t\t\"output_id\": \"btc_usd\",\n\t\t\"input_id\": \"btc_usd\",\n\t\t\"adapter\": \"float_handler\",\n\t\t\"config\": {\n\t\t  \"operation\": \"round\",\n\t\t  \"precision\": \"2\"\n\t\t}\n\t  }\n\t]\n  }"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DETH",
+          "description": "Demex ETH Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "300",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "10",
+          "spec": "{\n\t\"output_id\": \"eth_usd\",\n\t\"templates\": [\n\t  {\n\t\t\"template_id\": \"response_handler\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"unresponsive_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"use_last\",\n\t\t\t  \"grace_duration\": \"120\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"adapter\": \"unchanged_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"nullify\",\n\t\t\t  \"threshold_duration\": \"900\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"adapter\": \"median_filter\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"nullify\",\n\t\t\t  \"value_ids\":\"[\\\"bitstamp_eth_usd\\\",\\\"kraken_eth_usd\\\", \\\"coinbase_eth_usd\\\"]\",\n\t\t\t  \"tolerance_percentage\": \"10\"\n\t\t\t}\n\t\t  }\n\t\t]\n\t  }\n\t],\n\t\"jobs\": [\n\t  {\n\t\t\"output_id\": \"bitstamp_eth_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"bitstamp_eth_usd\",\n\t\t\t  \"default_node_host\": \"https://www.bitstamp.net\",\n\t\t\t  \"default_node_path\": \"/api/v2/ticker/ethusd\",\n\t\t\t  \"paths\": \"[\\\"last\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"kraken_eth_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"kraken_eth_usd\",\n\t\t\t  \"default_node_host\": \"https://api.kraken.com\",\n\t\t\t  \"default_node_path\": \"/0/public/Ticker?pair=XETHZUSD\",\n\t\t\t  \"paths\": \"[\\\"result.XETHZUSD.c.0\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"coinbase_eth_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"coinbase_eth_usd\",\n\t\t\t  \"default_node_host\": \"https://api.exchange.coinbase.com\",\n\t\t\t  \"default_node_path\": \"/products/ETH-USD/ticker\",\n\t\t\t  \"paths\": \"[\\\"price\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"eth_usd\",\n\t\t\"adapter\": \"weighted_average\",\n\t\t\"config\": {\n\t\t  \"value_ids\":\"[\\\"bitstamp_eth_usd\\\",\\\"kraken_eth_usd\\\", \\\"coinbase_eth_usd\\\"]\",\n\t\t  \"weights\": \"[0.25, 0.25, 0.5]\"\n\t\t}\n\t  },\n\t  {\n\t\t\"output_id\": \"eth_usd\",\n\t\t\"input_id\": \"eth_usd\",\n\t\t\"adapter\": \"float_handler\",\n\t\t\"config\": {\n\t\t  \"operation\": \"round\",\n\t\t  \"precision\": \"2\"\n\t\t}\n\t  }\n\t]\n  }"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DUSDC",
+          "description": "Demex USDC Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "300",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "10",
+          "spec": "{\n\t\"output_id\": \"usdc_usd\",\n\t\"templates\": [\n\t  {\n\t\t\"template_id\": \"response_handler\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"unresponsive_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"use_last\",\n\t\t\t  \"grace_duration\": \"120\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"adapter\": \"unchanged_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"nullify\",\n\t\t\t  \"threshold_duration\": \"900\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"adapter\": \"median_filter\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"nullify\",\n\t\t\t  \"value_ids\": \"[\\\"bitstamp_usdc_usd\\\", \\\"kraken_usdc_usd\\\", \\\"coinbase_usdc_usd\\\"]\",\n\t\t\t  \"tolerance_percentage\": \"1\"\n\t\t\t}\n\t\t  }\n\t\t]\n\t  }\n\t],\n\t\"jobs\": [\n\t  {\n\t\t\"output_id\": \"bitstamp_usdc_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"bitstamp_usdc_usd\",\n\t\t\t  \"default_node_host\": \"https://www.bitstamp.net\",\n\t\t\t  \"default_node_path\": \"/api/v2/ticker/usdcusd\",\n\t\t\t  \"paths\": \"[\\\"last\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"kraken_usdc_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"kraken_usdc_usd\",\n\t\t\t  \"default_node_host\": \"https://api.kraken.com\",\n\t\t\t  \"default_node_path\": \"/0/public/Ticker?pair=USDCUSD\",\n\t\t\t  \"paths\": \"[\\\"result.USDCUSD.c.0\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"coinbase_usdc_usd\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"coinbase_usdc_usd\",\n\t\t\t  \"default_node_host\": \"https://api.coinbase.com\",\n\t\t\t  \"default_node_path\": \"/v2/prices/USDC-USD/buy\",\n\t\t\t  \"paths\": \"[\\\"data.amount\\\"]\",\n\t\t\t  \"timeout\": \"10\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"usdc_usd\",\n\t\t\"adapter\": \"weighted_average\",\n\t\t\"config\": {\n\t\t  \"value_ids\": \"[\\\"bitstamp_usdc_usd\\\", \\\"kraken_usdc_usd\\\", \\\"coinbase_usdc_usd\\\"]\",\n\t\t  \"weights\": \"[0.25, 0.25, 0.5]\"\n\t\t}\n\t  },\n\t  {\n\t\t\"output_id\": \"usdc_usd\",\n\t\t\"input_id\": \"usdc_usd\",\n\t\t\"adapter\": \"float_handler\",\n\t\t\"config\": {\n\t\t  \"operation\": \"round\",\n\t\t  \"precision\": \"6\"\n\t\t}\n\t  }\n\t]\n  }"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DATOM",
+          "description": "Demex ATOM Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "300",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "10",
+          "spec": "{\n  \"output_id\": \"atom_usd\",\n  \"templates\": [\n    {\n      \"template_id\": \"full_response_handler\",\n      \"adapters\": [\n        {\n          \"adapter\": \"unresponsive_handler\",\n          \"config\": {\n            \"strategy\": \"use_last\",\n            \"grace_duration\": \"120\"\n          }\n        },\n        {\n          \"adapter\": \"unchanged_handler\",\n          \"config\": {\n            \"strategy\": \"nullify\",\n            \"threshold_duration\": \"900\"\n          }\n        },\n        {\n          \"adapter\": \"median_filter\",\n          \"config\": {\n            \"strategy\": \"nullify\",\n            \"value_ids\": \"[\\\"binance_atom_usd\\\", \\\"kraken_atom_usd\\\",\\\"coinbase_atom_usd\\\"]\",\n            \"tolerance_percentage\": \"10\"\n          }\n        }\n      ]\n    },\n    {\n      \"template_id\": \"response_handler\",\n      \"adapters\": [\n        {\n          \"adapter\": \"unresponsive_handler\",\n          \"config\": {\n            \"strategy\": \"use_last\",\n            \"grace_duration\": \"120\"\n          }\n        },\n        {\n          \"adapter\": \"unchanged_handler\",\n          \"config\": {\n            \"strategy\": \"nullify\",\n            \"threshold_duration\": \"900\"\n          }\n        }\n      ]\n    }\n  ],\n  \"jobs\": [\n    {\n      \"output_id\": \"binance_atom_usdt\",\n      \"adapters\": [\n        {\n          \"adapter\": \"fetcher_multiple\",\n          \"config\": {\n            \"custom_node_url_key\": \"binance_atom_usdt\",\n            \"default_node_host\": \"https://api-binance-proxy.carbon.network\",\n            \"default_node_path\": \"/api/v3/ticker/price?symbol=ATOMUSDT\",\n            \"paths\": \"[\\\"price\\\"]\",\n            \"timeout\": \"10\"\n          }\n        },\n        {\n          \"template\": \"response_handler\"\n        }\n      ]\n    },\n    {\n      \"output_id\": \"usdt_usd\",\n      \"adapters\": [\n        {\n          \"adapter\": \"fetcher_multiple\",\n          \"config\": {\n            \"custom_node_url_key\": \"coinbase_usdt_usd\",\n            \"default_node_host\": \"https://api.exchange.coinbase.com\",\n            \"default_node_path\": \"/products/USDT-USD/ticker\",\n            \"paths\": \"[\\\"price\\\"]\",\n            \"timeout\": \"10\"\n          }\n        },\n        {\n          \"template\": \"response_handler\"\n        }\n      ]\n    },\n    {\n      \"output_id\": \"binance_atom_usd\",\n      \"adapter\": \"math_filter\",\n      \"config\": {\n        \"operation\": \"multiply\",\n        \"input_ids\": \"[\\\"binance_atom_usdt\\\",\\\"usdt_usd\\\"]\"\n      }\n    },\n    {\n      \"output_id\": \"kraken_atom_usd\",\n      \"adapters\": [\n        {\n          \"adapter\": \"fetcher_multiple\",\n          \"config\": {\n            \"custom_node_url_key\": \"kraken_atom_usd\",\n            \"default_node_host\": \"https://api.kraken.com\",\n            \"default_node_path\": \"/0/public/Ticker?pair=ATOMUSD\",\n            \"paths\": \"[\\\"result.ATOMUSD.c.0\\\"]\",\n            \"timeout\": \"10\"\n          }\n        },\n        {\n          \"template\": \"response_handler\"\n        }\n      ]\n    },\n    {\n      \"output_id\": \"coinbase_atom_usd\",\n      \"adapters\": [\n        {\n          \"adapter\": \"fetcher_multiple\",\n          \"config\": {\n            \"custom_node_url_key\": \"coinbase_atom_usd\",\n            \"default_node_host\": \"https://api.exchange.coinbase.com\",\n            \"default_node_path\": \"/products/ATOM-USD/ticker\",\n            \"paths\": \"[\\\"price\\\"]\",\n            \"timeout\": \"10\"\n          }\n        },\n        {\n          \"template\": \"full_response_handler\"\n        }\n      ]\n    },\n    {\n      \"output_id\": \"atom_usd\",\n      \"adapter\": \"weighted_average\",\n      \"config\": {\n        \"value_ids\": \"[\\\"binance_atom_usd\\\",\\\"kraken_atom_usd\\\",\\\"coinbase_atom_usd\\\"]\",\n        \"weights\": \"[0.4, 0.2, 0.4]\"\n      }\n    },\n    {\n      \"output_id\": \"atom_usd\",\n      \"input_id\": \"atom_usd\",\n      \"adapter\": \"float_handler\",\n      \"config\": {\n        \"operation\": \"round\",\n        \"precision\": \"6\"\n      }\n    }\n  ]\n}\n"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DOSMO",
+          "description": "Demex OSMO Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "300",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "10",
+          "spec": "{\n\t\"output_id\": \"osmo_usd\",\n\t\"templates\": [\n\t\t{\n\t\t\t\"template_id\": \"response_handler\",\n\t\t\t\"adapters\": [\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"unresponsive_handler\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"strategy\": \"use_last\",\n\t\t\t\t\t\t\"grace_duration\": \"120\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"unchanged_handler\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"strategy\": \"nullify\",\n\t\t\t\t\t\t\"threshold_duration\": \"900\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"median_filter\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"strategy\": \"nullify\",\n\t\t\t\t\t\t\"value_ids\": \"[\\\"osmosis_osmo_usdc\\\", \\\"coinbase_osmo_usd\\\", \\\"mexc_osmo_usdt\\\"]\",\n\t\t\t\t\t\t\"tolerance_percentage\": \"10\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"template_id\": \"rpc_response_handler\",\n\t\t\t\"adapters\": [\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"unresponsive_handler\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"strategy\": \"use_last\",\n\t\t\t\t\t\t\"grace_duration\": \"120\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"jobs\": [\n\t\t{\n\t\t\t\"output_id\": \"osmosis_osmo_usdc_pool\",\n\t\t\t\"adapters\": [\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"custom_node_url_key\": \"osmosis_678\",\n\t\t\t\t\t\t\"default_node_host\": \"https://lcd.osmosis.zone\",\n\t\t\t\t\t\t\"default_node_path\": \"/osmosis/gamm/v1beta1/pools/678\",\n\t\t\t\t\t\t\"paths\": \"[\\\"pool.pool_assets.0.token.amount\\\", \\\"pool.pool_assets.1.token.amount\\\"]\",\n\t\t\t\t\t\t\"timeout\": \"10\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"template\": \"rpc_response_handler\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"output_id\": \"osmosis_osmo_usdc\",\n\t\t\t\"adapter\": \"math_filter\",\n\t\t\t\"input_id\": \"osmosis_osmo_usdc_pool\",\n\t\t\t\"config\": {\n\t\t\t\t\"operation\": \"divide\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"output_id\": \"coinbase_osmo_usd\",\n\t\t\t\"adapters\": [\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"custom_node_url_key\": \"coinbase_osmo_usd\",\n\t\t\t\t\t\t\"default_node_host\": \"https://api.exchange.coinbase.com\",\n\t\t\t\t\t\t\"default_node_path\": \"/products/OSMO-USD/ticker\",\n\t\t\t\t\t\t\"paths\": \"[\\\"price\\\"]\",\n\t\t\t\t\t\t\"timeout\": \"10\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"template\": \"response_handler\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"output_id\": \"mexc_osmo_usdt\",\n\t\t\t\"adapters\": [\n\t\t\t\t{\n\t\t\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\t\t\"config\": {\n\t\t\t\t\t\t\"custom_node_url_key\": \"mexc_osmo_usdt\",\n\t\t\t\t\t\t\"default_node_host\": \"https://www.mexc.com\",\n\t\t\t\t\t\t\"default_node_path\": \"/open/api/v2/market/ticker?symbol=OSMO_USDT\",\n\t\t\t\t\t\t\"paths\": \"[\\\"data.0.last\\\"]\",\n\t\t\t\t\t\t\"timeout\": \"10\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"template\": \"response_handler\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"output_id\": \"osmo_usd\",\n\t\t\t\"adapter\": \"weighted_average\",\n\t\t\t\"config\": {\n\t\t\t\t\"value_ids\": \"[\\\"osmosis_osmo_usdc\\\", \\\"coinbase_osmo_usd\\\", \\\"mexc_osmo_usdt\\\"]\",\n\t\t\t\t\"weights\": \"[0.3, 0.5, 0.2]\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"output_id\": \"osmo_usd\",\n\t\t\t\"input_id\": \"osmo_usd\",\n\t\t\t\"adapter\": \"float_handler\",\n\t\t\t\"config\": {\n\t\t\t\t\"operation\": \"round\",\n\t\t\t\t\"precision\": \"6\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"output_id\": \"osmo_usd\",\n\t\t\t\"input_id\": \"osmo_usd\",\n\t\t\t\"adapter\": \"unchanged_handler\",\n\t\t\t\"config\": {\n\t\t\t\t\"strategy\": \"nullify\",\n\t\t\t\t\"threshold_duration\": \"900\"\n\t\t\t}\n\t\t}\n\t]\n}"
+        },
+        {
+          "creator": "tswth1mw90en8tcqnvdjhp64qmyhuq4qasvhy2s6st4t",
+          "id": "DUSC",
+          "description": "Demex USC Index",
+          "status": "created",
+          "min_turnout_percentage": "67",
+          "max_result_age": "300",
+          "security_type": "SecuredByValidators",
+          "result_strategy": "median",
+          "resolution": "10",
+          "spec": "{\n\t\"output_id\": \"usc_usd\",\n\t\"templates\": [\n\t  {\n\t\t\"template_id\": \"rpc_response_handler\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"unresponsive_handler\",\n\t\t\t\"config\": {\n\t\t\t  \"strategy\": \"use_last\",\n\t\t\t  \"grace_duration\": \"120\"\n\t\t\t}\n\t\t  }\n\t\t]\n\t  }\n\t],\n\t\"jobs\": [\n\t  {\n\t\t\"adapter\": \"static_handler\",\n\t\t\"output_id\": \"static_usc_usd\",\n\t\t\"config\": {\n\t\t  \"value\": \"1\"\n\t\t}\n\t  },\n\t  {\n\t\t\"output_id\": \"demex_usc_usdc\",\n\t\t\"adapters\": [\n\t\t  {\n\t\t\t\"adapter\": \"fetcher_multiple\",\n\t\t\t\"config\": {\n\t\t\t  \"custom_node_url_key\": \"carbon_usc_usdc\",\n\t\t\t  \"default_node_host\": \"https://api.carbon.network\",\n\t\t\t  \"default_node_path\": \"/carbon/book/v1/impact_price/cmkt%252F86/quote_amount/5000000000\",\n\t\t\t  \"paths\": \"[\\\"impact_price\\\"]\",\n\t\t\t  \"timeout\": \"13\"\n\t\t\t}\n\t\t  },\n\t\t  {\n\t\t\t\"template\": \"rpc_response_handler\"\n\t\t  }\n\t\t]\n\t  },\n\t  {\n\t\t\"output_id\": \"usc_usd\",\n\t\t\"adapter\": \"math_filter\",\n\t\t\"input_id\": \"\",\n\t\t\"config\": {\n\t\t  \"operation\": \"min\",\n\t\t  \"input_ids\": \"[\\\"demex_usc_usdc\\\",\\\"static_usc_usd\\\"]\"\n\t\t}\n\t  },\n\t  {\n\t\t\"output_id\": \"usc_usd\",\n\t\t\"input_id\": \"usc_usd\",\n\t\t\"adapter\": \"float_handler\",\n\t\t\"config\": {\n\t\t  \"operation\": \"round\",\n\t\t  \"precision\": \"6\"\n\t\t}\n\t  }\n\t]\n  }"
+        }
+      ],
+      "results": [],
+      "votes": [],
+      "params": {
+        "oracle_slash_enabled": true,
+        "oracle_slash_window_block": 1600,
+        "oracle_slash_initial": "0.000000000000000000",
+        "oracle_slash_increment": "0.000000491000000000",
+        "oracle_continuous_slash_max": 24,
+        "newly_bonded_window_allowance": 1,
+        "vote_timestamp_future_allowance": "3600s",
+        "oracle_min_vote_factor": "0.250000000000000000",
+        "max_power_to_slash_factor": "0.700000000000000000"
+      },
+      "all_oracle_votes_window": [],
+      "slash_counters": []
+    },
+    "order": {
+      "orders": [],
+      "account_order_ids": [],
+      "account_sequences": [],
+      "flags": [
+        {
+          "blockchain": "",
+          "is_trading_enabled": true
+        }
+      ],
+      "params": {
+        "max_referral_commission": 30
+      }
+    },
+    "packetfowardmiddleware": {
+      "params": {
+        "fee_percentage": "0.000000000000000000"
+      },
+      "in_flight_packets": {}
+    },
+    "perpspool": {
+      "params": {
+        "quote_index_price_fluctuation_tolerance_ratio": "0.000000000000000000",
+        "quote_expiry_duration": "10s",
+        "market_utilization_snapshot_interval": "60s",
+        "max_market_utilization_snapshot_window": "21600s",
+        "nav_per_share_snapshots": "60",
+        "nav_per_share_snapshot_interval": "60s",
+        "index_last_updated_at_threshold": "60s"
+      },
+      "pools": [
+        {
+          "id": "1",
+          "name": "BTCETH Perp Pool",
+          "deposit_denom": "usdc",
+          "share_denom": "cplt/1",
+          "vault_address": "tswth1aqdfjk20s9ccknlk4y3ss3lng49fj2gyf8w083",
+          "supply_cap": "1000000000000000000000000",
+          "deposit_fee": "0.100000000000000000",
+          "withdrawal_fee": "0.100000000000000000",
+          "base_borrow_fee_per_funding_interval": "0.010000000000000000"
+        },
+        {
+          "id": "2",
+          "name": "OSMOATOM Perp Pool",
+          "deposit_denom": "cgusd",
+          "share_denom": "cplt/2",
+          "vault_address": "tswth1cseyz9v4krrajpea33u35gxzxm7gu0ltqm3u7u",
+          "supply_cap": "1000000000000000000000000",
+          "deposit_fee": "0.010000000000000000",
+          "withdrawal_fee": "0.010000000000000000",
+          "base_borrow_fee_per_funding_interval": "0.010000000000000000"
+        }
+      ],
+      "market_config_records": [
+        {
+          "pool_id": "1",
+          "market_config": {
+            "market_id": "ETH_PERP.USDC",
+            "max_liquidity_ratio": "0.700000000000000000",
+            "borrow_fee_multiplier": "0",
+            "mode": "active",
+            "quote_shape": [
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.010000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.010000000000000000",
+                "quote_amount_ratio": "0.700000000000000000"
+              }
+            ]
+          }
+        },
+        {
+          "pool_id": "1",
+          "market_config": {
+            "market_id": "BTC_PERP.USDC",
+            "max_liquidity_ratio": "1.000000000000000000",
+            "borrow_fee_multiplier": "0",
+            "mode": "active",
+            "quote_shape": [
+              {
+                "quote_price_type": "price_ticks",
+                "quote_price_value": "2.000000000000000000",
+                "quote_amount_ratio": "0.200000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.020000000000000000",
+                "quote_amount_ratio": "0.300000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.050000000000000000",
+                "quote_amount_ratio": "0.400000000000000000"
+              }
+            ]
+          }
+        },
+        {
+          "pool_id": "2",
+          "market_config": {
+            "market_id": "OSMO_PERP.CGUSD",
+            "max_liquidity_ratio": "0.700000000000000000",
+            "borrow_fee_multiplier": "0",
+            "mode": "active",
+            "quote_shape": [
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.010000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.010000000000000000",
+                "quote_amount_ratio": "0.700000000000000000"
+              }
+            ]
+          }
+        },
+        {
+          "pool_id": "2",
+          "market_config": {
+            "market_id": "ATOM_PERP.CGUSD",
+            "max_liquidity_ratio": "1.000000000000000000",
+            "borrow_fee_multiplier": "0",
+            "mode": "active",
+            "quote_shape": [
+              {
+                "quote_price_type": "price_ticks",
+                "quote_price_value": "1.000000000000000000",
+                "quote_amount_ratio": "0.050000000000000000"
+              },
+              {
+                "quote_price_type": "price_ticks",
+                "quote_price_value": "2.000000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              },
+              {
+                "quote_price_type": "price_ticks",
+                "quote_price_value": "3.000000000000000000",
+                "quote_amount_ratio": "0.150000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.030000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.040000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.050000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              },
+              {
+                "quote_price_type": "ratio",
+                "quote_price_value": "0.060000000000000000",
+                "quote_amount_ratio": "0.100000000000000000"
+              }
+            ]
+          }
+        }
+      ],
+      "nav_per_shares": [],
+      "all_nav_per_share_last_recorded": []
+    },
+    "position": {
+      "open_positions": []
+    },
+    "pricing": {
+      "prices": [
+        {
+          "last": "0.000000000000000000",
+          "index": "0.000000000000000000",
+          "fair": "0.000000000000000000",
+          "mark": "0.000000000000000000",
+          "mark_avg": "0.000000000000000000",
+          "settlement": "0.000000000000000000",
+          "fair_index_delta_avg": "0.000000000000000000",
+          "market_id": "BTC_PERP.USDC",
+          "marking_strategy": "",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "settlement_counter": "0.000000000000000000",
+          "premium_rate": "0.000000000000000000",
+          "premium_rate_counter": "0.000000000000000000",
+          "last_funding_at": "2024-07-23T11:00:00Z"
+        },
+        {
+          "last": "0.000000000000000000",
+          "index": "0.000000000000000000",
+          "fair": "0.000000000000000000",
+          "mark": "0.000000000000000000",
+          "mark_avg": "0.000000000000000000",
+          "settlement": "0.000000000000000000",
+          "fair_index_delta_avg": "0.000000000000000000",
+          "market_id": "ETH_PERP.USDC",
+          "marking_strategy": "",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "settlement_counter": "0.000000000000000000",
+          "premium_rate": "0.000000000000000000",
+          "premium_rate_counter": "0.000000000000000000",
+          "last_funding_at": "2024-07-23T11:00:00Z"
+        },
+        {
+          "last": "0.000000000000000000",
+          "index": "0.000000000000000000",
+          "fair": "0.000000000000000000",
+          "mark": "0.000000000000000000",
+          "mark_avg": "0.000000000000000000",
+          "settlement": "0.000000000000000000",
+          "fair_index_delta_avg": "0.000000000000000000",
+          "market_id": "OSMO_PERP.CGUSD",
+          "marking_strategy": "",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "settlement_counter": "0.000000000000000000",
+          "premium_rate": "0.000000000000000000",
+          "premium_rate_counter": "0.000000000000000000",
+          "last_funding_at": "2024-07-23T11:00:00Z"
+        },
+        {
+          "last": "0.000000000000000000",
+          "index": "0.000000000000000000",
+          "fair": "0.000000000000000000",
+          "mark": "0.000000000000000000",
+          "mark_avg": "0.000000000000000000",
+          "settlement": "0.000000000000000000",
+          "fair_index_delta_avg": "0.000000000000000000",
+          "market_id": "ATOM_PERP.CGUSD",
+          "marking_strategy": "",
+          "index_updated_at": "0001-01-01T00:00:00Z",
+          "settlement_counter": "0.000000000000000000",
+          "premium_rate": "0.000000000000000000",
+          "premium_rate_counter": "0.000000000000000000",
+          "last_funding_at": "2024-07-23T11:00:00Z"
+        }
+      ],
+      "token_prices": [
+        {
+          "denom": "eth",
+          "index": "0.000000000000000000",
+          "twap": "0.000000000000000000",
+          "index_updated_at": "1970-01-01T00:00:00Z",
+          "oracle_id": "DETH"
+        },
+        {
+          "denom": "usdc",
+          "index": "0.000000000000000000",
+          "twap": "0.000000000000000000",
+          "index_updated_at": "1970-01-01T00:00:00Z",
+          "oracle_id": "DUSDC"
+        },
+        {
+          "denom": "atom",
+          "index": "0.000000000000000000",
+          "twap": "0.000000000000000000",
+          "index_updated_at": "1970-01-01T00:00:00Z",
+          "oracle_id": "DATOM"
+        },
+        {
+          "denom": "osmo",
+          "index": "0.000000000000000000",
+          "twap": "0.000000000000000000",
+          "index_updated_at": "1970-01-01T00:00:00Z",
+          "oracle_id": "DOSMO"
+        },
+        {
+          "denom": "usc",
+          "index": "1.000000000000000000",
+          "twap": "1.000000000000000000",
+          "index_updated_at": "1970-01-01T00:00:00Z",
+          "oracle_id": "DUSC"
+        }
+      ],
+      "params": {
+        "smoothen_band": 500,
+        "impact_band": 20,
+        "stale_index_allowance": "60s",
+        "backfill_time_interval": "300s"
+      }
+    },
+    "profile": {
+      "profiles": [
+        {
+          "address": "tswth197kwqmzdwn50sakljwz4qxpw3ngpew9dhpxaa8",
+          "username": "open_interest",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1s762lf8rnv3myffw4s8m5kn4gvruftp8ct89rt",
+          "username": "open_orders",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1c7ptc87hkd54e3r7zjy92q29xkq7t79wg99aft",
+          "username": "insurance",
+          "twitter": ""
+        },
+        {
+          "address": "tswth12uxz5eayngcls6lx55j9g28npen6z5fr658zht",
+          "username": "liquidation",
+          "twitter": ""
+        },
+        {
+          "address": "tswth17xpfvakm2amg962yls6f84z3kell8c5ltscxpp",
+          "username": "fee",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8ukl6rr",
+          "username": "distribution",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1xxh3p9vvg3xpnd4uw8yzkp7rpnfyvc0hpmh2ax",
+          "username": "slashing",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1mx5e3jkxvzf8frl7cl8m69264ctn0shljqkzvg",
+          "username": "staking",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1gwqac243g2z3vryqsev6acq965f9ttwhzjzw55",
+          "username": "bank",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1m3h30wlvsf8llruxtpukdvsy0km2kum8ncu7du",
+          "username": "mint",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1hh6fc0pcsggzlsqhl7mxzyyvvw5rd5r9unaw8n",
+          "username": "auth",
+          "twitter": ""
+        },
+        {
+          "address": "tswth10d07y265gmmuvt4z0w9aw880jnsr700jptgru0",
+          "username": "gov",
+          "twitter": ""
+        },
+        {
+          "address": "tswth10lheg7wgh3drep5frjuzj6wt7tluw0rn4ayknz",
+          "username": "upgrade",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1a6p9p7mkuz2txj68ruf6w0dmu5w34c2zd7zqzf",
+          "username": "evidence",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1atn6enzwsq95tdsw2jvz9aa33020e4y4m3nxgm",
+          "username": "genutil",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1tygms3xhhs3yv487phx3dw4a95jn7t7l6jwc9l",
+          "username": "not_bonded_pool",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3wjjfnt",
+          "username": "bonded_pool",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1pzeysjut9qmsfr06h9v5fhy3klmxeknh5kfl2v",
+          "username": "crosschain_bridge",
+          "twitter": ""
+        },
+        {
+          "address": "tswth196w5cyqfezzkv6pzl5wsrmfwgesenzykel9550",
+          "username": "crosschain_wrapper",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1jdkc8y4a60k279fwe9hwgzdpn6pnxzg8psv0nm",
+          "username": "committed_lp_tokens",
+          "twitter": ""
+        }
+      ]
+    },
+    "sequence": {
+      "sequences": [
+        {
+          "key": "liquiditypool\u0000",
+          "sequence_number": "6"
+        },
+        {
+          "key": "perpspool\u0000",
+          "sequence_number": "2"
+        }
+      ]
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "36000",
+        "min_signed_per_window": "0.900000000000000000",
+        "downtime_jail_duration": "3600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.001000000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "2592000s",
+        "max_validators": 11,
+        "max_entries": 7,
+        "historical_entries": 10000,
+        "bond_denom": "swth",
+        "min_commission_rate": "0.000000000000000000"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "subaccount": {
+      "sub_accounts": [
+        {
+          "main_address": "tswth1phsut994s4e9apdc25vdln02g9rz7exzw7j4nk",
+          "sub_address": "tswth1m9h80cfhqn08x7hull0n7pwhlu9k0vp7n92p6y",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth1phsut994s4e9apdc25vdln02g9rz7exzw7j4nk",
+          "sub_address": "tswth1l2yvtmk5ee09c75hn466r2m8vmjf9uq70nuspu",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth1lp5tsyq623gxd0q496v5u8jrvpfgu2lcj8tj9k",
+          "sub_address": "tswth1z3tlyjredr97zl9rnn4hka28jvq0plxmrn08nj",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth12w696c2ef6efgd69xdxt4jeamlc5kgqpd4s0zy",
+          "sub_address": "tswth1haze3ah2pwdhgstw9v5fcfphqccp359xv5erdu",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth1zek46nzgyjphkj7fz5fagd55u245kseh2rdu9s",
+          "sub_address": "tswth1l9cer4t8m838mc6yxmt8hgas7qpzqadkq08teu",
+          "role": "oracle-delegate"
+        }
+      ],
+      "params": {
+        "trading_fee_delegate_cooldown": "604800s"
+      },
+      "pending_sub_accounts": [],
+      "main_accounts": []
+    },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      },
+      "total_escrowed": []
+    },
+    "upgrade": {},
+    "vesting": {},
+    "xbank": {},
+    "xevmbank": {
+      "accounts": []
+    },
+    "xevmcontract": {
+      "params": {
+        "response_gas_cap": "500000"
+      },
+      "module_address_map": [],
+      "module_contracts": []
+    },
+    "xevmmerge": {
+      "eth_to_cosmos_address_map": {},
+      "cosmos_to_eth_address_map": {}
+    }
+  },
+  "consensus": {
+    "params": {
+      "block": {
+        "max_bytes": "22020096",
+        "max_gas": "-1"
+      },
+      "evidence": {
+        "max_age_num_blocks": "100000",
+        "max_age_duration": "172800000000000",
+        "max_bytes": "1048576"
+      },
+      "validator": {
+        "pub_key_types": [
+          "ed25519"
+        ]
+      },
+      "version": {
+        "app": "0"
+      },
+      "abci": {
+        "vote_extensions_enable_height": "0"
+      }
+    }
+  }
+}
