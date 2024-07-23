@@ -40,7 +40,9 @@ The following instructions is **ONLY** necessary if you are running a validator 
 
   * #### i) Get your oracle sub account key credentials.
     
-    You will need to get your oracle sub account address in HEX, public key in BASE64, and private key in BASE64
+    You will need to get your oracle sub account address in HEX, public key in BASE64, and private key in BASE64.
+
+    **:warning: Take down all these values as you will need it later. :warning:**
 
     To get your address in HEX, run:
     ```bash
