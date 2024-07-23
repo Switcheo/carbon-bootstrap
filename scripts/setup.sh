@@ -345,7 +345,7 @@ sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config
 sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
 sed -i 's#laddr = "tcp:\/\/127.0.0.1:26657"#laddr = "tcp:\/\/0.0.0.0:26657"#g' ~/.carbon/config/config.toml
 sed -i 's#addr_book_strict = true#addr_book_strict = false#g' ~/.carbon/config/config.toml
-sed -i 's#db_backend = ".*"#db_backend = "rocksdb"#g' ~/.carbon/config/config.toml
+sed -i 's#db_backend = ".*"#db_backend = "goleveldb"#g' ~/.carbon/config/config.toml
 sed -i 's#^persistent_peers =.*#persistent_peers = "'$PEERS'"#g' ~/.carbon/config/config.toml
 sed -i 's#log_level = "info"#log_level = "warn"#g' ~/.carbon/config/config.toml
 sed -i 's#address = "tcp:\/\/localhost:1317"#address = "tcp:\/\/0.0.0.0:1317"#g' ~/.carbon/config/app.toml  # configure api to listen on all network interface
