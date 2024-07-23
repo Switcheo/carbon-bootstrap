@@ -38,7 +38,43 @@ The following instructions is **ONLY** necessary if you are running a validator 
 
   **:warning: If you have not created an oracle sub account, follow the instructions [here]https://github.com/Switcheo/carbon-bootstrap/blob/master/KEYS.md#create-oracle-subaccount-key to create one: :warning:**
 
-  * #### i) Add your oracle sub account key credentials.
+  * #### i) Get your oracle sub account key credentials.
+    
+    You will need to get your oracle sub account address in HEX, public key in BASE64, and private key in BASE64
+
+    To get your address in HEX, run:
+    ```bash
+    carbond keys parse < BECH32_ORACLE_SUB_ACCOUNT_ADDRESS>
+    ```
+
+    Example:
+    ```bash
+    carbond keys parse swth1m9h80cfhqn08x7hull0n7pwhlu9k0vp7hjm3rp
+    ```
+
+    To get your public key in HEX, run:
+    ```bash
+    carbond keys show <ORACLE_SUB_ACCOUNT_NAME> --keyring-backend file
+    ```
+
+    Example:
+    ```bash
+    carbond keys show oracle --keyring-backend file
+    ```
+
+    To get your private key, run:
+    ```bash
+    carbond keys export <ORACLE_SUB_ACCOUNT_NAME> --keyring-backend file --unsafe --unarmored-hex
+    ```
+
+    **:warning: Exporting of the private key will be a HEX value, you will have to convert it into BASE64 after :warning:**
+
+    Example:
+    ```bash
+    carbond keys export oracle --keyring-backend file --unsafe --unarmored-hex
+    ```
+
+  * #### ii) Add your oracle sub account key credentials.
     
     Name the file `oracle_sub_account_key.json` and add it in your `.carbon/config` directory.
 
@@ -58,7 +94,7 @@ The following instructions is **ONLY** necessary if you are running a validator 
     }
     ```
 
-  * #### ii) Run the following command to verify if the key file was created successfully.
+  * #### iii) Run the following command to verify if the key file was created successfully.
     
     ```bash
     cat ~/.carbon/config/oracle_sub_account_key.json
