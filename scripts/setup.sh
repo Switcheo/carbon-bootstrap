@@ -418,7 +418,7 @@ if [ "$SETUP_PERSISTENCE" = true ]; then
 
   echo "Creating db \"$DB_NAME\" using $MAINTENANCE_DB_URL"
 
-  dropdb --maintenance-db=$MAINTENANCE_DB_URL --if-exists $DB_NAME
+  dropdb --maintenance-db=$MAINTENANCE_DB_URL --if-exists $DB_NAME --force
   createdb --maintenance-db=$MAINTENANCE_DB_URL $DB_NAME
 
   POSTGRES_URL=$POSTGRES_URL $DAEMON migrations
