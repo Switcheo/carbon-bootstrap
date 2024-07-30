@@ -4,7 +4,7 @@
 To run a validator, you'll need:
 
 i)  a validator key (cold) that allows you to control your validator parameters
-ii) a separate oracle subaccount key (hot) that signs oracle vote transactions
+ii) a separate oracle subaccount key (hot) that signs oracle vote transactions if you are using a remote signing service
 
 ## Create validator key
 
@@ -38,11 +38,11 @@ ii) a separate oracle subaccount key (hot) that signs oracle vote transactions
     # add --node="https://tm-api.carbon.network:443" if using a separate machine
     ```
 
-## Create oracle subaccount key
+## Create oracle subaccount key (Remote signing only)
 
-All validators need to run a node (either the same node as the validator, or some other secondary node) that has the oracle service enabled.
+Validators that run their nodes via a remote signing service require an oracle subaccount.
 
-1. On your node that is running the oracle service, create the oracle key:
+1. On any node, create the oracle key:
 
     ```bash
     # Secure the key with the same password you used during node setup!
@@ -72,6 +72,6 @@ All validators need to run a node (either the same node as the validator, or som
 
     > By running the oracle as a subaccount, your validator operator key can be secured without exposing it on a hot machine.
 
-## (Optional) Create liquidator subaccount key
+## Create liquidator subaccount key (Optional)
 
 The steps for creating a liquidator are exactly the same as an oracle (replace `oracle` with `liquidator`). Liquidator incentives / penalties are not enabled yet, so validators can choose to run this subservice on an altruistic basis. Just one validator / operator needs to run the liquidator for liquidations to execute correctly.

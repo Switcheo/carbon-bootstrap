@@ -28,9 +28,8 @@ To quickly get started with the latest testnet / mainnet, run the following comm
 ```bash
 CHAIN_ID=carbon-1 # or: carbon-testnet-42069 for testnet
 MONIKER=mynode    # choose a name for your node here
-FLAGS="-adop"     # these flags set up a full node with off-chain persistence (supports all APIs),
-                  # use: "-o" for set up with minimum validator requirements,
-                  # use: "" for set up with minimum node requirements (no extra services)
+FLAGS="-o"        # these flags set up a node with minimum validator requirements,
+                  # use: "" for set up a non-validator node with no extra services
 URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/setup.sh
 bash <(wget -O - $URL) $FLAGS $CHAIN_ID $MONIKER
 ```
@@ -53,7 +52,7 @@ To install all required validator and subaccount keys directly on your validator
 bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/create-keys.sh)
 ```
 
-You'll need to fund your accounts and then run a few more commands to link your validator subaccounts and promote your node to a validator. Follow all instructions printed from the output of the above script carefully.
+You'll need to fund your accounts and then run a few more commands to promote your node to a validator. Follow all instructions printed from the output of the above script carefully.
 
 #### ii) Manual key creation
 
@@ -61,27 +60,9 @@ You can also create your operator keys on another node, such as a developer mach
 
 ### 3. Getting the latest chain data
 
-There are two main ways to quickly get your node synced with the latest chain data - either through i) [Statesync](#i-statesync), or ii) [Chain Download](#ii-chain-download).
+You should use statesync to get the latest chain data quickly.
 
 ⚠️ Note that this is not possible for nodes that wish to run full API services (`FLAGS="-adp"`), and is only meant for quickly bootstrapping validator nodes. pSQL data dumps for quick syncing of all services is coming soon.
-
-**Before running any statesync/chain-download steps:**
-
-1. Update and link current binaries to the latest version:
-    ```bash
-    # set the version / network to upgrade to here:
-    VERSION=2.22.1
-    MINOR=2.22.0
-    NETWORK=mainnet
-    FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
-    wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}
-    tar -xvf ${FILE}
-    rm ${FILE}
-    mkdir -p ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin
-    mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
-    rm ~/.carbon/cosmovisor/current
-    ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR} ~/.carbon/cosmovisor/current
-    ```
 
 #### i) Statesync
 
@@ -135,23 +116,6 @@ You can configure statesync a) via our [helper script](#a-helper-script), or b) 
 
 4. [Start your node](#4-starting-nodes) to begin statesync
 
-#### ii) Chain Download
-
-We periodically upload the compressed chain data to this repo under the `<chain-name>/data` directory. The data filenames are prefixed by date and block height.
-
-1. Download the latest chain data, e.g.:
-
-    ```bash
-    wget https://github.com/Switcheo/carbon-bootstrap/raw/master/carbon-1/data/20221209-34931459-carbon-1-data.tar.lz4
-    ```
-
-2. Go to the carbond data folder and decompress the data:
-
-    ```bash
-    cd $HOME/.carbon
-    lz4 -d ~/20221209-34931459-carbon-1-data.tar.lz4 -c | tar xvf -
-    ```
-
 ### 4. Starting Nodes
 
 Once you have your required keys imported, you can now start the node.
@@ -176,14 +140,9 @@ tail -f /var/log/carbon/carbond*.out*
 
 To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
 
-Ensure you have perl >5.30, you can check with `perl -v`.
-
-Otherwise replace with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
-
 ```bash
-# set the version / network to upgrade to here:
-VERSION=2.26.3
-MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
+VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name) # OR replace this with the version you want
+MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION) # if you do not have perl >=5.30, replace this with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
 NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
 wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/${FILE}

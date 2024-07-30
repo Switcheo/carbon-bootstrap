@@ -72,20 +72,20 @@ wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz && \
   rm -f v2.2.2.tar.gz
 ```
 
-Download and install rocksdb v7.10.2:
+Download and install rocksdb v8.9.1:
 
 ```bash
-wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.gz && \
-  tar -zxvf v7.10.2-patched.tar.gz && \
-  cd rocksdb-7.10.2-patched && \
+wget https://github.com/facebook/rocksdb/archive/refs/tags/v8.9.1.tar.gz && \
+    tar -zxvf v8.9.1.tar.gz && \
+    cd rocksdb-8.9.1 && \
 
-  make shared_lib && \
-  make install-shared && \
-  sudo ldconfig && \
-  
-  cd .. && \
-  rm -rf rocksdb-7.10.2-patched && \
-  rm -f v7.10.2-patched.tar.gz
+    make shared_lib && \
+    sudo make install-shared && \
+    sudo ldconfig && \
+
+    cd .. && \
+    rm -rf rocksdb-8.9.1 && \
+    rm -f v8.9.1.tar.gz
 ```
 
 ## Install Carbon
@@ -93,13 +93,13 @@ wget https://github.com/Switcheo/rocksdb/archive/refs/heads/v7.10.2-patched.tar.
 Download and unzip binaries:
 
 ```bash
-# set the version / network to upgrade to here:
-VERSION=2.0.0
+VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name)
 NETWORK=mainnet
-wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
-tar -xvf carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
+ARCH=$(dpkg --print-architecture)
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-${ARCH}.tar.gz
+tar -xvf carbond${VERSION}-${NETWORK}.linux-${ARCH}.tar.gz
 sudo mv carbond /usr/local/bin
-rm carbon2.0.0.linux-amd64.tar.gz
+rm carbon${VERSION}.linux-${ARCH}.tar.gz
 ```
 
 That will install the `carbond` binary.
@@ -165,20 +165,35 @@ PEERS="d93ed6a1f43dd0904dc5e2ab8680d4049b057b17@13.215.17.91:26656,70581c625fc19
 sed -i '/seeds =/c\seeds = "'"$PEERS"'"' ~/.carbon/config/config.toml
 ```
 
+### Configure Oracle SSL cert
+
+If you are running a validator, you will need to generate SSL certificates that will be used for authentication by the oracle GRPC service:
+
+```bash
+VALIDATOR_NODE_IP_ADDRESS="127.0.0.1"
+ORACLE_SERVICE_NODE_IP_ADDRESS="127.0.0.1"
+CARBON_HOME_PATH="~/.carbon"
+URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/cert.sh
+bash <(wget -O - $URL) $VALIDATOR_NODE_IP_ADDRESS $ORACLE_SERVICE_NODE_IP_ADDRESS $CARBON_HOME_PATH
+```
+
 ### Configure Cosmovisor
 
 To be best prepared for eventual upgrades, it is recommended to setup Cosmovisor, a small process manager, which can swap the upgraded node binaries automatically whenever a software upgrade governance proposal is enacted.
 
-Create the initial folder move the `carbond` binary into it:
+Create the required folder and move the `carbond` binary into it:
 
 ```bash
-wget https://github.com/Switcheo/carbon-bootstrap/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
-tar -xvf cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz
-mkdir -p ~/.carbon/cosmovisor/genesis/bin
-mv /usr/local/bin/carbond ~/.carbon/cosmovisor/genesis/bin
+ARCH=$(dpkg --print-architecture)
+MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
+wget https://github.com/Switcheo/carbon-bootstrap/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-${ARCH}.tar.gz
+tar -xvf cosmovisor1.0.0.linux-${ARCH}.tar.gz
 sudo mv cosmovisor /usr/local/bin
-sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
-sudo ln -s ~/.carbon/cosmovisor/current/bin/carbond /usr/local/bin/carbond
+
+mkdir -p ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin
+mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
+rm -f ~/.carbon/cosmovisor/current
+ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR} ~/.carbon/cosmovisor/current
 ```
 
 ## Install Redis

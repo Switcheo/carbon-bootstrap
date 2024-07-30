@@ -26,18 +26,6 @@ Omit this if services are not enabled or data should be read from a remote datab
 EOF
 }
 
-function preDownloadUpgrade () {
-  majorVersion=$1
-  minorVersion=$2
-  echo "---- Pre-downloading upgrades for major version: ${majorVersion} and minor version: ${minorVersion}"
-  FILE=carbond${minorVersion}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
-  wget https://github.com/Switcheo/carbon-bootstrap/releases/download/v${minorVersion}/${FILE}
-  tar -xvf ${FILE}
-  rm ${FILE}
-  mkdir -p ~/.carbon/cosmovisor/upgrades/v${majorVersion}/bin
-  mv carbond ~/.carbon/cosmovisor/upgrades/v${majorVersion}/bin/carbond
-}
-
 # Install configuration variables
 PUBLIC_NODE=false
 LOCAL_DATABASE=false
@@ -111,16 +99,9 @@ CHAIN_ID=${@:$OPTIND:1}
 MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
 CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
-VERSION=$(wget -qO- $CHAIN_CONFIG_URL/VERSION)
+VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name)
 NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
-UPGRADES=()
-while read UPGRADE; do
-  UPGRADES+=($UPGRADE)
-done < <(wget -qO- ${CHAIN_CONFIG_URL}/UPGRADES)
-if [ "$STATE_SYNC" = true ] && [ ${#UPGRADES[@]} -ne 0 ]; then
-  IFS='=' read majorVersion minorVersion <<< ${UPGRADES[-1]}
-  VERSION=$minorVersion
-fi
+ARCH=$(dpkg --print-architecture)
 case $NETWORK in
   mainnet)
     ;;
@@ -142,10 +123,9 @@ if [ -z ${VERSION+x} ]; then
 fi
 PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
 
-# if ws-api, oracle or liquidator is installed, redis and hot wallet is required.
+# if liquidator is installed, wallet password is required.
 WALLET_STRING=
-if [ "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ]; then
-  INSTALL_REDIS=true
+if [ "$SETUP_LIQUIDATOR" = true ]; then
   echo "Enter your keyring passphrase for running the liquidator / oracle service(s):"
   read -s WALLET_PASSWORD
   WALLET_STRING="Environment=\"WALLET_PASSWORD=$WALLET_PASSWORD\""
@@ -187,16 +167,17 @@ if [ "$LOCAL_DATABASE" = true ]; then
 elif [ "$SETUP_PERSISTENCE" = true ]; then
   DEP_FLAGS+=" -c"
 fi
-if [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ]; then
+if [ "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR" = true ]; then
   DEP_FLAGS+=" -r"
+  INSTALL_REDIS=true
 fi
 
 bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/install-deps.sh) $DEP_FLAGS
 
 echo "-- Downloading carbond and cosmovisor"
 
-wget -c https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
-wget -c https://github.com/Switcheo/carbon-bootstrap/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-$(dpkg --print-architecture).tar.gz -O - | tar -xz
+wget -c https://github.com/Switcheo/carbon-bootstrap/releases/download/v${VERSION}/carbond${VERSION}-${NETWORK}.linux-${ARCH}.tar.gz -O - | tar -xz
+wget -c https://github.com/Switcheo/carbon-bootstrap/releases/download/cosmovisor%2Fv1.0.0/cosmovisor1.0.0.linux-${ARCH}.tar.gz -O - | tar -xz
 
 echo "-- Stopping any previous system service of carbond"
 
@@ -219,7 +200,6 @@ if [ "$SKIP_GENESIS" != true ]; then
 fi
 
 echo "---- Setting node configuration"
-
 
 # preload evm config in app.toml for mainnet since genesis carbond init is pre-evm
 if [ "$NETWORK" == "mainnet" ]; then
@@ -381,17 +361,17 @@ fi
 
 echo "---- Creating node directories"
 
-mkdir -p ~/.carbon/cosmovisor/genesis/bin
-mv $DAEMON ~/.carbon/cosmovisor/genesis/bin
-if [ "$STATE_SYNC" != true ]; then
-  for UPGRADE in "${UPGRADES[@]}"; do
-    IFS='=' read majorVersion minorVersion <<< $UPGRADE
-    preDownloadUpgrade $majorVersion $minorVersion
-  done
-fi
+MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION)
 sudo mv cosmovisor /usr/local/bin
-sudo ln -s ~/.carbon/cosmovisor/genesis ~/.carbon/cosmovisor/current
-sudo ln -s ~/.carbon/cosmovisor/current/bin/$DAEMON /usr/local/bin/$DAEMON
+mkdir -p ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin
+mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
+rm -f ~/.carbon/cosmovisor/current
+ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR} ~/.carbon/cosmovisor/current
+
+if [ "$SETUP_ORACLE" = true ]; then
+  echo "-- Installing oracle SSL cert"
+  bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/cert.sh) "127.0.0.1" "127.0.0.1" "~/.carbon"
+fi
 
 # configure database strings
 START_FLAG=""

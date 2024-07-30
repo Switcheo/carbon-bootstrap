@@ -42,7 +42,7 @@ if [ "$SETUP_POSTGRES" = true ] || [ "$SETUP_PSQL_CLIENT" = true ]; then
 fi
 
 sudo apt update
-sudo apt-get install jq -y
+sudo apt-get install jq perl -y
 
 # TODO: remove leveldb deps
 if [ -z "$(ldconfig -p | grep libleveldb.so.1$)" ]; then
