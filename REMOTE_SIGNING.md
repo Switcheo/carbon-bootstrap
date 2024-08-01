@@ -34,7 +34,8 @@ The following instructions is **ONLY** necessary if you are running a validator 
 3. Get your oracle subaccount `address` and `pubkey`:
 
     ```bash
-    carbond keys show <ORACLE_LABEL>
+    ORACLE_KEYRING_NAME=oracle # or the oracle subaccount name in your carbond keyring
+    carbond keys show $ORACLE_KEYRING_NAME
     ```
 
     Example:
@@ -48,10 +49,11 @@ The following instructions is **ONLY** necessary if you are running a validator 
 
     **⚠️ If you have not created an oracle subaccount, follow the instructions [here](https://github.com/Switcheo/carbon-bootstrap/blob/master/KEYS.md#create-oracle-subaccount-key) to create one: ⚠️**
 
-4. Convert your oracle subaccount `address` from step 3 to hex:
+4. Convert your oracle subaccount `address` in step 3 to hex:
 
     ```bash
-    carbond keys parse <BECH32_ORACLE_SUB_ACCOUNT_ADDRESS>
+    ORACLE_ADDRESS=swth1m9h80cfhqn08x7hull0n7pwhlu9k0vp7hjm3rp # from step 3 `address` field
+    carbond keys parse $ORACLE_ADDRESS
     ```
 
     Example:
@@ -64,7 +66,8 @@ The following instructions is **ONLY** necessary if you are running a validator 
 5. Get your oracle `priv_key` and convert it to base64:
 
     ```bash
-    carbond keys export <ORACLE_SUB_ACCOUNT_NAME> --keyring-backend file --unsafe --unarmored-hex
+    ORACLE_KEYRING_NAME=oracle # or your oracle subaccount name in the keyring wallet
+    carbond keys export $ORACLE_KEYRING_NAME --keyring-backend file --unsafe --unarmored-hex
 
     echo "<PRIVATE_KEY>" | xxd -r -p | base64
     ```
@@ -72,16 +75,16 @@ The following instructions is **ONLY** necessary if you are running a validator 
     Example:
 
     ```bash
-    $ carbond keys export oracle --keyring-backend file --unsafe --unarmored-hex -y | xxd -r -p |
+    $ carbond keys export oracle --keyring-backend file --unsafe --unarmored-hex
     # 6F0AD0BFEE7D4B478AFED096E03CD80A
 
     $ echo "6F0AD0BFEE7D4B478AFED096E03CD80A" | xxd -r -p | base64
     # bwrQv+59S0eK/tCW4DzYCg==
     ```
 
-6. Add your oracle subaccount key file in the following format to `~/.carbon/configoracle_sub_account_key.json` (create one if it does not exist):
+6. Add your oracle subaccount key file in the following format to `~/.carbon/config/oracle_sub_account_key.json` (create the file if it does not exist):
 
-    ```bash
+    ```js
     {
       "address": "D96E77E13704DE737AFCFFDF3F05D7FF0B67B03E", # copy from step 4
       "pub_key": {

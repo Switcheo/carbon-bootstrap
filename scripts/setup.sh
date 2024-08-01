@@ -35,7 +35,6 @@ SETUP_ORACLE=false
 SETUP_PERSISTENCE=false
 SETUP_RELAYER=false
 SKIP_GENESIS=false
-STATE_SYNC=false
 INSTALL_REDIS=false
 
 while getopts ":adloprsth" opt; do
@@ -85,11 +84,6 @@ done
 if [[ $(( $# - $OPTIND )) -ne 1 ]]; then
   echo "Wrong number of parameters."
   printUsage
-  exit 1
-fi
-
-if [ "$SETUP_PERSISTENCE" = true ] && [ "$STATE_SYNC" = true ]; then
-  echo "Error: State sync does not support persistence."
   exit 1
 fi
 
@@ -341,22 +335,6 @@ if [ "$SETUP_API" = true ]; then
   sed -i -e 's/enabled-unsafe-cors = false/enabled-unsafe-cors = true/g' ~/.carbon/config/app.toml            # enable grpc-web-unsafe-cors
   sed -i -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/g' ~/.carbon/config/app.toml             # configure evm json-rpc to listen on all network interface
   sed -i -e 's/ws-address = "127.0.0.1:8546"/ws-address = "0.0.0.0:8546"/g' ~/.carbon/config/app.toml       # configure evm json-rpc websocket to listen on all network interface
-fi
-
-if [ "$STATE_SYNC" = true ]; then
-  RPC_SERVERS=$(sed -E 's#[^,@]+@([^@:]+):26656#\1:26657#g' <<< $PEERS)
-
-  IFS=',' read URL REST <<< $RPC_SERVERS
-  BLOCK_RESP=$(wget -qO- "http://$URL/block")
-  BLOCK_HEIGHT=$(jq -r '.result.block.header.height' <<< $BLOCK_RESP)
-  BLOCK_HASH=$(jq '.result.block_id.hash' <<< $BLOCK_RESP)
-  UNBONDING_TIME=$(jq '.app_state.staking.params.unbonding_time' ~/.carbon/config/genesis.json)
-
-  sed -i 's#enable = false#enable = true#g' ~/.carbon/config/config.toml
-  sed -i 's#rpc_servers = ""#rpc_servers = "'"$RPC_SERVERS"'"#g' ~/.carbon/config/config.toml
-  sed -i 's#trust_height = 0#trust_height = '"$BLOCK_HEIGHT"'#g' ~/.carbon/config/config.toml
-  sed -i 's#trust_hash = ""#trust_hash = '"$BLOCK_HASH"'#g' ~/.carbon/config/config.toml
-  sed -i 's#trust_period = "168h0m0s"#trust_period = '"$UNBONDING_TIME"'#g' ~/.carbon/config/config.toml
 fi
 
 echo "---- Creating node directories"

@@ -10,8 +10,7 @@ On Ubuntu this can be done with the following:
 ```bash
 sudo apt-get update
 
-sudo apt-get install build-essential jq cmake && \
-libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev -y
+sudo apt-get install build-essential jq cmake perl -y
 ```
 
 ## Install cleveldb
@@ -50,42 +49,6 @@ wget https://github.com/google/leveldb/archive/1.23.tar.gz && \
 
   rm -rf leveldb-1.23/ && \
   rm -f 1.23.tar.gz
-```
-
-## Install rocksdb
-
-Build gflags dependency from source, if not packaged:
-
-```bash
-wget https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz && \
-  tar -zxvf v2.2.2.tar.gz && \
-  cd gflags-2.2.2 && \
-
-  mkdir -p build && \
-  cd build && \
-
-  cmake -DBUILD_SHARED_LIBS=1 -DGFLAGS_INSTALL_SHARED_LIBS=1 .. && \
-  make install && \
-
-  cd ../.. && \
-  rm -rf gflags-2.2.2 && \
-  rm -f v2.2.2.tar.gz
-```
-
-Download and install rocksdb v8.9.1:
-
-```bash
-wget https://github.com/facebook/rocksdb/archive/refs/tags/v8.9.1.tar.gz && \
-    tar -zxvf v8.9.1.tar.gz && \
-    cd rocksdb-8.9.1 && \
-
-    make shared_lib && \
-    sudo make install-shared && \
-    sudo ldconfig && \
-
-    cd .. && \
-    rm -rf rocksdb-8.9.1 && \
-    rm -f v8.9.1.tar.gz
 ```
 
 ## Install Carbon

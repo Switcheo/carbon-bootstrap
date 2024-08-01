@@ -118,9 +118,7 @@ You can configure statesync a) via our [helper script](#a-helper-script), or b) 
 
 ### 4. Starting Nodes
 
-Once you have your required keys imported, you can now start the node.
-
-The following command will start the carbon node itself, together with the oracle and liquidator services, which is required to be ran by validators.
+The following command will start the carbon node itself, together with the installed sub-services.
 
 ```bash
 sudo systemctl enable carbond
@@ -153,31 +151,7 @@ mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
 sudo service carbond start
 ```
 
-## Troubleshooting
-
-### Troubleshooting Slow Sync
-
-If you receive an AppHash mismatch error while slow syncing from genesis (crash at v2.15.6 binary), attempt the following steps:
-
-1. [Stop your node](#stopping-nodes)
-
-2. Rollback the last block with:
-
-    ```bash
-    carbond rollback
-    ```
-
-3. Replace your binary with v2.15.4 using the [minor version upgrade steps](#minor-version-upgrades)
-
-4. [Start your node](#starting-nodes) and observe its progress via logs
-
-5. Upgrade your binary back to v2.15.6 using the [minor version upgrade steps](#minor-version-upgrades) when the node panics with:
-
-    ```bash
-    ERRO[2022-12-06T11:29:55+01:00] EndBlock: pool virtual K value has reduced!, stack: goroutine 1 [running]:
-    ```
-
-### Stopping Nodes
+### 5. Stopping Nodes
 
 To stop all services:
 
