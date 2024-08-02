@@ -34,7 +34,6 @@ SETUP_LIQUIDATOR=false
 SETUP_ORACLE=false
 SETUP_PERSISTENCE=false
 SETUP_RELAYER=false
-SKIP_GENESIS=false
 INSTALL_REDIS=false
 
 while getopts ":adloprsth" opt; do
@@ -57,9 +56,6 @@ while getopts ":adloprsth" opt; do
       ;;
     r)
       SETUP_RELAYER=true
-      ;;
-    s)
-      SKIP_GENESIS=true
       ;;
     t)
       STATE_SYNC=true
@@ -190,131 +186,8 @@ sudo rm -rf /var/log/carbon/*
 echo "---- Downloading and initializing"
 
 ./$DAEMON init $MONIKER
-if [ "$SKIP_GENESIS" != true ]; then
-  wget -O ~/.carbon/config/genesis.json ${CHAIN_MEDIA_URL}/genesis.json
-fi
 
 echo "---- Setting node configuration"
-
-# preload evm config in app.toml for mainnet since genesis carbond init is pre-evm
-if [ "$NETWORK" == "mainnet" ]; then
-
-cat << EOF >> ~/.carbon/config/app.toml
-
-
-###############################################################################
-###                         Store / State Streaming                         ###
-###############################################################################
-
-[store]
-streamers = []
-
-[streamers]
-[streamers.file]
-keys = ["*", ]
-write_dir = ""
-prefix = ""
-
-# output-metadata specifies if output the metadata file which includes the abci request/responses
-# during processing the block.
-output-metadata = "true"
-
-# stop-node-on-error specifies if propagate the file streamer errors to consensus state machine.
-stop-node-on-error = "true"
-
-# fsync specifies if call fsync after writing the files.
-fsync = "false"
-
-###############################################################################
-###                             EVM Configuration                           ###
-###############################################################################
-
-[evm]
-
-# Tracer defines the 'vm.Tracer' type that the EVM will use when the node is run in
-# debug mode. To enable tracing use the '--evm.tracer' flag when starting your node.
-# Valid types are: json|struct|access_list|markdown
-tracer = ""
-
-# MaxTxGasWanted defines the gas wanted for each eth tx returned in ante handler in check tx mode.
-max-tx-gas-wanted = 0
-
-###############################################################################
-###                           JSON RPC Configuration                        ###
-###############################################################################
-
-[json-rpc]
-
-# Enable defines if the gRPC server should be enabled.
-enable = true
-
-# Address defines the EVM RPC HTTP server address to bind to.
-address = "0.0.0.0:8545"
-
-# Address defines the EVM WebSocket server address to bind to.
-ws-address = "0.0.0.0:8546"
-
-# API defines a list of JSON-RPC namespaces that should be enabled
-# Example: "eth,txpool,personal,net,debug,web3"
-api = "eth,net,web3"
-
-# GasCap sets a cap on gas that can be used in eth_call/estimateGas (0=infinite). Default: 25,000,000.
-gas-cap = 25000000
-
-# EVMTimeout is the global timeout for eth_call. Default: 5s.
-evm-timeout = "5s"
-
-# TxFeeCap is the global tx-fee cap for send transaction. Default: 1eth.
-txfee-cap = 1
-
-# FilterCap sets the global cap for total number of filters that can be created
-filter-cap = 200
-
-# FeeHistoryCap sets the global cap for total number of blocks that can be fetched
-feehistory-cap = 100
-
-# LogsCap defines the max number of results can be returned from single 'eth_getLogs' query.
-logs-cap = 10000
-
-# BlockRangeCap defines the max block range allowed for 'eth_getLogs' query.
-block-range-cap = 10000
-
-# HTTPTimeout is the read/write timeout of http json-rpc server.
-http-timeout = "30s"
-
-# HTTPIdleTimeout is the idle timeout of http json-rpc server.
-http-idle-timeout = "2m0s"
-
-# AllowUnprotectedTxs restricts unprotected (non EIP155 signed) transactions to be submitted via
-# the node's RPC when the global parameter is disabled.
-allow-unprotected-txs = false
-
-# MaxOpenConnections sets the maximum number of simultaneous connections
-# for the server listener.
-max-open-connections = 0
-
-# EnableIndexer enables the custom transaction indexer for the EVM (ethereum transactions).
-enable-indexer = false
-
-# MetricsAddress defines the EVM Metrics server address to bind to. Pass --metrics in CLI to enable
-# Prometheus metrics path: /debug/metrics/prometheus
-metrics-address = "0.0.0.0:6065"
-
-###############################################################################
-###                             TLS Configuration                           ###
-###############################################################################
-
-[tls]
-
-# Certificate path defines the cert.pem file path for the TLS configuration.
-certificate-path = ""
-
-# Key path defines the key.pem file path for the TLS configuration.
-key-path = ""
-
-EOF
-
-fi
 
 sed -i 's#timeout_commit = "5s"#timeout_commit = "1s"#g' ~/.carbon/config/config.toml
 sed -i 's#cors_allowed_origins = \[\]#cors_allowed_origins = \["*"\]#g' ~/.carbon/config/config.toml
