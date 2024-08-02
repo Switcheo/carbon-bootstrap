@@ -94,6 +94,7 @@ MONIKER=${@:$OPTIND+1:1}
 CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
 CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
 VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name)
+VERSION=${VERSION:1}
 NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
 ARCH=$(dpkg --print-architecture)
 case $NETWORK in
