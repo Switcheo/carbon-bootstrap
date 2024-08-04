@@ -139,7 +139,7 @@ tail -f /var/log/carbon/carbond*.out*
 To upgrade your node between non-consensus breaking versions (e.g. v2.1.0 to v2.1.1), stopping the node and swapping binaries is sufficient.
 
 ```bash
-VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name) # OR replace this with the version you want
+VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name | cut -c 2-) # OR replace this with the version you want
 MINOR=$(perl -pe 's/(?<=\d\.\d{1,2}\.)\d{1,2}/0/g' <<< $VERSION) # if you do not have perl >=5.30, replace this with `MINOR=x.x.0`. e.g. `VERSION=2.1.1`, `MINOR=2.1.0`.
 NETWORK=mainnet
 FILE=carbond${VERSION}-${NETWORK}.linux-$(dpkg --print-architecture).tar.gz
