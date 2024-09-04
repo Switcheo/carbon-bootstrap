@@ -7,6 +7,16 @@
 - (x/liquiditypool) [#729](https://github.com/Switcheo/carbon/pull/729) Swap feature to allow direct swap of tokens against liquiditypools.
 - (x/bridge) [#754](https://github.com/Switcheo/carbon/pull/654) `Bridge` module integrating General Message Passing for cross-chain communication. Integration of [Axelar](https://axelar.network/) as a bridge to Carbon.
 
+## V2.48.0 - 2024-09-04
+
+## Improvements
+
+- (x/market) [#992](https://github.com/Switcheo/carbon/pull/992) Consolidation of market validations for newly created markets and update of markets.
+
+## Bug Fixes
+
+- (x/broke) [#1001](https://github.com/Switcheo/carbon/pull/1001) Fix fee deduction for spot markets to account for net available balance after trade.
+
 ## V2.47.0 - 2024-08-27
 
 ## Features
