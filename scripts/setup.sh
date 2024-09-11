@@ -84,35 +84,6 @@ if [[ $(( $# - $OPTIND )) -ne 1 ]]; then
 fi
 
 # Chain variables
-DAEMON=carbond
-CHAIN_ID=${@:$OPTIND:1}
-MONIKER=${@:$OPTIND+1:1}
-CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
-CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
-VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name)
-VERSION=${VERSION:1}
-NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
-ARCH=$(dpkg --print-architecture)
-case $NETWORK in
-  mainnet)
-    ;;
-
-  testnet)
-    ;;
-
-  devnet)
-    ;;
-
-  *)
-    echo "unknown net: ${NETWORK}"
-    exit 1
-    ;;
-esac
-if [ -z ${VERSION+x} ]; then
-  echo "Error: Invalid chain ID. Chain with ID: $CHAIN_ID could not be found at https://github.com/Switcheo/carbon-testnet"
-  exit 1
-fi
-PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
 
 # if liquidator is installed, wallet password is required.
 WALLET_STRING=
@@ -150,8 +121,6 @@ if [ "$SETUP_PERSISTENCE" != true ] && [ "$SETUP_API" = true ]; then
   fi
 fi
 
-echo "-- Carbon Setup --"
-
 DEP_FLAGS=
 if [ "$LOCAL_DATABASE" = true ]; then
   DEP_FLAGS+=" -p"
@@ -163,7 +132,40 @@ if [ "$SETUP_API" = true ] || [ "$SETUP_ORACLE" = true ] || [ "$SETUP_LIQUIDATOR
   INSTALL_REDIS=true
 fi
 
+# Install dependencies, jq required for setting $VERSION
 bash <(wget -O - https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/scripts/install-deps.sh) $DEP_FLAGS
+
+DAEMON=carbond
+CHAIN_ID=${@:$OPTIND:1}
+MONIKER=${@:$OPTIND+1:1}
+CHAIN_CONFIG_URL=https://raw.githubusercontent.com/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
+CHAIN_MEDIA_URL=https://media.githubusercontent.com/media/Switcheo/carbon-bootstrap/master/${CHAIN_ID}
+VERSION=$(curl -s https://api.github.com/repos/Switcheo/carbon-bootstrap/releases/latest | jq -r .tag_name)
+VERSION=${VERSION:1}
+NETWORK=$(wget -qO- $CHAIN_CONFIG_URL/NETWORK)
+ARCH=$(dpkg --print-architecture)
+case $NETWORK in
+  mainnet)
+    ;;
+
+  testnet)
+    ;;
+
+  devnet)
+    ;;
+
+  *)
+    echo "unknown net: ${NETWORK}"
+    exit 1
+    ;;
+esac
+if [ -z ${VERSION+x} ]; then
+  echo "Error: Invalid chain ID. Chain with ID: $CHAIN_ID could not be found at https://github.com/Switcheo/carbon-testnet"
+  exit 1
+fi
+PEERS=$(wget -qO- $CHAIN_CONFIG_URL/PEERS)
+
+echo "-- Carbon Setup --"
 
 echo "-- Downloading carbond and cosmovisor"
 
