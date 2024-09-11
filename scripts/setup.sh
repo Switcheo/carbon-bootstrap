@@ -221,7 +221,7 @@ mkdir -p ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin
 mv carbond ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond
 rm -f ~/.carbon/cosmovisor/current
 ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR} ~/.carbon/cosmovisor/current
-sudo ln -s ~/.carbon/cosmovisor/upgrades/v${MINOR}/bin/carbond /usr/local/bin/carbond
+sudo ln -s ~/.carbon/cosmovisor/current/bin/carbond /usr/local/bin/carbond
 
 if [ "$SETUP_ORACLE" = true ]; then
   echo "-- Installing oracle SSL cert"
