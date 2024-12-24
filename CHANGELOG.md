@@ -5,17 +5,167 @@
 ### Features
 
 - (x/liquiditypool) [#729](https://github.com/Switcheo/carbon/pull/729) Swap feature to allow direct swap of tokens against liquiditypools.
+
+## V2.60.0 - 2024-12-26
+
+[#1088](https://github.com/Switcheo/carbon/pull/1088) This upgrade will migrate all Polynetwork tokens to the new Axelar tokens.
+
+## V2.59.0 - 2024-12-22
+
+## Improvements
+
+- (x/bridge) [#1089](https://github.com/Switcheo/carbon/pull/1089) Addition of AxelarBridgeCallDenom into parameter store as Axelar requires the sending of Axelar registered tokens during the IBC transfer of GMP messages.
+
+## V2.58.0 - 2024-12-19
+
+[#1082](https://github.com/Switcheo/carbon/pull/1082) This upgrade focuses on the deprecation of Zilliqa related liquidity pools and markets. The denoms affected are:
+
+axt.1.18.a67f22
+dxcad.1.18.9dfb98
+fees.1.18.c061fe
+gzil.1.18.c11154
+huny.1.18.3a5a8b
+lunr.1.18.fa4af7
+play.1.18.3cf025
+port.1.18.b2261e
+xsgd.1.18.be52cd
+zil.1.18.1a4a06
+zusdt.1.18.1cbca1
+zwap.1.18.393529
+
+## V2.57.0 - 2024-12-17
+
+The purpose of this upgrade is to test additional features to the Polynetwork token migration.
+This upgrade will migrate two tokens from the Polynetwork token to the new Axelar tokens. Below are the tokens that will be migrated and their new denominations:
+bnb.1.6.773edb -> brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667
+usdc.1.17.851a3a -> brdg/d8c3db91ad4ba11fe52971b4c387b0110c8951ec0f5b8f0fb445ef0306a349e1
+
+## Improvements
+
+- (baseapp) [#1078](https://github.com/Switcheo/carbon/pull/1078) Replace all CLI to broadcast transactions using From or Group address when available.
+
+## Bug Fixes
+
+- (services/oracle) [#1074](https://github.com/Switcheo/carbon/pull/1074) Fix oracle service blocking data processing pipeline during long downtime
+- (api/ws) [#1077](https://github.com/Switcheo/carbon/pull/1077) Fix read/write lock for websocket services.
+
+## V2.56.0 - 2024-12-4
+
+This upgrade will migrate four tokens from the Polynetwork token to the new Axelar tokens. Below are the tokens that will be migrated and their new denominations:
+nex.1.17.59c1ba -> brdg/0b02ac3efc9df2e80d00f141133c180cdaee0122f92d3e2e310f704e82425a18
+gmx.1.19.70275d -> brdg/0f18019978979327ad0ecca00adba941ebf8828f40af270f5e2a3a94c3802d72
+wbnb.1.6.ad598c -> brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667
+blur.1.2.0c0069 -> brdg/a8bbd91ae3dda9de2e50926a0d93be4d0d5cea34f3080014e5c0c0db6eaf61a4
+
+## Improvements
+
+- (x/bridge) [#1061](https://github.com/Switcheo/carbon/pull/1071) Improve poly migration token generation script
+
+## V2.55.0 - 2024-12-2
+
+This upgrade will migrate four tokens from the Polynetwork token to the new Axelar tokens. Below are the tokens that will be migrated and their new denominations:
+nex.1.17.59c1ba -> brdg/0b02ac3efc9df2e80d00f141133c180cdaee0122f92d3e2e310f704e82425a18
+gmx.1.19.70275d -> brdg/0f18019978979327ad0ecca00adba941ebf8828f40af270f5e2a3a94c3802d72
+wbnb.1.6.ad598c -> brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667
+blur.1.2.0c0069 -> brdg/a8bbd91ae3dda9de2e50926a0d93be4d0d5cea34f3080014e5c0c0db6eaf61a4
+
+## Features
+
+- (baseapp) [#1016](https://github.com/Switcheo/carbon/pull/1016) Polynetwork to Axelar migration code for the conversion of old Polynetwork-Bridged denominations to new Axelar-Bridged denominations. This feature includes the functionality to perform an Administrative Withdrawal of funds in the external LockProxy contract to a MutliSig EOA wallet (0x69CfA6d0F45C02aE6a24Db4A214013d0de4c6016) to assist with the transfer of fund to the new AxelarCarbonGateway contract.
+- (x/bridge) [#1046](https://github.com/Switcheo/carbon/pull/1046) Add destination address encoding validation based on connection encoding type.
+- (x/coin) [#1057](https://github.com/Switcheo/carbon/pull/1057) Add active status filtering to coin tokens GRPC query.
+
+## Improvements
+
+- (api/ws) [#1054](https://github.com/Switcheo/carbon/pull/1054) Optimize websocket services load by reducing the number of unmarshalling of udpates.
+- (x/bridge) [#1062](https://github.com/Switcheo/carbon/pull/1062) Enforce lower cased EVM addresses for bridge token denominations and external mappings.
+
+## Bug Fixes
+
+- (services/oracle) [#1061](https://github.com/Switcheo/carbon/pull/1061) Fix dereference of nil pointer in oracle service error handling.
+
+## V2.54.0 - 2024-10-30
+
+## Bug Fixes
+
+- (x/broker) [#1049](https://github.com/Switcheo/carbon/pull/1049) Fix memstore in virtual orders causing app hash mismatch
+
+## V2.53.0 - 2024-10-17
+
+## Bug Fixes
+
+- (x/liquidation) [#1045](https://github.com/Switcheo/carbon/pull/1045) Fix possible chain panic
+
+## V2.52.0 - 2024-10-16
+
+## Features
+
+- (x/insurance) [#977](https://github.com/Switcheo/carbon/pull/977) Limit the maximum usage of insurance fund by each market within a interval period to prevent insurance fund draining.
+- (baseapp) [#1037](https://github.com/Switcheo/carbon/pull/1037) Override `config/config.json` with recommended values through `carbond start`. Allows gradual tweaking of configs on behalf of validators through software upgrades to improve block time and liveliness.
+
+## Improvements
+
+- (app) [#981](https://github.com/Switcheo/carbon/pull/981) Refactor keepers in `app.go` as pointers to reduce the need to order keeper initialisations.
+- (services/oracle) [#1041](https://github.com/Switcheo/carbon/pull/1041) Improve oracle responsiveness and accuracy.
+
+## V2.51.1 - 2024-10-1
+
+## Bug Fixes
+
+- (baseapp) [#1038](https://github.com/Switcheo/carbon/pull/1038) Reordering oracle processes to run after pre-blocker to ensure migrations are completed first.
+
+## V2.51.0 - 2024-09-30
+
+## Features
+
+- (x/otc) [#951](https://github.com/Switcheo/carbon/pull/951) Over The Counter (OTC) module for the OTC trading and dust conversion for users and distribution keeper.
+- (baseapp) [#966](https://github.com/Switcheo/carbon/pull/966) Allow users to sign Carbon transactions without switching wallet network by enabling cross-chain signature verification for EIP712 signature.
+
+## Improvements
+
+- (x/oracle) [#991](https://github.com/Switcheo/carbon/pull/991) Change handling of oracle data to round using significant figures.
+- (x/subaccount) [#998](https://github.com/Switcheo/carbon/pull/998) Refactor key of subaccount store for better iteration for oracle delegates.
+- (x/cdp) [#1000](https://github.com/Switcheo/carbon/pull/1000) Refactor of CDP methods with additional validation.
+- (x/cdp) [#1027](https://github.com/Switcheo/carbon/pull/1027) Addition of token name to CDP asset params query.
+
+## V2.50.0 - 2024-09-23
+
+## Features
+
 - (x/bridge) [#754](https://github.com/Switcheo/carbon/pull/654) `Bridge` module integrating General Message Passing for cross-chain communication. Integration of [Axelar](https://axelar.network/) as a bridge to Carbon.
+
+## V2.49.2 - 2024-09-12
+
+## Persistence
+
+- (db/cdp) [#1011](https://github.com/Switcheo/carbon/pull/1011) Archiver to delete extraneous position updates to improve persistence position query speed.
+
+## V2.49.1 - 2024-09-09
+
+## Persistence
+
+- (db/cdp) [#1007](https://github.com/Switcheo/carbon/pull/1007) Fix CDP positions all query incorrect filtering causing unpredictable number of rows returned.
+- (db/postions) [#1008](https://github.com/Switcheo/carbon/pull/1008) Fix positions all query using the incorrect pagination causing null return.
+
+## V2.49.0 - 2024-09-09
+
+## Improvements
+
+- (x/oracle) [#995](https://github.com/Switcheo/carbon/pull/995) Remove unused oracle vote and marks related code.
+
+## Bug Fixes
+
+- (baseapp) [#1004](https://github.com/Switcheo/carbon/pull/1004) Fix [MetaMask signing issue](https://github.com/MetaMask/metamask-extension/issues/26980).
 
 ## V2.48.0 - 2024-09-04
 
 ## Improvements
 
-- (x/market) [#992](https://github.com/Switcheo/carbon/pull/992) Consolidation of market validations for newly created markets and update of markets.
+- (x/market) [#992](https://github.com/Switcheo/carbon/pull/992) Refactor of market validations for newly created markets and update of markets.
 
 ## Bug Fixes
 
-- (x/broke) [#1001](https://github.com/Switcheo/carbon/pull/1001) Fix fee deduction for spot markets to account for net available balance after trade.
+- (x/broker) [#1001](https://github.com/Switcheo/carbon/pull/1001) Fix fee deduction for spot markets to account for net available balances if a trade has been executed.
 
 ## V2.47.0 - 2024-08-27
 
@@ -115,7 +265,7 @@
 
 ## Bug Fixes
 
-- (x/cdp) [#917](https://github.com/Switcheo/carbon/pull/917) Revert state changes from CDP module migration.
+- (x/cdp) [#917](https://github.com/Switcheo/carbon/pull/917) Revert state changes from CDP module migration bug.
 
 ## V2.42.0 - 2024-05-20
 
@@ -163,7 +313,7 @@
 
 ### Bug Fixes
 
-- (x/broker) [181fb8f](https://github.com/Switcheo/carbon/commit/181fb8faf83b3994482ecd26fdf8254623ea6d7f) Fix context usage in broker module.
+- (x/broker) [181fb8f](https://github.com/Switcheo/carbon/commit/181fb8faf83b3994482ecd26fdf8254623ea6d7f) Fix wrong use of context and cachedContext in broker module.
 
 ## V2.39.1 - 2024-04-24
 
@@ -198,6 +348,31 @@
 - (x/liquiditypool) [#856](https://github.com/Switcheo/carbon/pull/856) Fix imprecise calculation in GetRewardShare.
 - (services/liquidator) [ad9f026] Fix liquidator service not obtaining the full set of prices for liquidation.
 - (x/liquiditypool) [#856](https://github.com/Switcheo/carbon/pull/856) Fix imprecise calculation in GetRewardShare.
+
+## V2.38.2 - 2024-02-23
+
+### Bug Fixes
+
+- (baseapp) [327df3c] Fix slow test cases in production tests.
+
+## V2.38.1 - 2024-02-23
+
+### Bug Fixes
+
+- (x/liquiditypool) [#855](https://github.com/Switcheo/carbon/pull/855) Handles negative coins in pool rewards calculation, causing a chain halt at block 54001067.
+- (api/ws) [#854](https://github.com/Switcheo/carbon/pull/854) Fix MarketLiquidityUsageMultiplier not updating for new markets.
+
+## V2.38.4 - 2024-03-06
+
+### Bug Fixes
+
+- (x/order) [f606d05] Fix MustKillMarketOrders panic when there are nil market orders to kill.
+
+## V2.38.3 - 2024-03-04
+
+### Bug Fixes
+
+- (services/liquidator) [ad9f026] Fix liquidator service not obtaining the full set of prices for liquidation.
 
 ## V2.38.2 - 2024-02-23
 
