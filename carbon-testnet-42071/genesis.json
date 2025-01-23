@@ -1,3 +1,4398 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f6cb4263f1381477cdddf536cf2bcaea5d4abae2f1c0422033541e3b1e45fd6
-size 110208
+{
+  "app_name": "carbond",
+  "app_version": "2.62.1",
+  "genesis_time": "2025-01-23T10:36:56.065878218Z",
+  "chain_id": "carbon-testnet-42071",
+  "initial_height": 1,
+  "app_hash": null,
+  "app_state": {
+    "07-tendermint": null,
+    "adl": {},
+    "admin": {
+      "admin": "",
+      "admin_recipient": "",
+      "params": {
+        "version": 0
+      }
+    },
+    "alliance": {
+      "params": {
+        "reward_delay_time": "604800s",
+        "take_rate_claim_interval": "300s",
+        "last_take_rate_claim_time": "0001-01-01T00:00:00Z"
+      },
+      "assets": [],
+      "validator_infos": [],
+      "reward_weight_change_snaphots": [],
+      "delegations": [],
+      "redelegations": [],
+      "undelegations": []
+    },
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "tswth19p5xep9scw0n7l3kqlvjjh0x5999gjkt7avc84",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": false
+      },
+      "balances": [
+        {
+          "address": "tswth19p5xep9scw0n7l3kqlvjjh0x5999gjkt7avc84",
+          "coins": [
+            {
+              "denom": "swth",
+              "amount": "100000000000000000"
+            }
+          ]
+        }
+      ],
+      "supply": [],
+      "denom_metadata": [],
+      "send_enabled": [
+        {
+          "denom": "aave.1.2.2bb8f8",
+          "enabled": true
+        },
+        {
+          "denom": "ai16z.1.4.a4b6cf",
+          "enabled": true
+        },
+        {
+          "denom": "aixbt.1.4.a87572",
+          "enabled": true
+        },
+        {
+          "denom": "apt.1.2.b42eb6",
+          "enabled": true
+        },
+        {
+          "denom": "ar.1.2.21afc2",
+          "enabled": true
+        },
+        {
+          "denom": "arb.1.19.4cfce8",
+          "enabled": true
+        },
+        {
+          "denom": "asa1.1.4.6a456c",
+          "enabled": true
+        },
+        {
+          "denom": "avax.1.2.6ee8ef",
+          "enabled": true
+        },
+        {
+          "denom": "bch.1.2.a598cf",
+          "enabled": true
+        },
+        {
+          "denom": "bit.1.2.9d68c4",
+          "enabled": true
+        },
+        {
+          "denom": "bneo.1.14.e2e5f6",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/00c9953f80ca31c5c30faf6e8d0b79ba5fe6a039dfbeb27af6657357b8868e2a",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/01461f0a19362976eef659d0a044b9cb9262984174b2ece77846969f1aaca475",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/03e9c10720bbe40df0ff898f91ec788c75680493a49d56fa37f2e3317f0d048f",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/080f207b5f14cb4edd1f3ee6dd7c049137072143d4ae67de3576713b80273ef9",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/08e1ff82a07dfab8a07ba9016a91b0e368395db7653cddcf30d1b973a1bb8623",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/0982fa895a710f6c9a808f3a7bb523d3a529115f1cfa43473292b4ea71e016c2",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/0b02ac3efc9df2e80d00f141133c180cdaee0122f92d3e2e310f704e82425a18",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/0f1592a9b0a6c9e284da622d314ed5bd9f7238c3a5da75f805269e3485c76656",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/0f18019978979327ad0ecca00adba941ebf8828f40af270f5e2a3a94c3802d72",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/1009be097816fb840fe941aadf656d6c8b30847d0596d063958015d5666f2dc5",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/1299d2e94c483e72f64100088886b8a5b7c13595047e53e032c9938d07a98c20",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/12a3483f21f632384493f39460d48c94db9b232388efeedb329a83ed2958fecc",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/1870e38a47bb090d78c1efcb24e0bd06752d1aa3cfe463ab36057c2f59c2db85",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/19cc458e64caf8f84e8f4cdd11eab5e63087ea73ff3554d746592c4708819065",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/211ebb6f24477bcf169f9fb3a73d5ec1f8a66f4dbda74b72defa66f26c59f53e",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/22317a915710c430233aa9859e30a1030ae6c0a3bf0aeae87e641554986e703c",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/22da40ea5f8bb72c4df26a3c2d438c4b16210dd416c2a4b2383988089f8d1938",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/231673c973f9daf08b2e9f3953dcc656b75f4ec7a381665c92f4bdee04c7ce77",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/235ea1e9c215addc00464bfbb7f69c23100e38f3d5b8512b2a1e2fb1da1d7453",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/29574826a560746a36de105e4526fb4e29349d31540c77e1195444d34a8d5975",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/2cdcd4556778d1c5566127c2cfa2cc8826b4c692b677fbcd3a0ea782398850cc",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/2fab76f715805abd6e46c0412194b04ad8f9449b7bdbd3f35662d8b1894b465b",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/31745b350a8e3dfe61c31dec2f612bdff73909f873ec7fe5d922f5e09da6ab13",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/327f8484927a08d012315362be195d990e36c76cb4f8e7b500bf2bf53d7e5c59",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/3339e6f3c605c8bc6a5f34f93249774ed5c2e941f7ff2e976805192cb7ec5e55",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/33b1f6bcd05cc3a607a5dfb94b1d2ccf80aad6517f079bf98ba634e3a8665885",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/34a330df380acf4845e3c3341722a73cc62b57819a2e9960fbb0e040a5210423",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/3597c3e02a7c3d1898520720910a9f2acdfa5e8a9b9b1aca2d667e25cc7b67d0",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/3a334114b673c9b8a3709b155e350f5dd6e63e99cef8526afeb3510f7f34a74e",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/3c25fc47b5edd74ca45803fdebb6a511a5aeff4bf45441445178824303615552",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/3f9557db257f58e614ce68a58397c77dbe2268ebdff342ba4b1dcba72a9421f0",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/40eebab3b38ec72f81b7dde7c3af6755b645643762a9fc984f74817796da2930",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/4251a9de1ac02f8e47c1d536f4aa2be63d746e66991eec6ea0fc54171bc43b37",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/433f7208c6b662ba764fa6ca40797b76b1531a7a31141377d42a147b769635de",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/452281b506e82a21c2eedfd593d30883848ddec29cd5747e8e80720cc14e8b84",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/45cc90941f6a834b0435e5c959ad764fafea4516195d0554bc988a44d50e0e92",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/4b90a8d1225d11ed7af0661ff7309714189a527302892cad03ace7615d417d38",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/4fa6adda16fd1ac1c08c18bf76c137b863637ad96f026ca468015119dcc7da1c",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/55112371c4b83bbd39709b775143fecc93a327468fdb0a8c8de11e9f33ba7667",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/5c60cfe79717c68b665f67ed621fa73c0fc438504bec2daaae9e4880de346e04",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/5cc12da2eefebc43030f3f37ff9ee056a5887d79404435cac84ae823241c35e2",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/61250dc279153e9bd4a2dd4e1f2bb3f0500c105b54f559ecab6efcbcabe2595b",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/622f5c70a01608d441d758ef6bcaedab80fd98d1ff4c0b10937db6960ff0806a",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/6418666cedaf875fb344dbd90bea7c842300939872365b933f7ee8b6c1e825e8",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/6901fa9eb45ef8351c0ab9e29fa45da3bb0538bfbc5a84ad1009e3544346d2c8",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/714a79c1875208b0e2a64e463caa10291726be5292ba014c3a67746804fea502",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/72a441cc848945fc31a9040686b32ded58b516f08a6601be5eb52adcb260c660",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/7ce677367823392b3db81e58b98006c49b80d7d64c062535f5671868b5dba69b",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/7db7905115dc89fab21a5a9a8b5b1c808f897901238155560ebaec52eb352bb2",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/7de4c07ae94bd8c1301fef6928848ae5e9c9d3b4538aa3bd83d953898d512e38",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/7e922ad42da37c2fcffa49aafae1d0cc61d9f1bff7a6cbacd0be9bbc80d05e99",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/8322f6d601ac7c80e4bd484b9fe472e2c90c459800ebcfcd423e40ce8404c710",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/8778ab94871c0cb440959a06ce245b5dc06fe5f79df11004ad97e9098a6ec16a",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/8a3548861225cec1f2b5f452832a51f02a929f6ecd93c3787ec4293874fe1f93",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/8afc87fe5d15c1eeb46a4d101fd655e04dd00ee59db8a072fe2b24e92b49cb3c",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/8dc53f063a7f57f2241c034be88ddc8bb32206d186c51487a801c7647006861f",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/91ca70c88f3fa8779343b8d4b0b48f4925a7086acec9c8e32c7510225608bbe9",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/92191f195a9e7d4c63861db3421a9c8fc78ff8a5e25107adea77e78c646c3e20",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/939dd9f6b671eddffcc34875d9a207ed420e4989f70d1eb8f1dac04d561cdf5e",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/991d5337cf06e52f21f9a49645d0e2f2bd9489b24c7c77cfd71e36cdf13acdfb",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/a02afc2c1edf77cc023eefa25fc036c184612faf9365cda9c1daa3b1675ebf8f",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/a8bbd91ae3dda9de2e50926a0d93be4d0d5cea34f3080014e5c0c0db6eaf61a4",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/a923b2221df9c6305b4b44f4d0a31530645cf8f209056c109a56063d189fbfc6",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/aca6dba6fee0475b4efbb030bb2027f81d22a67534533e78868f8d20fe84f33f",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/b56c028dd8f810339730edf22aca6b5446f7e95cfd0a82a986b6803f74de7541",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/ba0ab92a8c6a976c582457fa9532b11ec934bfea6b3b5dc5ca7d943c161637e3",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/baf6712cdcb1b7f9b20c8ab850e5869d0f40ce04105f19ff265cf4afebd07607",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/be697072468b46c994626dcaea7262f88b6fd8bdcaca6f96855bd88fbae79d77",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/c14cd1e2702a99326ebb0f9478096bf7b01f5eac0f2e6511f54c0462d0f95a1a",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/c29c043c95498c4fc25d8d008e4735f7717a14b06581d8197726ad877c9e567e",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/c40aa348863d9ef975129811d6aefee0c7d385e566616a200bececefaf087551",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/c43dcce1e3b5404144aa4e310721290952343723702bdbc13e59365dde97bf68",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/c6090501e6b4dd1e7591e179b65fd38a28e26415b14d8a709d7e6d2a4e84799c",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/c6a7159675af884b325b40540ed7997d2dd31b1fa48e3e94ea8f0e7709bc79d0",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/caf1f2c178fd6fe3f1e3ed1f98b9122fb351d1975d8cb20a285c203772b57267",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/cb2cdde14b5ab81cb400650d00e47ab5085dd5fa3fa904ec7904e2488ecdfd6c",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/cb48d5cfd95f991d86840dc9474e143d7c9db5b2af285a0252522706c40bd5ef",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/cc0027d68ecd0fcf2151a09070efa6d67efaf6541bd1625307d7057562ce2345",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/d0393417f590246fb053de618949086762caaf925a3ca9a85671a7dfc042ffab",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/d5896920a499df8a1aa090ab809e6bbc621a04f693077d98c5336005fd59ff26",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/d8c3db91ad4ba11fe52971b4c387b0110c8951ec0f5b8f0fb445ef0306a349e1",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e064e932c8cebe5e31cfc484ec2292dec2a71f2f3ca403cf8aa7edaf6fa99117",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e2238fb8fc5f08299c1789177d6d89bb2853238a65f6e48a9ec3b67e289f5601",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e2ed7c569c7b5415c752da2ff680173115dd22a16ee5bc0245765457d24b6f66",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e3877e2c8ed05e404e04417747e2f430285c11dc839663b943b39ff7cbb56377",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e44ddfbc61b5900d790673b718d3adbcd9642733fd03b093dc625a4b7b33f840",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e5425205e4fe8d16f85c495dd728f90d41ca0fe175cc8cbedd34deeac12aafed",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e59733ce0922b71fe0d2bc7632409e23f806d723cce9f815cf4228ea5f30e91b",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/e8e922c51c496b458762c11facbd9ad353845abca41d0363dc74a3256fb84055",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/ea75f57d904eb2d9c66827774687c0edd4212f6d903feb644fda416f0b3ef440",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/ec07980fa8cf259a9709958eea026f7973f708bce839d26371b53c63ec686685",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/ed8a0cae53456abf54e36de74c6a2fdbadc5fdf1f15202e6304c91486a46df36",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/f019a8eef7ff1058c2829504f557b8317882b0a5e2eaf2ac98c25c0693670cb0",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/f48c32df5adfbd43e2cade321b56a255541b6991f2e6ea893610871c6d8eb824",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/f9e76e186793125f8ccc8ab72ca107111c25af914127dd760a492341bb99b021",
+          "enabled": true
+        },
+        {
+          "denom": "brdg/ffa7051aa9dbf1748a65438f482e5c2cf995c50f6949e8b0658e4a26bdf255db",
+          "enabled": true
+        },
+        {
+          "denom": "brett.1.2.05762c",
+          "enabled": true
+        },
+        {
+          "denom": "cgas.1.4.895e61",
+          "enabled": true
+        },
+        {
+          "denom": "cgas.1.4.eee109",
+          "enabled": true
+        },
+        {
+          "denom": "crv.1.2.495626",
+          "enabled": true
+        },
+        {
+          "denom": "dbc1.1.4.afb991",
+          "enabled": true
+        },
+        {
+          "denom": "dbc2.1.4.dc697e",
+          "enabled": true
+        },
+        {
+          "denom": "degen.1.2.66e7e8",
+          "enabled": true
+        },
+        {
+          "denom": "doge.1.2.16c6fa",
+          "enabled": true
+        },
+        {
+          "denom": "dot.1.2.4bbbaa",
+          "enabled": true
+        },
+        {
+          "denom": "eigen.1.2.7e9b21",
+          "enabled": true
+        },
+        {
+          "denom": "ena.1.2.497a0f",
+          "enabled": true
+        },
+        {
+          "denom": "ens.1.2.e5b78b",
+          "enabled": true
+        },
+        {
+          "denom": "etc.1.2.02bfc6",
+          "enabled": true
+        },
+        {
+          "denom": "ethbtc.1.2.222a32",
+          "enabled": true
+        },
+        {
+          "denom": "fartcoin.1.4.cf5a37",
+          "enabled": true
+        },
+        {
+          "denom": "fet.1.2.69b9f3",
+          "enabled": true
+        },
+        {
+          "denom": "flm.1.14.e492c5",
+          "enabled": true
+        },
+        {
+          "denom": "flm.1.4.801f1e",
+          "enabled": true
+        },
+        {
+          "denom": "frank.1.14.e79bbc",
+          "enabled": true
+        },
+        {
+          "denom": "ftm.1.2.6936d3",
+          "enabled": true
+        },
+        {
+          "denom": "gas.1.14.a87f81",
+          "enabled": true
+        },
+        {
+          "denom": "goat.1.2.e918bb",
+          "enabled": true
+        },
+        {
+          "denom": "grass.1.2.07cf10",
+          "enabled": true
+        },
+        {
+          "denom": "hype.1.2.f1dcb3",
+          "enabled": true
+        },
+        {
+          "denom": "icp.1.2.d5b5b9",
+          "enabled": true
+        },
+        {
+          "denom": "inj.1.2.089103",
+          "enabled": true
+        },
+        {
+          "denom": "jto.1.2.7a07dc",
+          "enabled": true
+        },
+        {
+          "denom": "jup.1.2.75a889",
+          "enabled": true
+        },
+        {
+          "denom": "kas.1.2.b727d5",
+          "enabled": true
+        },
+        {
+          "denom": "kbonk.1.2.9d690f",
+          "enabled": true
+        },
+        {
+          "denom": "kfloki.1.2.fb02c5",
+          "enabled": true
+        },
+        {
+          "denom": "kpepe.1.2.1a29bb",
+          "enabled": true
+        },
+        {
+          "denom": "kshib.1.2.eb82c7",
+          "enabled": true
+        },
+        {
+          "denom": "ldo.1.2.79f2ac",
+          "enabled": true
+        },
+        {
+          "denom": "link.1.2.797d8f",
+          "enabled": true
+        },
+        {
+          "denom": "lsi.1.2.481292",
+          "enabled": true
+        },
+        {
+          "denom": "manta.1.2.e30f49",
+          "enabled": true
+        },
+        {
+          "denom": "meme.1.2.a7aba5",
+          "enabled": true
+        },
+        {
+          "denom": "metis.1.2.a8dc6e",
+          "enabled": true
+        },
+        {
+          "denom": "mew.1.2.5ba7fd",
+          "enabled": true
+        },
+        {
+          "denom": "mkr.1.2.856757",
+          "enabled": true
+        },
+        {
+          "denom": "mmog.1.2.d270ae",
+          "enabled": true
+        },
+        {
+          "denom": "moodeng.1.2.3388ad",
+          "enabled": true
+        },
+        {
+          "denom": "morpho.1.4.28eb04",
+          "enabled": true
+        },
+        {
+          "denom": "near.1.2.704c64",
+          "enabled": true
+        },
+        {
+          "denom": "neiroeth.1.2.824501",
+          "enabled": true
+        },
+        {
+          "denom": "neo.1.14.594a31",
+          "enabled": true
+        },
+        {
+          "denom": "nneo.1.4.cc7591",
+          "enabled": true
+        },
+        {
+          "denom": "okb.1.12.0b18a3",
+          "enabled": true
+        },
+        {
+          "denom": "okt.1.12.3e0516",
+          "enabled": true
+        },
+        {
+          "denom": "om.1.2.c6d652",
+          "enabled": true
+        },
+        {
+          "denom": "ondo.1.2.8aa92b",
+          "enabled": true
+        },
+        {
+          "denom": "op.1.2.c3f672",
+          "enabled": true
+        },
+        {
+          "denom": "pendle.1.2.7509bf",
+          "enabled": true
+        },
+        {
+          "denom": "pengu.1.4.6073b1",
+          "enabled": true
+        },
+        {
+          "denom": "pepe.1.2.7020e6",
+          "enabled": true
+        },
+        {
+          "denom": "pol.1.2.886860",
+          "enabled": true
+        },
+        {
+          "denom": "popcat.1.2.3b5ec0",
+          "enabled": true
+        },
+        {
+          "denom": "pudgy.1.2.4c78da",
+          "enabled": true
+        },
+        {
+          "denom": "purr.1.2.3ad48f",
+          "enabled": true
+        },
+        {
+          "denom": "pyth.1.2.3cf0a9",
+          "enabled": true
+        },
+        {
+          "denom": "ray.1.2.a40180",
+          "enabled": true
+        },
+        {
+          "denom": "rndr.1.2.de822e",
+          "enabled": true
+        },
+        {
+          "denom": "rune.1.2.000f8a",
+          "enabled": true
+        },
+        {
+          "denom": "sei.1.2.c24eca",
+          "enabled": true
+        },
+        {
+          "denom": "sol.1.2.adac54",
+          "enabled": true
+        },
+        {
+          "denom": "soleth.1.2.3b8a2a",
+          "enabled": true
+        },
+        {
+          "denom": "strk.1.2.080774",
+          "enabled": true
+        },
+        {
+          "denom": "stx.1.2.99d2a6",
+          "enabled": true
+        },
+        {
+          "denom": "sui.1.2.ee84ca",
+          "enabled": true
+        },
+        {
+          "denom": "swth",
+          "enabled": true
+        },
+        {
+          "denom": "tao.1.2.0f3d8a",
+          "enabled": true
+        },
+        {
+          "denom": "tia.1.2.abd01d",
+          "enabled": true
+        },
+        {
+          "denom": "toncoin.1.2.ccd645",
+          "enabled": true
+        },
+        {
+          "denom": "trump.1.4.3d1236",
+          "enabled": true
+        },
+        {
+          "denom": "trx.1.2.67a47b",
+          "enabled": true
+        },
+        {
+          "denom": "uni.1.2.791276",
+          "enabled": true
+        },
+        {
+          "denom": "usc",
+          "enabled": true
+        },
+        {
+          "denom": "virtual.1.2.99689a",
+          "enabled": true
+        },
+        {
+          "denom": "wif.1.2.2224b4",
+          "enabled": true
+        },
+        {
+          "denom": "wld.1.2.d0c583",
+          "enabled": true
+        },
+        {
+          "denom": "xrp.1.2.478b35",
+          "enabled": true
+        },
+        {
+          "denom": "zil.1.18.1a4a06",
+          "enabled": true
+        }
+      ]
+    },
+    "book": {
+      "order_books": [],
+      "stop_books": []
+    },
+    "bridge": {
+      "params": {
+        "axelar_ibc_channel": "channel-7",
+        "ibc_timeout_height_offset": "200",
+        "relay_whitelist_duration": "900s",
+        "max_relay_expiry_duration": "3600s",
+        "refund_address": "",
+        "axelar_call_denom": "swth"
+      },
+      "bridge_states": [
+        {
+          "id": "0",
+          "name": "None",
+          "is_enabled": false
+        },
+        {
+          "id": "1",
+          "name": "Polynetwork",
+          "is_enabled": false
+        },
+        {
+          "id": "2",
+          "name": "IBC",
+          "is_enabled": false
+        },
+        {
+          "id": "3",
+          "name": "Axelar",
+          "is_enabled": false
+        },
+        {
+          "id": "9000",
+          "name": "Dummy",
+          "is_enabled": false
+        },
+        {
+          "id": "9001",
+          "name": "DummyAcknowledge",
+          "is_enabled": false
+        }
+      ],
+      "connections": [],
+      "controller_contracts": [],
+      "external_token_mappings": [],
+      "relayers": [],
+      "pending_action_keys": [],
+      "pending_actions": []
+    },
+    "broker": {
+      "spot_amms": [],
+      "perps_amms": []
+    },
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "carbonfee": {
+      "msg_gas_costs": [
+        {
+          "msg_type": "/Switcheo.carbon.order.MsgCreateOrder",
+          "gas_cost": "0"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.evmmerge.MsgMergeAccount",
+          "gas_cost": "0"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.profile.MsgUpdateProfile",
+          "gas_cost": "0"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgCreatePool",
+          "gas_cost": "100000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgClaimPoolRewards",
+          "gas_cost": "3000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgStakePoolToken",
+          "gas_cost": "3000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.liquiditypool.MsgUnstakePoolToken",
+          "gas_cost": "3000000000"
+        },
+        {
+          "msg_type": "/Switcheo.carbon.coin.MsgCreateToken",
+          "gas_cost": "500000000000"
+        },
+        {
+          "msg_type": "default_fee",
+          "gas_cost": "100000000"
+        }
+      ],
+      "min_gas_prices": [
+        {
+          "gas_price": "1.000000000000000000",
+          "denom": "swth"
+        },
+        {
+          "gas_price": "1.000000000000000000",
+          "denom": "eswth"
+        },
+        {
+          "gas_price": "100000.000000000000000000",
+          "denom": "eth"
+        },
+        {
+          "gas_price": "0.000100000000000000",
+          "denom": "usdc"
+        },
+        {
+          "gas_price": "100000000.000000000000000000",
+          "denom": "cgusd"
+        }
+      ]
+    },
+    "ccm": {
+      "created_tx_count": "0",
+      "created_tx_details": {},
+      "received_tx_ids": {},
+      "denom_creators": {},
+      "params": {},
+      "zion_created_tx_details": {},
+      "zion_done_tx": {},
+      "zion_denom_to_creator": {}
+    },
+    "cdp": {
+      "params": {
+        "interest_fee": "1000",
+        "liquidation_fee": "1000",
+        "stablecoin_mint_cap": "100000000000",
+        "complete_liquidation_threshold": "0.700000000000000000",
+        "minimum_close_factor": "0.100000000000000000",
+        "small_liquidation_size": "100.000000000000000000",
+        "stale_price_grace_period": "60s",
+        "cdp_paused": false,
+        "stablecoin_interest_rate_epoch": "21600s",
+        "stablecoin_interest_rate_adjuster_coefficient": "0.250000000000000000"
+      },
+      "rate_strategies": [],
+      "assets": [],
+      "debt_infos": [],
+      "reward_schemes": [],
+      "sequence_number": "0",
+      "collateralized_cibt_records": {},
+      "principal_records": {},
+      "initial_cumulative_interest_multiplier_records": {},
+      "stablecoin_debt_info": {
+        "denom": "usc",
+        "last_updated_time": "2025-01-23T10:36:56.064630468Z",
+        "total_principal": "0",
+        "cumulative_interest_multiplier": "1.000000000000000000",
+        "total_accumulated_interest": "0"
+      },
+      "principal_stablecoin_debt_records": {},
+      "stablecoin_initial_cumulative_interest_multiplier_records": {},
+      "reward_debt_records": {},
+      "stablecoin_interest_info": {
+        "last_updated_time": "2025-01-23T10:36:56.064630698Z",
+        "stablecoin_interest_rate": "50.000000000000000000"
+      },
+      "e_mode_categories": [],
+      "account_e_mode_category_records": {}
+    },
+    "coin": {
+      "tokens": [
+        {
+          "id": "aave.1.2.2bb8f8",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "aave.1.2.2bb8f8",
+          "name": "AAVE Token (Perp)",
+          "symbol": "AAVE",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000041415645",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60953015"
+        },
+        {
+          "id": "ai16z.1.4.a4b6cf",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "ai16z.1.4.a4b6cf",
+          "name": "AI16Z Token (Perp)",
+          "symbol": "AI16Z",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "000000000000000000000000000000414931365a",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "68228711"
+        },
+        {
+          "id": "aixbt.1.4.a87572",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "aixbt.1.4.a87572",
+          "name": "AIXBT Token (Perp)",
+          "symbol": "AIXBT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "0000000000000000000000000000004149584254",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "68228711"
+        },
+        {
+          "id": "apt.1.2.b42eb6",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "apt.1.2.b42eb6",
+          "name": "APT Token (Perp)",
+          "symbol": "APT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000415054",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "61247772"
+        },
+        {
+          "id": "ar.1.2.21afc2",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "ar.1.2.21afc2",
+          "name": "AR Token (Perp)",
+          "symbol": "AR",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000004152",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "62933043"
+        },
+        {
+          "id": "arb.1.19.4cfce8",
+          "creator": "swth1vsvhxwkszj5s5xmkwuer4vmxp8ezefrw9fs92n",
+          "denom": "arb.1.19.4cfce8",
+          "name": "Arbitrum Token (Perp)",
+          "symbol": "ARB",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "19",
+          "token_address": "0000000000000000000000000000000042424242",
+          "bridge_address": "b1e6f8820826491fcc5519f84ff4e2bdbb6e3cad",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "asa1",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "asa1.1.4.6a456c",
+          "name": "Asura 1",
+          "symbol": "ASA1",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "1df78e16c4ca6f99342090f8d1d32504b3568ba5",
+          "bridge_address": "17d0f66eca7fcbfddc8d9706f20513bf5d7419cd",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "avax.1.2.6ee8ef",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "avax.1.2.6ee8ef",
+          "name": "AVAX Token (Perp)",
+          "symbol": "AVAX",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000041564158",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60953020"
+        },
+        {
+          "id": "bch.1.2.a598cf",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "bch.1.2.a598cf",
+          "name": "BCH Token (Perp)",
+          "symbol": "BCH",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000424348",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60036840"
+        },
+        {
+          "id": "bit.1.2.9d68c4",
+          "creator": "swth1t8lz3zjv9cyd8x4h060w3hhdnzagm5cu68vuls",
+          "denom": "bit.1.2.9d68c4",
+          "name": "BitDAO (Perp)",
+          "symbol": "MNT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "1a4b46696b2bb4794eb3d4c26f1c55f9170fa4c5",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "bneo.1.14.e2e5f6",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "bneo.1.14.e2e5f6",
+          "name": "BurgerNEO",
+          "symbol": "bNEO",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "14",
+          "token_address": "2a4c9a4d4022678b03ef1bbe0834f966460dc448",
+          "bridge_address": "6775ebf53c7a201b6b6c316d51c14aedf5bdb38e",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "brdg/00c9953f80ca31c5c30faf6e8d0b79ba5fe6a039dfbeb27af6657357b8868e2a",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/00c9953f80ca31c5c30faf6e8d0b79ba5fe6a039dfbeb27af6657357b8868e2a",
+          "name": "Brokoli Network",
+          "symbol": "BRKL",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x4674a4f24c5f63d53f22490fb3a08eaaad739ff8",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647486"
+        },
+        {
+          "id": "brdg/01461f0a19362976eef659d0a044b9cb9262984174b2ece77846969f1aaca475",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/01461f0a19362976eef659d0a044b9cb9262984174b2ece77846969f1aaca475",
+          "name": "Messier",
+          "symbol": "M87",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x80122c6a83c8202ea365233363d3f4837d13e888",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647208"
+        },
+        {
+          "id": "brdg/03e9c10720bbe40df0ff898f91ec788c75680493a49d56fa37f2e3317f0d048f",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/03e9c10720bbe40df0ff898f91ec788c75680493a49d56fa37f2e3317f0d048f",
+          "name": "Ocean Token",
+          "symbol": "OCEAN",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x967da4048cd07ab37855c090aaf366e4ce1b9f48",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647175"
+        },
+        {
+          "id": "brdg/080f207b5f14cb4edd1f3ee6dd7c049137072143d4ae67de3576713b80273ef9",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/080f207b5f14cb4edd1f3ee6dd7c049137072143d4ae67de3576713b80273ef9",
+          "name": "Band Protocol Token",
+          "symbol": "BAND",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xad6caeb32cd2c308980a548bd0bc5aa4306c6c18",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647168"
+        },
+        {
+          "id": "brdg/08e1ff82a07dfab8a07ba9016a91b0e368395db7653cddcf30d1b973a1bb8623",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/08e1ff82a07dfab8a07ba9016a91b0e368395db7653cddcf30d1b973a1bb8623",
+          "name": "Uniswap",
+          "symbol": "UNI",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xbf5140a22578168fd562dccf235e5d43a02ce9b1",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647175"
+        },
+        {
+          "id": "brdg/0982fa895a710f6c9a808f3a7bb523d3a529115f1cfa43473292b4ea71e016c2",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/0982fa895a710f6c9a808f3a7bb523d3a529115f1cfa43473292b4ea71e016c2",
+          "name": "Wrapped Bitcoin",
+          "symbol": "WBTC",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647175"
+        },
+        {
+          "id": "brdg/0b02ac3efc9df2e80d00f141133c180cdaee0122f92d3e2e310f704e82425a18",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/0b02ac3efc9df2e80d00f141133c180cdaee0122f92d3e2e310f704e82425a18",
+          "name": "Nash Exchange Token",
+          "symbol": "NEX",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xa486c6bc102f409180ccb8a94ba045d39f8fc7cb",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65533013"
+        },
+        {
+          "id": "brdg/0f1592a9b0a6c9e284da622d314ed5bd9f7238c3a5da75f805269e3485c76656",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/0f1592a9b0a6c9e284da622d314ed5bd9f7238c3a5da75f805269e3485c76656",
+          "name": "Dogecoin",
+          "symbol": "DOGE",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xba2ae424d960c26247dd6c32edc70b295c744c43",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647274"
+        },
+        {
+          "id": "brdg/0f18019978979327ad0ecca00adba941ebf8828f40af270f5e2a3a94c3802d72",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/0f18019978979327ad0ecca00adba941ebf8828f40af270f5e2a3a94c3802d72",
+          "name": "GMX",
+          "symbol": "GMX",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "66409868"
+        },
+        {
+          "id": "brdg/1009be097816fb840fe941aadf656d6c8b30847d0596d063958015d5666f2dc5",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/1009be097816fb840fe941aadf656d6c8b30847d0596d063958015d5666f2dc5",
+          "name": "Lombard Staked Bitcoin",
+          "symbol": "LBTC",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xecac9c5f704e954931349da37f60e39f515c11c1",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68377804"
+        },
+        {
+          "id": "brdg/1299d2e94c483e72f64100088886b8a5b7c13595047e53e032c9938d07a98c20",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/1299d2e94c483e72f64100088886b8a5b7c13595047e53e032c9938d07a98c20",
+          "name": "Ether",
+          "symbol": "ETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "66409868"
+        },
+        {
+          "id": "brdg/12a3483f21f632384493f39460d48c94db9b232388efeedb329a83ed2958fecc",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/12a3483f21f632384493f39460d48c94db9b232388efeedb329a83ed2958fecc",
+          "name": "dYdX",
+          "symbol": "DYDX",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647243"
+        },
+        {
+          "id": "brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/1768794901f8a19c2ec795a5402653cef6cbfe6b3ec6398d39fc37de963cb667",
+          "name": "BNB",
+          "symbol": "BNB",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "66409868"
+        },
+        {
+          "id": "brdg/1870e38a47bb090d78c1efcb24e0bd06752d1aa3cfe463ab36057c2f59c2db85",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/1870e38a47bb090d78c1efcb24e0bd06752d1aa3cfe463ab36057c2f59c2db85",
+          "name": "Ellipsis",
+          "symbol": "EPS",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xa7f552078dcc247c2684336020c03648500c6d9f",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647168"
+        },
+        {
+          "id": "brdg/19cc458e64caf8f84e8f4cdd11eab5e63087ea73ff3554d746592c4708819065",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/19cc458e64caf8f84e8f4cdd11eab5e63087ea73ff3554d746592c4708819065",
+          "name": "Bridged USD Coin",
+          "symbol": "USDC.e",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67648894"
+        },
+        {
+          "id": "brdg/211ebb6f24477bcf169f9fb3a73d5ec1f8a66f4dbda74b72defa66f26c59f53e",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/211ebb6f24477bcf169f9fb3a73d5ec1f8a66f4dbda74b72defa66f26c59f53e",
+          "name": "Tellor Tributes",
+          "symbol": "TRB",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x88df592f8eb5d7bd38bfef7deb0fbc02cf3778a0",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647312"
+        },
+        {
+          "id": "brdg/22317a915710c430233aa9859e30a1030ae6c0a3bf0aeae87e641554986e703c",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/22317a915710c430233aa9859e30a1030ae6c0a3bf0aeae87e641554986e703c",
+          "name": "BELT",
+          "symbol": "BELT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xe0e514c71282b6f4e823703a39374cf58dc3ea4f",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647274"
+        },
+        {
+          "id": "brdg/22da40ea5f8bb72c4df26a3c2d438c4b16210dd416c2a4b2383988089f8d1938",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/22da40ea5f8bb72c4df26a3c2d438c4b16210dd416c2a4b2383988089f8d1938",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647243"
+        },
+        {
+          "id": "brdg/231673c973f9daf08b2e9f3953dcc656b75f4ec7a381665c92f4bdee04c7ce77",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/231673c973f9daf08b2e9f3953dcc656b75f4ec7a381665c92f4bdee04c7ce77",
+          "name": "Nash Exchange",
+          "symbol": "NEX",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xe2dc070524a6e305ddb64d8513dc444b6a1ec845",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647348"
+        },
+        {
+          "id": "brdg/235ea1e9c215addc00464bfbb7f69c23100e38f3d5b8512b2a1e2fb1da1d7453",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/235ea1e9c215addc00464bfbb7f69c23100e38f3d5b8512b2a1e2fb1da1d7453",
+          "name": "cmETH",
+          "symbol": "cmETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xE6829d9a7eE3040e1276Fa75293Bde931859e8fA",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65523443"
+        },
+        {
+          "id": "brdg/29574826a560746a36de105e4526fb4e29349d31540c77e1195444d34a8d5975",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/29574826a560746a36de105e4526fb4e29349d31540c77e1195444d34a8d5975",
+          "name": "FluidFi",
+          "symbol": "FLUID",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x876ec6be52486eeec06bc06434f3e629d695c6ba",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647312"
+        },
+        {
+          "id": "brdg/2cdcd4556778d1c5566127c2cfa2cc8826b4c692b677fbcd3a0ea782398850cc",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/2cdcd4556778d1c5566127c2cfa2cc8826b4c692b677fbcd3a0ea782398850cc",
+          "name": "Travala.com Token",
+          "symbol": "AVA1",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x13616f44ba82d63c8c0dc3ff843d36a8ec1c05a9",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647380"
+        },
+        {
+          "id": "brdg/2fab76f715805abd6e46c0412194b04ad8f9449b7bdbd3f35662d8b1894b465b",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/2fab76f715805abd6e46c0412194b04ad8f9449b7bdbd3f35662d8b1894b465b",
+          "name": "Gambit Capital",
+          "symbol": "GAMBIT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x889cf9b647039c4d06754896bfcab0e21d28fb75",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67648879"
+        },
+        {
+          "id": "brdg/31745b350a8e3dfe61c31dec2f612bdff73909f873ec7fe5d922f5e09da6ab13",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/31745b350a8e3dfe61c31dec2f612bdff73909f873ec7fe5d922f5e09da6ab13",
+          "name": "BakeryToken",
+          "symbol": "BAKE",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xe02df9e3e622debdd69fb838bb799e3f168902c5",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647201"
+        },
+        {
+          "id": "brdg/327f8484927a08d012315362be195d990e36c76cb4f8e7b500bf2bf53d7e5c59",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/327f8484927a08d012315362be195d990e36c76cb4f8e7b500bf2bf53d7e5c59",
+          "name": "ChainLink Token",
+          "symbol": "LINK",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647348"
+        },
+        {
+          "id": "brdg/3339e6f3c605c8bc6a5f34f93249774ed5c2e941f7ff2e976805192cb7ec5e55",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/3339e6f3c605c8bc6a5f34f93249774ed5c2e941f7ff2e976805192cb7ec5e55",
+          "name": "Compound",
+          "symbol": "COMP",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647168"
+        },
+        {
+          "id": "brdg/33b1f6bcd05cc3a607a5dfb94b1d2ccf80aad6517f079bf98ba634e3a8665885",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/33b1f6bcd05cc3a607a5dfb94b1d2ccf80aad6517f079bf98ba634e3a8665885",
+          "name": "PT METH 26 DEC 2024",
+          "symbol": "PTMETH_26DEC2024",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x1333B49BBdD06544a25647f9127358D9A9486105",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63927454"
+        },
+        {
+          "id": "brdg/34a330df380acf4845e3c3341722a73cc62b57819a2e9960fbb0e040a5210423",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/34a330df380acf4845e3c3341722a73cc62b57819a2e9960fbb0e040a5210423",
+          "name": "Ether",
+          "symbol": "ETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x4200000000000000000000000000000000000006",
+          "bridge_address": "3/optimism/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68895730"
+        },
+        {
+          "id": "brdg/3597c3e02a7c3d1898520720910a9f2acdfa5e8a9b9b1aca2d667e25cc7b67d0",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/3597c3e02a7c3d1898520720910a9f2acdfa5e8a9b9b1aca2d667e25cc7b67d0",
+          "name": "TRAXX",
+          "symbol": "TRAXX",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xd43be54c1aedf7ee4099104f2dae4ea88b18a249",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647557"
+        },
+        {
+          "id": "brdg/3a334114b673c9b8a3709b155e350f5dd6e63e99cef8526afeb3510f7f34a74e",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/3a334114b673c9b8a3709b155e350f5dd6e63e99cef8526afeb3510f7f34a74e",
+          "name": "Opulous",
+          "symbol": "OPUL",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x80d55c03180349fff4a229102f62328220a96444",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647278"
+        },
+        {
+          "id": "brdg/3c25fc47b5edd74ca45803fdebb6a511a5aeff4bf45441445178824303615552",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/3c25fc47b5edd74ca45803fdebb6a511a5aeff4bf45441445178824303615552",
+          "name": "Celsius",
+          "symbol": "CEL",
+          "decimals": "4",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647274"
+        },
+        {
+          "id": "brdg/3f9557db257f58e614ce68a58397c77dbe2268ebdff342ba4b1dcba72a9421f0",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/3f9557db257f58e614ce68a58397c77dbe2268ebdff342ba4b1dcba72a9421f0",
+          "name": "Tether USD",
+          "symbol": "USDT",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647175"
+        },
+        {
+          "id": "brdg/40eebab3b38ec72f81b7dde7c3af6755b645643762a9fc984f74817796da2930",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/40eebab3b38ec72f81b7dde7c3af6755b645643762a9fc984f74817796da2930",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "bridge_address": "3/optimism/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68900253"
+        },
+        {
+          "id": "brdg/4251a9de1ac02f8e47c1d536f4aa2be63d746e66991eec6ea0fc54171bc43b37",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/4251a9de1ac02f8e47c1d536f4aa2be63d746e66991eec6ea0fc54171bc43b37",
+          "name": "Kaspa",
+          "symbol": "KAS",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x112b08621e27e10773ec95d250604a041f36c582",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647316"
+        },
+        {
+          "id": "brdg/433f7208c6b662ba764fa6ca40797b76b1531a7a31141377d42a147b769635de",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/433f7208c6b662ba764fa6ca40797b76b1531a7a31141377d42a147b769635de",
+          "name": "Zilliqa",
+          "symbol": "ZIL",
+          "decimals": "12",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xb86abcb37c3a4b64f74f59301aff131a1becc787",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647450"
+        },
+        {
+          "id": "brdg/452281b506e82a21c2eedfd593d30883848ddec29cd5747e8e80720cc14e8b84",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/452281b506e82a21c2eedfd593d30883848ddec29cd5747e8e80720cc14e8b84",
+          "name": "BUSD",
+          "symbol": "BUSD",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647168"
+        },
+        {
+          "id": "brdg/45cc90941f6a834b0435e5c959ad764fafea4516195d0554bc988a44d50e0e92",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/45cc90941f6a834b0435e5c959ad764fafea4516195d0554bc988a44d50e0e92",
+          "name": "SAND",
+          "symbol": "SAND",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x3845badade8e6dff049820680d1f14bd3903a5d0",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647212"
+        },
+        {
+          "id": "brdg/4b90a8d1225d11ed7af0661ff7309714189a527302892cad03ace7615d417d38",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/4b90a8d1225d11ed7af0661ff7309714189a527302892cad03ace7615d417d38",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63354716"
+        },
+        {
+          "id": "brdg/4fa6adda16fd1ac1c08c18bf76c137b863637ad96f026ca468015119dcc7da1c",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/4fa6adda16fd1ac1c08c18bf76c137b863637ad96f026ca468015119dcc7da1c",
+          "name": "COOK",
+          "symbol": "COOK",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x9F0C013016E8656bC256f948CD4B79ab25c7b94D",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65523467"
+        },
+        {
+          "id": "brdg/55112371c4b83bbd39709b775143fecc93a327468fdb0a8c8de11e9f33ba7667",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/55112371c4b83bbd39709b775143fecc93a327468fdb0a8c8de11e9f33ba7667",
+          "name": "Cardano Token",
+          "symbol": "ADA",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647274"
+        },
+        {
+          "id": "brdg/5c60cfe79717c68b665f67ed621fa73c0fc438504bec2daaae9e4880de346e04",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/5c60cfe79717c68b665f67ed621fa73c0fc438504bec2daaae9e4880de346e04",
+          "name": "PT cmETH 13 FEB 2025",
+          "symbol": "PTcmETH_13FEB2025",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xEbf4ff21459fEcf96e36CF1dd00db01367254Bcd",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65523455"
+        },
+        {
+          "id": "brdg/5cc12da2eefebc43030f3f37ff9ee056a5887d79404435cac84ae823241c35e2",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/5cc12da2eefebc43030f3f37ff9ee056a5887d79404435cac84ae823241c35e2",
+          "name": "Coinbase Wrapped BTC",
+          "symbol": "cbBTC",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68606486"
+        },
+        {
+          "id": "brdg/61250dc279153e9bd4a2dd4e1f2bb3f0500c105b54f559ecab6efcbcabe2595b",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/61250dc279153e9bd4a2dd4e1f2bb3f0500c105b54f559ecab6efcbcabe2595b",
+          "name": "Binance-Peg USDT",
+          "symbol": "BUSDT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x55d398326f99059ff775485246999027b3197955",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647348"
+        },
+        {
+          "id": "brdg/622f5c70a01608d441d758ef6bcaedab80fd98d1ff4c0b10937db6960ff0806a",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/622f5c70a01608d441d758ef6bcaedab80fd98d1ff4c0b10937db6960ff0806a",
+          "name": "Wrapped UST Token",
+          "symbol": "UST",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x23396cf899ca06c4472205fc903bdb4de249d6fc",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647212"
+        },
+        {
+          "id": "brdg/6418666cedaf875fb344dbd90bea7c842300939872365b933f7ee8b6c1e825e8",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/6418666cedaf875fb344dbd90bea7c842300939872365b933f7ee8b6c1e825e8",
+          "name": "Ether",
+          "symbol": "ETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x4200000000000000000000000000000000000006",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63489177"
+        },
+        {
+          "id": "brdg/6901fa9eb45ef8351c0ab9e29fa45da3bb0538bfbc5a84ad1009e3544346d2c8",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/6901fa9eb45ef8351c0ab9e29fa45da3bb0538bfbc5a84ad1009e3544346d2c8",
+          "name": "Wrapped liquid staked Ether 2.0",
+          "symbol": "wstETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x5979d7b546e38e414f7e9822514be443a4800529",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647239"
+        },
+        {
+          "id": "brdg/714a79c1875208b0e2a64e463caa10291726be5292ba014c3a67746804fea502",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/714a79c1875208b0e2a64e463caa10291726be5292ba014c3a67746804fea502",
+          "name": "Fire Bitcoin",
+          "symbol": "FBTC",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xC96dE26018A54D51c097160568752c4E3BD6C364",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63927533"
+        },
+        {
+          "id": "brdg/72a441cc848945fc31a9040686b32ded58b516f08a6601be5eb52adcb260c660",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/72a441cc848945fc31a9040686b32ded58b516f08a6601be5eb52adcb260c660",
+          "name": "Aave Token",
+          "symbol": "AAVE",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647164"
+        },
+        {
+          "id": "brdg/7ce677367823392b3db81e58b98006c49b80d7d64c062535f5671868b5dba69b",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/7ce677367823392b3db81e58b98006c49b80d7d64c062535f5671868b5dba69b",
+          "name": "Coinbase Wrapped Staked ETH",
+          "symbol": "cbETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63927314"
+        },
+        {
+          "id": "brdg/7db7905115dc89fab21a5a9a8b5b1c808f897901238155560ebaec52eb352bb2",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/7db7905115dc89fab21a5a9a8b5b1c808f897901238155560ebaec52eb352bb2",
+          "name": "GALA: Old GALA Token",
+          "symbol": "GALA",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x15d4c048f83bd7e37d49ea4c83a07267ec4203da",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647243"
+        },
+        {
+          "id": "brdg/7de4c07ae94bd8c1301fef6928848ae5e9c9d3b4538aa3bd83d953898d512e38",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/7de4c07ae94bd8c1301fef6928848ae5e9c9d3b4538aa3bd83d953898d512e38",
+          "name": "Wrapped Bitcoin",
+          "symbol": "WBTC",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647212"
+        },
+        {
+          "id": "brdg/7e922ad42da37c2fcffa49aafae1d0cc61d9f1bff7a6cbacd0be9bbc80d05e99",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/7e922ad42da37c2fcffa49aafae1d0cc61d9f1bff7a6cbacd0be9bbc80d05e99",
+          "name": "mETH",
+          "symbol": "mETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63927541"
+        },
+        {
+          "id": "brdg/8322f6d601ac7c80e4bd484b9fe472e2c90c459800ebcfcd423e40ce8404c710",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/8322f6d601ac7c80e4bd484b9fe472e2c90c459800ebcfcd423e40ce8404c710",
+          "name": "Locklet",
+          "symbol": "LKT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xd9b89eee86b15634c70cab51baf85615a4ab91a1",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647208"
+        },
+        {
+          "id": "brdg/8778ab94871c0cb440959a06ce245b5dc06fe5f79df11004ad97e9098a6ec16a",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/8778ab94871c0cb440959a06ce245b5dc06fe5f79df11004ad97e9098a6ec16a",
+          "name": "SY cmETH 13FEB2025",
+          "symbol": "SY-cmETH-13FEB2025",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x2aB88aC7458faeC2E952Bb79CC1be6577bF63E70",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65523459"
+        },
+        {
+          "id": "brdg/8a3548861225cec1f2b5f452832a51f02a929f6ecd93c3787ec4293874fe1f93",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/8a3548861225cec1f2b5f452832a51f02a929f6ecd93c3787ec4293874fe1f93",
+          "name": "XRP Token",
+          "symbol": "XRP",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647450"
+        },
+        {
+          "id": "brdg/8afc87fe5d15c1eeb46a4d101fd655e04dd00ee59db8a072fe2b24e92b49cb3c",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/8afc87fe5d15c1eeb46a4d101fd655e04dd00ee59db8a072fe2b24e92b49cb3c",
+          "name": "yearn.finance",
+          "symbol": "YFI",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647246"
+        },
+        {
+          "id": "brdg/8dc53f063a7f57f2241c034be88ddc8bb32206d186c51487a801c7647006861f",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/8dc53f063a7f57f2241c034be88ddc8bb32206d186c51487a801c7647006861f",
+          "name": "PT Lombard LBTC 29MAY2025",
+          "symbol": "PTLBTC_29MAY2025",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x5d746848005507da0b1717c137a10c30ad9ee307",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68377816"
+        },
+        {
+          "id": "brdg/91ca70c88f3fa8779343b8d4b0b48f4925a7086acec9c8e32c7510225608bbe9",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/91ca70c88f3fa8779343b8d4b0b48f4925a7086acec9c8e32c7510225608bbe9",
+          "name": "Binance USD",
+          "symbol": "BUSD",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647308"
+        },
+        {
+          "id": "brdg/92191f195a9e7d4c63861db3421a9c8fc78ff8a5e25107adea77e78c646c3e20",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/92191f195a9e7d4c63861db3421a9c8fc78ff8a5e25107adea77e78c646c3e20",
+          "name": "LP Lombard LBTC 29MAY2025",
+          "symbol": "LPLBTC_29MAY2025",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x727cebacfb10ffd353fc221d06a862b437ec1735",
+          "bridge_address": "3/base/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68377819"
+        },
+        {
+          "id": "brdg/939dd9f6b671eddffcc34875d9a207ed420e4989f70d1eb8f1dac04d561cdf5e",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/939dd9f6b671eddffcc34875d9a207ed420e4989f70d1eb8f1dac04d561cdf5e",
+          "name": "Cosmos Token",
+          "symbol": "ATOM",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0eb3a705fc54725037cc9e008bdede697f62f335",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647524"
+        },
+        {
+          "id": "brdg/991d5337cf06e52f21f9a49645d0e2f2bd9489b24c7c77cfd71e36cdf13acdfb",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/991d5337cf06e52f21f9a49645d0e2f2bd9489b24c7c77cfd71e36cdf13acdfb",
+          "name": "Dai Stablecoin",
+          "symbol": "DAI",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647348"
+        },
+        {
+          "id": "brdg/a02afc2c1edf77cc023eefa25fc036c184612faf9365cda9c1daa3b1675ebf8f",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/a02afc2c1edf77cc023eefa25fc036c184612faf9365cda9c1daa3b1675ebf8f",
+          "name": "Mantle",
+          "symbol": "MNT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "63327082"
+        },
+        {
+          "id": "brdg/a8bbd91ae3dda9de2e50926a0d93be4d0d5cea34f3080014e5c0c0db6eaf61a4",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/a8bbd91ae3dda9de2e50926a0d93be4d0d5cea34f3080014e5c0c0db6eaf61a4",
+          "name": "Blur",
+          "symbol": "BLUR",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x5283d291dbcf85356a21ba090e6db59121208b44",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65533004"
+        },
+        {
+          "id": "brdg/a923b2221df9c6305b4b44f4d0a31530645cf8f209056c109a56063d189fbfc6",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/a923b2221df9c6305b4b44f4d0a31530645cf8f209056c109a56063d189fbfc6",
+          "name": "ApeCoin",
+          "symbol": "APE",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x4d224452801aced8b2f0aebe155379bb5d594381",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647308"
+        },
+        {
+          "id": "brdg/aca6dba6fee0475b4efbb030bb2027f81d22a67534533e78868f8d20fe84f33f",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/aca6dba6fee0475b4efbb030bb2027f81d22a67534533e78868f8d20fe84f33f",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+          "bridge_address": "3/avalanche/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68900261"
+        },
+        {
+          "id": "brdg/b56c028dd8f810339730edf22aca6b5446f7e95cfd0a82a986b6803f74de7541",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/b56c028dd8f810339730edf22aca6b5446f7e95cfd0a82a986b6803f74de7541",
+          "name": "Wrapped Bitcoin",
+          "symbol": "WBTC",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647416"
+        },
+        {
+          "id": "brdg/ba0ab92a8c6a976c582457fa9532b11ec934bfea6b3b5dc5ca7d943c161637e3",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/ba0ab92a8c6a976c582457fa9532b11ec934bfea6b3b5dc5ca7d943c161637e3",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647380"
+        },
+        {
+          "id": "brdg/baf6712cdcb1b7f9b20c8ab850e5869d0f40ce04105f19ff265cf4afebd07607",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/baf6712cdcb1b7f9b20c8ab850e5869d0f40ce04105f19ff265cf4afebd07607",
+          "name": "Real Yield USD",
+          "symbol": "YieldUSD",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x97e6e0a40a3d02f12d1cec30ebfbae04e37c119e",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647179"
+        },
+        {
+          "id": "brdg/be697072468b46c994626dcaea7262f88b6fd8bdcaca6f96855bd88fbae79d77",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/be697072468b46c994626dcaea7262f88b6fd8bdcaca6f96855bd88fbae79d77",
+          "name": "FTX Token",
+          "symbol": "FTT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647172"
+        },
+        {
+          "id": "brdg/c14cd1e2702a99326ebb0f9478096bf7b01f5eac0f2e6511f54c0462d0f95a1a",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/c14cd1e2702a99326ebb0f9478096bf7b01f5eac0f2e6511f54c0462d0f95a1a",
+          "name": "Ankr",
+          "symbol": "ANKR",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xf307910a4c7bbc79691fd374889b36d8531b08e3",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647234"
+        },
+        {
+          "id": "brdg/c29c043c95498c4fc25d8d008e4735f7717a14b06581d8197726ad877c9e567e",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/c29c043c95498c4fc25d8d008e4735f7717a14b06581d8197726ad877c9e567e",
+          "name": "Carbon Wrapped GLP",
+          "symbol": "cGLP",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xab19bdaeb37242fa0f30486195f45b9cf5361b78",
+          "bridge_address": "3/arbitrum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647243"
+        },
+        {
+          "id": "brdg/c40aa348863d9ef975129811d6aefee0c7d385e566616a200bececefaf087551",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/c40aa348863d9ef975129811d6aefee0c7d385e566616a200bececefaf087551",
+          "name": "Basic Attention Token",
+          "symbol": "BAT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x101d82428437127bf1608f699cd651e6abf9766e",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647450"
+        },
+        {
+          "id": "brdg/c43dcce1e3b5404144aa4e310721290952343723702bdbc13e59365dde97bf68",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/c43dcce1e3b5404144aa4e310721290952343723702bdbc13e59365dde97bf68",
+          "name": "Maker",
+          "symbol": "MKR",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647312"
+        },
+        {
+          "id": "brdg/c6090501e6b4dd1e7591e179b65fd38a28e26415b14d8a709d7e6d2a4e84799c",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/c6090501e6b4dd1e7591e179b65fd38a28e26415b14d8a709d7e6d2a4e84799c",
+          "name": "Graph Token",
+          "symbol": "GRT",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647486"
+        },
+        {
+          "id": "brdg/c6a7159675af884b325b40540ed7997d2dd31b1fa48e3e94ea8f0e7709bc79d0",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/c6a7159675af884b325b40540ed7997d2dd31b1fa48e3e94ea8f0e7709bc79d0",
+          "name": "Locklet",
+          "symbol": "LKT.BEP20",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xde8fa069707b6322ad45d001425b617f4f1930bd",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647172"
+        },
+        {
+          "id": "brdg/caf1f2c178fd6fe3f1e3ed1f98b9122fb351d1975d8cb20a285c203772b57267",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/caf1f2c178fd6fe3f1e3ed1f98b9122fb351d1975d8cb20a285c203772b57267",
+          "name": "HALADINAR",
+          "symbol": "HDN",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xfe73a07fa11ba0a8480159f405d35d0b55f826e8",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647278"
+        },
+        {
+          "id": "brdg/cb2cdde14b5ab81cb400650d00e47ab5085dd5fa3fa904ec7904e2488ecdfd6c",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/cb2cdde14b5ab81cb400650d00e47ab5085dd5fa3fa904ec7904e2488ecdfd6c",
+          "name": "LP cmETH 13 FEB 2025",
+          "symbol": "LPcmETH_13FEB2025",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0b923f8039ae827e963fcc1b48ab5b903d01925b",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65590894"
+        },
+        {
+          "id": "brdg/cb48d5cfd95f991d86840dc9474e143d7c9db5b2af285a0252522706c40bd5ef",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/cb48d5cfd95f991d86840dc9474e143d7c9db5b2af285a0252522706c40bd5ef",
+          "name": "Binance-Peg USDC",
+          "symbol": "USDC",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647281"
+        },
+        {
+          "id": "brdg/cc0027d68ecd0fcf2151a09070efa6d67efaf6541bd1625307d7057562ce2345",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/cc0027d68ecd0fcf2151a09070efa6d67efaf6541bd1625307d7057562ce2345",
+          "name": "AVAX",
+          "symbol": "AVAX",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "bridge_address": "3/avalanche/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "68895711"
+        },
+        {
+          "id": "brdg/d0393417f590246fb053de618949086762caaf925a3ca9a85671a7dfc042ffab",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/d0393417f590246fb053de618949086762caaf925a3ca9a85671a7dfc042ffab",
+          "name": "Ether",
+          "symbol": "ETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647243"
+        },
+        {
+          "id": "brdg/d5896920a499df8a1aa090ab809e6bbc621a04f693077d98c5336005fd59ff26",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/d5896920a499df8a1aa090ab809e6bbc621a04f693077d98c5336005fd59ff26",
+          "name": "chiliZ",
+          "symbol": "CHZ",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x3506424f91fd33084466f402d5d97f05f8e3b4af",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647208"
+        },
+        {
+          "id": "brdg/d8c3db91ad4ba11fe52971b4c387b0110c8951ec0f5b8f0fb445ef0306a349e1",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/d8c3db91ad4ba11fe52971b4c387b0110c8951ec0f5b8f0fb445ef0306a349e1",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67045428"
+        },
+        {
+          "id": "brdg/e064e932c8cebe5e31cfc484ec2292dec2a71f2f3ca403cf8aa7edaf6fa99117",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e064e932c8cebe5e31cfc484ec2292dec2a71f2f3ca403cf8aa7edaf6fa99117",
+          "name": "1INCH Token",
+          "symbol": "1INCH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x111111111117dc0aa78b770fa6a738034120c302",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647352"
+        },
+        {
+          "id": "brdg/e2238fb8fc5f08299c1789177d6d89bb2853238a65f6e48a9ec3b67e289f5601",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e2238fb8fc5f08299c1789177d6d89bb2853238a65f6e48a9ec3b67e289f5601",
+          "name": "MATIC",
+          "symbol": "POL",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "66409868"
+        },
+        {
+          "id": "brdg/e2ed7c569c7b5415c752da2ff680173115dd22a16ee5bc0245765457d24b6f66",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e2ed7c569c7b5415c752da2ff680173115dd22a16ee5bc0245765457d24b6f66",
+          "name": "XCAD Network Token",
+          "symbol": "XCAD",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x7659ce147d0e714454073a5dd7003544234b6aa0",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647380"
+        },
+        {
+          "id": "brdg/e3877e2c8ed05e404e04417747e2f430285c11dc839663b943b39ff7cbb56377",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e3877e2c8ed05e404e04417747e2f430285c11dc839663b943b39ff7cbb56377",
+          "name": "Ether",
+          "symbol": "ETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "66396479"
+        },
+        {
+          "id": "brdg/e44ddfbc61b5900d790673b718d3adbcd9642733fd03b093dc625a4b7b33f840",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e44ddfbc61b5900d790673b718d3adbcd9642733fd03b093dc625a4b7b33f840",
+          "name": "Binance-Peg Avax",
+          "symbol": "AVAX",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647201"
+        },
+        {
+          "id": "brdg/e5425205e4fe8d16f85c495dd728f90d41ca0fe175cc8cbedd34deeac12aafed",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e5425205e4fe8d16f85c495dd728f90d41ca0fe175cc8cbedd34deeac12aafed",
+          "name": "Binance-Peg Ether",
+          "symbol": "BETH",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647204"
+        },
+        {
+          "id": "brdg/e59733ce0922b71fe0d2bc7632409e23f806d723cce9f815cf4228ea5f30e91b",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e59733ce0922b71fe0d2bc7632409e23f806d723cce9f815cf4228ea5f30e91b",
+          "name": "SHIBA INU",
+          "symbol": "SHIB",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67648909"
+        },
+        {
+          "id": "brdg/e8e922c51c496b458762c11facbd9ad353845abca41d0363dc74a3256fb84055",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/e8e922c51c496b458762c11facbd9ad353845abca41d0363dc74a3256fb84055",
+          "name": "USDC",
+          "symbol": "USDC",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
+          "bridge_address": "3/mantle/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "65355697"
+        },
+        {
+          "id": "brdg/ea75f57d904eb2d9c66827774687c0edd4212f6d903feb644fda416f0b3ef440",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/ea75f57d904eb2d9c66827774687c0edd4212f6d903feb644fda416f0b3ef440",
+          "name": "Tether USD",
+          "symbol": "USDT",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "bridge_address": "3/ethereum/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647312"
+        },
+        {
+          "id": "brdg/ec07980fa8cf259a9709958eea026f7973f708bce839d26371b53c63ec686685",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/ec07980fa8cf259a9709958eea026f7973f708bce839d26371b53c63ec686685",
+          "name": "USDC",
+          "symbol": "USDC.e",
+          "decimals": "6",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647204"
+        },
+        {
+          "id": "brdg/ed8a0cae53456abf54e36de74c6a2fdbadc5fdf1f15202e6304c91486a46df36",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/ed8a0cae53456abf54e36de74c6a2fdbadc5fdf1f15202e6304c91486a46df36",
+          "name": "Binance-Peg ChainLink Token",
+          "symbol": "LINK",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647416"
+        },
+        {
+          "id": "brdg/f019a8eef7ff1058c2829504f557b8317882b0a5e2eaf2ac98c25c0693670cb0",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/f019a8eef7ff1058c2829504f557b8317882b0a5e2eaf2ac98c25c0693670cb0",
+          "name": "PancakeSwap Token",
+          "symbol": "CAKE",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647201"
+        },
+        {
+          "id": "brdg/f48c32df5adfbd43e2cade321b56a255541b6991f2e6ea893610871c6d8eb824",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/f48c32df5adfbd43e2cade321b56a255541b6991f2e6ea893610871c6d8eb824",
+          "name": "GhostMarket Token",
+          "symbol": "GM",
+          "decimals": "8",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x0b53b5da7d0f275c31a6a182622bdf02474af253",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647239"
+        },
+        {
+          "id": "brdg/f9e76e186793125f8ccc8ab72ca107111c25af914127dd760a492341bb99b021",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/f9e76e186793125f8ccc8ab72ca107111c25af914127dd760a492341bb99b021",
+          "name": "IoTeX Network",
+          "symbol": "IOTX",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x9678e42cebeb63f23197d726b29b1cb20d0064e5",
+          "bridge_address": "3/binance/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647172"
+        },
+        {
+          "id": "brdg/ffa7051aa9dbf1748a65438f482e5c2cf995c50f6949e8b0658e4a26bdf255db",
+          "creator": "swth1zlefkpe3g0vvm9a4h0jf9000lmqutlh9yfkprz",
+          "denom": "brdg/ffa7051aa9dbf1748a65438f482e5c2cf995c50f6949e8b0658e4a26bdf255db",
+          "name": "eVow Coin",
+          "symbol": "EVOW",
+          "decimals": "18",
+          "bridge_id": "3",
+          "chain_id": "0",
+          "token_address": "0x37ee2103ab96e66af0e587d18b803c4b58e8ce0e",
+          "bridge_address": "3/polygon/0x4ab44c7e881ee37cb02bc0c98547a0bbfad9291b",
+          "is_active": true,
+          "created_block_height": "67647380"
+        },
+        {
+          "id": "brett.1.2.05762c",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "brett.1.2.05762c",
+          "name": "BRETT Token (Perp)",
+          "symbol": "BRETT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000004252455454",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59509780"
+        },
+        {
+          "id": "ncgas1",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "cgas.1.4.895e61",
+          "name": "GAS",
+          "symbol": "CGAS",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "76db3192722022eb7841038246dc8fa636dcf274",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "cgas1",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "cgas.1.4.eee109",
+          "name": "Contract Gas",
+          "symbol": "CGAS",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "24058e5e1b6008847cd662728549088a9ee82191",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "crv.1.2.495626",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "crv.1.2.495626",
+          "name": "CRV Token (Perp)",
+          "symbol": "CRV",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000435256",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "61558849"
+        },
+        {
+          "id": "dbc1",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "dbc1.1.4.afb991",
+          "name": "DeepBrain Chain",
+          "symbol": "DBC1",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "cf9472821400ceb06ca780c2a937fec5bbec51b9",
+          "bridge_address": "17d0f66eca7fcbfddc8d9706f20513bf5d7419cd",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "dbc2",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "dbc2.1.4.dc697e",
+          "name": "DeepBrain Chain",
+          "symbol": "DBC2",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "cf9472821400ceb06ca780c2a937fec5bbec51b9",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "degen.1.2.66e7e8",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "degen.1.2.66e7e8",
+          "name": "DEGEN Token (Perp)",
+          "symbol": "DEGEN",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000444547454e",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "55652272"
+        },
+        {
+          "id": "doge.1.2.16c6fa",
+          "creator": "swth1cqu53xzn6k0t5v48g5wydy2r9ppxv7jhrv3x7n",
+          "denom": "doge.1.2.16c6fa",
+          "name": "Dogecoin (Perp)",
+          "symbol": "DOGE",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "4206931337dc273a630d328da6441786bfad668f",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "dot.1.2.4bbbaa",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "dot.1.2.4bbbaa",
+          "name": "DOT Token (Perp)",
+          "symbol": "DOT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000444f54",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59724271"
+        },
+        {
+          "id": "eigen.1.2.7e9b21",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "eigen.1.2.7e9b21",
+          "name": "EIGEN Token (Perp)",
+          "symbol": "EIGEN",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000454947454e",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "63534203"
+        },
+        {
+          "id": "ena.1.2.497a0f",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "ena.1.2.497a0f",
+          "name": "ENA Token (Perp)",
+          "symbol": "ENA",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000454e41",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "57319954"
+        },
+        {
+          "id": "ens.1.2.e5b78b",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "ens.1.2.e5b78b",
+          "name": "ENS Token (Perp)",
+          "symbol": "ENS",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000454e53",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59509748"
+        },
+        {
+          "id": "etc.1.2.02bfc6",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "etc.1.2.02bfc6",
+          "name": "ETC Token (Perp)",
+          "symbol": "ETC",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000455443",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60442588"
+        },
+        {
+          "id": "ethbtc.1.2.222a32",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "ethbtc.1.2.222a32",
+          "name": "ETHBTC Token (Perp)",
+          "symbol": "ETHBTC",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000455448425443",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "57957597"
+        },
+        {
+          "id": "fartcoin.1.4.cf5a37",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "fartcoin.1.4.cf5a37",
+          "name": "FARTCOIN Token (Perp)",
+          "symbol": "FARTCOIN",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "00000000000000000000000046415254434f494e",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "68228711"
+        },
+        {
+          "id": "fet.1.2.69b9f3",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "fet.1.2.69b9f3",
+          "name": "FET Token (Perp)",
+          "symbol": "FET",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000464554",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "62933034"
+        },
+        {
+          "id": "flm.1.14.e492c5",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "flm.1.14.e492c5",
+          "name": "Flamingo",
+          "symbol": "FLM",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "14",
+          "token_address": "28ab1874da47aad82c9cb35188552781521f15f0",
+          "bridge_address": "6775ebf53c7a201b6b6c316d51c14aedf5bdb38e",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "flm1",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "flm.1.4.801f1e",
+          "name": "Flamingo",
+          "symbol": "FLM",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "e345419e7377286ee5b0a39b56e30f6213ab9e4d",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "frank.1.14.e79bbc",
+          "creator": "swth1tcfqwux53rm4x75s3mht6umjs6y4xd7c7euqcr",
+          "denom": "frank.1.14.e79bbc",
+          "name": "FrankCoin",
+          "symbol": "FRANK",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "14",
+          "token_address": "e02d1869c902598c5b8ebfb7ef7bdde97afd6ca0",
+          "bridge_address": "6775ebf53c7a201b6b6c316d51c14aedf5bdb38e",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "ftm.1.2.6936d3",
+          "creator": "swth1azgv7znw27cxfs66hj0ak0yv5a4xvtejktgrnw",
+          "denom": "ftm.1.2.6936d3",
+          "name": "Fantom Token (Perp)",
+          "symbol": "FTM",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "4e15361fd6b4bb609fa63c81a2be19d873717870",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "55179239"
+        },
+        {
+          "id": "gas.1.14.a87f81",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "gas.1.14.a87f81",
+          "name": "GasToken",
+          "symbol": "GAS",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "14",
+          "token_address": "cf76e28bd0062c4a478ee35561011319f3cfa4d2",
+          "bridge_address": "6775ebf53c7a201b6b6c316d51c14aedf5bdb38e",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "goat.1.2.e918bb",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "goat.1.2.e918bb",
+          "name": "GOAT Token (Perp)",
+          "symbol": "GOAT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000474f4154",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "64678930"
+        },
+        {
+          "id": "grass.1.2.07cf10",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "grass.1.2.07cf10",
+          "name": "GRASS Token (Perp)",
+          "symbol": "GRASS",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000004752415353",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "64679045"
+        },
+        {
+          "id": "hype.1.2.f1dcb3",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "hype.1.2.f1dcb3",
+          "name": "HYPE Token (Perp)",
+          "symbol": "HYPE",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000048595045",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "64945774"
+        },
+        {
+          "id": "icp.1.2.d5b5b9",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "icp.1.2.d5b5b9",
+          "name": "ICP Token (Perp)",
+          "symbol": "ICP",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000494350",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60747813"
+        },
+        {
+          "id": "inj.1.2.089103",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "inj.1.2.089103",
+          "name": "INJ Token (Perp)",
+          "symbol": "INJ",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000494e4a",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "62088459"
+        },
+        {
+          "id": "jto.1.2.7a07dc",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "jto.1.2.7a07dc",
+          "name": "JTO Token (Perp)",
+          "symbol": "JTO",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000004a544f",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "66644095"
+        },
+        {
+          "id": "jup.1.2.75a889",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "jup.1.2.75a889",
+          "name": "JUP Token (Perp)",
+          "symbol": "JUP",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000424a5550",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "50670176"
+        },
+        {
+          "id": "kas.1.2.b727d5",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "kas.1.2.b727d5",
+          "name": "KAS Token (Perp)",
+          "symbol": "KAS",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000004b4153",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "62714666"
+        },
+        {
+          "id": "kbonk.1.2.9d690f",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "kbonk.1.2.9d690f",
+          "name": "1000BONK Token (Perp)",
+          "symbol": "KBONK",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000031303030424f4e4b",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59724356"
+        },
+        {
+          "id": "kfloki.1.2.fb02c5",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "kfloki.1.2.fb02c5",
+          "name": "1000FLOKI Token (Perp)",
+          "symbol": "KFLOKI",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000031303030464c4f4b49",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59812515"
+        },
+        {
+          "id": "kpepe.1.2.1a29bb",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "kpepe.1.2.1a29bb",
+          "name": "1000PEPE Token (Perp)",
+          "symbol": "KPEPE",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000003130303050455045",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "54779173"
+        },
+        {
+          "id": "kshib.1.2.eb82c7",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "kshib.1.2.eb82c7",
+          "name": "1000SHIB Token (Perp)",
+          "symbol": "KSHIB",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000003130303053484942",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59420433"
+        },
+        {
+          "id": "ldo.1.2.79f2ac",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "ldo.1.2.79f2ac",
+          "name": "LDO Token (Perp)",
+          "symbol": "LDO",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000004c444f",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60442562"
+        },
+        {
+          "id": "link.1.2.797d8f",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "link.1.2.797d8f",
+          "name": "LINK Token (Perp)",
+          "symbol": "LINK",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000004c494e4b",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "61287841"
+        },
+        {
+          "id": "lsi.1.2.481292",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "lsi.1.2.481292",
+          "name": "Liquid Staking Index Token (Perp)",
+          "symbol": "LSI",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000042230524",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "manta.1.2.e30f49",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "manta.1.2.e30f49",
+          "name": "MANTA Token (Perp)",
+          "symbol": "MANTA",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000004d414e5441",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "52522565"
+        },
+        {
+          "id": "meme.1.2.a7aba5",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "meme.1.2.a7aba5",
+          "name": "MEME Token (Perp)",
+          "symbol": "MEME",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000004d454d45",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "49092375"
+        },
+        {
+          "id": "metis.1.2.a8dc6e",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "metis.1.2.a8dc6e",
+          "name": "METIS Token (Perp)",
+          "symbol": "METIS",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000004d45544953",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "54781904"
+        },
+        {
+          "id": "mew.1.2.5ba7fd",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "mew.1.2.5ba7fd",
+          "name": "MEW Token (Perp)",
+          "symbol": "MEW",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000004d4557",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60352330"
+        },
+        {
+          "id": "mkr.1.2.856757",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "mkr.1.2.856757",
+          "name": "MKR Token (Perp)",
+          "symbol": "MKR",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000004d4b52",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60127689"
+        },
+        {
+          "id": "mmog.1.2.d270ae",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "mmog.1.2.d270ae",
+          "name": "1000000MOG Token (Perp)",
+          "symbol": "MMOG",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000313030303030304d4f47",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60127715"
+        },
+        {
+          "id": "moodeng.1.2.3388ad",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "moodeng.1.2.3388ad",
+          "name": "MOODENG Token (Perp)",
+          "symbol": "MOODENG",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000004d4f4f44454e47",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "65067629"
+        },
+        {
+          "id": "morpho.1.4.28eb04",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "morpho.1.4.28eb04",
+          "name": "MORPHO Token (Perp)",
+          "symbol": "MORPHO",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "00000000000000000000000000004d4f5250484f",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "68736762"
+        },
+        {
+          "id": "near.1.2.704c64",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "near.1.2.704c64",
+          "name": "NEAR Token (Perp)",
+          "symbol": "NEAR",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000004e454152",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60669493"
+        },
+        {
+          "id": "neiroeth.1.2.824501",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "neiroeth.1.2.824501",
+          "name": "NEIROETH Token (Perp)",
+          "symbol": "NEIROETH",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000004e4549524f455448",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "62337060"
+        },
+        {
+          "id": "neo.1.14.594a31",
+          "creator": "swth1svd8nzf8p72znz6kqw54g4krfcxfncenw6cyl6",
+          "denom": "neo.1.14.594a31",
+          "name": "NeoToken",
+          "symbol": "NEO",
+          "decimals": "0",
+          "bridge_id": "1",
+          "chain_id": "14",
+          "token_address": "f563ea40bc283d4d0e05c48ea305b3f2a07340ef",
+          "bridge_address": "6775ebf53c7a201b6b6c316d51c14aedf5bdb38e",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "nneo2",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "nneo.1.4.cc7591",
+          "name": "nNEO",
+          "symbol": "NNEO",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "b6cb731f90cefebbd4f9cedd0cf56bd1e21967f4",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "okb.1.12.0b18a3",
+          "creator": "swth1e2k2wr9vhsm9fjcut9k22at8qyz39ak5xfrq7r",
+          "denom": "okb.1.12.0b18a3",
+          "name": "OKB",
+          "symbol": "OKB",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "12",
+          "token_address": "df54b6c6195ea4d948d03bfd818d365cf175cfc2",
+          "bridge_address": "b1e6f8820826491fcc5519f84ff4e2bdbb6e3cad",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "okt.1.12.3e0516",
+          "creator": "swth1e2k2wr9vhsm9fjcut9k22at8qyz39ak5xfrq7r",
+          "denom": "okt.1.12.3e0516",
+          "name": "OKC Token",
+          "symbol": "OKT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "12",
+          "token_address": "0000000000000000000000000000000000000000",
+          "bridge_address": "b1e6f8820826491fcc5519f84ff4e2bdbb6e3cad",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "om.1.2.c6d652",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "om.1.2.c6d652",
+          "name": "OM Token (Perp)",
+          "symbol": "OM",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000004f4d",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "59812508"
+        },
+        {
+          "id": "ondo.1.2.8aa92b",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "ondo.1.2.8aa92b",
+          "name": "ONDO Token (Perp)",
+          "symbol": "ONDO",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000004f4e444f",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60747785"
+        },
+        {
+          "id": "op.1.2.c3f672",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "op.1.2.c3f672",
+          "name": "OP Token (Perp)",
+          "symbol": "OP",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000042424f50",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "53897138"
+        },
+        {
+          "id": "pendle.1.2.7509bf",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "pendle.1.2.7509bf",
+          "name": "PENDLE Token (Perp)",
+          "symbol": "PENDLE",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000050454e444c45",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "57320064"
+        },
+        {
+          "id": "pengu.1.4.6073b1",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "pengu.1.4.6073b1",
+          "name": "PENGU Token (Perp)",
+          "symbol": "PENGU",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "00000000000000000000000000000050454e4755",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "68736762"
+        },
+        {
+          "id": "pepe.1.2.7020e6",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "pepe.1.2.7020e6",
+          "name": "PEPE Token (Perp)",
+          "symbol": "PEPE",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000050455045",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "54279397"
+        },
+        {
+          "id": "pol.1.2.886860",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "pol.1.2.886860",
+          "name": "POL Token (Perp)",
+          "symbol": "POL",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000504f4c",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "62714649"
+        },
+        {
+          "id": "popcat.1.2.3b5ec0",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "popcat.1.2.3b5ec0",
+          "name": "POPCAT Token (Perp)",
+          "symbol": "POPCAT",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000504f50434154",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60036840"
+        },
+        {
+          "id": "pudgy.1.2.4c78da",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "pudgy.1.2.4c78da",
+          "name": "PUDGY NFT (Perp)",
+          "symbol": "PUDGY",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000005055444759",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "67343366"
+        },
+        {
+          "id": "purr.1.2.3ad48f",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "purr.1.2.3ad48f",
+          "name": "PURR Token (Perp)",
+          "symbol": "PURR",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000050555252",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "65067859"
+        },
+        {
+          "id": "pyth.1.2.3cf0a9",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "pyth.1.2.3cf0a9",
+          "name": "PYTH Token (Perp)",
+          "symbol": "PYTH",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000050595448",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "49976113"
+        },
+        {
+          "id": "ray.1.2.a40180",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "ray.1.2.a40180",
+          "name": "RAY Token (Perp)",
+          "symbol": "RAY",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000524159",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "66644102"
+        },
+        {
+          "id": "rndr.1.2.de822e",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "rndr.1.2.de822e",
+          "name": "RNDR Token (Perp)",
+          "symbol": "RNDR",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "00000000000000000000000000000000524e4452",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "53986655"
+        },
+        {
+          "id": "rune.1.2.000f8a",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "rune.1.2.000f8a",
+          "name": "RUNE Token (Perp)",
+          "symbol": "RUNE",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000052554e45",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "48584736"
+        },
+        {
+          "id": "sei.1.2.c24eca",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "sei.1.2.c24eca",
+          "name": "SEI Token (Perp)",
+          "symbol": "SEI",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000042534549",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "51914686"
+        },
+        {
+          "id": "sol.1.2.adac54",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "sol.1.2.adac54",
+          "name": "Solana Token (Perp)",
+          "symbol": "SOL",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000042534f4c",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "soleth.1.2.3b8a2a",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "soleth.1.2.3b8a2a",
+          "name": "SOLETH Token (Perp)",
+          "symbol": "SOLETH",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000534f4c455448",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "61032442"
+        },
+        {
+          "id": "strk.1.2.080774",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "strk.1.2.080774",
+          "name": "STRK Token (Perp)",
+          "symbol": "STRK",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000005354524b",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "50891736"
+        },
+        {
+          "id": "stx.1.2.99d2a6",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "stx.1.2.99d2a6",
+          "name": "STX Token (Perp)",
+          "symbol": "STX",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000042535458",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "51282127"
+        },
+        {
+          "id": "sui.1.2.ee84ca",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "sui.1.2.ee84ca",
+          "name": "SUI Token (Perp)",
+          "symbol": "SUI",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000535549",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "61247754"
+        },
+        {
+          "id": "swth",
+          "creator": "swth1mw90en8tcqnvdjhp64qmyhuq4qasvhy25dpmvw",
+          "denom": "swth",
+          "name": "Carbon Token",
+          "symbol": "SWTH",
+          "decimals": "8",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "32e125258b7db0a0dffde5bd03b2b859253538ab",
+          "bridge_address": "17d0f66eca7fcbfddc8d9706f20513bf5d7419cd",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "tao.1.2.0f3d8a",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "tao.1.2.0f3d8a",
+          "name": "TAO Token (Perp)",
+          "symbol": "TAO",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000000000000054414f",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60669499"
+        },
+        {
+          "id": "tia.1.2.abd01d",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "tia.1.2.abd01d",
+          "name": "TIA Token (Perp)",
+          "symbol": "TIA",
+          "decimals": "6",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000042544941",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "48916252"
+        },
+        {
+          "id": "toncoin.1.2.ccd645",
+          "creator": "swth1cqu53xzn6k0t5v48g5wydy2r9ppxv7jhrv3x7n",
+          "denom": "toncoin.1.2.ccd645",
+          "name": "TON Coin (Perp)",
+          "symbol": "TON",
+          "decimals": "9",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "582d872a1b094fc48f5de31d3b73f2d9be47def1",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "trump.1.4.3d1236",
+          "creator": "swth1afk9zr2hn2jsac63h4hm60vl9z3e5u69gndzf7c99cqge3vzwjzsun7t4c",
+          "denom": "trump.1.4.3d1236",
+          "name": "TRUMP Token (Perp)",
+          "symbol": "TRUMP",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "4",
+          "token_address": "0000000000000000000000000000005452554d50",
+          "bridge_address": "1f8966cd760cc8cd877b27ba1f4443059f664d16",
+          "is_active": true,
+          "created_block_height": "69098635"
+        },
+        {
+          "id": "trx.1.2.67a47b",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "trx.1.2.67a47b",
+          "name": "TRX Token (Perp)",
+          "symbol": "TRX",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000545258",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "61287848"
+        },
+        {
+          "id": "uni.1.2.791276",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "uni.1.2.791276",
+          "name": "UNI Token (Perp)",
+          "symbol": "UNI",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000554e49",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "63924779"
+        },
+        {
+          "id": "usc",
+          "creator": "swth1wq9ts6l7atfn45ryxrtg4a2gwegsh3xh7w83xl",
+          "denom": "usc",
+          "name": "Carbon USD Coin",
+          "symbol": "USC",
+          "decimals": "6",
+          "bridge_id": "0",
+          "chain_id": "0",
+          "token_address": "",
+          "bridge_address": "",
+          "is_active": true,
+          "created_block_height": "0"
+        },
+        {
+          "id": "virtual.1.2.99689a",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "virtual.1.2.99689a",
+          "name": "VIRTUAL Token (Perp)",
+          "symbol": "VIRTUAL",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "000000000000000000000000005649525455414c",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "65067911"
+        },
+        {
+          "id": "wif.1.2.2224b4",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "wif.1.2.2224b4",
+          "name": "WIF Token (Perp)",
+          "symbol": "WIF",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000574946",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "54451035"
+        },
+        {
+          "id": "wld.1.2.d0c583",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "wld.1.2.d0c583",
+          "name": "WLD Token (Perp)",
+          "symbol": "WLD",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000574c44",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "54194786"
+        },
+        {
+          "id": "xrp.1.2.478b35",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "xrp.1.2.478b35",
+          "name": "XRP Token (Perp)",
+          "symbol": "XRP",
+          "decimals": "18",
+          "bridge_id": "1",
+          "chain_id": "2",
+          "token_address": "0000000000000000000000000000000000585250",
+          "bridge_address": "9a016ce184a22dbf6c17daa59eb7d3140dbd1c54",
+          "is_active": true,
+          "created_block_height": "60352256"
+        },
+        {
+          "id": "zil.z.1",
+          "creator": "swth1rfu9elzahmpwz5vwrvwndy256r8909jq5jyp6e",
+          "denom": "zil.1.18.1a4a06",
+          "name": "Zilliqa",
+          "symbol": "ZIL",
+          "decimals": "12",
+          "bridge_id": "1",
+          "chain_id": "18",
+          "token_address": "0000000000000000000000000000000000000000",
+          "bridge_address": "d73c6b871b4d0e130d64581993b745fc938a5be7",
+          "is_active": true,
+          "created_block_height": "0"
+        }
+      ],
+      "wrapper_mappings": {},
+      "locked_coins": [],
+      "position_pools": [],
+      "bridges": [],
+      "groups": []
+    },
+    "cosmosauthz": {
+      "authorization": []
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "stake",
+        "amount": "1000"
+      }
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.100000000000000000",
+        "base_proposer_reward": "0.000000000000000000",
+        "bonus_proposer_reward": "0.000000000000000000",
+        "withdraw_addr_enabled": true,
+        "liquidity_provider_reward": "0.000000000000000000"
+      },
+      "fee_pool": {
+        "community_pool": [],
+        "liquidity_provider_pool": []
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "erc20": {
+      "params": {
+        "enable_erc20": true,
+        "enable_evm_hook": true
+      },
+      "token_pairs": []
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "evm": {
+      "accounts": [],
+      "params": {
+        "evm_denom": "eswth",
+        "enable_create": true,
+        "enable_call": true,
+        "extra_eips": [],
+        "chain_config": {
+          "homestead_block": "0",
+          "dao_fork_block": "0",
+          "dao_fork_support": true,
+          "eip150_block": "0",
+          "eip150_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "eip155_block": "0",
+          "eip158_block": "0",
+          "byzantium_block": "0",
+          "constantinople_block": "0",
+          "petersburg_block": "0",
+          "istanbul_block": "0",
+          "muir_glacier_block": "0",
+          "berlin_block": "0",
+          "london_block": "0",
+          "arrow_glacier_block": "0",
+          "gray_glacier_block": "0",
+          "merge_netsplit_block": "0",
+          "shanghai_block": "0",
+          "cancun_block": "0"
+        },
+        "allow_unprotected_txs": false
+      }
+    },
+    "feegrant": {
+      "allowances": []
+    },
+    "feeibc": {
+      "identified_fees": [],
+      "fee_enabled_channels": [],
+      "registered_payees": [],
+      "registered_counterparty_payees": [],
+      "forward_relayers": []
+    },
+    "feemarket": {
+      "params": {
+        "no_base_fee": false,
+        "base_fee_change_denominator": 8,
+        "elasticity_multiplier": 2,
+        "enable_height": "0",
+        "base_fee": "50000000000000",
+        "min_gas_price": "50000000000000.000000000000000000",
+        "min_gas_multiplier": "0.500000000000000000",
+        "gas_limit_per_block": "1000000000",
+        "max_base_fee": "50000000000000000000"
+      },
+      "block_gas": "0"
+    },
+    "genutil": {
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "starship",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "",
+                "validator_address": "tswthvaloper19p5xep9scw0n7l3kqlvjjh0x5999gjktv0sr6j",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "sF4ASyjHSBegVsKaQyf9NLWPm7xRZuYMyPH7IZOb6gU="
+                },
+                "value": {
+                  "denom": "swth",
+                  "amount": "1000000000000000"
+                }
+              }
+            ],
+            "memo": "066c8a554aadc0a74a24bccc901516364235182a@192.168.10.137:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AnjDfZ8g30dZ3jzJqslzAF9mLT45DfVaPVu3caE137s1"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "1000000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "KvCongYMjOjW59bzSI6n79PdlGv228S8Dq/dzyk0JtBBdfVM9RXGeYTonYJXvycxq1e6V3D7hhQ9iNuPuKobZA=="
+          ]
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": null,
+      "voting_params": null,
+      "tally_params": null,
+      "params": {
+        "min_deposit": [
+          {
+            "denom": "swth",
+            "amount": "1000000000000"
+          }
+        ],
+        "max_deposit_period": "300s",
+        "voting_period": "300s",
+        "quorum": "0.334",
+        "threshold": "0.5",
+        "veto_threshold": "0.334",
+        "min_initial_deposit_ratio": "0.000000000000000000",
+        "proposal_cancel_ratio": "0.500000000000000000",
+        "proposal_cancel_dest": "",
+        "expedited_voting_period": "60s",
+        "expedited_threshold": "0.667000000000000000",
+        "expedited_min_deposit": [
+          {
+            "denom": "swth",
+            "amount": "5000000000000"
+          }
+        ],
+        "burn_vote_quorum": false,
+        "burn_proposal_deposit_prevote": false,
+        "burn_vote_veto": true,
+        "min_deposit_ratio": "0.010000000000000000"
+      },
+      "constitution": ""
+    },
+    "group": {
+      "group_seq": "0",
+      "groups": [],
+      "group_members": [],
+      "group_policy_seq": "0",
+      "group_policies": [],
+      "proposal_seq": "0",
+      "proposals": [],
+      "votes": []
+    },
+    "headersync": {
+      "consensus_peers": {},
+      "checkpoint_hashes": {},
+      "zion_consensus_peers": {},
+      "zion_checkpoint_hashes": {}
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": [
+            "*"
+          ]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0",
+        "params": {
+          "upgrade_timeout": {
+            "height": {
+              "revision_number": "0",
+              "revision_height": "0"
+            },
+            "timestamp": "600000000000"
+          }
+        }
+      }
+    },
+    "inflation": {
+      "mint_data": {
+        "legacy_first_block_time": "0",
+        "legacy_prev_block_time": "0",
+        "current_supply": "0",
+        "inflation_rate": "0",
+        "first_block_time": "0001-01-01T00:00:00Z",
+        "prev_block_time": "0001-01-01T00:00:00Z"
+      },
+      "inflation_enabled": true
+    },
+    "insurance": {
+      "params": {
+        "min_market_liquidity": [
+          {
+            "denom": "usdc",
+            "amount": "10000000000"
+          },
+          {
+            "denom": "cgusd",
+            "amount": "10000000000000000000000"
+          }
+        ],
+        "utilization_interval": "43200s",
+        "max_utilization_ratio": "0.100000000000000000"
+      },
+      "fund_utilizations": []
+    },
+    "interchainaccounts": {
+      "controller_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "ports": [],
+        "params": {
+          "controller_enabled": true
+        }
+      },
+      "host_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "port": "icahost",
+        "params": {
+          "host_enabled": true,
+          "allow_messages": [
+            "*"
+          ]
+        }
+      }
+    },
+    "leverage": {
+      "market_leverage_records": []
+    },
+    "liquidation": {
+      "outstanding_positions": {}
+    },
+    "liquiditypool": {
+      "params": {
+        "reward_reduction_threshold": "50",
+        "num_quotes": "10"
+      },
+      "pools": [],
+      "reward_curve": {
+        "start_time": "0001-01-01T00:00:00Z",
+        "initial_reward": 0,
+        "interval": "1",
+        "number_of_reductions": 0,
+        "reduction": 0,
+        "final_reward": 0,
+        "reductions_made": 0
+      },
+      "commitment_curve": {
+        "max_commitment_duration": "0",
+        "max_reward_multiplier": 0
+      },
+      "reward_weights": {
+        "weights": []
+      },
+      "commitments": [],
+      "total_commitments": [],
+      "commitment_expiries": [],
+      "allocated_rewards": {
+        "coins": []
+      },
+      "accumulated_rewards": [],
+      "pool_routes": []
+    },
+    "lockproxy": {
+      "nonce": "0",
+      "chain_ids": {},
+      "registries": {},
+      "operators": {},
+      "wrapper_mappings": []
+    },
+    "market": {
+      "markets": [],
+      "params": {
+        "default_lot_size_usd": "1.000000000000000000",
+        "default_tick_size_usd": "0.001000000000000000",
+        "default_min_quantity_usd": "1.000000000000000000",
+        "default_spot_maker_fee": "-0.001000000000000000",
+        "default_spot_taker_fee": "0.002000000000000000",
+        "default_futures_maker_fee": "-0.000200000000000000",
+        "default_futures_taker_fee": "0.000500000000000000",
+        "default_risk_step_size_usd": "100000.000000000000000000",
+        "default_initial_margin_base": "0.200000000000000000",
+        "default_initial_margin_step": "0.000100000000000000",
+        "default_maintenance_margin_ratio": "0.700000000000000000",
+        "default_max_liquidation_order_ticket_usd": "100000.000000000000000000",
+        "default_max_liquidation_order_duration": "60s",
+        "default_impact_size_usd": "100000.000000000000000000",
+        "default_mark_price_band": 100,
+        "default_last_price_protected_band": 200,
+        "max_active_markets": 300,
+        "default_trading_bandwidth": 300,
+        "funding_rate_band": "175.200000000000000000",
+        "default_lp_spot_taker_fee": "0.000000000000000000",
+        "default_lp_spot_maker_fee": "0.000000000000000000",
+        "default_lp_futures_taker_fee": "0.000000000000000000",
+        "default_lp_futures_maker_fee": "0.000000000000000000",
+        "default_max_open_interest_usd": "10000000.000000000000000000"
+      },
+      "controlled_params": {
+        "perpetuals_funding_interval": "3600s"
+      },
+      "market_id_sequence": "1",
+      "stake_equivalences": [],
+      "fee_structures": []
+    },
+    "marketstats": {},
+    "mint": {
+      "minter": {
+        "inflation": "0.000000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "swth",
+        "inflation_rate_change": "0.000000000000000000",
+        "inflation_max": "0.000000000000000000",
+        "inflation_min": "0.000000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "6311520"
+      }
+    },
+    "misc": null,
+    "nft": {
+      "classes": [],
+      "entries": []
+    },
+    "oracle": {
+      "oracles": [],
+      "results": [],
+      "params": {
+        "oracle_slash_enabled": true,
+        "oracle_slash_window_block": 1600,
+        "oracle_slash_initial": "0.000000000000000000",
+        "oracle_slash_increment": "0.000000491000000000",
+        "oracle_continuous_slash_max": 24,
+        "newly_bonded_window_allowance": 1,
+        "vote_timestamp_future_allowance": "3600s",
+        "oracle_min_vote_factor": "0.250000000000000000",
+        "max_power_to_slash_factor": "0.700000000000000000",
+        "evm_oracle_enabled": true
+      },
+      "all_oracle_votes_window": [],
+      "slash_counters": []
+    },
+    "order": {
+      "orders": [],
+      "account_order_ids": [],
+      "account_sequences": [],
+      "flags": [
+        {
+          "blockchain": "",
+          "is_trading_enabled": true
+        }
+      ],
+      "params": {
+        "max_referral_commission": 30
+      }
+    },
+    "otc": {
+      "params": {
+        "fee_collector_whitelisted_market_makers": [],
+        "fee_collector_blacklisted_denoms": [
+          "swth"
+        ],
+        "fee_collector_rfq_block_interval": "200",
+        "fee_collector_rfq_expiry_duration": "3600s",
+        "minimum_duration": "5s",
+        "maximum_duration": "31536000s",
+        "enable_fee_conversion": true
+      },
+      "rfqs": [],
+      "quotes": []
+    },
+    "packetfowardmiddleware": {
+      "params": {
+        "fee_percentage": "0.000000000000000000"
+      },
+      "in_flight_packets": {}
+    },
+    "perpspool": {
+      "params": {
+        "quote_index_price_fluctuation_tolerance_ratio": "0.000000000000000000",
+        "quote_expiry_duration": "10s",
+        "market_utilization_snapshot_interval": "60s",
+        "max_market_utilization_snapshot_window": "21600s",
+        "nav_per_share_snapshots": "60",
+        "nav_per_share_snapshot_interval": "60s",
+        "index_last_updated_at_threshold": "60s",
+        "trade_commission_ratio": "0.100000000000000000",
+        "fee_commission_ratio": "0.200000000000000000",
+        "pool_commission_address": "tswth1ex0e3g7zkwxntcw4qv803rm7yjsc9grjqycd5l"
+      },
+      "pools": [],
+      "market_config_records": [],
+      "nav_per_shares": [],
+      "all_nav_per_share_last_recorded": []
+    },
+    "position": {
+      "open_positions": []
+    },
+    "pricing": {
+      "prices": [],
+      "token_prices": [],
+      "params": {
+        "smoothen_band": 500,
+        "impact_band": 20,
+        "stale_index_allowance": "60s",
+        "backfill_time_interval": "300s",
+        "future_prices_allowance": "10s"
+      }
+    },
+    "profile": {
+      "profiles": [
+        {
+          "address": "tswth197kwqmzdwn50sakljwz4qxpw3ngpew9dhpxaa8",
+          "username": "open_interest",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1s762lf8rnv3myffw4s8m5kn4gvruftp8ct89rt",
+          "username": "open_orders",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1c7ptc87hkd54e3r7zjy92q29xkq7t79wg99aft",
+          "username": "insurance",
+          "twitter": ""
+        },
+        {
+          "address": "tswth12uxz5eayngcls6lx55j9g28npen6z5fr658zht",
+          "username": "liquidation",
+          "twitter": ""
+        },
+        {
+          "address": "tswth17xpfvakm2amg962yls6f84z3kell8c5ltscxpp",
+          "username": "fee",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8ukl6rr",
+          "username": "distribution",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1xxh3p9vvg3xpnd4uw8yzkp7rpnfyvc0hpmh2ax",
+          "username": "slashing",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1mx5e3jkxvzf8frl7cl8m69264ctn0shljqkzvg",
+          "username": "staking",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1gwqac243g2z3vryqsev6acq965f9ttwhzjzw55",
+          "username": "bank",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1m3h30wlvsf8llruxtpukdvsy0km2kum8ncu7du",
+          "username": "mint",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1hh6fc0pcsggzlsqhl7mxzyyvvw5rd5r9unaw8n",
+          "username": "auth",
+          "twitter": ""
+        },
+        {
+          "address": "tswth10d07y265gmmuvt4z0w9aw880jnsr700jptgru0",
+          "username": "gov",
+          "twitter": ""
+        },
+        {
+          "address": "tswth10lheg7wgh3drep5frjuzj6wt7tluw0rn4ayknz",
+          "username": "upgrade",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1a6p9p7mkuz2txj68ruf6w0dmu5w34c2zd7zqzf",
+          "username": "evidence",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1atn6enzwsq95tdsw2jvz9aa33020e4y4m3nxgm",
+          "username": "genutil",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1tygms3xhhs3yv487phx3dw4a95jn7t7l6jwc9l",
+          "username": "not_bonded_pool",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3wjjfnt",
+          "username": "bonded_pool",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1pzeysjut9qmsfr06h9v5fhy3klmxeknh5kfl2v",
+          "username": "crosschain_bridge",
+          "twitter": ""
+        },
+        {
+          "address": "tswth196w5cyqfezzkv6pzl5wsrmfwgesenzykel9550",
+          "username": "crosschain_wrapper",
+          "twitter": ""
+        },
+        {
+          "address": "tswth1jdkc8y4a60k279fwe9hwgzdpn6pnxzg8psv0nm",
+          "username": "committed_lp_tokens",
+          "twitter": ""
+        }
+      ]
+    },
+    "sequence": {
+      "sequences": []
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "36000",
+        "min_signed_per_window": "0.900000000000000000",
+        "downtime_jail_duration": "3600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.001000000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "2592000s",
+        "max_validators": 11,
+        "max_entries": 7,
+        "historical_entries": 10000,
+        "bond_denom": "swth",
+        "min_commission_rate": "0.000000000000000000"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "subaccount": {
+      "sub_accounts": [
+        {
+          "main_address": "tswth1phsut994s4e9apdc25vdln02g9rz7exzw7j4nk",
+          "sub_address": "tswth1m9h80cfhqn08x7hull0n7pwhlu9k0vp7n92p6y",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth1phsut994s4e9apdc25vdln02g9rz7exzw7j4nk",
+          "sub_address": "tswth1l2yvtmk5ee09c75hn466r2m8vmjf9uq70nuspu",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth1lp5tsyq623gxd0q496v5u8jrvpfgu2lcj8tj9k",
+          "sub_address": "tswth1z3tlyjredr97zl9rnn4hka28jvq0plxmrn08nj",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth12w696c2ef6efgd69xdxt4jeamlc5kgqpd4s0zy",
+          "sub_address": "tswth1haze3ah2pwdhgstw9v5fcfphqccp359xv5erdu",
+          "role": "oracle-delegate"
+        },
+        {
+          "main_address": "tswth1zek46nzgyjphkj7fz5fagd55u245kseh2rdu9s",
+          "sub_address": "tswth1l9cer4t8m838mc6yxmt8hgas7qpzqadkq08teu",
+          "role": "oracle-delegate"
+        }
+      ],
+      "params": {
+        "trading_fee_delegate_cooldown": "604800s"
+      },
+      "pending_sub_accounts": [],
+      "main_accounts": []
+    },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      },
+      "total_escrowed": []
+    },
+    "upgrade": {},
+    "vesting": {},
+    "xbank": {
+      "blacklisted_addresses": []
+    },
+    "xevmbank": {
+      "accounts": []
+    },
+    "xevmcontract": {
+      "params": {
+        "response_gas_cap": "500000"
+      },
+      "module_address_map": [],
+      "module_contracts": []
+    },
+    "xevmmerge": {
+      "eth_to_cosmos_address_map": {},
+      "cosmos_to_eth_address_map": {}
+    }
+  },
+  "consensus": {
+    "params": {
+      "block": {
+        "max_bytes": "22020096",
+        "max_gas": "-1"
+      },
+      "evidence": {
+        "max_age_num_blocks": "100000",
+        "max_age_duration": "172800000000000",
+        "max_bytes": "1048576"
+      },
+      "validator": {
+        "pub_key_types": [
+          "ed25519"
+        ]
+      },
+      "version": {
+        "app": "0"
+      },
+      "abci": {
+        "vote_extensions_enable_height": "0"
+      }
+    }
+  }
+}
