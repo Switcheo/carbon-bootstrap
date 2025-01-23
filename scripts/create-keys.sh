@@ -25,7 +25,7 @@ echo
 printf "$WALLET_PASSWORD\n$WALLET_PASSWORD\n" | $DAEMON keys add oracle --keyring-backend file
 
 echo ========================================================
-echo "Your oracle key is created.
+echo "Your oracle key is created."
 echo "Your oracle address is: $(printf "$WALLET_PASSWORD\n" | $DAEMON keys show oracle -a --keyring-backend file)"
 echo
 echo "You can link your oracle account to your validator by running:"
