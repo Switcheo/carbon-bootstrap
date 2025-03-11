@@ -6,6 +6,86 @@
 
 - (x/liquiditypool) [#729](https://github.com/Switcheo/carbon/pull/729) Swap feature to allow direct swap of tokens against liquiditypools.
 
+## V2.65.0 - 2025-03-13
+
+## Features
+
+- (x/order) [#1084](https://github.com/Switcheo/carbon/pull/1084) Order delay for perpetual markets to prevent market arbitrage.
+- (x/oracle) [#1117](https://github.com/Switcheo/carbon/pull/1117) Historical oracle results collection for volatility index analysis.
+
+## Improvements
+
+- (x/broken) [#1116](https://github.com/Switcheo/carbon/pull/1116) Compress order books event size and reduce number of event emission.
+- (x/market) [#1118](https://www.notion.so/Sprint-256-19d3f49505a4804b9310ee00bd1b0449?pvs=21) Addition of market `creator` field to help better identify user created markets and unverified markets.
+- (x/coin) [#1120](https://github.com/Switcheo/carbon/pull/1120) Addition of `is_deprecated` field for tokens that are in final state.
+- (x/coin) [#1124](https://github.com/Switcheo/carbon/pull/1124) Changed naming and symbol prefixes to align with Demex.
+
+## Bug Fixes
+
+- (x/market) [#1119](https://github.com/Switcheo/carbon/pull/1119) Reset settlement counter for settled markets and settlement price for perpetual markets.
+
+## V2.64.0 - 2025-02-13
+
+## Features
+
+- (baseapp) [#1106](https://github.com/Switcheo/carbon/pull/1106) Bump Carbon Testnet Chain Id to "carbon-testnet-42071".
+- (x/market) [#1073](https://github.com/Switcheo/carbon/pull/1073) Pause market trading when market index prices is stale for more than the allowed duration.
+- (x/market) [#1112](https://github.com/Switcheo/carbon/pull/1112) One step message to create new perpetual market with oracle and perpetual token.
+
+## Bug Fixes
+
+- (x/cdp) [#1108](https://github.com/Switcheo/carbon/pull/1108) Clear deprecated CDP reward schemes and account debt that have been claimed during Polynetwork migration.
+- (x/pricing) [#1109](https://github.com/Switcheo/carbon/pull/1109) Reset market settlement count for perpetual markets which should not be settled.
+- (x/cdp) [#1111](https://github.com/Switcheo/carbon/pull/1111) Migrate stuck user funds that has been manually refunded to the user.
+- (x/order) [#1115](https://github.com/Switcheo/carbon/pull/1115) Fix bug where virtual orders retreivale was not keyed with delimiter resulting in possible key collision.
+
+## V2.63.0 - 2025-01-27
+
+## Features
+
+- (x/order) [#1012](https://github.com/Switcheo/carbon/pull/1012) Best order flag for users to chase best orderbook prices for maker orders.
+
+## Improvements
+
+- (x/market) [#1013](https://github.com/Switcheo/carbon/pull/1013) Addition of settled market store for finalized markets and optimize searches through markets in Broker processes.
+- (x/broker) [#1099](https://github.com/Switcheo/carbon/pull/1099) Remove blacklist token functionality.
+- (x/coin) [#1104](https://github.com/Switcheo/carbon/pull/1104) Add method for creation of native Perpetual tokens.
+
+## Persistence
+
+- (db/archiver) [#1103](https://github.com/Switcheo/carbon/pull/1103) Fix dangling archived closed position from showing incomplete position information on websocket.
+
+## V2.62.0 - 2025-01-14
+
+## Features
+
+- (x/perpspool) [#1032](https://github.com/Switcheo/carbon/pull/1032) Commission system for fees and profit for Perpetual Liquidity Pools.
+- (x/position) [#1086](https://github.com/Switcheo/carbon/pull/1086) Negative allocated margin system to deduct funding rates from positions with insufficient margin.
+- (x/bridge) [#1094](https://github.com/Switcheo/carbon/pull/1094) Automatic withdrawal from group for withdrawing grouped token to external chains. Remove additional encoding for withdraw and execute.
+
+## Improvements
+
+- (x/pricing) [#1047](https://github.com/Switcheo/carbon/pull/1047) Reduce number of pricing update events.
+- (x/pricing) [#1080](https://github.com/Switcheo/carbon/pull/1080) Allow future price update for token prices.
+- (x/bridge) [#1095](https://github.com/Switcheo/carbon/pull/1095) Additional validation to prevent withdrawal of zero amount.
+
+## V2.61.0 - 2024-12-31
+
+### Features
+
+- (x/lockproxy) [#1092](https://github.com/Switcheo/carbon/pull/1092) Add messages and methods to add and remove extensions to the lockproxy contracts.
+
+### Improvements
+
+- (client/grpc) [#1051](https://github.com/Switcheo/carbon/pull/1051) Add a hard limit of maximum 1000 results for GRPC queries.
+- (api/ws) [#1076](https://github.com/Switcheo/carbon/pull/1076) Fix duplicated websocket loading of states and connections to node.
+- (x/cdp) [#1079](https://github.com/Switcheo/carbon/pull/1079) Refactor method logic for updating rate strategy.
+- (baseapp) [#1085](https://github.com/Switcheo/carbon/pull/1085) Add new check to ensure proper intialization of module accounts.
+
+### Bug Fixes
+
+- (x/broker) [#895](https://github.com/Switcheo/carbon/pull/895) Fix bug where reduce-only orders cause incorrect adjustments to existing worse non-reduce-only orders.
+
 ## V2.60.0 - 2024-12-26
 
 [#1088](https://github.com/Switcheo/carbon/pull/1088) This upgrade will migrate all Polynetwork tokens to the new Axelar tokens.
