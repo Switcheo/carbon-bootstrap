@@ -6,6 +6,29 @@
 
 - (x/liquiditypool) [#729](https://github.com/Switcheo/carbon/pull/729) Swap feature to allow direct swap of tokens against liquiditypools.
 
+## V2.67.0 - 2025-04-15
+
+## Improvements
+
+- (x/profiles) [#1097](https://github.com/Switcheo/carbon/pull/1097) Creation of profiles for modules accounts for better identification of addresses.
+- (x/liquiditypool) [#1121](https://github.com/Switcheo/carbon/pull/1121) Deprecation process for liquidity pool to claim all rewards and withdraw liquidity for users and close the pool.
+- (x/auth) [#1129](https://github.com/Switcheo/carbon/pull/1129) Improve fee handling for group proposal messages.
+- (x/pricing) [#1143](https://github.com/Switcheo/carbon/pull/1143) Reorder pricing updates to BeginBlock to improve liveliness of prices.
+- (x/broker) [#1145](https://github.com/Switcheo/carbon/pull/1145) Improve AMM quotes and order matching against existing orders.
+
+## V2.66.0 - 2025-04-03
+
+## Dependencies
+
+- (baseapp) [#1133](https://github.com/Switcheo/carbon/pull/1133) Upgrade of Cosmos SDK from v0.50.5 to v0.50.13.
+
+## Improvements
+
+- (x/subaccount) [#1040](https://github.com/Switcheo/carbon/pull/1040) Refactoring of subaccount and main account to optimize queries. Migrate erroneous store data.
+- (baseapp) [#1138](https://github.com/Switcheo/carbon/pull/1138) Refactor of integer type handling to utilize safe conversions .
+- (x/bridge) [#1139](https://github.com/Switcheo/carbon/pull/1139) Enforcing lower casings for all hex addresses in bridge module.
+- (baseapp) [#1140](https://github.com/Switcheo/carbon/pull/1140) Removal of Polynetwork migration code.
+
 ## V2.65.0 - 2025-03-13
 
 ## Features
