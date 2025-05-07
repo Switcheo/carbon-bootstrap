@@ -1,10 +1,23 @@
 # \[Changelog\]
 
-## Unreleased
+## V2.68.0 - 2025-05-8
 
-### Features
+## Feature
 
-- (x/liquiditypool) [#729](https://github.com/Switcheo/carbon/pull/729) Swap feature to allow direct swap of tokens against liquiditypools.
+- (x/perpspool) [#1054](https://github.com/Switcheo/carbon/pull/1054) Users are able to create User Vaults to trade with liquidity provided by depositors and earn through profit sharing and fess.
+
+## Improvements
+
+- (x/perpspool) [#1127](https://github.com/Switcheo/carbon/pull/1127) Refactor of perpetual AMM quote strategies into a structured management system.
+- (x/order) [#1146](https://github.com/Switcheo/carbon/pull/1146) Additional validation for order types.
+- (baseapp/oracle) [#1155](https://github.com/Switcheo/carbon/pull/1155) Add future time allowance guard to reject votes that are too far ahead of the block time.
+- (x/bridge) [#1157](https://github.com/Switcheo/carbon/pull/1157) Refactoring of native token deployment for main denomination for DMX migration.
+- (x/broker) [#1167](https://github.com/Switcheo/carbon/pull/1167) Automatic deregistration of settled markets from perpetual pool.
+
+## Bug Fixes
+
+- (x/broker) [#1160](https://github.com/Switcheo/carbon/pull/1160) Harder memstore invariant checks to catch app hash mismatch occurences.
+- (x/bridge) [#1170](https://github.com/Switcheo/carbon/pull/1170) Fix information on bridge events.
 
 ## V2.67.0 - 2025-04-15
 
