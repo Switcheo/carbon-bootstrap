@@ -44,19 +44,19 @@ fi
 sudo apt update
 sudo apt-get install jq perl -y
 
-if [ "$SETUP_POSTGRES" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-14 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-  echo "-- Installing postgresql-14"
+if [ "$SETUP_POSTGRES" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-17 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+  echo "-- Installing postgresql-17"
 
-  sudo apt-get install postgresql-14 -y
+  sudo apt-get install postgresql-17 -y
   sudo sed -i.orig '/local\(\s*\)all\(\s*\)postgres/ s|\(\s*\)peer|         127.0.0.1\/32         trust|; /local\(\s*\)all\(\s*\)postgres/ s|local|host|' \
-    /etc/postgresql/14/main/pg_hba.conf
+    /etc/postgresql/17/main/pg_hba.conf
   sudo service postgresql restart
 fi
 
-if [ "$SETUP_PSQL_CLIENT" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-client-14 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-  echo "-- Installing postgresql-client-14"
+if [ "$SETUP_PSQL_CLIENT" = true ] && [ $(dpkg-query -W -f='${Status}' postgresql-client-17 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+  echo "-- Installing postgresql-client-17"
 
-  sudo apt-get install postgresql-client-14 -y
+  sudo apt-get install postgresql-client-17 -y
 fi
 
 if [ "$SETUP_REDIS" = true ] && [ $(dpkg-query -W -f='${Status}' redis-server 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
